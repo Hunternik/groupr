@@ -6,17 +6,17 @@ const Header = () => {
         <Navbar inverse collapseOnSelect>
           <Navbar.Header>
             <Navbar.Brand>
-              <a href="#brand">React-Bootstrap</a>
+              <a href="#brand">BasicReqMeetup</a>
             </Navbar.Brand>
             <Navbar.Toggle />
           </Navbar.Header>
           <Navbar.Collapse>
             <Nav>
               <NavItem eventKey={1} href="#">
-                Link
+                Events
               </NavItem>
               <NavItem eventKey={2} href="#">
-                Link
+                About
               </NavItem>
               <NavDropdown eventKey={3} title="Dropdown" id="basic-nav-dropdown">
                 <MenuItem eventKey={3.1}>Action</MenuItem>
@@ -28,10 +28,10 @@ const Header = () => {
             </Nav>
             <Nav pullRight>
               <NavItem eventKey={1} href="#">
-                Link Right
+                Profile
               </NavItem>
               <NavItem eventKey={2} href="#">
-                Link Right
+                Login
               </NavItem>
             </Nav>
           </Navbar.Collapse>
