@@ -12,5 +12,6 @@ module.exports = (app) => {
         scope: ["profile", "email"]   
     }));
 
+    // callback route after passport authenticates the first time, run a 2nd time with the token
     app.get('/auth/google/callback', passport.authenticate("google", (req, res) => {}))
 }
