@@ -1,5 +1,7 @@
 // Login Routes
-module.exports = () => {
+const passport = require('passport');
+
+module.exports = (app) => {
     app.get("/", function(req, res) {
         res.send({ hi: "there" });
     });
