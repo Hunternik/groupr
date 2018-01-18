@@ -1,8 +1,8 @@
 {
   "name": "client",
   "version": "0.1.0",
-	"private": true,
-	"proxy": {
+  "private": true,
+  "proxy": {
     "/auth/*": {
       "target": "http://localhost:1738"
     },
@@ -12,10 +12,11 @@
   },
   "dependencies": {
     "react": "^16.2.0",
-    "react-bootstrap": "^0.32.0",
     "react-dom": "^16.2.0",
     "react-router-dom": "^4.2.2",
-    "react-scripts": "^1.1.0"
+    "react-scripts": "^1.1.0",
+    "semantic-ui-css": "^2.2.12",
+    "semantic-ui-react": "^0.77.2"
   },
   "scripts": {
     "start": "react-scripts start",
