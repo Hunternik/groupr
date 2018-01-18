@@ -1,17 +1,9 @@
-// Login Routes
-const passport = require('passport');
+const express = require('express');
+const router = express.Router();
+const users_api = require('../apis/users_api');
 
-module.exports = (app) => {
-    app.get("/", function(req, res) {
-        res.send({ hi: "there" });
-    });
+// Google auth routes
+router.get('/google', users_api.requestToken);
+router.get('/google/callback', users_api.authenticateUser);
 
-    // in the profile response we have access to: 
-    //  id, name, displayName, birthday, relationship, isPerso, isPlusUser, placesLived, language, emails, gender, picture;
-    app.get("/auth/google", passport.authenticate("google", {
-        scope: ["profile", "email"]   
-    }));
-
-    // callback route after passport authenticates the first time, run a 2nd time with the token
-    app.get('/auth/google/callback', passport.authenticate("google", (req, res) => {}))
-}
+module.exports = router;

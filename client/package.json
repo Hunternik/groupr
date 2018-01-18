@@ -1,7 +1,15 @@
 {
   "name": "client",
   "version": "0.1.0",
-  "private": true,
+	"private": true,
+	"proxy": {
+    "/auth/*": {
+      "target": "http://localhost:1738"
+    },
+    "/api/*": {
+      "target": "http://localhost:1738"
+    }
+  },
   "dependencies": {
     "react": "^16.2.0",
     "react-bootstrap": "^0.32.0",
