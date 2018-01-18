@@ -8,7 +8,7 @@ class Router extends Component {
       <div>
         <BrowserRouter>
           <div>
-            <Route path="/landing" component={Landing} />
+            <Route path="/" component={Landing} />
           </div>
         </BrowserRouter>
       </div>
