@@ -8,4 +8,4 @@ module.exports.requestToken = passport.authenticate('google', {
 });
 
 // callback route after passport authenticates the first time, run a 2nd time with the token
-module.exports.authenticateUser = passport.authenticate('google', (req, res) => {});
+module.exports.authenticateUser = [ passport.authenticate('google'), (req, res) => res.redirect('/') ];
