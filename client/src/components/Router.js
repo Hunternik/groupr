@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
+import Header from './common/Header';
 import Landing from './landing/Landing';
+import EventPage from './event/EventPage';
 
 class Router extends Component {
   render() {
@@ -8,7 +10,10 @@ class Router extends Component {
       <div>
         <BrowserRouter>
           <div>
-            <Route path="/" component={Landing} />
+            <Header />
+            <Route exact path="/" component={Landing} />
+            {/* Temporary link for development */}
+            <Route exact path="/event-page" component={EventPage}/>
           </div>
         </BrowserRouter>
       </div>
