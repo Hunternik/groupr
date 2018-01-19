@@ -1,5 +1,6 @@
 import React from 'react';
 import { Container, Divider, Dropdown, Grid, Header, Image, List, Menu, Segment } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 
 const FixedMenuLayout = () => (
   <div>
@@ -10,6 +11,8 @@ const FixedMenuLayout = () => (
           Project Name
         </Menu.Item>
         <Menu.Item as="a">Home</Menu.Item>
+        {/* Temporary for development */}
+        <Menu.Item as={Link} to="/event-page">Event Page (test)</Menu.Item>
 
         <Dropdown item simple text="Dropdown">
           <Dropdown.Menu>
