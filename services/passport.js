@@ -6,6 +6,17 @@ const mongoose = require("mongoose");
 const keys = require('../config/keys');
 const User = mongoose.model('users');
 
+passport.serializeUser((user, done) => {
+  // user.id is referencing the unique id created by mongoDB.
+  done(null, user.id);
+});
+
+passport.deserializeUser((id, done) => {
+  User.findById(id).then(user => {
+    done(null, user);
+  });
+});
+
 passport.use(
   new GoogleStrategy(
     {
