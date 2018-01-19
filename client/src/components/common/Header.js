@@ -10,7 +10,7 @@ const FixedMenuLayout = () => (
           <Image size="mini" src="/logo.png" style={{ marginRight: '1.5em' }} />
           Project Name
         </Menu.Item>
-        <Menu.Item as="a">Home</Menu.Item>
+        <Menu.Item as={Link} to="/">Home</Menu.Item>
         {/* Temporary for development */}
         <Menu.Item as={Link} to="/event-page">Event Page (test)</Menu.Item>
 
