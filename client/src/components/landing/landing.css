@@ -1,0 +1,27 @@
+.item {
+	position: relative;
+	overflow: hidden;
+	max-width: 100%;
+	width: 100%;
+}
+
+.image {
+	max-width: 100%;
+	transition: all 0.3s;
+}
+
+.image:hover {
+	transform: scale(1.1);
+}
+
+.video {
+	max-width: 100%;
+	width: 100%;
+}
+
+.caption {
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	z-index: 1;
+}
