@@ -47,7 +47,6 @@ class Jumbotron extends Component {
         </Container>
       </Segment>
     </div>
-
     )
 }
 }
