@@ -6,15 +6,11 @@ import Events from './Events';
 class Landing extends Component {
   render() {
     return (
-			<Visibility>
-				<div>
-					<Video />
-				</div>
-				<Divider horizontal inverted />
-				<div>
-					<Events />
-				</div>
-			</Visibility>
+      <Visibility>
+        <Video />
+        <Divider horizontal inverted />
+        <Events />
+      </Visibility>
     );
   }
 }

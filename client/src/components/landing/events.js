@@ -1,5 +1,5 @@
 import React from 'react';
-import { Container, Header, Image, List } from 'semantic-ui-react';
+import { Container, Header, Image, List, Transition } from 'semantic-ui-react';
 import Images from '../../constants/eventPreview';
 require('./landing.css');
 
@@ -7,7 +7,11 @@ const renderImages = () =>
   Images.map((image, index) => (
     <List.Item>
       <Image src={image.src} />
-      <Header className='caption' color='white' size="large">{image.title}</Header>
+      <h2 className="caption">
+			<Transition animation='animateHeaders' duration={500} visible={true}>
+        <span>{image.title}</span>
+			</Transition>
+      </h2>
     </List.Item>
   ));
 
