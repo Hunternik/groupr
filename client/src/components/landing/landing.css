@@ -1,16 +1,16 @@
-.item {
+.list-item {
   position: relative;
   overflow: hidden;
   max-width: 100%;
   width: 100%;
 }
 
-.image {
+.event-image {
   max-width: 100%;
   transition: all 0.3s;
 }
 
-.image:hover {
+.list-item:hover .event-image {
   transform: scale(1.1);
   transition: 0.6s;
 }

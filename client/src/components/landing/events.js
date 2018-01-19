@@ -5,8 +5,8 @@ require('./landing.css');
 
 const renderImages = () =>
   Images.map((image, index) => (
-    <List.Item>
-      <Image src={image.src} />
+    <List.Item className='list-item'>
+      <Image className='event-image' src={image.src} />
       <h2 className="caption">
 			<Transition animation='animateHeaders' duration={500} visible={true}>
         <span>{image.title}</span>
