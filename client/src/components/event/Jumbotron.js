@@ -5,7 +5,8 @@ import {
   Header, 
   Button, 
   Icon,
-  Label
+  Label,
+  Divider
 } from 'semantic-ui-react';
 
 class Jumbotron extends Component {
@@ -17,15 +18,21 @@ class Jumbotron extends Component {
       <Segment
         inverted
         textAlign='center'
-        style={{ minHeight: 700, padding: '1em 0em' }}
+        style={{ minHeight: 700, padding: '1em 0em', display: 'flex', flexDirection: 'column' }}
         vertical
-      >
+      > 
+        <Segment 
+          inverted
+          style={{ fontSize: '4em', fontWeight: 'normal', marginBottom: 0, marginTop: '1em', alignSelf: 'left'}}
+          >
+          <Button inverted>   March   <Divider />   23   </Button>
+        </Segment>
         <Container text>
           <Header
             as='h1'
             content='Coffee Meets Code Event'
             inverted
-            style={{ fontSize: '4em', fontWeight: 'normal', marginBottom: 0, marginTop: '3em'}}
+            style={{ fontSize: '4em', fontWeight: 'normal', marginBottom: 0, marginTop: 0}}
           />
           <Header
             as='h2'
