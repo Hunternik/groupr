@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import Jumbotron from './Jumbotron';
+import Description from './Description';
 
 class EventPage extends Component {
   state = {}
@@ -8,6 +9,7 @@ class EventPage extends Component {
     return (
       <div>
         <Jumbotron />
+        <Description />
       </div>
     );
   }

@@ -24,7 +24,7 @@ class Jumbotron extends Component {
         <Segment 
           inverted
           style={{ fontSize: '4em', fontWeight: 'normal', marginBottom: 0, marginTop: '1em', alignSelf: 'left'}}
-          >
+        >
           <Button inverted>   March   <Divider />   23   </Button>
         </Segment>
         <Container text>
@@ -40,22 +40,21 @@ class Jumbotron extends Component {
             inverted
             style={{ fontSize: '1.7em', fontWeight: 'normal' }}
           />
-          {/* <Button primary size='huge' style={{ color: '#4eb2ac' }}>
-            Test Your Skills
-            <Icon name='right arrow' /> */}
           <Button as='div' labelPosition='right'>
-          <Button color='teal'>
-          <Icon name='fork' />
-          Attend
-          </Button>
-          <Label as='a' basic color='teal' pointing='left'>228</Label>
+            <Button color='teal'>
+              <Icon name='fork' />
+              Attend
+            </Button>
+            <Label as='a' basic color='teal' pointing='left'>
+              228
+            </Label>
           </Button>
           {/* </Button> */}
         </Container>
       </Segment>
     </div>
     )
-}
+  }
 }
 
 export default Jumbotron;
