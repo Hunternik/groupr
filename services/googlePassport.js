@@ -1,7 +1,9 @@
 const passport = require('passport');
 const GoogleStrategy = require('passport-google-oauth20').Strategy;
-const LinkedInStrategy = require('passport-linkedin-oauth2').Strategy;
-const TotpStrategy = require('passport-totp').Strategy;
+// mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+// mike: not sure if this is used here
+// mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
+// const TotpStrategy = require('passport-totp').Strategy;
 const mongoose = require('mongoose');
 const keys = require('../config/keys');
 const User = mongoose.model('users');
@@ -12,7 +14,7 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser((id, done) => {
-  User.findById(id).then((user) => {
+  User.findById(id).then(user => {
     done(null, user);
   });
 });
@@ -30,7 +32,7 @@ passport.use(
         if (existingUser) {
           done(null, existingUser);
         } else {
-          new User({ googleId: profile.id }).save().then((user) => done(null, user));
+          new User({ googleId: profile.id }).save().then(user => done(null, user));
         }
       });
     }
