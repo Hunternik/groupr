@@ -7,3 +7,6 @@ module.exports = {
   mongoURI: process.env.MONGO_URI,
   cookieKey: process.env.COOKIE_KEY
 };
+
+// mmmmmmmmmmmmm heroku link mmmmmmmmmmmmm
+// https://safe-castle-30712.herokuapp.com
