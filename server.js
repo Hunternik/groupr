@@ -11,7 +11,8 @@ app.use(bodyParser.json());
 
 // connect to mongodb
 require('./models/User');
-require('./services/passport');
+require('./services/googlePassport');
+require('./services/linkedinPassport');
 mongoose.connect(keys.mongoURI);
 
 // set up cookies for login
