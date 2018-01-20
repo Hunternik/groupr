@@ -10,10 +10,16 @@ router.get('/google/callback', users_api.authenticateGoogleUser);
 router.get('/linkedin', users_api.requestLinkedInToken);
 router.get('/linkedin/callback', users_api.authenticateLinkedInUser);
 
-// ********* all authRoutes *********
+// ********* current user *********
 router.get('/current_user', (req, res) => {
     res.send(req.user);
 });
 
+// ********* logout *********
+router.get('/logout', (req, res) => {
+    req.logout();
+    // tell the user they are logged out
+    res.send('you are now logged out');
+});
 
 module.exports = router;
