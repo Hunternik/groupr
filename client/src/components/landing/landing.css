@@ -29,19 +29,32 @@
   text-align: center;
   font-size: 57px;
   color: #fff;
-	z-index: 1;
-	line-height: 1;
+  z-index: 1;
+  line-height: 1;
 }
 
 span {
+  text-decoration: underline;
+}
+
+/* span {
 	opacity: 0;
 	transform: translateY(15px);
 	display: block;
-}
+} */
 
 .animateHeaders {
   opacity: 1; /* -webkit-transform:translateY(0); */
-	transform: translateY(0);
-	transition: 0.25s linear;
+  transform: translateY(0);
+  transition: 0.25s linear;
 }
 
+.sectionHead {
+	font-size: 5em;
+	line-height: 75%;
+}
+
+.sectionHeadContainer {
+	height: 5em;
+	opacity: 1;
+}

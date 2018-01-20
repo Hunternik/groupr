@@ -1,26 +1,34 @@
-import React from 'react';
-import { Container, Header, Image, List, Transition } from 'semantic-ui-react';
+import React, { Component } from 'react';
+import { Container, Header, List, Transition, Visibility } from 'semantic-ui-react';
 import Images from '../../constants/eventPreview';
+import EventItem from './EventItem';
+import SectionHead from './SectionHead';
+
 require('./landing.css');
 
-const renderImages = () =>
-  Images.map((image, index) => (
-    <List.Item className='list-item'>
-      <Image className='event-image' src={image.src} />
-      <h2 className="caption">
-			<Transition animation='animateHeaders' duration={500} visible={true}>
-        <span>{image.title}</span>
-			</Transition>
-      </h2>
-    </List.Item>
-  ));
+class Events extends Component {
+  constructor() {
+		super();
+	}
 
-const Events = () => {
-  return (
-    <Container>
-      <List>{renderImages()}</List>
-    </Container>
-  );
-};
+  renderImages() {
+    const listItems = Images.map((image, index) => (
+      <List.Item className="list-item">
+        <EventItem image={image} />
+      </List.Item>
+		));
+		
+		return listItems;
+  }
+
+  render() {
+    return (
+      <Container>
+				<SectionHead name='Events' />
+        <List>{this.renderImages()}</List>
+      </Container>
+    );
+  }
+}
 
 export default Events;
