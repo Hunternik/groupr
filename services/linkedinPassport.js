@@ -23,7 +23,7 @@ passport.use(
   new LinkedInStrategy(
     {
       clientID: keys.linkedInClientID,
-      clientSecret: keys.linkeInClientSecret,
+      clientSecret: keys.linkedInClientSecret,
 			callbackURL: '/auth/linkedin/callback',
 			proxy: true
     },

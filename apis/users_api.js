@@ -13,16 +13,16 @@ module.exports.requestGoogleToken = passport.authenticate('google', {
 // mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
 // mike: revised below. why include the 2nd part above?
 // mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
-module.exports.authenticateGoogleUser = passport.authenticate('google');
+module.exports.authenticateGoogleUser = [ passport.authenticate('google'), (req, res) => res.redirect('/') ];
 
 
 
 // ********* LinkedIn OAuth *********
-module.exports.requestLinkedInToken = passport.authenticate('linkedin', {
+module.exports.requestLinkedInToken =  passport.authenticate('linkedin', {
   scope: ['r_basicprofile', 'r_emailaddress']
 });
 
-module.exports.authenticateLinkedInUser = passport.authenticate('linkedin');
+module.exports.authenticateLinkedInUser = [ passport.authenticate('linkedin'), (req, res) => res.redirect('/') ];
 // mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
 // mike: do we need to include the 2nd part?
 // mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
