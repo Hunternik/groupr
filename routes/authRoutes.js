@@ -17,7 +17,9 @@ router.get('/current_user', (req, res) => {
 
 // ********* logout *********
 router.get('/logout', (req, res) => {
+    console.log('logout before logout 1111111111111111111111111111111111111111111111111111111111111111111111', req)
     req.logout();
+    console.log('logout after logout 222222222222222222222222222222222222222222222222222222222222222222222222', req)    
     // tell the user they are logged out
     res.send('you are now logged out');
 });
