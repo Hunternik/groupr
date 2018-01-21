@@ -9,9 +9,9 @@ class FixedMenuLayout extends Component {
       case null:
         return;
       case false:
-        return <a href="/auth/logout">Log Out</a>;
-      default:
         return <a href="/auth/google">Login</a>;
+      default:
+        return <a href="/auth/logout">Log Out</a>;
     }
   }
 
@@ -56,7 +56,7 @@ class FixedMenuLayout extends Component {
 }
 
 function mapStateToProps({ auth }) {
-  return { auth }
+  return { auth };
 }
 
 
