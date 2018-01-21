@@ -5,8 +5,9 @@ import { createStore, applyMiddleware } from 'redux';
 import App from './components/App';
 import registerServiceWorker from './registerServiceWorker';
 import 'semantic-ui-css/semantic.min.css';
+import reducers from './reducers';
 
-const store = createStore(() => [], {}, applyMiddleware());
+const store = createStore(reducers, {}, applyMiddleware());
 
 ReactDOM.render(
   <Provider store={store}>
