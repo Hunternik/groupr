@@ -1,10 +1,16 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Route } from 'react-router-dom';
+import { connect } from 'react-redux';
+import * as actions from '../actions';
 import Header from './common/Header';
 import Landing from './landing/Landing';
 import EventPage from './event/EventPage';
 
 class Router extends Component {
+  componentDidMount() {
+    this.props.fetchUser();
+  }
+
   render() {
     return (
       <div>
@@ -21,4 +27,4 @@ class Router extends Component {
   }
 }
 
-export default Router;
+export default connect(null, actions)(Router);
