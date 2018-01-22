@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Router from './Router';
-import Header from './common/Header';
 
 class App extends Component {
   render() {

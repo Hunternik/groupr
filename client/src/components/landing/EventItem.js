@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, Transition, Visibility } from 'semantic-ui-react';
+import { Container, Image, Transition, Visibility } from 'semantic-ui-react';
 import handleVisibility from './utils/handleVisibility';
 
 require('./landing.css');
@@ -8,33 +8,33 @@ class EventItem extends Component {
   constructor() {
     super();
 
-		this.handleAnimation = this.handleAnimation.bind(this);
-		this.handleVisibility = handleVisibility.bind(this);
+    this.handleAnimation = this.handleAnimation.bind(this);
+    this.handleVisibility = handleVisibility.bind(this);
   }
 
-  state = { animation: 'vertical flip', visible: false };
-	// This method only exists for testing animation purposes
-  handleAnimation() {
+  state = { imageAnimation: null, textAnimation: 'vertical flip', visible: false };
+  // This method only exists for testing animation purposes
+  handleAnimation(e, { calculations: { topVisible } }) {
     this.setState({
-      visible: !this.state.visible
+      imageAnimation: 'swing right'
     });
   }
 
   render() {
     const { title, src } = this.props.image;
-    const { animation, visible } = this.state;
+    const { imageAnimation, textAnimation, visible } = this.state;
 
     return (
-      <Visibility onUpdate={this.handleVisibility}>
+      <Visibility onUpdate={this.handleVisibility} className="perspective">
         {/* <div onMouseEnter={this.handleAnimation}> */}
-        <div>
-          <Image className="event-image" src={src} />
-          <h2 className="caption">
-            <Transition animation={animation} duration={800} visible={visible}>
-              <span>{title}</span>
-            </Transition>
-          </h2>
-        </div>
+        {/* <div className='perspective'> */}
+        <Image className="event-image" src={src} />
+        <h2 className="caption">
+          <Transition animation={textAnimation} duration={800} visible={visible}>
+            <span>{title}</span>
+          </Transition>
+        </h2>
+        {/* </div> */}
       </Visibility>
     );
   }

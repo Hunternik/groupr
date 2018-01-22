@@ -1,12 +1,9 @@
 import React, { Component } from 'react';
-import { Container, Divider, Visibility } from 'semantic-ui-react';
+import { Divider, Visibility } from 'semantic-ui-react';
 import Video from './Video';
 import Events from './Events';
 
 class Landing extends Component {
-	constructor(){
-		super();
-	}
 	handleUpdate(e,calculations) {
 		console.log(calculations);
 	}
