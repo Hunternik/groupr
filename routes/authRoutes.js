@@ -2,8 +2,24 @@ const express = require('express');
 const router = express.Router();
 const users_api = require('../apis/users_api');
 
-// Google auth routes
-router.get('/google', users_api.requestToken);
-router.get('/google/callback', users_api.authenticateUser);
+// ********* Google authRoutes *********	
+router.get('/google', users_api.requestGoogleToken);
+router.get('/google/callback', users_api.authenticateGoogleUser);
+
+// ********* LinkedIn authRoutes *********
+router.get('/linkedin', users_api.requestLinkedInToken);
+router.get('/linkedin/callback', users_api.authenticateLinkedInUser);
+
+// ********* current user *********
+router.get('/current_user', (req, res) => {
+    res.send(req.user);
+});
+
+// ********* logout *********
+router.get('/logout', (req, res) => {
+    req.logout();
+    // tell the user they are logged out
+    res.send('you are now logged out');
+});
 
 module.exports = router;

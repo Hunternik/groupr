@@ -1,14 +1,28 @@
 import React, { Component } from 'react';
+import { Container, Divider, Visibility } from 'semantic-ui-react';
 import Video from './Video';
+import Events from './Events';
 
 class Landing extends Component {
+	constructor(){
+		super();
+	}
+	handleUpdate(e,calculations) {
+		console.log(calculations);
+	}
+
   render() {
     return (
-      <div>
+      <Visibility>
         <Video />
-      </div>
+        <Divider horizontal inverted />
+        <Events />
+				<Divider horizontal inverted />
+      </Visibility>
     );
   }
 }
+
+// test
 
 export default Landing;
