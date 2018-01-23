@@ -3,7 +3,7 @@ import { Container } from 'semantic-ui-react';
 
 const Video = () => {
   return (
-    <Container fluid>
+    <Container fluid className='video-container'>
       <video
         className="video"
         autoPlay

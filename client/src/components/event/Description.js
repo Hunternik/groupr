@@ -3,7 +3,7 @@ import {
   Segment,
   Grid,
   Header, 
-  Image,
+  Image
 } from 'semantic-ui-react';
 
 class Description extends Component {
