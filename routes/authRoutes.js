@@ -18,8 +18,8 @@ router.get('/current_user', (req, res) => {
 // ********* logout *********
 router.get('/logout', (req, res) => {
     req.logout();
-    // tell the user they are logged out
-    res.send('you are now logged out');
+    // redirect the user back to the root
+    res.redirect('/');
 });
 
 module.exports = router;
