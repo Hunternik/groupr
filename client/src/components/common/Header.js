@@ -9,7 +9,7 @@ class FixedMenuLayout extends Component {
       case null:
         return;
       case false:
-        return <a href="/auth/google">Log In</a>;
+        return <a href="/auth/linkedin">Log In</a>;
       default:
 				return <a href="/auth/logout">Log out</a>;
     }
