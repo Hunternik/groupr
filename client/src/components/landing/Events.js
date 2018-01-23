@@ -59,16 +59,12 @@ class Events extends Component {
   }
 
   render() {
-		console.log(this.state.listAnimationComplete)
     return (
       <Container>
+				<SectionHead name="About" />
+
         <SectionHead name="Events" />
-        <Parallax speed={5}>
-          <h1>Everything is Awesome!</h1>
-        </Parallax>
-        <Parallax speed={3}>
-          <h1>jew crew!</h1>
-        </Parallax>
+        
         <List ref="listNode">{this.renderImages()}</List>
       </Container>
     );

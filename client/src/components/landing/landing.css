@@ -31,6 +31,7 @@
 	transition: 0.6s;
 	transform: scale(1.3);
 	display: hidden;
+	box-shadow: 0 0 15px rgba(0,0,0,.25);
 }
 
 .list-item:hover .event-image {
@@ -92,10 +93,17 @@
 }
 
 .parallax-content {
-	opacity: .15;
+	opacity: .3;
 	position: absolute;
+	z-index: -1;
 }
 
 .parallax-container {
 	position: relative;
+}
+
+.parallax-headers {
+	font-size: 57px;
+	transform: translate(60%,-120%);
+	color: #ff695e;
 }
