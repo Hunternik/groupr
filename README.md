@@ -1,5 +1,5 @@
 # Tech Meetups
-Hub for high quality tech networking events. Avoid sending your resume into a blackhole and have real human-to-human interactions with high quality companies.
+Hub for high quality tech events. Avoid sending your resume into a blackhole and have real human-to-human interactions with high quality companies.
 
 ## Live Link
  - Coming soon
