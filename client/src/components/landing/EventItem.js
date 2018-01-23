@@ -7,34 +7,34 @@ require('./landing.css');
 class EventItem extends Component {
   constructor() {
     super();
-
-    this.handleAnimation = this.handleAnimation.bind(this);
     this.handleVisibility = handleVisibility.bind(this);
+    this.applyAnimation = this.applyAnimation.bind(this);
   }
 
-  state = { imageAnimation: null, textAnimation: 'vertical flip', visible: false };
-  // This method only exists for testing animation purposes
-  handleAnimation(e, { calculations: { topVisible } }) {
-    this.setState({
-      imageAnimation: 'swing right'
-    });
+  state = { visible: false, headerClass: 'caption' };
+
+  componentDidUpdate(prevProps, prevState) {
+    if (!prevState.visible && this.state.visible) 
+      this.applyAnimation();
+	}
+	
+	componentWillReceiveProps(nextProps) {
+		if (this.props.isVisible !== nextProps.isVisible)
+			this.setState({ visible: true });
+	}
+
+  applyAnimation() {
+    this.setState({ headerClass: 'caption animateHeaders' });
   }
 
   render() {
+		console.log(this.props.isVisible, this.props.id)
     const { title, src } = this.props.image;
-    const { imageAnimation, textAnimation, visible } = this.state;
 
     return (
-      <Visibility onUpdate={this.handleVisibility} className="perspective">
-        {/* <div onMouseEnter={this.handleAnimation}> */}
-        {/* <div className='perspective'> */}
+      <Visibility  className="perspective">
         <Image className="event-image" src={src} />
-        <h2 className="caption">
-          <Transition animation={textAnimation} duration={800} visible={visible}>
-            <span>{title}</span>
-          </Transition>
-        </h2>
-        {/* </div> */}
+        <h2 className={this.state.headerClass}>{title}</h2>
       </Visibility>
     );
   }
