@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Divider, Visibility } from 'semantic-ui-react';
+import { Divider, Header, Visibility } from 'semantic-ui-react';
 import Video from './Video';
 import Events from './Events';
+import Parallax from './Parallax';
 
 class Landing extends Component {
 	handleUpdate(e,calculations) {
@@ -12,6 +13,9 @@ class Landing extends Component {
     return (
       <Visibility>
         <Video />
+				<Parallax speed={5}>
+          <h1 className='parallax-headers'>"Everything is Awesome!"</h1>
+        </Parallax>
         <Divider horizontal inverted />
         <Events />
 				<Divider horizontal inverted />
@@ -19,7 +23,5 @@ class Landing extends Component {
     );
   }
 }
-
-// test
 
 export default Landing;
