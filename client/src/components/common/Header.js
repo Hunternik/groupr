@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { Container, Dropdown, Image, Menu } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
 import { connect } from 'react-redux';
+import { Link } from 'react-router-dom';
 
 class FixedMenuLayout extends Component {
   renderContent() {
@@ -16,7 +16,6 @@ class FixedMenuLayout extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <div>
         <Menu fixed="top" inverted>

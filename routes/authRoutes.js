@@ -12,14 +12,14 @@ router.get('/linkedin/callback', users_api.authenticateLinkedInUser);
 
 // ********* current user *********
 router.get('/current_user', (req, res) => {
-    res.send(req.user);
+  res.send(req.user);
 });
 
 // ********* logout *********
 router.get('/logout', (req, res) => {
-    req.logout();
-    // redirect the user back to the root
-    res.redirect('/');
+  req.logout();
+  // redirect the user back to the root
+  res.redirect('/');
 });
 
 module.exports = router;
