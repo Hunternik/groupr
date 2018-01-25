@@ -32,7 +32,7 @@ class FixedMenuLayout extends Component {
             </Menu.Item> 
             <Dropdown item simple text="Dropdown">
               <Dropdown.Menu>
-                <Dropdown.Item>List Item</Dropdown.Item>
+                <Dropdown.Item as={Link} to="/totp-setup">Setup 2FA</Dropdown.Item>
                 <Dropdown.Item>List Item</Dropdown.Item>
                 <Dropdown.Divider />
                 <Dropdown.Header>Header Item</Dropdown.Header>
