@@ -36,12 +36,7 @@ class Jumbotron extends Component {
               marginTop: '1em',
               alignSelf: 'left'
             }}
-          >
-            {/* <Button inverted>
-              {' '}
-              March <Divider /> 23{' '}
-            </Button> */}
-          </Segment>
+          />
           <Container text>
             <Header
               as="h1"
@@ -61,7 +56,6 @@ class Jumbotron extends Component {
               style={{ fontSize: '1.7em', fontWeight: 'normal' }}
             />
             <QuizModal />
-            {/* </Button> */}
           </Container>
         </Segment>
       </div>
