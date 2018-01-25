@@ -8,6 +8,7 @@ import {
   Label,
   Divider
 } from 'semantic-ui-react';
+import BasicModal from '../common/BasicModal';
 
 class Jumbotron extends Component {
   state = {};
@@ -54,15 +55,7 @@ class Jumbotron extends Component {
               inverted
               style={{ fontSize: '1.7em', fontWeight: 'normal' }}
             />
-            <Button as="div" labelPosition="right">
-              <Button color="teal">
-                <Icon name="fork" />
-                Attend
-              </Button>
-              <Label as="a" basic color="teal" pointing="left">
-                228
-              </Label>
-            </Button>
+            <BasicModal />
           </Container>
         </Segment>
       </div>
