@@ -31,14 +31,14 @@ In the command line, type 'npm install' to download node packages. Go to package
 ## Directory structure
 ```none
 .
-├── client			 
-│   ├── 
-│   ├── 	
-│   ├── 
-│   ├── 
-│   ├──
-│   ├── 
-│   └── 	                        
+├── src			 
+│   ├── actions
+│   ├── assets
+│   ├── components
+│   ├── constants
+│   ├── reducers
+│   ├── index.js
+│   └── registerServiceWorker.js
 ├── 
 │   └── 
 ├──                 
