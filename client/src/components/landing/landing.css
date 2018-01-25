@@ -2,49 +2,48 @@
   position: relative;
   overflow: hidden;
   max-width: 100%;
-	width: 100%;
-	/* transform: translate(-100vw, -100vw); */
+  width: 100%;
+  /* transform: translate(-100vw, -100vw); */
 }
 
 .list-item:nth-of-type(odd) {
-	transform: translate(-100vw, -100vw);
+  transform: translate(-100vw, -100vw);
 }
 
 .list-item:nth-of-type(even) {
-	transform: translate(200vw, -100vw);
+  transform: translate(200vw, -100vw);
 }
 
 .list-item-anim:nth-of-type(odd) {
-	transform: translate(0,0);
-	opacity: 1;
-	transition: 1.5s linear;
+  transform: translate(0, 0);
+  opacity: 1;
+  transition: 1.5s linear;
 }
 
 .list-item-anim:nth-of-type(even) {
-	transform: translate(0,0);
-	opacity: 1;
-	transition: 1.5s linear;
+  transform: translate(0, 0);
+  opacity: 1;
+  transition: 4.5s linear;
 }
 
 .event-image {
-	max-width: 100%;
-	transition: 0.6s;
-	transform: scale(1.3);
-	display: hidden;
-	box-shadow: 0 0 15px rgba(0,0,0,.25);
+  max-width: 100%;
+  transition: 0.6s;
+  transform: scale(1.3);
+  display: hidden;
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
 }
 
 .list-item:hover .event-image {
-	transform: scale(1.1);
-	transform-origin: 50% 50%;
+  transform: scale(1.1);
+  transform-origin: 50% 50%;
   transition: 0.6s;
 }
 
 .image-container {
-	max-width: 100%;
-	width: 100%;
+  max-width: 100%;
+  width: 100%;
 }
-
 
 .video {
   max-width: 100%;
@@ -52,9 +51,9 @@
 }
 
 .perspective {
-	transform: perspective(0);
-	overflow: hidden;
-	margin-bottom: 2em;
+  transform: perspective(0);
+  overflow: hidden;
+  margin-bottom: 2em;
 }
 
 .caption {
@@ -63,47 +62,47 @@
   width: 100%;
   text-align: center;
   font-size: 57px;
-	color: #fff;
-	margin-top: 0;
-	transform: translateZ(500px);
-	opacity: 0;
-	transform: translateY(20px);
-	-webkit-font-smoothing: antialiased;
+  color: #fff;
+  margin-top: 0;
+  transform: translateZ(500px);
+  opacity: 0;
+  transform: translateY(20px);
+  -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
 
 .animateHeaders {
   opacity: 1; /* -webkit-transform:translateY(0); */
   transform: translateY(0);
-  transition: .25s linear;
+  transition: 0.25s linear;
 }
 
 .sectionHead {
-	font-size: 5em;
-	line-height: 75%;
+  font-size: 5em;
+  line-height: 75%;
 }
 
 .sectionHeadContainer {
-	height: 5em;
-	opacity: 1;
+  height: 5em;
+  opacity: 1;
 }
 
 .video-container {
-	padding: 0;
+  padding: 0;
 }
 
 .parallax-content {
-	opacity: .3;
-	position: absolute;
-	z-index: -1;
+  opacity: 0.3;
+  position: absolute;
+  z-index: -1;
 }
 
 .parallax-container {
-	position: relative;
+  position: relative;
 }
 
 .parallax-headers {
-	font-size: 57px;
-	transform: translate(60%,-120%);
-	color: #ff695e;
+  font-size: 57px;
+  transform: translate(60%, -120%);
+  color: #ff695e;
 }
