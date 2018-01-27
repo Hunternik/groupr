@@ -8,13 +8,13 @@ import Participants from './Participants';
 
 class EventPage extends Component {
   constructor() {
-		super();
-		
+    super();
+
     // this.handleScroll = this.handleScroll.bind(this);
   }
   // state = {}
 
-  render(){
+  render() {
     return (
       <div>
         <Jumbotron />
@@ -25,9 +25,8 @@ class EventPage extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({
-  // event: state.event
-  // event
+const mapStateToProps = ({ event }) => ({
+  event
 });
 
 export default connect(mapStateToProps)(EventPage);
