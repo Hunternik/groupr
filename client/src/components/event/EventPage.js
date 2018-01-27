@@ -1,18 +1,32 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { events } from '../../actions';
-
+// Actions
+import { fetchEvent } from '../../actions';
+// Components
 import Jumbotron from './Jumbotron';
 import Description from './Description';
 import Participants from './Participants';
 
 class EventPage extends Component {
-  constructor() {
-		super();
-		
-    // this.handleScroll = this.handleScroll.bind(this);
+  constructor(props) {
+    super(props);
+    this.fetchCurrentEvent = this.fetchCurrentEvent.bind(this);
   }
-  // state = {}
+  
+  // Component state
+  // state = {
+
+  // }
+
+  componentDidMount() {
+    this.fetchCurrentEvent();
+  }
+
+  // Fetch event data from database
+  fetchCurrentEvent() {
+    console.log("ITS WORKING");
+    this.props.fetchEvent({});
+  }
 
   render(){
     return (
@@ -25,9 +39,13 @@ class EventPage extends Component {
   }
 }
 
+// Application State
 const mapStateToProps = (state) => ({
-  // event: state.event
-  event
+  event: state.event
+  // event
 });
 
-export default connect(mapStateToProps)(EventPage);
+// Connect component to application state: (1) mapStateTo Props, (2) Arguments -> Component
+export default connect(mapStateToProps,  {
+  fetchEvent
+})(EventPage);
