@@ -31,8 +31,8 @@ class EventItem extends Component {
   }
 
   render() {
-		console.log(this.state.visible)
-    const { title, src } = this.props.image;
+		const { title, src } = this.props.image;
+		
     return (
       <Visibility onUpdate={this.handleVisibility} className="image-container">
         <ParallaxImage src={src} reduceHeight={1 / 3} />

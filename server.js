@@ -10,8 +10,12 @@ const app = express();
 app.use(bodyParser.json());
 
 // connect to mongodb
+<<<<<<< HEAD
 require('./models/User');
 require('./models/Quiz');
+=======
+require('./models');
+>>>>>>> master
 require('./services/googlePassport');
 require('./services/linkedinPassport');
 mongoose.connect(keys.mongoURI);
