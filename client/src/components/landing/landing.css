@@ -1,53 +1,42 @@
 .list-item {
-  position: relative;
   overflow: hidden;
   max-width: 100%;
+  max-height: 100%;
   width: 100%;
-  /* transform: translate(-100vw, -100vw); */
-}
-
-.list-item:nth-of-type(odd) {
-  transform: translate(-100vw, -100vw);
-}
-
-.list-item:nth-of-type(even) {
-  transform: translate(200vw, -100vw);
-}
-
-.list-item-anim:nth-of-type(odd) {
-  transform: translate(0, 0);
-  opacity: 1;
-  transition: 1.5s linear;
-}
-
-.list-item-anim:nth-of-type(even) {
-  transform: translate(0, 0);
-  opacity: 1;
-  transition: 4.5s linear;
+  height: 100%;
 }
 
 .event-image {
-  max-width: 100%;
-  transition: 0.6s;
-  transform: scale(1.3);
-  display: hidden;
-  box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+  box-shadow: 0 0 15px rgba(0, 0, 0, .25);
+  transition: .25s linear;
+	background: linear-gradient(#004092, #020202, transparent);
+  overflow: hidden;
 }
 
-.list-item:hover .event-image {
-  transform: scale(1.1);
-  transform-origin: 50% 50%;
-  transition: 0.6s;
+.event-image-container {
+	transition: 5s;
+  overflow: hidden;
+}
+
+.image-container:hover .event-image-container {
+  transform: scale(1.2);
+  transition: 5s;
+  overflow: hidden;
 }
 
 .image-container {
-  max-width: 100%;
-  width: 100%;
+	height: 100%;
+  position: relative;
+  margin-bottom: 5em;
+	overflow: hidden;
 }
 
 .video {
-  max-width: 100%;
-  width: 100%;
+	max-width: 100%;
+	max-height: 100%;
+	width: 100%;
+	height: 100%;
+	
 }
 
 .perspective {
@@ -58,51 +47,40 @@
 
 .caption {
   position: absolute;
-  top: 40%;
+  top: 35%;
   width: 100%;
   text-align: center;
-  font-size: 57px;
+  font: Helvetica, Sans-Serif;
+  font-size: 4em;
   color: #fff;
-  margin-top: 0;
-  transform: translateZ(500px);
-  opacity: 0;
-  transform: translateY(20px);
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	transform: translateY(.5em);
+	opacity: 0;
 }
 
 .animateHeaders {
-  opacity: 1; /* -webkit-transform:translateY(0); */
+  opacity: 1;
   transform: translateY(0);
-  transition: 0.25s linear;
+  transition: 0.5s ease-in;
 }
 
 .sectionHead {
-  font-size: 5em;
+  font-size: 3em;
   line-height: 75%;
 }
 
 .sectionHeadContainer {
   height: 5em;
-  opacity: 1;
+	opacity: 1;
+	text-align: center;
 }
 
 .video-container {
   padding: 0;
 }
 
-.parallax-content {
-  opacity: 0.3;
-  position: absolute;
-  z-index: -1;
-}
-
-.parallax-container {
-  position: relative;
-}
-
-.parallax-headers {
-  font-size: 57px;
-  transform: translate(60%, -120%);
-  color: #ff695e;
+.about-main {
+	width: 100%;
+	height: 100%;
+	background-color: #fafafa;
+	border-bottom:	1px solid rgba(0,0,0,.12);
 }
