@@ -4,6 +4,7 @@ import { connect } from 'react-redux';
 import { scroll } from '../../actions';
 import Video from './Video';
 import Events from './Events';
+import About from './About';
 
 class Landing extends Component {
   constructor() {
@@ -30,6 +31,8 @@ class Landing extends Component {
       <Visibility>
         <Video />
         <Divider horizontal inverted />
+				<About />
+				<Divider horizontal inverted />
         <Events />
         <Divider horizontal inverted />
       </Visibility>

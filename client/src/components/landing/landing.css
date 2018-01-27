@@ -53,25 +53,34 @@
   font: Helvetica, Sans-Serif;
   font-size: 4em;
   color: #fff;
-  transform: translateZ(0);
+	transform: translateY(.5em);
+	opacity: 0;
 }
 
 .animateHeaders {
   opacity: 1;
   transform: translateY(0);
-  transition: 0.25s linear;
+  transition: 0.5s ease-in;
 }
 
 .sectionHead {
-  font-size: 5em;
+  font-size: 3em;
   line-height: 75%;
 }
 
 .sectionHeadContainer {
   height: 5em;
-  opacity: 1;
+	opacity: 1;
+	text-align: center;
 }
 
 .video-container {
   padding: 0;
+}
+
+.about-main {
+	width: 100%;
+	height: 100%;
+	background-color: #fafafa;
+	border-bottom:	1px solid rgba(0,0,0,.12);
 }

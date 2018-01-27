@@ -23,10 +23,7 @@ class Events extends Component {
   render() {
     return (
       <Container>
-        <SectionHead name="About" />
-
         <SectionHead name="Events" />
-
         <List ref="listNode">{this.renderImages()}</List>
       </Container>
     );

@@ -18,7 +18,7 @@ class SectionHead extends Component {
     return (
       <Visibility onUpdate={this.handleVisibility}>
         <Transition animation={animation} duration={1000} visible={visible}>
-          <Header as="h2" size="huge" inverted color="red" className="sectionHeadContainer">
+          <Header as="h2" size="huge" className="sectionHeadContainer">
             <Header.Content className="sectionHead">{this.props.name}</Header.Content>
           </Header>
         </Transition>
