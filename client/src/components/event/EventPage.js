@@ -15,7 +15,6 @@ class EventPage extends Component {
   
   // Component state
   // state = {
-
   // }
 
   componentDidMount() {
@@ -40,9 +39,9 @@ class EventPage extends Component {
 }
 
 // Application State
-const mapStateToProps = (state) => ({
-  event: state.event
-  // event
+const mapStateToProps = ({ event }) => ({
+  // event: state.event
+  event
 });
 
 // Connect component to application state: (1) mapStateTo Props, (2) Arguments -> Component
