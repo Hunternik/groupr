@@ -27,7 +27,7 @@ class EventPage extends Component {
 
 const mapStateToProps = (state) => ({
   // event: state.event
-  event
+  // event
 });
 
 export default connect(mapStateToProps)(EventPage);

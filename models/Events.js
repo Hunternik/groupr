@@ -1,10 +1,9 @@
 const mongoose = require('mongoose');
+const { Schema } = mongoose;
 const userSchema = require('./User');
 
-const { Schema } = mongoose;
-
 const eventSchema = new Schema({
-	eventID: String,
+	eventId: String,
 	title: String,
 	description: String,
 	date: Date,

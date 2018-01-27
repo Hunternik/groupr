@@ -6,9 +6,6 @@ import Video from './Video';
 import Events from './Events';
 import About from './About';
 
-import axios from 'axios';
-window.axios = axios;
-
 class Landing extends Component {
   constructor() {
 		super();
