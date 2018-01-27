@@ -75,28 +75,3 @@
 .video-container {
   padding: 0;
 }
-
-.parallax-content {
-<<<<<<< HEAD
-  /* position: absolute;
-	z-index: 1; */
-}
-
-.parallax-container {
-  /* position: relative; */
-=======
-  opacity: 0.3;
-  position: absolute;
-  z-index: -1;
-}
-
-.parallax-container {
-  position: relative;
->>>>>>> 46fefb3c89e63a6cac35cb7f23dc0707e4c9a666
-}
-
-.parallax-headers {
-  font-size: 57px;
-  transform: translate(60%, -120%);
-  color: #ff695e;
-}
