@@ -1,4 +1,5 @@
-import react, { Component } from 'react';
+import React, { Component } from 'react';
+import { connect } from "react-redux";
 
 class Quiz extends Component { 
     render() {
@@ -10,4 +11,6 @@ class Quiz extends Component {
     }
 }
 
-export default Quiz;
+const mapStateToProps = (state) => ({ fetchQuiz: state.quiz })
+
+export default connect(mapStateToProps)(Quiz);
