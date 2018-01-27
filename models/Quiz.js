@@ -1,10 +1,4 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
-const quizSchema = new Schema({
-  question: String
-});
-
-mongoose.model("quiz", quizSchema);
-
-module.exports = quizSchema;
+mongoose.model('quiz', new Schema({ question: String }), 'quiz'); // collection name
