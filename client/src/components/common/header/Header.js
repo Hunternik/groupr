@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Container, Dropdown, Image, Menu, Visibility, Transition } from 'semantic-ui-react';
+import { Container, Visibility } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import MainHeader from './MainHeader';
 import CompactHeader from './CompactHeader';

@@ -27,7 +27,7 @@ class EventPage extends Component {
     this.props.fetchEvent({});
   }
 
-  render(){
+  render() {
     return (
       <div>
         <Jumbotron />
