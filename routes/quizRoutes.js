@@ -1,24 +1,25 @@
 const express = require("express");
 const router = express.Router();
 const mongoose = require("mongoose");
-// const Quiz = mongoose.model("quiz");
-const Users = mongoose.model("users");
+const quizSchema = require('../models/Quiz');
+const Quiz = mongoose.model("quiz", quizSchema);
+// const Users = mongoose.model("users");
 
-router.get('/api/quiz', function(req, res) {
-    Users.find({}, function(req, res) {
-        if (err) {
-            console.log(err);
-        } else {
-            res.json(found);
-        }
-    })
-//   Quiz.find({}, function(req, res) {
-//       if (err) {
-//           console.log(err);
-//       } else {
-//           res.json(found);
-//       }
-//   })
+router.get('/quiz', function(req, res) {
+    // Users.find({}, function(err, found) {
+    //     if (err) {
+    //         console.log(err);
+    //     } else {
+    //         res.send(found);
+    //     }
+    // })
+  Quiz.find({}, function(err, found) {
+      if (err) {
+          console.log(err);
+      } else {
+          res.json(found);
+      }
+  })
 });
 
 module.exports = router;
