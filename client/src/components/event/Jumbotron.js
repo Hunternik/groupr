@@ -8,10 +8,14 @@ import {
   Label,
   Divider
 } from 'semantic-ui-react';
-import BasicModal from '../common/BasicModal';
+import { withRouter } from 'react-router-dom';
 
 class Jumbotron extends Component {
   state = {};
+
+  handleOpen = () => {
+    this.props.history.push('/quiz');
+  };
 
   render() {
     return (
@@ -55,7 +59,15 @@ class Jumbotron extends Component {
               inverted
               style={{ fontSize: '1.7em', fontWeight: 'normal' }}
             />
-            <BasicModal />
+            <Button onClick={this.handleOpen} as="div" labelPosition="right">
+              <Button color="teal">
+                <Icon name="fork" />
+                Attend
+              </Button>
+              <Label as="a" basic color="teal" pointing="left">
+                228
+              </Label>
+            </Button>
           </Container>
         </Segment>
       </div>
@@ -63,4 +75,4 @@ class Jumbotron extends Component {
   }
 }
 
-export default Jumbotron;
+export default withRouter(Jumbotron);
