@@ -13,18 +13,14 @@
     "server": "nodemon server.js",
     "client": "npm run start --prefix client",
     "dev": "concurrently \"npm run server\" \"npm run client\"",
-    "heroku-postbuild": "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
+    "heroku-postbuild":
+      "NPM_CONFIG_PRODUCTION=false npm install --prefix client && npm run build --prefix client"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/ARKrew/meetup.git"
   },
-  "keywords": [
-    "react",
-    "mongodb",
-    "node",
-    "express"
-  ],
+  "keywords": ["react", "mongodb", "node", "express"],
   "author": "ARKrew",
   "license": "ISC",
   "bugs": {

@@ -1,17 +1,3 @@
-body {
-	background: linear-gradient(
-  to bottom,
-  #5d9634,
-  #5d9634 50%,
-  #538c2b 50%,
-  #538c2b
-);
-/* The rectangle in which to repeat. 
-   It can be fully wide in this case */
-background-size: 100% 20px;
-
-}
-
 .list-item {
   overflow: hidden;
   max-width: 100%;
@@ -73,7 +59,7 @@ background-size: 100% 20px;
 .animateHeaders {
   opacity: 1;
   transform: translateY(0);
-  transition: .25s linear;
+  transition: 0.25s linear;
 }
 
 .sectionHead {
@@ -91,12 +77,22 @@ background-size: 100% 20px;
 }
 
 .parallax-content {
+<<<<<<< HEAD
   /* position: absolute;
 	z-index: 1; */
 }
 
 .parallax-container {
   /* position: relative; */
+=======
+  opacity: 0.3;
+  position: absolute;
+  z-index: -1;
+}
+
+.parallax-container {
+  position: relative;
+>>>>>>> 46fefb3c89e63a6cac35cb7f23dc0707e4c9a666
 }
 
 .parallax-headers {

@@ -3,6 +3,6 @@ import authReducer from './authReducer';
 import landingReducer from './landingReducer';
 
 export default combineReducers({
-		auth: authReducer,
-		landing: landingReducer
+  auth: authReducer,
+  landing: landingReducer
 });
