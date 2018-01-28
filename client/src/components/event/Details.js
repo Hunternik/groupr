@@ -1,4 +1,7 @@
 import React, { Component } from 'react';
+import moment from 'moment';
+import 'react-dates/initialize';
+import { DayPicker, DateRangePicker, SingleDatePicker, DayPickerRangeController, DayPickerSingleDateController } from 'react-dates';
 import { 
   Segment,
   Grid,
@@ -10,6 +13,7 @@ import {
   Card,
   Rating
 } from 'semantic-ui-react';
+import 'react-dates/lib/css/_datepicker.css';
 
 class Details extends Component {
   constructor(props) {
@@ -29,28 +33,28 @@ class Details extends Component {
   render() {
     return (
       <div>
-      {/* <Icon bordered inverted color='teal' name='calendar' /> */}
-        <Popup trigger={<Button icon='calendar' bordered color='teal' />}>
-          <Popup.Header>User Rating</Popup.Header>
+        <Popup 
+          trigger={<Button icon='calendar' bordered color='teal' />}
+          on='click'>
+          {/* <Popup.Header>Calendar</Popup.Header> */}
           <Popup.Content>
-            <Rating icon='star' defaultRating={3} maxRating={4} />
+          <DayPickerSingleDateController />
           </Popup.Content>
         </Popup>
         <p>{this.props.event.date}</p>
         <Popup 
           trigger={<Button icon='world' bordered color='teal' />} 
           on='click'
-          hideOnScroll
-        >
+          hideOnScroll>
           <Popup.Header><i>Copied!</i></Popup.Header>
         </Popup>
         <p>{this.props.event.location}</p>
         <Image
-        bordered
-        rounded
-        size='large'
-        src='https://i.stack.imgur.com/dApg7.png'
-      />
+          bordered
+          rounded
+          size='large'
+          src='https://i.stack.imgur.com/dApg7.png'
+        />
       </div>
     )
   }

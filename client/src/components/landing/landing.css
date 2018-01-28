@@ -81,7 +81,8 @@ html, body {
 }
 
 .video-container {
-  padding: 0;
+	padding: 0;
+	height: 50%;
 }
 
 .about-main {
