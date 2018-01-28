@@ -12,17 +12,9 @@ export default class BasicModal extends Component {
     return (
       <Modal
         className="scrolling"
-        trigger={
-          <Button onClick={this.handleOpen} as="div" labelPosition="right">
-            <Button color="teal">
-              <Icon name="fork" />
-              Attend
-            </Button>
-            <Label as="a" basic color="teal" pointing="left">
-              228
-            </Label>
-          </Button>
-        }
+        // trigger={
+        //
+        // }
         open={this.state.modalOpen}
         onClose={this.handleClose}
         basic
