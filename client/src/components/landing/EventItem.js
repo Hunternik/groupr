@@ -34,7 +34,7 @@ class EventItem extends Component {
 
     return (
       <Visibility onUpdate={this.handleVisibility} className="image-container">
-				<Link to='/event-page'>
+				<Link to={{ pathname: '/event-page', state: { id } }}>
 					<ParallaxImage src={src} reduceHeight={1 / 3} />
 					<h2 className={this.state.headerClass}>
 						<span>{title}</span>
