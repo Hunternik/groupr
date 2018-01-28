@@ -1,3 +1,3 @@
-export * from './users';
-export * from './landing';
+export * from './userActions';
+export * from './landingActions';
 export * from './eventActions';
