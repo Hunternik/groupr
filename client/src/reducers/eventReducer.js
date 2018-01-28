@@ -1,21 +1,22 @@
 import { FETCH_EVENT } from '../actions/types';
 
 const INITIAL_STATE = {
-  eventId: '',
-  eventName: '',
-  eventDate: '',
-  eventAddress: '',
-  eventDescription: '',
-  eventAttendees: [],
-  eventSponsors: [],
-  active: true
+  _id: null,
+  title: null,
+  date: null,
+  location: null,
+  description: null,
+  attendees: null,
+  sponsers: null,
+  active: true,
+  passed: null
 };
 
 export default function(state = INITIAL_STATE, action) {
   switch (action.type) {
     case FETCH_EVENT:
-      console.log("FETCH_EVENT reducer fired");
-      return action.payload || false;
+      console.log('FETCH_EVENT fired with payload', action.payload);
+      return { ...state, ...action.payload };
     default:
       return state;
   }
