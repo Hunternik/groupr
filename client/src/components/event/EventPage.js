@@ -25,12 +25,13 @@ class EventPage extends Component {
   state = {}
 
   componentDidMount() {
-    this.fetchCurrentEvent();
-  }
+		const fetchId = this.props.match.params.eventId.toUpperCase();
+    this.fetchCurrentEvent(fetchId);
+	}
 
   // Fetch event data from mongo
-  fetchCurrentEvent() {
-    this.props.fetchEvent();
+  fetchCurrentEvent(id) {
+    this.props.fetchEvent(id);
   }
 
   renderEventData() {

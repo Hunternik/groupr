@@ -4,7 +4,6 @@ import { Visibility } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import ParallaxImage from './ParallaxImage';
 import handleVisibility from './utils/handleVisibility';
-import { fetchEvent } from '../../actions';
 
 require('./landing.css');
 
@@ -35,7 +34,7 @@ class EventItem extends Component {
 
     return (
       <Visibility onUpdate={this.handleVisibility} className="image-container">
-				<Link to='/event-page' onClick={() => this.props.fetchEvent(id)}>
+				<Link to={{ pathname: `/event-page/${id}`}}>
 					<ParallaxImage src={src} reduceHeight={1 / 3} />
 					<h2 className={this.state.headerClass}>
 						<span>{title}</span>
@@ -50,4 +49,4 @@ const mapStateToProps = (state) => ({
   scroll: state.landing
 });
 
-export default connect(mapStateToProps, { fetchEvent })(EventItem);
+export default connect(mapStateToProps)(EventItem);
