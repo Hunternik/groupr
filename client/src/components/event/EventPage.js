@@ -10,24 +10,25 @@ import Participants from './Participants';
 class EventPage extends Component {
   constructor(props) {
     super(props);
-    this.fetchCurrentEvent = this.fetchCurrentEvent.bind(this);
+    // this.fetchCurrentEvent = this.fetchCurrentEvent.bind(this);
   }
   
   // Component state
   // state = {
   // }
 
-  componentDidMount() {
-    this.fetchCurrentEvent();
-  }
+  // componentDidMount() {
+  //   this.fetchCurrentEvent();
+  // }
 
-  // Fetch event data from database
-  fetchCurrentEvent() {
-    console.log("ITS WORKING");
-    this.props.fetchEvent({});
-  }
+  // // Fetch event data from database
+  // fetchCurrentEvent() {
+  //   console.log("ITS WORKING");
+  //   this.props.fetchEvent({});
+  // }
 
   render() {
+		console.log(this.props.event)
     return (
       <div>
         <Jumbotron />
