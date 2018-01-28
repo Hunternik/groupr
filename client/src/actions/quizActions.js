@@ -1,12 +1,12 @@
-import { FETCH_QUIZ } from "./types";
+import { FETCH_QUIZ } from './types';
 import axios from 'axios';
 
 export const fetch_quiz = () => async dispatch => {
-  const res = await axios.get("/api/quiz");
+  const res = await axios.get('/api/quiz');
   console.log(res.data);
 
-  dispatch({ 
+  dispatch({
     type: FETCH_QUIZ,
-    payload: res.data
+    payload: res.data[0]
   });
 };
