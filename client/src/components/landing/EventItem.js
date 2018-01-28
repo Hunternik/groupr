@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Visibility } from 'semantic-ui-react';
+import { Link } from 'react-router-dom';
 import ParallaxImage from './ParallaxImage';
 import handleVisibility from './utils/handleVisibility';
 
@@ -31,14 +32,16 @@ class EventItem extends Component {
   }
 
   render() {
-		const { title, src } = this.props.image;
+		const { title, src, id } = this.props.image;
 		
     return (
       <Visibility onUpdate={this.handleVisibility} className="image-container">
-        <ParallaxImage src={src} reduceHeight={1 / 3} />
-        <h2 className={this.state.headerClass} >
-          <span>{title}</span>
-        </h2>
+				<Link to='/event-page'>
+					<ParallaxImage src={src} reduceHeight={1 / 3} />
+					<h2 className={this.state.headerClass} >
+						<span>{title}</span>
+					</h2>
+				</Link>
       </Visibility>
     );
   }

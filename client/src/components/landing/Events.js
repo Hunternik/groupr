@@ -9,11 +9,8 @@ require('./landing.css');
 class Events extends Component {
   renderImages() {
     const listItems = Images.map((image, index) => (
-      <List.Item id={index}>
-        <EventItem
-          image={image}
-          index={index}
-        />
+      <List.Item key={image.id}>
+        <EventItem image={image} />
       </List.Item>
     ));
 
