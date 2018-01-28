@@ -8,12 +8,18 @@ class Quiz extends Component {
     };
 
     render() {
+        console.log(this.props.quiz);
         return (
             <div>
+                {/* {this.props.quiz} */}
                 Hi Grace
             </div>
         );
     }
 }
 
-export default connect(null, actions)(Quiz);
+const mapStateToProps = ({quiz}) => {
+    return { quiz };
+};
+
+export default connect(mapStateToProps, actions)(Quiz);
