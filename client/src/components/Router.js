@@ -21,7 +21,7 @@ class Router extends Component {
             <Header />
             <Route exact path='/' component={Landing} />
             {/* Temporary link for development */}
-            <Route exact path='/event-page' component={EventPage} />
+            <Route path='/event-page/:eventId' component={EventPage} />
             <Route path='/quiz' component={Quiz} />
 						<Footer />
           </div>
