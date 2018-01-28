@@ -25,7 +25,8 @@ class EventPage extends Component {
   state = {}
 
   componentDidMount() {
-    this.fetchCurrentEvent(this.props.location.state.id);
+		const fetchId = this.props.match.params.eventId.toUpperCase();
+    this.fetchCurrentEvent(fetchId);
 	}
 
   // Fetch event data from mongo
@@ -42,7 +43,6 @@ class EventPage extends Component {
 		console.log(this.props.event)
     return (
       <div>
-        <h1>{this.renderEventData().title}</h1>
         <Jumbotron event={this.renderEventData()} />
         <Segment style={{ padding: '8em 0em' }} vertical>
           <Grid container stackable verticalAlign='middle'>

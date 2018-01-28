@@ -2,7 +2,7 @@ import { FETCH_EVENT } from '../actions/types';
 
 const INITIAL_STATE = {
   _id: null,
-  title: null,
+  title: 'Coffee Meets Code Event',
   date: null,
   location: null,
   description: null,
