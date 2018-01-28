@@ -22,7 +22,7 @@ class Jumbotron extends Component {
       <div>
         <Segment
           inverted
-          textAlign="center"
+          textAlign='center'
           style={{
             minHeight: 700,
             padding: '1em 0em',
@@ -43,8 +43,8 @@ class Jumbotron extends Component {
           />
           <Container text>
             <Header
-              as="h1"
-              content="Coffee Meets Code Event"
+              as='h1'
+              content={this.props.event.title}
               inverted
               style={{
                 fontSize: '4em',
@@ -54,17 +54,17 @@ class Jumbotron extends Component {
               }}
             />
             <Header
-              as="h2"
-              content="Network with developers and technical recruiters from high quality companies."
+              as='h2'
+              content='Network with developers and technical recruiters from high quality companies.'
               inverted
               style={{ fontSize: '1.7em', fontWeight: 'normal' }}
             />
-            <Button onClick={this.handleOpen} as="div" labelPosition="right">
-              <Button color="teal">
-                <Icon name="fork" />
+            <Button onClick={this.handleOpen} as='div' labelPosition='right'>
+              <Button color='teal'>
+                <Icon name='fork' />
                 Attend
               </Button>
-              <Label as="a" basic color="teal" pointing="left">
+              <Label as='a' basic color='teal' pointing='left'>
                 228
               </Label>
             </Button>

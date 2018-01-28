@@ -43,7 +43,6 @@ class EventPage extends Component {
 		console.log(this.props.event)
     return (
       <div>
-        <h1>{this.renderEventData().title}</h1>
         <Jumbotron event={this.renderEventData()} />
         <Segment style={{ padding: '8em 0em' }} vertical>
           <Grid container stackable verticalAlign='middle'>
