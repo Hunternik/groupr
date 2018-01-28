@@ -1,7 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from "react-redux";
+import * as actions from '../../actions';
 
 class Quiz extends Component { 
+    componentDidMount() {
+        this.props.fetch_quiz();
+    };
+
     render() {
         return (
             <div>
@@ -11,6 +16,4 @@ class Quiz extends Component {
     }
 }
 
-const mapStateToProps = (state) => ({ fetchQuiz: state.quiz })
-
-export default connect(mapStateToProps)(Quiz);
+export default connect(null, actions)(Quiz);
