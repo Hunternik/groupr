@@ -28,9 +28,8 @@ class Quiz extends Component {
     ) {
       this.setState({ score: this.state.score + 1 });
     }
-		this.setState({ userChoice: null })
-		// this.refs.radioButton
-		this.nextQuestion();
+    this.setState({ userChoice: null });
+    this.nextQuestion();
   }
 
   finishQuiz = () => {
@@ -59,8 +58,8 @@ class Quiz extends Component {
 
   handleChange = e => {
     this.setState({
-			selectedAnswer: e.currentTarget.value, 
-			userChoice: e.currentTarget.value
+      selectedAnswer: e.currentTarget.value,
+      userChoice: e.currentTarget.value
     });
   };
 
@@ -78,7 +77,7 @@ class Quiz extends Component {
               <Form.Field
                 control="input"
                 type="radio"
-								name="htmlRadios"
+                name="htmlRadios"
                 checked={value === this.state.userChoice}
                 label={value.toString()}
                 value={value.toString()}
@@ -93,7 +92,6 @@ class Quiz extends Component {
   }
 
   render() {
-		console.log(<Form.Field type="radio" />);
     const { index } = this.state;
     const quiz = this.props.quiz ? this.props.quiz.questions : 'null';
     const currentQuestion = quiz[index].question;
@@ -102,7 +100,9 @@ class Quiz extends Component {
       <div>
         <div>{currentQuestion}</div>
         <div>{quiz && this.getAnswers(quiz.answers)}</div>
-        <Button onClick={this.validateAnswer}>Submit</Button>
+        <Button onClick={this.validateAnswer} disabled={!this.state.userChoice}>
+          Submit
+        </Button>
       </div>
     );
   }
