@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Form, Radio, Button } from 'semantic-ui-react';
 import * as actions from '../../actions';
+import CorrectPage from './CorrectPage';
 
 class Quiz extends Component {
   constructor() {
@@ -103,6 +104,7 @@ class Quiz extends Component {
         <Button onClick={this.validateAnswer} disabled={!this.state.userChoice}>
           Submit
         </Button>
+        <CorrectPage />
       </div>
     );
   }
