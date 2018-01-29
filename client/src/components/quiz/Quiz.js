@@ -2,13 +2,12 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Form, Radio, Button } from 'semantic-ui-react';
 import * as actions from '../../actions';
-import CorrectPage from './CorrectPage';
 import QuizCorrectModal from './QuizCorrectModal';
 import QuizWrongModal from './QuizWrongModal';
 
 class Quiz extends Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       index: 0,
       complete: false,
@@ -25,10 +24,6 @@ class Quiz extends Component {
 
   validateAnswer() {
     const { index } = this.state;
-
-    // if (this.state.complete === true && this.state.score < 2) {
-    //   return <QuizCorrectModal />;
-    // }
 
     if (
       this.state.selectedAnswer === this.props.quiz.questions[index].correct
@@ -89,17 +84,16 @@ class Quiz extends Component {
   }
 
   render() {
-    console.log(this.state);
     const { index } = this.state;
     const quiz = this.props.quiz ? this.props.quiz.questions : 'null';
     const currentQuestion = quiz[index].question;
 
     if (this.state.complete === true && this.state.score > 1) {
-      return <QuizCorrectModal />;
+      return <QuizCorrectModal score={this.state.score} />;
     }
 
     if (this.state.complete === true && this.state.score <= 1) {
-      return <QuizWrongModal />;
+      return <QuizWrongModal score={this.state.score} />;
     }
 
     return (
@@ -114,8 +108,8 @@ class Quiz extends Component {
   }
 }
 
-const mapStateToProps = ({ quiz }) => {
-  return { quiz };
-};
+const mapStateToProps = ({ quiz }) => ({
+  quiz
+});
 
 export default connect(mapStateToProps, actions)(Quiz);

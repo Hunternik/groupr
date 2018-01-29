@@ -1,4 +1,4 @@
-import { FETCH_QUIZ } from '../actions/types';
+import { FETCH_QUIZ, QUIZ_DATA } from '../actions/types';
 
 export default function(state = null, action) {
   switch (action.type) {
