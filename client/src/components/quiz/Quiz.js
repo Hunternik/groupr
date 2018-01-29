@@ -21,23 +21,29 @@ class Quiz extends Component {
   }
 
   validateAnswer() {
-    if (this.state.selectedAnswer === quiz.questions[index].correct) {
+    const { index } = this.state;
+    if (
+      this.state.selectedAnswer === this.props.quiz.questions[index].correct
+    ) {
       this.setState({ score: this.state.score + 1 });
-    } 
-    nextQuestion();
+    }
+    this.nextQuestion();
   }
 
   finishQuiz = () => {
     if (this.state.complete === true) {
-      console.log("Quiz is finished!");
+      console.log('Quiz is finished!');
     } else {
-      console.log("Quiz in progress!");
+      console.log('Quiz in progress!');
     }
-  }
+  };
 
   nextQuestion() {
     const length = Object.keys(this.props.quiz.questions).length;
     const { index } = this.state;
+    this.setState({
+      selectedAnswer: false
+    });
     if (index === length - 1) {
       this.setState({
         complete: true
@@ -87,10 +93,10 @@ class Quiz extends Component {
 
   render() {
     const { index } = this.state;
-    const quiz = this.props.quiz ? this.props.quiz.questions : "null";
+    const quiz = this.props.quiz ? this.props.quiz.questions : 'null';
     const currentQuestion = quiz[index].question;
     console.log(index);
-
+    console.log(this.state);
     // if (this.props.quiz) {
     //   this.nextQuestion();
     // } else {
