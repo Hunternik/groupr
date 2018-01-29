@@ -18,6 +18,7 @@ class Quiz extends Component {
     this.wrongAnswer = this.wrongAnswer.bind(this);
     this.getAnswers = this.getAnswers.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.finishQuiz = this.finishQuiz.bind(this);
   }
 
   correctAnswer() {
@@ -34,6 +35,14 @@ class Quiz extends Component {
     });
   }
 
+  finishQuiz = () => {
+    if (this.state.complete === true) {
+      console.log("Quiz is finished!");
+    } else {
+      console.log("Quiz in progress!");
+    }
+  }
+
   nextQuestion() {
     const length = Object.keys(this.props.quiz.questions).length;
     const { index } = this.state;
@@ -47,12 +56,13 @@ class Quiz extends Component {
         answer: null
       });
     }
+    this.finishQuiz();
   }
 
-  handleChange = (e) => {
-    this.setState({ 
+  handleChange = e => {
+    this.setState({
       selectedAnswer: e.currentTarget.value
-    })
+    });
     console.log(this.state);
   };
 
@@ -80,8 +90,7 @@ class Quiz extends Component {
         }
       );
     }
-        console.log(this.state);
-
+    console.log(this.state);
   }
 
   render() {
@@ -100,7 +109,7 @@ class Quiz extends Component {
       <div>
         <div>{currentQuestion}</div>
         <div>{quiz && this.getAnswers(quiz.answers)}</div>
-        <Button>Submit</Button>
+        <Button onClick={this.nextQuestion}>Submit</Button>
       </div>
     );
   }
