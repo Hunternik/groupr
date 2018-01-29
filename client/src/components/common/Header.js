@@ -1,3 +1,5 @@
+// mike: if we're not using this file then let's delete. agree?
+
 import React, { Component } from 'react';
 import { Container, Dropdown, Image, Menu } from 'semantic-ui-react';
 import { connect } from 'react-redux';

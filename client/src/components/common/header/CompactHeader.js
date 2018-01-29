@@ -23,7 +23,6 @@ const CompactHeader = (props) => {
           <Menu.Item as={Link} to="/event-page">
             Event Page (test)
           </Menu.Item>
-          <Menu.Item>{renderAuth(auth)}</Menu.Item>
           <Dropdown item simple text="Dropdown">
             <Dropdown.Menu>
               <Dropdown.Item>List Item</Dropdown.Item>
@@ -41,6 +40,7 @@ const CompactHeader = (props) => {
               <Dropdown.Item>List Item</Dropdown.Item>
             </Dropdown.Menu>
           </Dropdown>
+          <Menu.Item>{renderAuth(auth)}</Menu.Item>
         </Container>
       </Menu>
     </Transition>
