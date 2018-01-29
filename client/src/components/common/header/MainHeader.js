@@ -25,7 +25,7 @@ const MainHeader = (props) => {
             <Dropdown.Item>Seattle</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
-        <Menu.Item header className="arimo">
+        <Menu.Item header className="arimo" style={{ height: '100%' }}>
           {renderAuth(props.auth)}
         </Menu.Item>
       </Menu.Menu>
