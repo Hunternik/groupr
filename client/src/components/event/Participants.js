@@ -3,34 +3,45 @@ import {
   Segment,
   Grid,
   Header,
-  Image
+  Image,
+  Menu,
+  Label
 } from 'semantic-ui-react';
 
 class Participants extends Component {
+  state = { activeItem: 'companies' }
+
+  handleItemClick = (e, { name }) => this.setState({ activeItem: name })
+
   render() {
+
+    const { activeItem } = this.state
     return (
       <div>
-        <Segment style={{ padding: '0em' }} vertical>
-          <Grid celled='internally' columns='equal' stackable>
-            {/* <Grid.Row textAlign='center'> */}
-            <Grid.Row>
-              <Grid.Column style={{ paddingBottom: '2em', paddingTop: '2em' }}>
-                <Header as='h3' style={{ fontSize: '2em' }}>Attendees</Header>
-                <p style={{ fontSize: '1.33em' }}>
-                  {/* <Image avatar src='/assets/images/avatar/large/nan.jpg' /> */}
-                  <b>Jane Doe</b> Jr. Mobile Developer seeking work
-                </p>
-              </Grid.Column>
-              <Grid.Column style={{ paddingBottom: '2em', paddingTop: '2em' }}>
-                <Header as='h3' style={{ fontSize: '2em' }}>Recruiters</Header>
-                <p style={{ fontSize: '1.33em' }}>
-                  {/* <Image avatar src='/assets/images/avatar/large/nan.jpg' /> */}
-                  <b>John Doe</b> Software Engineer for GitHub
-                </p>
-              </Grid.Column>
-            </Grid.Row>
+          <Grid 
+          verticalAlign='middle'>
+            <Grid.Column width={4}>
+              <Menu fluid vertical tabular>
+                <Menu.Item name='companies' active={activeItem === 'companies'} onClick={this.handleItemClick}>
+                  <Label color='teal'>14</Label>
+                  Companies
+                </Menu.Item>
+                <Menu.Item name='recruiters' active={activeItem === 'recruiters'} onClick={this.handleItemClick}>
+                  <Label>27</Label>
+                  Recruiters
+                </Menu.Item>
+                <Menu.Item name='attendies' active={activeItem === 'attendies'} onClick={this.handleItemClick}>
+                  <Label>128</Label>
+                  Attendies
+                </Menu.Item>
+              </Menu>
+            </Grid.Column>
+            <Grid.Column stretched width={12}>
+              <Segment>
+                This will be a list of companies, recruiters or attendies.
+              </Segment>
+            </Grid.Column>
           </Grid>
-        </Segment>
       </div>
     );
   }
