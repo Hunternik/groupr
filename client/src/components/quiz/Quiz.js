@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Form, Radio } from 'semantic-ui-react';
+import { Form, Radio, Button } from 'semantic-ui-react';
 import * as actions from '../../actions';
 
 class Quiz extends Component {
@@ -57,9 +57,14 @@ class Quiz extends Component {
       return Object.entries(this.props.quiz.questions[index].answers).map(
         ([key, value], i) => {
           return (
-            <div key={key}>
-              {key}. {value.toString()}
-            </div>
+            <Form.Group grouped>
+              <Form.Field 
+                control="input"
+                type="radio"
+                name="htmlRadios"
+                label={value.toString()}
+              />
+            </Form.Group>
           );
         }
       );
