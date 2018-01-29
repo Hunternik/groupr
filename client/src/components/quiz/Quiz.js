@@ -14,25 +14,17 @@ class Quiz extends Component {
       selectedAnswer: null
     };
     this.nextQuestion = this.nextQuestion.bind(this);
-    this.correctAnswer = this.correctAnswer.bind(this);
-    this.wrongAnswer = this.wrongAnswer.bind(this);
+    this.validateAnswer = this.validateAnswer.bind(this);
     this.getAnswers = this.getAnswers.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.finishQuiz = this.finishQuiz.bind(this);
   }
 
-  correctAnswer() {
-    this.setState({
-      index: 0,
-      answer: true,
-      score: this.state.score + 1
-    });
-  }
-
-  wrongAnswer() {
-    this.setState({
-      answer: false
-    });
+  validateAnswer() {
+    if (this.state.selectedAnswer === quiz.questions[index].correct) {
+      this.setState({ score: this.state.score + 1 });
+    } 
+    nextQuestion();
   }
 
   finishQuiz = () => {
@@ -109,7 +101,7 @@ class Quiz extends Component {
       <div>
         <div>{currentQuestion}</div>
         <div>{quiz && this.getAnswers(quiz.answers)}</div>
-        <Button onClick={this.nextQuestion}>Submit</Button>
+        <Button onClick={this.validateAnswer}>Submit</Button>
       </div>
     );
   }
