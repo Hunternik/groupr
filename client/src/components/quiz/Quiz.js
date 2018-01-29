@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import { Form, Radio, Button } from 'semantic-ui-react';
 import * as actions from '../../actions';
 import CorrectPage from './CorrectPage';
+import QuizCorrectModal from './QuizCorrectModal';
+import QuizWrongModal from './QuizWrongModal';
 
 class Quiz extends Component {
   constructor() {
@@ -19,11 +21,15 @@ class Quiz extends Component {
     this.validateAnswer = this.validateAnswer.bind(this);
     this.getAnswers = this.getAnswers.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.finishQuiz = this.finishQuiz.bind(this);
   }
 
   validateAnswer() {
     const { index } = this.state;
+
+    // if (this.state.complete === true && this.state.score < 2) {
+    //   return <QuizCorrectModal />;
+    // }
+
     if (
       this.state.selectedAnswer === this.props.quiz.questions[index].correct
     ) {
@@ -32,14 +38,6 @@ class Quiz extends Component {
     this.setState({ userChoice: null });
     this.nextQuestion();
   }
-
-  finishQuiz = () => {
-    if (this.state.complete === true) {
-      console.log('Quiz is finished!');
-    } else {
-      console.log('Quiz in progress!');
-    }
-  };
 
   nextQuestion() {
     const length = Object.keys(this.props.quiz.questions).length;
@@ -54,7 +52,6 @@ class Quiz extends Component {
         answer: null
       });
     }
-    this.finishQuiz();
   }
 
   handleChange = e => {
@@ -74,7 +71,7 @@ class Quiz extends Component {
       return Object.entries(this.props.quiz.questions[index].answers).map(
         ([key, value], i) => {
           return (
-            <Form.Group grouped>
+            <Form.Group grouped key={key}>
               <Form.Field
                 control="input"
                 type="radio"
@@ -89,13 +86,21 @@ class Quiz extends Component {
         }
       );
     }
-    console.log(this.state);
   }
 
   render() {
+    console.log(this.state);
     const { index } = this.state;
     const quiz = this.props.quiz ? this.props.quiz.questions : 'null';
     const currentQuestion = quiz[index].question;
+
+    if (this.state.complete === true && this.state.score > 1) {
+      return <QuizCorrectModal />;
+    }
+
+    if (this.state.complete === true && this.state.score <= 1) {
+      return <QuizWrongModal />;
+    }
 
     return (
       <div>
@@ -104,7 +109,6 @@ class Quiz extends Component {
         <Button onClick={this.validateAnswer} disabled={!this.state.userChoice}>
           Submit
         </Button>
-        <CorrectPage />
       </div>
     );
   }
