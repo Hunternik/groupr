@@ -20,12 +20,6 @@ class Description extends Component {
         <p style={{ fontSize: '1.33em' }}>
           {this.props.event.description}
         </p>
-        <Header as='h3' style={{ fontSize: '2em' }}>
-          Companies Attending
-        </Header>
-        <p style={{ fontSize: '1.33em' }}>
-          Google, Snapchat
-        </p>
       </div>
     )
   }
