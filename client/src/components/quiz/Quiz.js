@@ -11,7 +11,8 @@ class Quiz extends Component {
       complete: false,
       answer: null,
       score: 0,
-      selectedAnswer: null
+      selectedAnswer: null,
+      checked: null
     };
     this.nextQuestion = this.nextQuestion.bind(this);
     this.validateAnswer = this.validateAnswer.bind(this);
@@ -27,6 +28,7 @@ class Quiz extends Component {
     ) {
       this.setState({ score: this.state.score + 1 });
     }
+    this.setState({ checked: false })
     this.nextQuestion();
   }
 
@@ -41,9 +43,6 @@ class Quiz extends Component {
   nextQuestion() {
     const length = Object.keys(this.props.quiz.questions).length;
     const { index } = this.state;
-    this.setState({
-      selectedAnswer: false
-    });
     if (index === length - 1) {
       this.setState({
         complete: true
@@ -59,7 +58,8 @@ class Quiz extends Component {
 
   handleChange = e => {
     this.setState({
-      selectedAnswer: e.currentTarget.value
+      selectedAnswer: e.currentTarget.value, 
+      checked: true
     });
     console.log(this.state);
   };
@@ -79,6 +79,7 @@ class Quiz extends Component {
                 control="input"
                 type="radio"
                 name="htmlRadios"
+                checked={this.state.checked}
                 label={value.toString()}
                 value={value.toString()}
                 onClick={this.handleChange}
@@ -95,13 +96,6 @@ class Quiz extends Component {
     const { index } = this.state;
     const quiz = this.props.quiz ? this.props.quiz.questions : 'null';
     const currentQuestion = quiz[index].question;
-    console.log(index);
-    console.log(this.state);
-    // if (this.props.quiz) {
-    //   this.nextQuestion();
-    // } else {
-    //   return null;
-    // }
 
     return (
       <div>
