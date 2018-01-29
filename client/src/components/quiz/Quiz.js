@@ -10,12 +10,14 @@ class Quiz extends Component {
       index: 0,
       complete: false,
       answer: null,
-      score: 0
+      score: 0,
+      selectedAnswer: null
     };
     this.nextQuestion = this.nextQuestion.bind(this);
     this.correctAnswer = this.correctAnswer.bind(this);
     this.wrongAnswer = this.wrongAnswer.bind(this);
     this.getAnswers = this.getAnswers.bind(this);
+    this.handleChange = this.handleChange.bind(this);
   }
 
   correctAnswer() {
@@ -47,6 +49,13 @@ class Quiz extends Component {
     }
   }
 
+  handleChange = (e) => {
+    this.setState({ 
+      selectedAnswer: e.currentTarget.value
+    })
+    console.log(this.state);
+  };
+
   componentDidMount() {
     this.props.fetch_quiz();
   }
@@ -58,22 +67,26 @@ class Quiz extends Component {
         ([key, value], i) => {
           return (
             <Form.Group grouped>
-              <Form.Field 
+              <Form.Field
                 control="input"
                 type="radio"
                 name="htmlRadios"
                 label={value.toString()}
+                value={value.toString()}
+                onClick={this.handleChange}
               />
             </Form.Group>
           );
         }
       );
     }
+        console.log(this.state);
+
   }
 
   render() {
     const { index } = this.state;
-    const quiz = this.props.quiz ? this.props.quiz.questions : 'null';
+    const quiz = this.props.quiz ? this.props.quiz.questions : "null";
     const currentQuestion = quiz[index].question;
     console.log(index);
 
@@ -87,6 +100,7 @@ class Quiz extends Component {
       <div>
         <div>{currentQuestion}</div>
         <div>{quiz && this.getAnswers(quiz.answers)}</div>
+        <Button>Submit</Button>
       </div>
     );
   }
