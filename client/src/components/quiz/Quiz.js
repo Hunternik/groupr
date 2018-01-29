@@ -57,14 +57,16 @@ class Quiz extends Component {
       return Object.entries(this.props.quiz.questions[index].answers).map(
         ([key, value], i) => {
           return (
-            <Form.Group grouped>
-              <Form.Field 
-                control="input"
-                type="radio"
-                name="htmlRadios"
-                label={value.toString()}
-              />
-            </Form.Group>
+            <div>
+              <Form.Group grouped>
+                <Form.Field
+                  control="input"
+                  type="radio"
+                  name="htmlRadios"
+                  label={value.toString()}
+                />
+              </Form.Group>
+            </div>
           );
         }
       );
@@ -87,6 +89,7 @@ class Quiz extends Component {
       <div>
         <div>{currentQuestion}</div>
         <div>{quiz && this.getAnswers(quiz.answers)}</div>
+        <Button>Submit</Button>
       </div>
     );
   }
