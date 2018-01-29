@@ -1,46 +1,37 @@
 import React from 'react';
-import { Container, Dropdown, Image, Menu, Transition } from 'semantic-ui-react';
+import { Container, Dropdown, Image, Menu, Segment, Transition } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import renderAuth from './utils/renderAuth';
 
 require('./header.css');
 
 const CompactHeader = (props) => {
-	const { animation, auth, visible } = props;
+  const { animation, auth, visible } = props;
 
   return (
-    <Transition animation={animation} visible={visible} duration={500}>
+    <Transition animation={animation} visible={visible} duration={500} fluid>
       <Menu fixed="top" inverted className="compact">
-        <Container>
-          <Menu.Item as="a" header>
-            <Image size="mini" src="/logo.png" style={{ marginRight: '1.5em' }} />
-            Grouper
+        <Container fluid>
+          <Menu.Item as={Link} to="/" header>
+            <h3 className='logo-text'>Grouper</h3>
           </Menu.Item>
-          <Menu.Item as={Link} to="/">
-            Home
-          </Menu.Item>
-          {/* Temporary for development */}
-          <Menu.Item as={Link} to="/event-page">
-            Event Page (test)
-          </Menu.Item>
-          <Dropdown item simple text="Dropdown">
-            <Dropdown.Menu>
-              <Dropdown.Item>List Item</Dropdown.Item>
-              <Dropdown.Item>List Item</Dropdown.Item>
-              <Dropdown.Divider />
-              <Dropdown.Header>Header Item</Dropdown.Header>
-              <Dropdown.Item>
-                <i className="dropdown icon" />
-                <span className="text">Submenu</span>
-                <Dropdown.Menu>
-                  <Dropdown.Item>List Item</Dropdown.Item>
-                  <Dropdown.Item>List Item</Dropdown.Item>
-                </Dropdown.Menu>
-              </Dropdown.Item>
-              <Dropdown.Item>List Item</Dropdown.Item>
-            </Dropdown.Menu>
-          </Dropdown>
-          <Menu.Item>{renderAuth(auth)}</Menu.Item>
+          <Menu.Menu position="right">
+            <Menu.Item as={Link} to="" header color="teal" className="arimo">
+              About
+            </Menu.Item>
+            <Dropdown item simple text="Events" color="teal" className="arimo">
+              <Dropdown.Menu>
+                <Dropdown.Item>Austin</Dropdown.Item>
+                <Dropdown.Item>Los Angeles</Dropdown.Item>
+                <Dropdown.Item>New York</Dropdown.Item>
+                <Dropdown.Item>San Francisco</Dropdown.Item>
+                <Dropdown.Item>Seattle</Dropdown.Item>
+              </Dropdown.Menu>
+            </Dropdown>
+            <Menu.Item header className="arimo">
+              {renderAuth(props.auth)}
+            </Menu.Item>
+          </Menu.Menu>
         </Container>
       </Menu>
     </Transition>
