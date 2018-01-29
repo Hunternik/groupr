@@ -7,16 +7,16 @@ const MainHeader = (props) => {
   console.log(props.auth);
   return (
     <Menu size="huge" pointing secondary>
-      <Link to="/">
-        <h1 className="logo-text" style={{ marginLeft: '.5em', marginRight: '.5em', color: '#3ebcb2' }}>
+      <Menu.Item as={Link} to="/" header>
+        <h1 className="logo-text" style={{ color: '#3ebcb2' }}>
           Grouper
         </h1>
-      </Link>
+      </Menu.Item>
       <Menu.Menu position="right" style={{ marginRight: '.5em' }}>
-        <Menu.Item as={Link} to="" header className="arimo">
+        <Menu.Item as={Link} to="" header className="arimo" style={{ height: '100%' }}>
           About
         </Menu.Item>
-        <Dropdown item simple text="Events" className="arimo">
+        <Dropdown item simple text="Events" className="arimo" style={{ height: '100%' }}>
           <Dropdown.Menu>
             <Dropdown.Item>Austin</Dropdown.Item>
             <Dropdown.Item>Los Angeles</Dropdown.Item>
