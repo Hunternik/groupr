@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Container, Dropdown, Image, Menu } from 'semantic-ui-react';
+import { Button, Container, Dropdown, Image, Menu, List } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import renderAuth from './utils/renderAuth';
 
@@ -25,7 +25,7 @@ const MainHeader = (props) => {
             <Dropdown.Item>Seattle</Dropdown.Item>
           </Dropdown.Menu>
         </Dropdown>
-        <Menu.Item header className="arimo">
+        <Menu.Item header className="arimo" style={{ height: '100%' }}>
           {renderAuth(props.auth)}
         </Menu.Item>
       </Menu.Menu>
