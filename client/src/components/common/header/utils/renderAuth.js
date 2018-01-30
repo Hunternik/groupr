@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Dropdown, Image, Menu, Grid } from 'semantic-ui-react';
+import { Dropdown, Image, Grid } from 'semantic-ui-react';
 import Login from '../Login';
 import Payments from '../../Payments';
 

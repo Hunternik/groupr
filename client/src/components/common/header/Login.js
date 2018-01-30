@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Header, Image, Item, Modal } from 'semantic-ui-react';
+import { Header, Image, Item, Modal } from 'semantic-ui-react';
 import loginImages from '../../../constants/loginImages';
 
 class Login extends Component {
@@ -13,7 +13,7 @@ class Login extends Component {
     return loginImages.map((img) => (
       <Item.Group divided link>
         <Item size="tiny">
-            <Image size="tiny" src={img.src} href={img.url}/>
+          <Image size="tiny" src={img.src} href={img.url} />
           <Item.Content verticalAlign="middle">
             <Item.Header>
               <a href={img.url}>Continue with {img.title}</a>
@@ -33,8 +33,6 @@ class Login extends Component {
   }
 
   render() {
-    const { open, size } = this.state;
-
     return (
       <Modal closeIcon size="tiny" trigger={this.renderLink()} open={this.state.modalOpen} onClose={this.handleClose}>
         <Header as="h1" textAlign="center">

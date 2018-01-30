@@ -1,8 +1,7 @@
 import React from 'react';
-import { Container, Dropdown, Image, Menu, Segment, Transition } from 'semantic-ui-react';
+import { Container, Dropdown, Menu, Transition } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import renderAuth from './utils/renderAuth';
-import LoginModal from './Login';
 
 require('./header.css');
 
@@ -30,7 +29,7 @@ const CompactHeader = (props) => {
               </Dropdown.Menu>
             </Dropdown>
             <Menu.Item header className="arimo">
-              {renderAuth(props.auth)}
+              {renderAuth(auth)}
             </Menu.Item>
           </Menu.Menu>
         </Container>
