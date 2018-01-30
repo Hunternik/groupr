@@ -2,6 +2,7 @@ import React from 'react';
 import { Container, Dropdown, Menu, Transition } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import renderAuth from './utils/renderAuth';
+import { renderDropdown } from './utils/renderDropdown';
 
 require('./header.css');
 
@@ -13,20 +14,14 @@ const CompactHeader = (props) => {
       <Menu fixed="top" inverted className="compact">
         <Container fluid>
           <Menu.Item as={Link} to="/" header>
-            <h3 className='logo-text'>Grouper</h3>
+            <h3 className="logo-text">Grouper</h3>
           </Menu.Item>
           <Menu.Menu position="right">
             <Menu.Item as={Link} to="" header className="arimo">
               About
             </Menu.Item>
             <Dropdown item simple text="Events" className="arimo">
-              <Dropdown.Menu>
-                <Dropdown.Item>Austin</Dropdown.Item>
-                <Dropdown.Item>Los Angeles</Dropdown.Item>
-                <Dropdown.Item>New York</Dropdown.Item>
-                <Dropdown.Item>San Francisco</Dropdown.Item>
-                <Dropdown.Item>Seattle</Dropdown.Item>
-              </Dropdown.Menu>
+              {renderDropdown()}
             </Dropdown>
             <Menu.Item header className="arimo">
               {renderAuth(auth)}

@@ -7,6 +7,7 @@ import Landing from './landing/Landing';
 import EventPage from './event/EventPage';
 import Quiz from './quiz/Quiz';
 import Footer from './common/Footer';
+import ScrollToTop from './common/ScrollToTop';
 
 class Router extends Component {
   componentDidMount() {
@@ -15,18 +16,16 @@ class Router extends Component {
 
   render() {
     return (
-      <div>
         <BrowserRouter>
-          <div>
+          <ScrollToTop>
             <Header />
             <Route exact path="/" component={Landing} />
             {/* Temporary link for development */}
             <Route path='/event-page/:eventId' component={EventPage} />
             <Route path='/quiz' component={Quiz} />
 						<Footer />
-          </div>
+          </ScrollToTop>
         </BrowserRouter>
-      </div>
     );
   }
 }

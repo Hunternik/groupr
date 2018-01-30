@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { 
   Segment,
   Grid,
@@ -22,12 +23,25 @@ class EventPage extends Component {
   }
   
   // Component state
-  state = {}
+	state = {}
 
   componentDidMount() {
 		const fetchId = this.props.match.params.eventId.toUpperCase();
     this.fetchCurrentEvent(fetchId);
 	}
+
+	componentWillReceiveProps(nextProps) {
+		if (this.props.match.params.eventId !== nextProps.match.params.eventId) {
+			const fetchId = nextProps.match.params.eventId.toUpperCase();
+    	this.fetchCurrentEvent(fetchId);
+		}
+	}
+
+	componentDidUpdate(prevProps) {
+    if (this.props.location !== prevProps.location) {
+      console.log(this.props,'did update');
+    }
+  }
 
   // Fetch event data from mongo
   fetchCurrentEvent(id) {
@@ -68,6 +82,6 @@ const mapStateToProps = ({ event }) => ({
 });
 
 // Connect component to application state: (1) mapStateTo Props, (2) Arguments -> Component
-export default connect(mapStateToProps,  {
+export default withRouter(connect(mapStateToProps,  {
   fetchEvent
-})(EventPage);
+})(EventPage));

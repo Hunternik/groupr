@@ -36,7 +36,6 @@ class Landing extends Component {
 				<Divider horizontal inverted />
         <Events />
         <Divider horizontal inverted />
-				<LoginModal />
       </Visibility>
     );
   }
