@@ -33,10 +33,6 @@ div.btn {
   width: 100%;
   text-align: center;
 }
-/*
-div.ui.big.buttons {
-  text-align: center;
-} */
 
 button.ui.button,
 button.ui.button:hover,
@@ -100,10 +96,10 @@ div.checkmark {
   top: 10px;
 }
 .confetti:nth-child(2) {
-  left: 26em;
+  left: 24em;
   width: 18px;
   height: 18px;
-  top: 84px;
+  top: 8.5em;
 }
 .confetti:nth-child(3) {
   left: 18em;
@@ -124,10 +120,10 @@ div.checkmark {
   top: 5em;
 }
 .confetti:nth-child(6) {
-  left: 15em;
+  left: 27em;
   width: 10px;
   height: 10px;
-  top: 16px;
+  top: -1em;
 }
 .confetti:nth-child(1) {
   animation-delay: 0.7s;
