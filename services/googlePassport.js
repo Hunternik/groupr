@@ -14,7 +14,7 @@ passport.serializeUser((user, done) => {
 });
 
 passport.deserializeUser((id, done) => {
-  User.findById(id).then((user) => {
+  User.findById(id).then(user => {
     done(null, user);
   });
 });
@@ -28,20 +28,20 @@ passport.use(
       proxy: true
     },
     async (accessToken, refreshToken, profile, done) => {
-			const existingUser = await User.findOne({ googleId: profile.id });
-			
+      const existingUser = await User.findOne({ googleId: profile.id });
+
       if (existingUser) {
         return done(null, existingUser);
-			}
-			
+      }
+
       const googleUser = {
         googleId: profile.id,
         displayName: profile.displayName,
         lastName: profile.name.familyName,
         firstName: profile.name.givenName,
         email: profile.emails[0].value,
-        iconPhotoURL: profile.photos[0].value,
-        bigPhotoURL: profile._json.cover.coverPhoto.url
+        iconPhotoURL: profile.photos[0].value
+        // bigPhotoURL: profile._json.cover.coverPhoto.url
       };
 
       const user = await new User(googleUser).save();
