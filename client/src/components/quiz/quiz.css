@@ -71,6 +71,10 @@ button.ui.inverted.button:hover {
   color: black;
 }
 
+.fail-image {
+  top: 1.3em;
+}
+
 *,
 *:before,
 *:after {

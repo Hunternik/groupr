@@ -4,7 +4,7 @@ import * as actions from '../../actions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-class QuizCorrectModal extends Component {
+class QuizPassModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -131,4 +131,4 @@ const mapStateToProps = ({ quiz }) => ({
   quiz
 });
 
-export default withRouter(connect(mapStateToProps, actions)(QuizCorrectModal));
+export default withRouter(connect(mapStateToProps, actions)(QuizPassModal));

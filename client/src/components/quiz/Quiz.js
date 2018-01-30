@@ -2,8 +2,8 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Form, Radio, Button } from 'semantic-ui-react';
 import * as actions from '../../actions';
-import QuizCorrectModal from './QuizCorrectModal';
-import QuizWrongModal from './QuizWrongModal';
+import QuizPassModal from './QuizPassModal';
+import QuizFailModal from './QuizFailModal';
 
 require('./quiz.css');
 
@@ -91,11 +91,11 @@ class Quiz extends Component {
     const currentQuestion = quiz[index].question;
 
     if (this.state.complete === true && this.state.score > 1) {
-      return <QuizCorrectModal score={this.state.score} />;
+      return <QuizPassModal score={this.state.score} />;
     }
 
     if (this.state.complete === true && this.state.score <= 1) {
-      return <QuizWrongModal score={this.state.score} />;
+      return <QuizFailModal score={this.state.score} />;
     }
 
     return (

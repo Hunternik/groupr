@@ -4,7 +4,7 @@ import * as actions from '../../actions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 
-class QuizWrongModal extends Component {
+class QuizFailModal extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -43,12 +43,12 @@ class QuizWrongModal extends Component {
         className="scrolling"
         open={this.state.modalOpen}
         onClose={this.handleClose}
-        size="small"
+        size="tiny"
       >
         <Modal.Content>
           <Image
+            className="fail-image"
             src={require('../../assets/images/ModalImages/error.png')}
-            size="small"
             centered
           />
           <h3>You need 2/3 to pass. Take a look at our other events!</h3>
@@ -74,4 +74,4 @@ const mapStateToProps = ({ quiz }) => ({
   quiz
 });
 
-export default withRouter(connect(mapStateToProps, actions)(QuizWrongModal));
+export default withRouter(connect(mapStateToProps, actions)(QuizFailModal));
