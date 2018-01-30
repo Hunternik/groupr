@@ -7,6 +7,10 @@ div.quiz_container {
   width: 100%;
 }
 
+div.field label:hover {
+  font-size: 1.1em;
+}
+
 div.current_question {
   text-align: center;
   font-size: 2em;
@@ -65,4 +69,126 @@ button.ui.inverted.button {
 button.ui.inverted.button:hover {
   background-color: #3ebcb2;
   color: black;
+}
+
+.fail-image {
+  top: 1.3em;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: border-box;
+}
+div.checkmark {
+  height: 10vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+}
+.confetti {
+  position: absolute;
+  animation: grow 1.4s cubic-bezier(0.42, 0, 0.275, 1.155) both;
+}
+.confetti:nth-child(1) {
+  left: 19em;
+  width: 12px;
+  height: 12px;
+  top: 10px;
+}
+.confetti:nth-child(2) {
+  left: 26em;
+  width: 18px;
+  height: 18px;
+  top: 84px;
+}
+.confetti:nth-child(3) {
+  left: 16em;
+  width: 10px;
+  height: 10px;
+  top: 135px;
+}
+.confetti:nth-child(4) {
+  left: 26em;
+  width: 20px;
+  height: 20px;
+  top: 13px;
+}
+.confetti:nth-child(5) {
+  left: 25em;
+  width: 14px;
+  height: 14px;
+  top: 162px;
+}
+.confetti:nth-child(6) {
+  left: 18em;
+  width: 10px;
+  height: 10px;
+  top: 16px;
+}
+.confetti:nth-child(1) {
+  animation-delay: 0.7s;
+}
+.confetti:nth-child(2) {
+  animation-delay: 1.4s;
+}
+.confetti:nth-child(3) {
+  animation-delay: 2.1s;
+}
+.confetti:nth-child(4) {
+  animation-delay: 2.8s;
+}
+.confetti:nth-child(5) {
+  animation-delay: 3.5s;
+}
+.confetti:nth-child(6) {
+  animation-delay: 4.2s;
+}
+.checkmark {
+  position: relative;
+  padding: 30px;
+  animation: checkmark 5.6s cubic-bezier(0.42, 0, 0.275, 1.155) both;
+}
+.checkmark__check {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  z-index: 10;
+  transform: translate3d(-50%, -50%, 0);
+  fill: #fff;
+}
+.checkmark__back {
+  position: absolute;
+  animation: rotate 35s linear both infinite;
+}
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes grow {
+  0%,
+  100% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+  }
+}
+@keyframes checkmark {
+  0%,
+  100% {
+    opacity: 0;
+    transform: scale(0);
+  }
+  10%,
+  50%,
+  100% {
+    opacity: 1;
+    transform: scale(1);
+  }
 }

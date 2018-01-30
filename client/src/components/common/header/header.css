@@ -1,3 +1,7 @@
 .compact {
-	opacity: 1;
+  opacity: 1;
+}
+
+button.ui.teal.button {
+  width: 8em;
 }
