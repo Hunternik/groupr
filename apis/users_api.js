@@ -10,9 +10,7 @@ module.exports.requestGoogleToken = passport.authenticate('google', {
 });
 
 // callback route after passport authenticates the first time, run a 2nd time with the token
-module.exports.authenticateGoogleUser = [ passport.authenticate('google'), (req, res) => res.redirect('/event-page') ];
-
-
+module.exports.authenticateGoogleUser = [ passport.authenticate('google'), (req, res) => res.redirect('/') ];
 
 // ********* LinkedIn OAuth *********
 module.exports.requestLinkedInToken =  passport.authenticate('linkedin', {
