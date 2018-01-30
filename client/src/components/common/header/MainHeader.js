@@ -2,9 +2,9 @@ import React from 'react';
 import { Button, Container, Dropdown, Image, Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import renderAuth from './utils/renderAuth';
+import LoginModal from './Login';
 
 const MainHeader = (props) => {
-  console.log(props.auth);
   return (
     <Menu size="huge" pointing secondary>
       <Menu.Item as={Link} to="/" header>

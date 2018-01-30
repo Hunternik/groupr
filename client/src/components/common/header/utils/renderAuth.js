@@ -1,16 +1,17 @@
 import React from 'react';
-import { Dropdown, Image, Menu } from 'semantic-ui-react';
+import { Button, Dropdown, Image, Menu } from 'semantic-ui-react';
+import Login from '../Login';
 
 const trigger = (auth) => (
-	<span>
-		<Image src={auth.iconPhotoURL} avatar /> {auth.displayName} 
-	</span>
-)
+  <span>
+    <Image src={auth.iconPhotoURL} avatar /> {auth.displayName}
+  </span>
+);
 
 const renderLoggedInMenu = (auth) => {
   return (
     <Dropdown trigger={trigger(auth)} pointing style={{ padding: 0 }} item simple className="arimo icon">
-			<Dropdown.Menu>
+      <Dropdown.Menu>
         <Dropdown.Item>Profile</Dropdown.Item>
         <Dropdown.Item>
           <a href="/auth/logout">
@@ -26,8 +27,10 @@ const renderAuth = (auth) => {
   switch (auth) {
     case null:
       return;
-    case false:
-      return <a href="/auth/google">Log In</a>;
+		case false:
+			return <Login />
+      // return <Button onClick={renderModal}>Log In</Button>
+      // return <a href="/auth/google">Log In</a>;
     default:
       return renderLoggedInMenu(auth);
   }
