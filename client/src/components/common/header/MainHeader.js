@@ -2,6 +2,7 @@ import React from 'react';
 import { Dropdown, Menu } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import renderAuth from './utils/renderAuth';
+import { renderDropdown } from './utils/renderDropdown';
 
 const MainHeader = (props) => {
   return (
@@ -16,13 +17,7 @@ const MainHeader = (props) => {
           About
         </Menu.Item>
         <Dropdown item simple text="Events" className="arimo" style={{ height: '100%' }}>
-          <Dropdown.Menu>
-            <Dropdown.Item>Austin</Dropdown.Item>
-            <Dropdown.Item>Los Angeles</Dropdown.Item>
-            <Dropdown.Item>New York</Dropdown.Item>
-            <Dropdown.Item>San Francisco</Dropdown.Item>
-            <Dropdown.Item>Seattle</Dropdown.Item>
-          </Dropdown.Menu>
+          {renderDropdown()}
         </Dropdown>
         <Menu.Item header className="arimo" style={{ height: '100%' }}>
           {renderAuth(props.auth)}
