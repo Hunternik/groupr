@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Button, Label, Header, Icon, Modal } from 'semantic-ui-react';
+import { Image, Button, Label, Header, Icon, Modal } from 'semantic-ui-react';
 import * as actions from '../../actions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -45,8 +45,12 @@ class QuizWrongModal extends Component {
         onClose={this.handleClose}
         size="small"
       >
-        <Header icon="browser" content="Grouper" />
         <Modal.Content>
+          <Image
+            src={require('../../assets/images/ModalImages/error.png')}
+            size="small"
+            centered
+          />
           <h3>You need 2/3 to pass. Take a look at our other events!</h3>
           <Modal.Description>
             <p class="user_score">
@@ -58,7 +62,7 @@ class QuizWrongModal extends Component {
         </Modal.Content>
         <Modal.Actions>
           <Button onClick={this.handleClose} inverted>
-            <Icon name="checkmark" /> Home Page
+            Home Page
           </Button>
         </Modal.Actions>
       </Modal>
