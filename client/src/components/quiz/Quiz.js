@@ -99,12 +99,12 @@ class Quiz extends Component {
     }
 
     return (
-      <div class="quiz_container">
-        <div class="current_question">{currentQuestion}</div>
-        <div class="answer_container">
+      <div className="quiz_container">
+        <div className="current_question">{currentQuestion}</div>
+        <div className="answer_container">
           {quiz && this.getAnswers(quiz.answers)}
         </div>
-        <div class="btn">
+        <div className="btn">
           <Button.Group size="big">
             <Button
               onClick={this.validateAnswer}
