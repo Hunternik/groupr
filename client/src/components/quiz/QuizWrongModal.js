@@ -26,7 +26,9 @@ class QuizWrongModal extends Component {
     for (let i = 0; i < quiz.length; i++) {
       qandas.push(
         <div>
-          <div>Question: {quiz[i].question}</div>
+          <div>
+            Question {i + 1}: {quiz[i].question}
+          </div>
           <div>Answer: {quiz[i].correct}</div>
         </div>
       );
@@ -45,16 +47,18 @@ class QuizWrongModal extends Component {
       >
         <Header icon="browser" content="Grouper" />
         <Modal.Content>
-          <h3>I'm sorry you didn't pass. Take a look at our other events!</h3>
+          <h3>You need 2/3 to pass. Take a look at our other events!</h3>
           <Modal.Description>
-            <p>You scored {this.props.score} out of 3 questions</p>
-            <p>Here is a review of the questions:</p>
+            <p class="user_score">
+              You scored {this.props.score} out of 3 questions
+            </p>
+            <p class="question_review">Here is a review of the questions:</p>
             {this.printQA()}
           </Modal.Description>
         </Modal.Content>
         <Modal.Actions>
-          <Button color="green" onClick={this.handleClose} inverted>
-            <Icon name="checkmark" /> Close
+          <Button onClick={this.handleClose} inverted>
+            <Icon name="checkmark" /> Home Page
           </Button>
         </Modal.Actions>
       </Modal>

@@ -17,7 +17,12 @@ class AttendeeModal extends Component {
       <Modal
         className="scrolling"
         trigger={
-          <Button className="attendButton" onClick={this.handleOpen} as="div" labelPosition="right">
+          <Button
+            className="attendButton"
+            onClick={this.handleOpen}
+            as="div"
+            labelPosition="right"
+          >
             <Button color="teal">
               <Icon name="fork" />
               Attend
@@ -37,11 +42,11 @@ class AttendeeModal extends Component {
           <h3>Are you an attendee or a recruiter?</h3>
         </Modal.Content>
         <Modal.Actions>
-          <Button color="green" onClick={this.handleClose} inverted>
-            <Icon name="checkmark" /> Attendee
+          <Button onClick={this.handleClose} inverted>
+            Attendee
           </Button>
-          <Button color="green" onClick={this.handleClose} inverted>
-            <Icon name="checkmark" /> Recruiter
+          <Button onClick={this.handleClose} inverted>
+            Recruiter
           </Button>
         </Modal.Actions>
       </Modal>

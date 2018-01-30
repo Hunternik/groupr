@@ -5,6 +5,8 @@ import * as actions from '../../actions';
 import QuizCorrectModal from './QuizCorrectModal';
 import QuizWrongModal from './QuizWrongModal';
 
+require('./quiz.css');
+
 class Quiz extends Component {
   constructor(props) {
     super(props);
@@ -97,12 +99,21 @@ class Quiz extends Component {
     }
 
     return (
-      <div>
-        <div>{currentQuestion}</div>
-        <div>{quiz && this.getAnswers(quiz.answers)}</div>
-        <Button onClick={this.validateAnswer} disabled={!this.state.userChoice}>
-          Submit
-        </Button>
+      <div class="quiz_container">
+        <div class="current_question">{currentQuestion}</div>
+        <div class="answer_container">
+          {quiz && this.getAnswers(quiz.answers)}
+        </div>
+        <div class="btn">
+          <Button.Group size="big">
+            <Button
+              onClick={this.validateAnswer}
+              disabled={!this.state.userChoice}
+            >
+              Submit
+            </Button>
+          </Button.Group>
+        </div>
       </div>
     );
   }
