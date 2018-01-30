@@ -28,56 +28,39 @@ passport.use(
       proxy: true
     },
     async (accessToken, refreshToken, profile, done) => {
-			const existingUser = await User.findOne({ googleId: profile.id });
-			
+      let existingUser = await User.findOne({ googleId: profile.id });
+
       if (existingUser) {
         return done(null, existingUser);
-			}
-			
+      }
+
       const googleUser = {
-        googleId: profile.id,
-        displayName: profile.displayName,
-        lastName: profile.name.familyName,
-        firstName: profile.name.givenName,
-        email: profile.emails[0].value,
-        iconPhotoURL: profile.photos[0].value,
-        bigPhotoURL: profile._json.cover.coverPhoto.url
+        googleId: profile.id || null,
+        displayName: profile.displayName || null,
+        lastName: profile.name.familyName || null,
+        firstName: profile.name.givenName || null,
+        email: profile.emails[0].value || null,
+        iconPhotoURL: profile.photos[0].value || null
+        // bigPhotoURL: profile._json.cover.coverPhoto.url
       };
+
+      // Check to see if user already exists by comparing email addresses
+      existingUser = await User.findOne({ email: googleUser.email });
+
+      // If email exists, update user record with new authentication ID
+      if (existingUser) {
+        existingUser.googleId = googleUser.googleId;
+
+        try {
+          existingUser = await existingUser.save();
+          return done(null, existingUser);
+        } catch (error) {
+          console.log(error);
+        }
+      }
 
       const user = await new User(googleUser).save();
       done(null, user);
     }
   )
 );
-
-// Linkedin Login info, will set up later
-// passport.use(
-//   new LinkedInStrategy(
-//     {
-//       clientID: LINKEDIN_KEY,
-//       clientSecret: LINKEDIN_SECRET,
-//       callbackURL: "http://127.0.0.1:3000/auth/linkedin/callback",
-//       scope: ["r_emailaddress", "r_basicprofile"]
-//     },
-//     (accessToken, refreshToken, profile, done) => {
-//       process.nextTick(function() {
-//         // To keep the example simple, the user's LinkedIn profile is returned to
-//         // represent the logged-in user. In a typical application, you would want
-//         // to associate the LinkedIn account with a user record in your database,
-//         // and return that user instead.
-//         return done(null, profile);
-//       });
-//     }
-//   )
-// );
-
-// passport.use(
-//   new TotpStrategy(function(user, done) {
-//     TotpKey.findOne({ userId: user.id }, function(err, key) {
-//       if (err) {
-//         return done(err);
-//       }
-//       return done(null, key.key, key.period);
-//     });
-//   })
-// );

@@ -10,7 +10,7 @@ class FixedMenuLayout extends Component {
     super();
 
     this.handleVisibility = handleVisibility.bind(this);
-  }
+	}
 
   state = {
     visible: false,
