@@ -1,5 +1,5 @@
 import React from 'react';
-import { Button, Container, Dropdown, Image, Menu } from 'semantic-ui-react';
+import { Button, Container, Dropdown, Image, Menu, List } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import renderAuth from './utils/renderAuth';
 import LoginModal from './Login';
