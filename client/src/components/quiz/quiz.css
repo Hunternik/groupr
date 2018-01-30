@@ -31,11 +31,12 @@ div.grouped {
 
 div.btn {
   width: 100%;
-}
-
-div.ui.big.buttons {
   text-align: center;
 }
+/*
+div.ui.big.buttons {
+  text-align: center;
+} */
 
 button.ui.button,
 button.ui.button:hover,
@@ -81,6 +82,7 @@ button.ui.inverted.button:hover {
   box-sizing: border-box;
 }
 div.checkmark {
+  margin: 3em 0;
   height: 10vh;
   display: flex;
   align-items: center;
@@ -92,7 +94,7 @@ div.checkmark {
   animation: grow 1.4s cubic-bezier(0.42, 0, 0.275, 1.155) both;
 }
 .confetti:nth-child(1) {
-  left: 19em;
+  left: 17em;
   width: 12px;
   height: 12px;
   top: 10px;
@@ -104,25 +106,25 @@ div.checkmark {
   top: 84px;
 }
 .confetti:nth-child(3) {
-  left: 16em;
+  left: 18em;
   width: 10px;
   height: 10px;
-  top: 135px;
+  top: 8em;
 }
 .confetti:nth-child(4) {
-  left: 26em;
+  left: 20em;
   width: 20px;
   height: 20px;
-  top: 13px;
+  top: -3em;
 }
 .confetti:nth-child(5) {
-  left: 25em;
+  left: 28em;
   width: 14px;
   height: 14px;
-  top: 162px;
+  top: 5em;
 }
 .confetti:nth-child(6) {
-  left: 18em;
+  left: 15em;
   width: 10px;
   height: 10px;
   top: 16px;
