@@ -86,9 +86,13 @@ class Quiz extends Component {
     }
   }
 
+  renderLoginModal() {
+    this.refs.login.renderLoginItems();
+  }
+
   render() {
     const { index } = this.state;
-    const quiz = this.props.quiz ? this.props.quiz.questions : 'null';
+    const quiz = this.props.quiz ? this.props.quiz.questions : "null";
     const currentQuestion = quiz[index].question;
 
     if (this.state.complete === true && this.state.score > 1) {
@@ -102,7 +106,7 @@ class Quiz extends Component {
     console.log(this.props);
 
     if (!this.props.auth) {
-      return <Login />;
+      return <Login ref="login"/>;
     }
 
     return (
