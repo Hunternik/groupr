@@ -1,12 +1,7 @@
 import React, { Component } from 'react';
 import moment from 'moment';
 import 'react-dates/initialize';
-import { DayPicker, 
-  DateRangePicker, 
-  SingleDatePicker, 
-  DayPickerRangeController, 
-  DayPickerSingleDateController 
-} from 'react-dates';
+import { DayPickerSingleDateController } from 'react-dates';
 import { 
   Segment,
   Grid,
@@ -25,6 +20,7 @@ class Details extends Component {
   constructor(props) {
     super(props);
     this.copyAddress = this.copyAddress.bind(this);
+    this.renderButton = this.renderButton.bind(this);
   }
   
   state = {
@@ -36,24 +32,26 @@ class Details extends Component {
     return <Button icon='world' bordered color='teal' />;
   }
 
+  renderButton() {
+    return (
+      <CopyToClipboard text={this.props.event.location}><Button icon='world' bordered color='teal' /></CopyToClipboard>
+    );
+  }
+
   render() {
     return (
       <div>
         <Popup 
           trigger={<Button icon='calendar' bordered color='teal' />}
           on='click'>
-          {/* <Popup.Header>Calendar</Popup.Header> */}
+          <Popup.Header>Calendar</Popup.Header>
           <Popup.Content>
           <DayPickerSingleDateController />
           </Popup.Content>
         </Popup>
         <p>{this.props.event.date}</p>
         <Popup 
-          trigger={
-          <CopyToClipboard text={this.props.event.location}>
-           <Button icon='world' bordered color='teal' />
-          </CopyToClipboard>
-        } 
+          trigger={this.renderButton()} 
           on='click'
           hideOnScroll>
           <Popup.Header><i>Copied!</i></Popup.Header>
