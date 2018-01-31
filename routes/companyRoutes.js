@@ -1,8 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const sponsors_api = require('../apis/sponsors_api');
+const companies_api = require('../apis/companies_api');
 
 // ********* Sponsor Route *********	
-router.post('/:id', sponsors_api.getEvent);
+router.post('/:id', companies_api.getEvent);
 
 module.exports = router;
