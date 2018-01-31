@@ -77,29 +77,6 @@ const FieldLevelValidationForm = props => {
         validate={[required, maxLength15, minLength2]}
         warn={alphaNumeric}
       />
-      <Field
-        name="email"
-        type="email"
-        component={renderField}
-        label="Email"
-        validate={email}
-        warn={aol}
-      />
-      <Field
-        name="age"
-        type="number"
-        component={renderField}
-        label="Age"
-        validate={[required, number, minValue18]}
-        warn={tooOld}
-      />
-      <Field
-        name="phone"
-        type="number"
-        component={renderField}
-        label="Phone number"
-        validate={[required, phoneNumber]}
-      />
       <div>
         <button type="submit" disabled={submitting}>
           Submit

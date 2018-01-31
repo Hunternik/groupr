@@ -14,10 +14,10 @@ class Recruiter extends Component {
   }
 
   render() {
-    // console.log('****** this.props ', this.props);
-    // if (!this.props.auth) {
-    //   return <Login quizInit />;
-    // }
+    console.log('****** this.props ', this.props);
+    if (!this.props.auth) {
+      return <Login quizInit />;
+    }
 
     return (
       <div>
@@ -29,9 +29,9 @@ class Recruiter extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = state => ({
   auth: state.auth
-};
+});
 
 export default connect(mapStateToProps, actions)(Recruiter);
 
