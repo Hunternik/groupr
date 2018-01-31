@@ -27,16 +27,15 @@ class Profile extends Component {
           <label>Position</label>
           <input placeholder="Position" />
         </Form.Field>
-				<Form.Group widths='equal'>
-					<Button >Cancel</Button>
-        	<Button type="submit">Update</Button>
+				<Form.Group>
+					<Form.Button>Cancel</Form.Button>
+        	<Form.Button type="submit">Update</Form.Button>
 				</Form.Group>
       </Form>
     );
   }
 
   render() {
-    console.log(this.props);
     return (
       <Container>
         <Header as="h1" textAlign="center">

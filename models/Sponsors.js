@@ -8,7 +8,7 @@ const sponsorSchema = new Schema({
 	industry: String,
 	website: String,
 	employees: [userSchema],
-	events: [];
+	events: []
 });
 
 // first arugment passed into models is the name of the collection, second arg is info
