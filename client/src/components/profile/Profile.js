@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { Button, Container, Checkbox, Form, Header, Grid, Segment } from 'semantic-ui-react';
-import { reduxForm, Field } from 'react-redux-form';
+import { reduxForm, Field } from 'redux-form';
 import { connect } from 'react-redux';
+import { fetchUser } from '../../actions/';
+require('./profile.css');
 
 class Profile extends Component {
   renderForm() {
@@ -15,27 +17,32 @@ class Profile extends Component {
           <label>Last Name</label>
           <input placeholder="Last Name" />
         </Form.Field>
-				<Form.Field>
+        <Form.Field>
           <label>Email</label>
           <input placeholder="Email" />
         </Form.Field>
-				<Form.Field>
+        <Form.Field>
           <label>Company</label>
           <input placeholder="Company" />
         </Form.Field>
-				<Form.Field>
+        <Form.Field>
           <label>Position</label>
           <input placeholder="Position" />
         </Form.Field>
-				<Form.Group>
-					<Form.Button>Cancel</Form.Button>
-        	<Form.Button type="submit">Update</Form.Button>
-				</Form.Group>
+        <div className="button-group">
+          <Button className="profile-button" size="large">
+            Update
+          </Button>
+          <Button className="profile-button" size="large">
+            Cancel
+          </Button>
+        </div>
       </Form>
     );
   }
 
   render() {
+    console.log(this.props, 'look here');
     return (
       <Container>
         <Header as="h1" textAlign="center">
@@ -50,7 +57,7 @@ class Profile extends Component {
           <Grid.Column>
             <Segment>
               <h1>Profile</h1>
-							{this.renderForm()}
+              {this.renderForm()}
             </Segment>
           </Grid.Column>
         </Grid>
@@ -59,6 +66,20 @@ class Profile extends Component {
   }
 }
 
-const mapStateToProps = ({ auth }) => ({ auth });
+const mapStateToProps = ({ auth }) => ({ initialValues: auth });
 
-export default connect(mapStateToProps)(Profile);
+// export default connect(mapStateToProps)(Profile);
+
+Profile = reduxForm({
+  form: 'profile'
+})(Profile);
+
+// You have to connect() to any reducers that you wish to connect to yourself
+Profile = connect(
+  state => ({
+    initialValues: state.auth // pull initial values from account reducer
+  }),
+  { load: fetchUser } // bind account loading action creator
+)(Profile)
+
+export default Profile;
