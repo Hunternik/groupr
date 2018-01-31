@@ -4,6 +4,7 @@ import { Form, Radio, Button } from 'semantic-ui-react';
 import * as actions from '../../actions';
 import QuizPassModal from './QuizPassModal';
 import QuizFailModal from './QuizFailModal';
+import Login from '../common/header/Login';
 
 require('./quiz.css');
 
@@ -98,6 +99,12 @@ class Quiz extends Component {
       return <QuizFailModal score={this.state.score} />;
     }
 
+    console.log(this.props);
+
+    if (!this.props.auth) {
+      return <Login />;
+    }
+
     return (
       <div className="quiz_container">
         <div className="current_question">{currentQuestion}</div>
@@ -119,8 +126,9 @@ class Quiz extends Component {
   }
 }
 
-const mapStateToProps = ({ quiz }) => ({
-  quiz
+const mapStateToProps = ( state ) => ({
+  quiz: state.quiz,
+  auth: state.auth
 });
 
 export default connect(mapStateToProps, actions)(Quiz);
