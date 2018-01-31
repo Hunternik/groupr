@@ -1,5 +1,7 @@
 import React from 'react'
 import { Field, reduxForm } from 'redux-form'
+import { Form } from 'semantic-ui-react'
+
 
 const required = value => (value ? undefined : 'Required')
 const maxLength = max => value =>
@@ -52,7 +54,7 @@ const renderField = ({
 const FieldLevelValidationForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props
   return (
-    <form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <Field
         name="username"
         type="text"
@@ -85,7 +87,7 @@ const FieldLevelValidationForm = props => {
           Clear Values
         </button>
       </div>
-    </form>
+    </Form>
   )
 }
 
