@@ -3,13 +3,13 @@ import { Header, Image, Item, Modal } from 'semantic-ui-react';
 import loginImages from '../../../constants/loginImages';
 
 class Login extends Component {
-	state = { modalOpen: false };
-	
+  state = { modalOpen: false };
+  	
 	componentDidMount() {
 		if (this.props.quizInit) {
 			this.handleOpen();
 		}
-	}
+  }
 
   handleOpen = () => this.setState({ modalOpen: true });
 
@@ -41,6 +41,7 @@ class Login extends Component {
   }
 
   render() {
+    console.log(this.props);
     return (
       <Modal closeIcon size="tiny" trigger={this.renderLink()} open={this.state.modalOpen} onClose={this.handleClose}>
         <Header as="h1" textAlign="center">
