@@ -1,4 +1,5 @@
 import React from 'react'
+import { Form } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form'
 
 const required = value => (value ? undefined : 'Required')
@@ -52,7 +53,7 @@ const renderField = ({
 const FieldLevelValidationForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props
   return (
-    <form onSubmit={handleSubmit}>
+    <Form onSubmit={handleSubmit}>
       <Field
         name="username"
         type="text"
@@ -85,7 +86,7 @@ const FieldLevelValidationForm = props => {
           Clear Values
         </button>
       </div>
-    </form>
+    </Form>
   )
 }
 
