@@ -44,6 +44,7 @@
     "passport-linkedin-oauth2": "^1.5.0",
     "passport-local": "^1.0.0",
     "passport-totp": "0.0.2",
+    "react-redux-form": "^1.16.5",
     "react-scripts": "^1.1.0",
     "stripe": "^5.4.0",
     "thirty-two": "^1.0.2"
