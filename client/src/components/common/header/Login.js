@@ -3,7 +3,13 @@ import { Header, Image, Item, Modal } from 'semantic-ui-react';
 import loginImages from '../../../constants/loginImages';
 
 class Login extends Component {
-  state = { modalOpen: false };
+	state = { modalOpen: false };
+	
+	componentDidMount() {
+		if (this.props.quizInit) {
+			this.handleOpen();
+		}
+	}
 
   handleOpen = () => this.setState({ modalOpen: true });
 
@@ -26,9 +32,11 @@ class Login extends Component {
 
   renderLink() {
     return (
-      <span style={{ cursor: 'pointer' }} onClick={this.handleOpen}>
-        Log In
-      </span>
+      !this.props.quizInit && (
+        <span style={{ cursor: 'pointer' }} onClick={this.handleOpen}>
+          Log In
+        </span>
+      )
     );
   }
 
