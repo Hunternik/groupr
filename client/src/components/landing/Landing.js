@@ -5,7 +5,6 @@ import { scroll } from '../../actions';
 import Video from './Video';
 import Events from './Events';
 import About from './About';
-import LoginModal from '../common/header/Login';
 
 class Landing extends Component {
   constructor() {

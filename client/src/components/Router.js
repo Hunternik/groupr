@@ -20,7 +20,6 @@ class Router extends Component {
           <ScrollToTop>
             <Header />
             <Route exact path="/" component={Landing} />
-            {/* Temporary link for development */}
             <Route path='/event-page/:eventId' component={EventPage} />
             <Route path='/quiz' component={Quiz} />
 						<Footer />
