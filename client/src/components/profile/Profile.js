@@ -1,7 +1,16 @@
 import React, { Component } from 'react';
-import { Button, Container, Checkbox, Form, Header, Grid, Segment } from 'semantic-ui-react';
+import {
+  Button,
+  Container,
+  Checkbox,
+  Form,
+  Header,
+  Grid,
+  Segment
+} from 'semantic-ui-react';
 import { reduxForm, Field } from 'react-redux-form';
 import { connect } from 'react-redux';
+require('./profile.css');
 
 class Profile extends Component {
   renderForm() {
@@ -15,22 +24,26 @@ class Profile extends Component {
           <label>Last Name</label>
           <input placeholder="Last Name" />
         </Form.Field>
-				<Form.Field>
+        <Form.Field>
           <label>Email</label>
           <input placeholder="Email" />
         </Form.Field>
-				<Form.Field>
+        <Form.Field>
           <label>Company</label>
           <input placeholder="Company" />
         </Form.Field>
-				<Form.Field>
+        <Form.Field>
           <label>Position</label>
           <input placeholder="Position" />
         </Form.Field>
-				<Form.Group widths='equal'>
-					<Button >Cancel</Button>
-        	<Button type="submit">Update</Button>
-				</Form.Group>
+        <div className="button-group">
+          <Button className="profile-button" size="large">
+            Update
+          </Button>
+          <Button className="profile-button" size="large">
+            Cancel
+          </Button>
+        </div>
       </Form>
     );
   }
@@ -51,7 +64,7 @@ class Profile extends Component {
           <Grid.Column>
             <Segment>
               <h1>Profile</h1>
-							{this.renderForm()}
+              {this.renderForm()}
             </Segment>
           </Grid.Column>
         </Grid>
