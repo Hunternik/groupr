@@ -106,7 +106,7 @@ class Quiz extends Component {
     console.log(this.props);
 
     if (!this.props.auth) {
-      return <Login ref="login"/>;
+      return <Login />;
     }
 
     return (
