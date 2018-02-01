@@ -18,6 +18,8 @@ class MapContainer extends Component {
   state = {};
 
   render() {
+    console.log(process.env.REACT_APP_GOOGLE_MAPS_API_KEY);
+    console.log(process.env.REACT_APP_STRIPE_KEY);
     return (
       <Map google={this.props.google} zoom={14}>
         <Marker onClick={this.onMarkerClick} name={'Current location'} />
@@ -33,5 +35,5 @@ class MapContainer extends Component {
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyAPTEz_0-P6WaldA6ERDb-CeMuTmMAPY-c'
+  apiKey: process.env.REACT_APP_GOOGLE_MAPS_API_KEY
 })(MapContainer);

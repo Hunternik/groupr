@@ -34,7 +34,6 @@ class Jumbotron extends Component {
     let coverPhoto = Images.filter(
       image => image.id === this.props.coverPhotoID
     );
-    console.log('IZZY AFDKAJDFAGD', coverPhoto);
     return coverPhoto[0].src;
   }
 
