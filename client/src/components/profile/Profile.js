@@ -15,6 +15,10 @@ class Profile extends Component {
 
 	state = { showProfileReview: true };
 
+	onProfileSubmit(value) {
+
+	}
+
 	handleCancel() {
 		this.setState({ showProfileReview: true });
 	}
@@ -24,7 +28,7 @@ class Profile extends Component {
       return <ProfileReview onCancel={this.handleCancel} />;
     }
 
-    return <ProfileForm onCancel={this.handleCancel} />;
+    return <ProfileForm onCancel={this.handleCancel} onProfileSubmit={this.onProfileSubmit} />;
   }
 
   render() {
@@ -43,9 +47,9 @@ class Profile extends Component {
           <Grid.Column>
             <Segment>
               <h1>Profile</h1>
-              {/* {this.renderContent()} */}
-              <ProfileReview onCancel={() => this.setState({ showProfileReview: true })} />
-            </Segment>
+							{/* {this.renderContent()} */}
+							<ProfileForm onCancel={this.handleCancel} />
+							</Segment>
           </Grid.Column>
         </Grid>
       </Container>

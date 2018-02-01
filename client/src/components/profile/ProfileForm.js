@@ -18,27 +18,34 @@ import FormField from '../../constants/profileFields';
 require('./profile.css');
 
 class ProfileForm extends Component {
-  renderForm() {
-    const fieldForm = FormField.map((FormField) => {
-      const validationType = FormField.name === 'Email' ? email : [ required, maxLength25, minLength2 ];
+	constructor() {
+		super();
 
-      return (
-        <Field
-          key={FormField.name}
-          name={FormField.name}
-          type={FormField.type}
-          component={renderField}
-          label={FormField.name}
-          validate={validationType}
-        />
-      );
-    });
+		this.onProfileSubmit = this.onProfileSubmit.bind(this);
+	}
+  renderForm() {
+    const validationType = FormField.name === 'Email' ? email : [ required, maxLength25, minLength2 ];
+    const fieldForm = FormField.map((FormField) => (
+      <Field
+        key={FormField.name}
+        name={FormField.name}
+        type={FormField.type}
+        component={renderField}
+        label={FormField.label}
+        validate={validationType}
+      />
+    ));
+
     return fieldForm;
-  }
+	}
+	
+	onProfileSubmit(data) {
+		this.props.submitProfile(data)
+	}
 
   render() {
     return (
-      <Form onSubmit={this.props.handleSubmit}>
+      <Form onSubmit={this.props.handleSubmit(this.onProfileSubmit)}>
         {this.renderForm()}
         <div className="button-group">
           <Button className="profile-button" size="large">

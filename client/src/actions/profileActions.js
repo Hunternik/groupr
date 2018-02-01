@@ -1,10 +1,10 @@
 import axios from 'axios'; 
-import { SUBMIT_PROFILE } from './types';
+import { FETCH_USER } from './types';
 
 export const submitProfile = data => 
 	async dispatch => {
 		const res = await axios.post('/api/profile', data);
 		
-		dispatch({ type: SUBMIT_PROFILE, payload: res.data });
+		dispatch({ type: FETCH_USER, payload: res.data });
 };
 

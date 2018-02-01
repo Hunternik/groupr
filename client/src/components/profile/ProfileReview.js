@@ -19,7 +19,7 @@ class ProfileReview extends Component {
   renderFields() {
     return FormField.map((FormField) => (
       <div key={FormField.name}>
-        <label>{FormField.name}:</label>
+        <label>{FormField.label}:</label>
       </div>
     ));
   }
