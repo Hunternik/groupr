@@ -1,4 +1,5 @@
 import { combineReducers } from 'redux';
+import { reducer as formReducer } from 'redux-form';
 import authReducer from './authReducer';
 import landingReducer from './landingReducer';
 import quizReducer from './quizReducer';
