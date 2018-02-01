@@ -14,25 +14,38 @@ import ProfileReview from './ProfileReview';
 require('./profile.css');
 
 class Profile extends Component {
-  state = { showProfileReview: true };
+  constructor(props) {
+    super(props);
+    this.state = { showProfileReview: true };
+    this.handleCancel = this.handleCancel.bind(this);
+    this.handleUpdate = this.handleUpdate.bind(this);
+  }
+
+  handleCancel() {
+    this.setState({ showProfileReview: true });
+  }
+
+  handleUpdate() {
+    this.setState({ showProfileReview: false });
+  }
 
   renderContent() {
     if (this.state.showProfileReview) {
       return (
         <ProfileReview
-          onCancel={() => this.setState({ showProfileReview: true })}
+          onCancel={this.handleCancel}
+          onUpdate={this.handleUpdate}
         />
       );
     }
 
     return (
-      <ProfileForm
-        onCancel={() => this.setState({ showProfileReview: true })}
-      />
+      <ProfileForm onCancel={this.handleCancel} onUpdate={this.handleUpdate} />
     );
   }
 
   render() {
+    console.log(this.state);
     const { handleSubmit, pristine, reset, submitting } = this.props;
     return (
       <Container>
@@ -57,6 +70,11 @@ class Profile extends Component {
   }
 }
 
-export default reduxForm({
-  form: 'profile'
-})(Profile);
+const mapStateToProps = ({ auth }) => ({ initialValues: auth });
+
+Profile = reduxForm(
+  { form: 'profile', enableReinitialize: true },
+  mapStateToProps
+)(Profile);
+
+export default connect(mapStateToProps)(Profile);
