@@ -1,44 +1,38 @@
 import React, { Component } from 'react';
-import { Field, reduxForm } from 'redux-form';
-import { Button, Container, Checkbox, Form, Header, Grid, Segment } from 'semantic-ui-react';
+import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { submitProfile } from '../../actions';
 import {
-  required,
-  email,
-  maxLength,
-  maxLength25,
-  minLength,
-  minLength2,
-  alphaNumeric,
-  renderField
-} from '../utils/formValidations.js';
-import FormField from '../../constants/profileFields';
-
+  Button,
+  Container,
+  Header,
+  Grid,
+  Segment,
+  Form
+} from 'semantic-ui-react';
+import ProfileForm from './ProfileForm';
+import ProfileReview from './ProfileReview';
 require('./profile.css');
 
 class Profile extends Component {
-  renderForm() {
-    const fieldForm = FormField.map((FormField) => {
-      const validationType = FormField.name === 'Email' ? email : [ required, maxLength25, minLength2 ];
+  state = { showProfileReview: false };
 
+  renderContent() {
+    if (this.state.showProfileReview) {
       return (
-        <Field
-          key={FormField.name}
-          name={FormField.name}
-          type={FormField.type}
-          component={renderField}
-          label={FormField.name}
-          validate={validationType}
+        <ProfileReview
+          onCancel={() => this.setState({ showProfileReview: true })}
         />
       );
-    });
-    return fieldForm;
+    }
+
+    return (
+      <ProfileForm
+        onCancel={() => this.setState({ showProfileReview: true })}
+      />
+    );
   }
 
   render() {
-		console.log(this.props);
-		
     const { handleSubmit, pristine, reset, submitting } = this.props;
     return (
       <Container>
@@ -54,15 +48,7 @@ class Profile extends Component {
           <Grid.Column>
             <Segment>
               <h1>Profile</h1>
-              <Form>{this.renderForm()}</Form>
-              <div className="button-group">
-                <Button className="profile-button" size="large">
-                  Cancel
-                </Button>
-                <Button type="submit" className="profile-button" size="large">
-                  Update
-                </Button>
-              </div>
+              <Form>{this.renderContent()}</Form>
             </Segment>
           </Grid.Column>
         </Grid>
@@ -70,9 +56,8 @@ class Profile extends Component {
     );
   }
 }
+const mapStateToProps = state => ({ initialValues: state.auth });
 
-const mapStateToProps = (state) => ({ initialValues: state.auth });
-
-Profile = reduxForm({ form: 'profile', enableReinitialize: true })(Profile);
-
-export default connect(mapStateToProps, { submitProfile })(Profile);
+export default reduxForm({
+  form: 'profile'
+})(Profile);
