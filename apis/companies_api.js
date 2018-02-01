@@ -11,4 +11,10 @@ module.exports.getCompany = async (req, res) => {
   } catch (error) {
     res.status(404).send(error);
   }
+
+  // If company already exists, add userSchema to db
+  // If company doesn't exist, .save into mongoDB
+        // with userSchema
+        // with eventSchema
+
 };
