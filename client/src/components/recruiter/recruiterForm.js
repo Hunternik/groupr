@@ -91,6 +91,13 @@ const FieldLevelValidationForm = props => {
   )
 }
 
+const reducers = {
+  form: formReducer
+};
+
+// const reducer = combineReducers(reducers);
+// const store = createStore(reducer);
+
 export default reduxForm({
   form: 'fieldLevelValidation' // a unique identifier for this form
 })(FieldLevelValidationForm)
