@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Field, reduxForm, formValueSelector } from 'redux-form';
+import { Field, reduxForm } from 'redux-form';
 import { Button, Container, Checkbox, Form, Header, Grid, Segment } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { submitProfile } from '../../actions';
@@ -13,68 +13,31 @@ import {
   alphaNumeric,
   renderField
 } from '../utils/formValidations.js';
+import FormField from '../../constants/profileFields';
 
 require('./profile.css');
 
 class Profile extends Component {
   renderForm() {
-		const { handleSubmit, submitProfile } = this.props;
+    const fieldForm = FormField.map((FormField) => {
+      const validationType = FormField.name === 'Email' ? email : [ required, maxLength25, minLength2 ];
 
-    return (
-      <Form onSubmit={handleSubmit(submitProfile)}>
+      return (
         <Field
-          name="First Name"
-          type="text"
+          key={FormField.name}
+          name={FormField.name}
+          type={FormField.type}
           component={renderField}
-          label="First Name"
-          validate={[ required, maxLength25, minLength2 ]}
-          warn={alphaNumeric}
+          label={FormField.name}
+          validate={validationType}
         />
-        <Field
-          name="Last Name"
-          type="text"
-          component={renderField}
-          label="Last Name"
-          validate={[ required, maxLength25, minLength2 ]}
-          warn={alphaNumeric}
-        />
-				<Field 
-					name="email" 
-					type="email" 
-					component={renderField} 
-					label="Email" 
-					validate={email} 
-				/>
-        <Field
-          name="Company"
-          type="text"
-          component={renderField}
-          label="Company"
-          validate={[ required, maxLength25, minLength2 ]}
-          warn={alphaNumeric}
-        />
-        <Field
-          name="Position"
-          type="text"
-          component={renderField}
-          label="Position"
-          validate={[ required, maxLength25, minLength2 ]}
-          warn={alphaNumeric}
-        />
-        <div className="button-group">
-          <Button className="profile-button" size="large">
-            Cancel
-          </Button>
-          <Button type="submit" className="profile-button" size="large">
-            Update
-          </Button>
-        </div>
-      </Form>
-    );
+      );
+    });
+    return fieldForm;
   }
 
   render() {
-		console.log(this.props)
+
     const { handleSubmit, pristine, reset, submitting } = this.props;
     return (
       <Container>
@@ -82,7 +45,7 @@ class Profile extends Component {
           {this.props.auth && this.props.auth.displayName}
         </Header>
         <Grid stackable columns={2} textAlign="center" centered>
-          <Grid.Column textAlign="center">
+          <Grid.Column textAlign="center" centered>
             <Segment>
               <h1>My Events</h1>
             </Segment>
@@ -90,7 +53,15 @@ class Profile extends Component {
           <Grid.Column>
             <Segment>
               <h1>Profile</h1>
-              {this.renderForm()}
+              <Form>{this.renderForm()}</Form>
+              <div className="button-group">
+                <Button className="profile-button" size="large">
+                  Cancel
+                </Button>
+                <Button type="submit" className="profile-button" size="large">
+                  Update
+                </Button>
+              </div>
             </Segment>
           </Grid.Column>
         </Grid>
@@ -98,9 +69,8 @@ class Profile extends Component {
     );
   }
 }
-const selector = formValueSelector('profile')
 
-const mapStateToProps = (state) => ({ initialValues: state.auth, form: selector(state) });
+const mapStateToProps = (state) => ({ initialValues: state.auth });
 
 Profile = reduxForm({ form: 'profile', enableReinitialize: true })(Profile);
 
