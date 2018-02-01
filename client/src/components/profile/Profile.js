@@ -55,6 +55,6 @@ class Profile extends Component {
 
 const mapStateToProps = ({ auth }) => ({ initialValues: auth });
 
-Profile = reduxForm({ form: 'profile', enableReinitialize: true })(Profile);
+Profile = reduxForm({ form: 'profile', enableReinitialize: true }, mapStateToProps)(Profile);
 
 export default connect(mapStateToProps)(Profile);

@@ -6,10 +6,12 @@ import FormField from '../../constants/profileFields';
 require('./profile.css');
 
 class ProfileReview extends Component {
+	state = { profileValues: null}
+
   componentWillReceiveProps(nextProps) {
     if (this.props.profile !== nextProps.profile) {
-      const { values: profileValues } = nextProps.profile;
-
+			const { values: profileValues } = nextProps.profile;
+			
       this.setState({ profileValues });
     }
   }
