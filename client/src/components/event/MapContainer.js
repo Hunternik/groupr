@@ -1,5 +1,4 @@
-import React, { Component } from 'react';
-import ReactDOM from 'react-dom'
+import React, { Component } from "react";
 import {
   Container,
   Header,
@@ -8,27 +7,32 @@ import {
   Label,
   Divider,
   Visibility
-} from 'semantic-ui-react';
-import { GoogleApiWrapper } from 'google-maps-react';
-import { Map } from './Map';
+} from "semantic-ui-react";
+import { Map, InfoWindow, Marker, GoogleApiWrapper } from "google-maps-react";
+// import Map from './Map';
 
 class MapContainer extends Component {
   constructor(props) {
     super(props);
   }
-  
-  state = {
-    
-  }
+
+  state = {};
 
   render() {
     return (
-      <Map/ >
-    )
+      <Map google={this.props.google} zoom={14}>
+        <Marker onClick={this.onMarkerClick} name={"Current location"} />
+
+        <InfoWindow onClose={this.onInfoWindowClose}>
+          <div>
+            <h1> HELLO </h1>
+          </div>
+        </InfoWindow>
+      </Map>
+    );
   }
 }
 
 export default GoogleApiWrapper({
-  apiKey: 'AIzaSyAPTEz_0-P6WaldA6ERDb-CeMuTmMAPY-c!',
-  libraries: ['visualization']
+  apiKey: "AIzaSyAPTEz_0-P6WaldA6ERDb-CeMuTmMAPY-c"
 })(MapContainer);

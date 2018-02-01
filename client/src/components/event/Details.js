@@ -15,6 +15,7 @@ import {
 } from 'semantic-ui-react';
 import 'react-dates/lib/css/_datepicker.css';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
+import MapContainer from './MapContainer';
 
 class Details extends Component {
   constructor(props) {
@@ -57,12 +58,13 @@ class Details extends Component {
           <Popup.Header><i>Copied!</i></Popup.Header>
         </Popup>
         <p>{this.props.event.location}</p>
-        <Image
+        <MapContainer />
+        {/* <Image
           bordered
           rounded
           size='large'
           src='https://i.stack.imgur.com/dApg7.png'
-        />
+        /> */}
       </div>
     )
   }
