@@ -1,6 +1,8 @@
 import React from 'react'
 import { Form } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form'
+import { Form } from 'semantic-ui-react'
+
 
 const required = value => (value ? undefined : 'Required')
 const maxLength = max => value =>
