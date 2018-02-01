@@ -9,5 +9,5 @@ module.exports = app => {
   app.use('/api', quizRoutes);
   app.use('/api/current_event', eventRoutes);
   app.use('/auth', billingRoutes);
-  app.use('/api/sponsor', companyRoutes);
+  app.use('/api/company', companyRoutes);
 };
