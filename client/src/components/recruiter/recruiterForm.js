@@ -1,7 +1,6 @@
 import React from 'react'
+import { Form } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form'
-import { Form } from 'semantic-ui-react'
-
 
 const required = value => (value ? undefined : 'Required')
 const maxLength = max => value =>
@@ -51,7 +50,7 @@ const renderField = ({
   </div>
 )
 
-const FieldLevelValidationForm = props => {
+let FieldLevelValidationForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props
   return (
     <Form onSubmit={handleSubmit}>
@@ -91,6 +90,7 @@ const FieldLevelValidationForm = props => {
   )
 }
 
+<<<<<<< HEAD
 const reducers = {
   form: formReducer
 };
@@ -101,3 +101,11 @@ const reducers = {
 export default reduxForm({
   form: 'fieldLevelValidation' // a unique identifier for this form
 })(FieldLevelValidationForm)
+=======
+FieldLevelValidationForm = reduxForm({
+  // a unique name for the form
+  form: "recruiter"
+})(FieldLevelValidationForm);
+
+export default FieldLevelValidationForm;
+>>>>>>> 58c5fc034b5b762cb549415035d97a17bd190d48
