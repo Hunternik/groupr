@@ -23,7 +23,7 @@ class Recruiter extends Component {
       <div>
         <h1>Recruiter</h1>
         <FieldLevelValidationForm />
-      </div>e
+      </div>
     );
 
   }
