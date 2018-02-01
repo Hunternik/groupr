@@ -37,7 +37,8 @@ class Profile extends Component {
   }
 
   render() {
-
+		console.log(this.props);
+		
     const { handleSubmit, pristine, reset, submitting } = this.props;
     return (
       <Container>
