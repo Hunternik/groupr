@@ -31,4 +31,4 @@ class MapContainer extends Component {
 export default GoogleApiWrapper({
   apiKey: 'AIzaSyAPTEz_0-P6WaldA6ERDb-CeMuTmMAPY-c!',
   libraries: ['visualization']
-})(EarthquakesContainer);
+})(MapContainer);
