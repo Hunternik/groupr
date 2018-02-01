@@ -1,26 +1,26 @@
 export default [
   {
-		name: 'updatedFN',
+		name: 'firstName',
 		label: 'First Name',
     type: 'text'
   },
   {
-		name: 'updatedLN',
+		name: 'lastName',
 		label: 'Last Name',
     type: 'text'
   },
   {
-		name: 'updatedEmail',
+		name: 'email',
 		label: 'Email',
     type: 'email'
   },
   {
-		name: 'updatedCompany',
+		name: 'company',
 		label: 'Company',
     type: 'text'
   },
   {
-		name: 'updatedPosition',
+		name: 'position',
 		label: 'Position',
     type: 'text'
   }

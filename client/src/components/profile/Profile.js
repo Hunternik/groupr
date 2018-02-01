@@ -1,18 +1,20 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { Button, Container, Header, Grid, Segment, Form } from 'semantic-ui-react';
+import { Container, Header, Grid, Segment } from 'semantic-ui-react';
 import ProfileForm from './ProfileForm';
 import ProfileReview from './ProfileReview';
 require('./profile.css');
 
 class Profile extends Component {
   constructor(props) {
-    super(props);
-    this.state = { showProfileReview: true };
+		super(props);
+		
     this.handleCancel = this.handleCancel.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
-  }
+	}
+	
+	state = { showProfileReview: true };
 
   handleCancel() {
     this.setState({ showProfileReview: true });
@@ -31,8 +33,6 @@ class Profile extends Component {
   }
 
   render() {
-    console.log(this.state);
-    const { handleSubmit, pristine, reset, submitting } = this.props;
     return (
       <Container>
         <Header as="h1" textAlign="center">

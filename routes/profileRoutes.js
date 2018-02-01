@@ -1,14 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const mongoose = require('mongoose');
-const User = mongoose.model('users');
 const requireLogin = require('./middleware/requireLogin');
+const users_api = require('../apis/users_api');
 
-router.post('/', (req, res) => {
-	const { _id, updatedFN, updatedLN, updatedEmail, updatedPosition } = req.body;
-	
-	// const user = await User.findById(_id);
-	// console.log(user);
-});
+router.post('/', requireLogin, users_api.updateProfile);
 
 module.exports = router;

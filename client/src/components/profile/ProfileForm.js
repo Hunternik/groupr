@@ -3,16 +3,7 @@ import { Field, reduxForm } from 'redux-form';
 import { Button, Form } from 'semantic-ui-react';
 import { connect } from 'react-redux';
 import { submitProfile } from '../../actions';
-import {
-  required,
-  email,
-  maxLength,
-  maxLength25,
-  minLength,
-  minLength2,
-  alphaNumeric,
-  renderField
-} from '../utils/formValidations.js';
+import { required, email, maxLength25, minLength2, renderField } from '../utils/formValidations.js';
 import FormField from '../../constants/profileFields';
 
 require('./profile.css');
@@ -39,7 +30,10 @@ class ProfileForm extends Component {
   }
 
   onProfileSubmit(data) {
-    this.props.submitProfile(data);
+    const { _id, firstName, lastName, email, company, position } = data;
+    const updateProfile = { _id, firstName, lastName, email, company, position };
+
+    this.props.submitProfile(updateProfile);
   }
 
   render() {
