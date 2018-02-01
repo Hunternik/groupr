@@ -3,6 +3,8 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import Login from '../common/header/Login';
 import FieldLevelValidationForm from './recruiterForm';
+import { Button, Container, Checkbox, Form, Header, Grid, Segment } from 'semantic-ui-react';
+
 
 
 class Recruiter extends Component {
@@ -20,10 +22,20 @@ class Recruiter extends Component {
     }
 
     return (
-      <div>
-        <h1>Recruiter</h1>
-        <FieldLevelValidationForm />
-      </div>
+      <Grid>
+        <Grid.Column width={3}>
+          <div />
+        </Grid.Column>
+
+        <Grid.Column width={10}>
+          <h1>Recruiter</h1>
+          <FieldLevelValidationForm />
+        </Grid.Column>
+
+        <Grid.Column width={3}>
+          <div />
+        </Grid.Column>
+      </Grid>
     );
 
   }
