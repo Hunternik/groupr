@@ -18,11 +18,11 @@ import FormField from '../../constants/profileFields';
 require('./profile.css');
 
 class ProfileForm extends Component {
-	constructor() {
-		super();
+  constructor() {
+    super();
 
-		this.onProfileSubmit = this.onProfileSubmit.bind(this);
-	}
+    this.onProfileSubmit = this.onProfileSubmit.bind(this);
+  }
   renderForm() {
     const validationType = FormField.name === 'Email' ? email : [ required, maxLength25, minLength2 ];
     const fieldForm = FormField.map((FormField) => (
@@ -35,23 +35,22 @@ class ProfileForm extends Component {
         validate={validationType}
       />
     ));
-
     return fieldForm;
-	}
-	
-	onProfileSubmit(data) {
-		this.props.submitProfile(data)
-	}
+  }
+
+  onProfileSubmit(data) {
+    this.props.submitProfile(data);
+  }
 
   render() {
     return (
       <Form onSubmit={this.props.handleSubmit(this.onProfileSubmit)}>
         {this.renderForm()}
         <div className="button-group">
-          <Button className="profile-button" size="large">
+          <Button onClick={this.props.onCancel} className="profile-button" size="large">
             Cancel
           </Button>
-          <Button type="submit" className="profile-button" size="large">
+          <Button onClick={this.props.onUpdate} type="submit" className="profile-button" size="large">
             Update
           </Button>
         </div>

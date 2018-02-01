@@ -7,31 +7,31 @@ import ProfileReview from './ProfileReview';
 require('./profile.css');
 
 class Profile extends Component {
-	constructor() {
-		super();
+  constructor(props) {
+    super(props);
+    this.state = { showProfileReview: true };
+    this.handleCancel = this.handleCancel.bind(this);
+    this.handleUpdate = this.handleUpdate.bind(this);
+  }
 
-		this.handleCancel = this.handleCancel.bind(this);
-	}
+  handleCancel() {
+    this.setState({ showProfileReview: true });
+  }
 
-	state = { showProfileReview: true };
-
-	onProfileSubmit(value) {
-
-	}
-
-	handleCancel() {
-		this.setState({ showProfileReview: true });
-	}
+  handleUpdate() {
+    this.setState({ showProfileReview: false });
+  }
 
   renderContent() {
     if (this.state.showProfileReview) {
-      return <ProfileReview onCancel={this.handleCancel} />;
+      return <ProfileReview onCancel={this.handleCancel} onUpdate={this.handleUpdate} />;
     }
 
-    return <ProfileForm onCancel={this.handleCancel} onProfileSubmit={this.onProfileSubmit} />;
+    return <ProfileForm onCancel={this.handleCancel} onUpdate={this.handleUpdate} />;
   }
 
   render() {
+    console.log(this.state);
     const { handleSubmit, pristine, reset, submitting } = this.props;
     return (
       <Container>
@@ -47,9 +47,8 @@ class Profile extends Component {
           <Grid.Column>
             <Segment>
               <h1>Profile</h1>
-							{/* {this.renderContent()} */}
-							<ProfileForm onCancel={this.handleCancel} />
-							</Segment>
+              {this.renderContent()}
+            </Segment>
           </Grid.Column>
         </Grid>
       </Container>

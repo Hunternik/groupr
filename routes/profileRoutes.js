@@ -7,8 +7,8 @@ const requireLogin = require('./middleware/requireLogin');
 router.post('/', (req, res) => {
 	const { _id, updatedFN, updatedLN, updatedEmail, updatedPosition } = req.body;
 	
-	const user = await User.findById(_id);
-	console.log(user);
+	// const user = await User.findById(_id);
+	// console.log(user);
 });
 
 module.exports = router;
