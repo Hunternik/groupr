@@ -4,7 +4,6 @@ import * as actions from '../../actions';
 import { Grid } from 'semantic-ui-react';
 import Login from '../common/header/Login';
 import FieldLevelValidationForm from './recruiterForm';
-import { Button, Container, Checkbox, Form, Header, Grid, Segment } from 'semantic-ui-react';
 
 
 
@@ -24,18 +23,6 @@ class Recruiter extends Component {
 
     return (
       <Grid>
-<<<<<<< HEAD
-          <Grid.Column width={3}>
-            <div />
-          </Grid.Column>
-          <Grid.Column width={10}>
-            <h1>Recruiters</h1>
-            <FieldLevelValidationForm />
-          </Grid.Column>
-          <Grid.Column width={3}>
-            <div />
-          </Grid.Column>
-=======
         <Grid.Column width={3}>
           <div />
         </Grid.Column>
@@ -48,7 +35,6 @@ class Recruiter extends Component {
         <Grid.Column width={3}>
           <div />
         </Grid.Column>
->>>>>>> master
       </Grid>
     );
 

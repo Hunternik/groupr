@@ -1,5 +1,5 @@
 import React from 'react'
-import { Form } from 'semantic-ui-react';
+import { Form, Button } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form'
 import {
   required,
@@ -42,12 +42,12 @@ let FieldLevelValidationForm = props => {
         validate={[required, maxLength25, minLength2]}
       />
       <div>
-        <button type="submit" disabled={submitting}>
+        <Button type="submit" disabled={submitting}>
           Submit
-        </button>
-        <button type="button" disabled={pristine || submitting} onClick={reset}>
+        </Button>
+        <Button type="button" disabled={pristine || submitting} onClick={reset}>
           Clear Values
-        </button>
+        </Button>
       </div>
     </Form>
   )
