@@ -7,8 +7,13 @@ class AttendeeModal extends Component {
 
   handleOpen = () => this.setState({ modalOpen: true });
 
-  handleClose = () => {
-    this.props.history.push('/quiz');
+  handleQuiz = () => {
+    this.props.history.push("/quiz");
+    this.setState({ modalOpen: false });
+  };
+
+  handleRecruiter = () => {
+    this.props.history.push("/recruiter");
     this.setState({ modalOpen: false });
   };
 
@@ -42,10 +47,10 @@ class AttendeeModal extends Component {
           <h3>Are you an attendee or a recruiter?</h3>
         </Modal.Content>
         <Modal.Actions>
-          <Button onClick={this.handleClose} inverted>
+          <Button onClick={this.handleQuiz} inverted>
             Attendee
           </Button>
-          <Button onClick={this.handleClose} inverted>
+          <Button onClick={this.handleRecruiter} inverted>
             Recruiter
           </Button>
         </Modal.Actions>

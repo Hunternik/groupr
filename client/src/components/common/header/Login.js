@@ -41,7 +41,6 @@ class Login extends Component {
   }
 
   render() {
-    console.log(this.props);
     return (
       <Modal closeIcon size="tiny" trigger={this.renderLink()} open={this.state.modalOpen} onClose={this.handleClose}>
         <Header as="h1" textAlign="center">
