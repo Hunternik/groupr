@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import ReactDOM from 'react-dom'
 import {
   Container,
   Header,
@@ -9,6 +9,8 @@ import {
   Divider,
   Visibility
 } from 'semantic-ui-react';
+import { GoogleApiWrapper } from 'google-maps-react';
+import { Map } from './Map';
 
 class MapContainer extends Component {
   constructor(props) {
@@ -16,19 +18,17 @@ class MapContainer extends Component {
   }
   
   state = {
+    
   }
 
   render() {
     return (
-
+      <Map/ >
     )
   }
 }
 
-// Application State
-const mapStateToProps = ({ event }) => ({
-  event
-});
-
-// Connect component to application state: (1) mapStateTo Props, (2) Arguments -> Component
-export default withRouter(connect(mapStateToProps,  null)(MapContainer));
+export default GoogleApiWrapper({
+  apiKey: 'AIzaSyAPTEz_0-P6WaldA6ERDb-CeMuTmMAPY-c!',
+  libraries: ['visualization']
+})(EarthquakesContainer);
