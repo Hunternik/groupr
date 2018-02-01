@@ -50,7 +50,7 @@ const renderField = ({
   </div>
 )
 
-const FieldLevelValidationForm = props => {
+let FieldLevelValidationForm = props => {
   const { handleSubmit, pristine, reset, submitting } = props
   return (
     <Form onSubmit={handleSubmit}>
@@ -90,6 +90,9 @@ const FieldLevelValidationForm = props => {
   )
 }
 
-export default reduxForm({
-  form: 'fieldLevelValidation' // a unique identifier for this form
-})(FieldLevelValidationForm)
+FieldLevelValidationForm = reduxForm({
+  // a unique name for the form
+  form: "recruiter"
+})(FieldLevelValidationForm);
+
+export default FieldLevelValidationForm;
