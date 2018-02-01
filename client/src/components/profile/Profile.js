@@ -1,7 +1,14 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import { Button, Container, Header, Grid, Segment, Form } from 'semantic-ui-react';
+import {
+  Button,
+  Container,
+  Header,
+  Grid,
+  Segment,
+  Form
+} from 'semantic-ui-react';
 import ProfileForm from './ProfileForm';
 import ProfileReview from './ProfileReview';
 require('./profile.css');
@@ -11,10 +18,18 @@ class Profile extends Component {
 
   renderContent() {
     if (this.state.showProfileReview) {
-      return <ProfileReview onCancel={() => this.setState({ showProfileReview: true })} />;
+      return (
+        <ProfileReview
+          onCancel={() => this.setState({ showProfileReview: true })}
+        />
+      );
     }
 
-    return <ProfileForm onCancel={() => this.setState({ showProfileReview: true })} />;
+    return (
+      <ProfileForm
+        onCancel={() => this.setState({ showProfileReview: true })}
+      />
+    );
   }
 
   render() {
@@ -33,8 +48,7 @@ class Profile extends Component {
           <Grid.Column>
             <Segment>
               <h1>Profile</h1>
-              {/* {this.renderContent()} */}
-              <ProfileReview onCancel={() => this.setState({ showProfileReview: true })} />
+              {this.renderContent()}
             </Segment>
           </Grid.Column>
         </Grid>
