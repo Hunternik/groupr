@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
+import { Grid } from 'semantic-ui-react';
 import Login from '../common/header/Login';
 import FieldLevelValidationForm from './recruiterForm';
 
@@ -20,10 +21,18 @@ class Recruiter extends Component {
     }
 
     return (
-      <div>
-        <h1>Recruiter</h1>
-        <FieldLevelValidationForm />
-      </div>
+      <Grid>
+          <Grid.Column width={3}>
+            <div />
+          </Grid.Column>
+          <Grid.Column width={10}>
+            <h1>Recruiters</h1>
+            <FieldLevelValidationForm />
+          </Grid.Column>
+          <Grid.Column width={3}>
+            <div />
+          </Grid.Column>
+      </Grid>
     );
 
   }

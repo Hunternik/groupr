@@ -23,7 +23,7 @@ let FieldLevelValidationForm = props => {
         type="text"
         component={renderField}
         label="Company Name"
-        validate={[required, maxLength15, minLength2]}
+        validate={[required, maxLength25, minLength2]}
         warn={alphaNumeric}
       />
 			<Field
@@ -31,7 +31,7 @@ let FieldLevelValidationForm = props => {
         type="text"
         component={renderField}
         label="Title"
-        validate={[required, maxLength15, minLength2]}
+        validate={[required, maxLength25, minLength2]}
         warn={alphaNumeric}
       />
 			<Field
@@ -39,8 +39,7 @@ let FieldLevelValidationForm = props => {
         type="text"
         component={renderField}
         label="Website"
-        validate={[required, maxLength15, minLength2]}
-        warn={alphaNumeric}
+        validate={[required, maxLength25, minLength2]}
       />
       <div>
         <button type="submit" disabled={submitting}>
