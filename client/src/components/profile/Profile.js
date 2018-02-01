@@ -1,7 +1,8 @@
 import React, { Component } from 'react';
-import { Field, reduxForm } from 'redux-form';
+import { Field, reduxForm, formValueSelector } from 'redux-form';
 import { Button, Container, Checkbox, Form, Header, Grid, Segment } from 'semantic-ui-react';
 import { connect } from 'react-redux';
+import { submitProfile } from '../../actions';
 import {
   required,
   email,
@@ -17,8 +18,10 @@ require('./profile.css');
 
 class Profile extends Component {
   renderForm() {
+		const { handleSubmit, submitProfile } = this.props;
+
     return (
-      <Form>
+      <Form onSubmit={handleSubmit(submitProfile)}>
         <Field
           name="First Name"
           type="text"
@@ -71,6 +74,7 @@ class Profile extends Component {
   }
 
   render() {
+		console.log(this.props)
     const { handleSubmit, pristine, reset, submitting } = this.props;
     return (
       <Container>
@@ -94,8 +98,10 @@ class Profile extends Component {
     );
   }
 }
+const selector = formValueSelector('profile')
 
-const mapStateToProps = ({ auth }) => ({ initialValues: auth });
+const mapStateToProps = (state) => ({ initialValues: state.auth, form: selector(state) });
 
-Profile = reduxForm({ form: 'Profile', enableReinitialize: true })(Profile);
-export default connect(mapStateToProps)(Profile);
+Profile = reduxForm({ form: 'profile', enableReinitialize: true })(Profile);
+
+export default connect(mapStateToProps, { submitProfile })(Profile);

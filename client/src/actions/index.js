@@ -3,3 +3,4 @@ export * from './landingActions';
 export * from './quizActions';
 export * from './eventActions';
 export * from './paymentActions';
+export * from './profileActions';
