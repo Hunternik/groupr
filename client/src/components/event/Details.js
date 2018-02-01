@@ -6,8 +6,12 @@ import {
   Segment,
   Grid,
   Header,
+  Image,
   Button,
-  Popup
+  Icon,
+  Popup,
+  Card,
+  Rating
 } from 'semantic-ui-react';
 import 'react-dates/lib/css/_datepicker.css';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
