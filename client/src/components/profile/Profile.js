@@ -2,27 +2,18 @@ import React, { Component } from 'react';
 import { Field, reduxForm } from 'redux-form';
 import { Button, Container, Checkbox, Form, Header, Grid, Segment } from 'semantic-ui-react';
 import { connect } from 'react-redux';
-import { fetchUser } from '../../actions/';
-require('./profile.css');
+import {
+  required,
+  email,
+  maxLength,
+  maxLength25,
+  minLength,
+  minLength2,
+  alphaNumeric,
+  renderField
+} from '../utils/formValidations.js';
 
-const required = (value) => (value ? undefined : 'Required');
-const email = (value) =>
-  value && !/^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(value) ? 'Invalid email address' : undefined;
-const maxLength = (max) => (value) => (value && value.length > max ? `Must be ${max} characters or less` : undefined);
-const maxLength25 = maxLength(25);
-export const minLength = (min) => (value) =>
-  value && value.length < min ? `Must be ${min} characters or more` : undefined;
-export const minLength2 = minLength(2);
-const alphaNumeric = (value) => (value && /[^a-zA-Z0-9 ]/i.test(value) ? 'Only alphanumeric characters' : undefined);
-const renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
-  <div>
-    <label>{label}</label>
-    <div>
-      <input {...input} placeholder={label} type={type} />
-      {touched && ((error && <span>{error}</span>) || (warning && <span>{warning}</span>))}
-    </div>
-  </div>
-);
+require('./profile.css');
 
 class Profile extends Component {
   renderForm() {
