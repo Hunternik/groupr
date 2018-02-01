@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
+import { Grid } from 'semantic-ui-react';
 import Login from '../common/header/Login';
 import FieldLevelValidationForm from './recruiterForm';
-import { Button, Container, Checkbox, Form, Header, Grid, Segment } from 'semantic-ui-react';
 
 
 
