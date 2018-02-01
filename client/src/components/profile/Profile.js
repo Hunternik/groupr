@@ -7,7 +7,7 @@ import ProfileReview from './ProfileReview';
 require('./profile.css');
 
 class Profile extends Component {
-  state = { showProfileReview: false };
+  state = { showProfileReview: true };
 
   renderContent() {
     if (this.state.showProfileReview) {

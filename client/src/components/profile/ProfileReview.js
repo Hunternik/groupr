@@ -8,12 +8,9 @@ require('./profile.css');
 const ProfileReview = (props) => {
   const reviewProfile = FormField.map(FormField => {
     return (
-      <div
-        key={FormField.name}
-        name={FormField.name}
-        type={FormField.type}
-        label={FormField.name}
-      />
+      <div key={FormField.name}>
+        <label>{FormField.name}:</label>
+      </div>
     );
 	});
 	
