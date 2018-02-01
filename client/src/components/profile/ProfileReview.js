@@ -1,10 +1,11 @@
 import React from 'react';
 import { Button } from 'semantic-ui-react';
+import { connect } from 'react-redux';
 import FormField from '../../constants/profileFields';
 
 require('./profile.css');
 
-const ProfileReview = () => {
+const ProfileReview = (props) => {
   const reviewProfile = FormField.map(FormField => {
     return (
       <div
@@ -14,8 +15,8 @@ const ProfileReview = () => {
         label={FormField.name}
       />
     );
-  });
-
+	});
+	
   return (
     <div>
       {reviewProfile}
@@ -30,4 +31,7 @@ const ProfileReview = () => {
     </div>
   );
 };
-export default ProfileReview;
+
+const mapStateToProps = (state) => ({ profile: state });
+
+export default connect(mapStateToProps)(ProfileReview);

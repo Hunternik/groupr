@@ -19,11 +19,8 @@ require('./profile.css');
 
 class ProfileForm extends Component {
   renderForm() {
-    const fieldForm = FormField.map(FormField => {
-      const validationType =
-        FormField.name === 'Email'
-          ? email
-          : [required, maxLength25, minLength2];
+    const fieldForm = FormField.map((FormField) => {
+      const validationType = FormField.name === 'Email' ? email : [ required, maxLength25, minLength2 ];
 
       return (
         <Field
@@ -41,7 +38,7 @@ class ProfileForm extends Component {
 
   render() {
     return (
-      <Form>
+      <Form onSubmit={this.props.handleSubmit}>
         {this.renderForm()}
         <div className="button-group">
           <Button className="profile-button" size="large">
@@ -56,10 +53,8 @@ class ProfileForm extends Component {
   }
 }
 
-const mapStateToProps = state => ({ initialValues: state.auth });
+const mapStateToProps = ({ auth }) => ({ initialValues: auth });
 
-ProfileForm = reduxForm({ form: 'profile', enableReinitialize: true })(
-  ProfileForm
-);
+ProfileForm = reduxForm({ form: 'profile', enableReinitialize: true })(ProfileForm);
 
 export default connect(mapStateToProps, { submitProfile })(ProfileForm);

@@ -1,14 +1,7 @@
 import React, { Component } from 'react';
 import { reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
-import {
-  Button,
-  Container,
-  Header,
-  Grid,
-  Segment,
-  Form
-} from 'semantic-ui-react';
+import { Button, Container, Header, Grid, Segment, Form } from 'semantic-ui-react';
 import ProfileForm from './ProfileForm';
 import ProfileReview from './ProfileReview';
 require('./profile.css');
@@ -18,18 +11,10 @@ class Profile extends Component {
 
   renderContent() {
     if (this.state.showProfileReview) {
-      return (
-        <ProfileReview
-          onCancel={() => this.setState({ showProfileReview: true })}
-        />
-      );
+      return <ProfileReview onCancel={() => this.setState({ showProfileReview: true })} />;
     }
 
-    return (
-      <ProfileForm
-        onCancel={() => this.setState({ showProfileReview: true })}
-      />
-    );
+    return <ProfileForm onCancel={() => this.setState({ showProfileReview: true })} />;
   }
 
   render() {
@@ -40,7 +25,7 @@ class Profile extends Component {
           {this.props.auth && this.props.auth.displayName}
         </Header>
         <Grid stackable columns={2} textAlign="center" centered>
-          <Grid.Column textAlign="center" centered>
+          <Grid.Column textAlign="center">
             <Segment>
               <h1>My Events</h1>
             </Segment>
@@ -48,7 +33,8 @@ class Profile extends Component {
           <Grid.Column>
             <Segment>
               <h1>Profile</h1>
-              <Form>{this.renderContent()}</Form>
+              {/* {this.renderContent()} */}
+              <ProfileReview onCancel={() => this.setState({ showProfileReview: true })} />
             </Segment>
           </Grid.Column>
         </Grid>
@@ -56,7 +42,6 @@ class Profile extends Component {
     );
   }
 }
-const mapStateToProps = state => ({ initialValues: state.auth });
 
 export default reduxForm({
   form: 'profile'
