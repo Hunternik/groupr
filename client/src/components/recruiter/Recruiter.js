@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
-import { Grid } from 'semantic-ui-react';
+import { Grid, Button } from 'semantic-ui-react';
 import Login from '../common/header/Login';
 import FieldLevelValidationForm from './recruiterForm';
 
@@ -14,6 +14,14 @@ class Recruiter extends Component {
       recruiter: null
     };
   }
+  
+  // buttonUpdated = (prevProps) => {
+  //   if (prevProps.data !== this.props.auth.credits) {
+  //     return 
+  //   } else {
+  //     // change submit button to false
+  //   }
+  // }
 
   render() {
     console.log('****** this.props ', this.props);
@@ -30,18 +38,19 @@ class Recruiter extends Component {
         <Grid.Column width={10}>
           <h1>Recruiter</h1>
           <FieldLevelValidationForm />
-        <Button className="profile-button" size="large">
-                  Cancel
-                </Button>
-                <Button type="submit" className="profile-button" size="large">
-                  Update
-                </Button>
+        
+        Credits: {this.props.auth.credits}
+        
+        
+
         </Grid.Column>
 
 
         <Grid.Column width={3}>
           <div />
         </Grid.Column>
+
+
       </Grid>
     );
 

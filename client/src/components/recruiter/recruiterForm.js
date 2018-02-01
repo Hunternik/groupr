@@ -12,6 +12,7 @@ import {
   renderField
 } from '../utils/formValidations.js';
 import FormField from '../../constants/profileFields';
+import Payments from '../common/Payments';
 
 
 let FieldLevelValidationForm = props => {
@@ -42,13 +43,19 @@ let FieldLevelValidationForm = props => {
         validate={[required, maxLength25, minLength2]}
       />
       <div>
-        <Button type="submit" disabled={submitting}>
+        <br />
+        <Button type="submit" size='large' disabled={submitting}>
           Submit
         </Button>
-        <Button type="button" disabled={pristine || submitting} onClick={reset}>
+        <Button type="button" size='large' disabled={pristine || submitting} onClick={reset}>
           Clear Values
         </Button>
       </div>
+      
+      
+      <Payments />
+      
+
     </Form>
   )
 
