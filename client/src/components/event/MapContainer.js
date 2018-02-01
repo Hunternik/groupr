@@ -1,13 +1,4 @@
 import React, { Component } from 'react';
-import {
-  Container,
-  Header,
-  Button,
-  Icon,
-  Label,
-  Divider,
-  Visibility
-} from 'semantic-ui-react';
 import { Map, InfoWindow, Marker, GoogleApiWrapper } from 'google-maps-react';
 
 class MapContainer extends Component {

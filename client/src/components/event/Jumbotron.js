@@ -1,14 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import {
-  Container,
-  Header,
-  Button,
-  Icon,
-  Label,
-  Divider,
-  Visibility
-} from 'semantic-ui-react';
+import { Header, Visibility } from 'semantic-ui-react';
 import { withRouter } from 'react-router-dom';
 // Components
 import AttendeeModal from './AttendeeModal';

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Segment, Grid, Header, Image } from 'semantic-ui-react';
+import { Header } from 'semantic-ui-react';
 
 class Description extends Component {
   constructor(props) {

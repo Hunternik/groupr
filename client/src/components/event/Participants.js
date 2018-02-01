@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Segment, Grid, Header, Image, Menu, Label } from 'semantic-ui-react';
+import { Segment, Grid, Menu, Label } from 'semantic-ui-react';
 
 class Participants extends Component {
   state = { activeItem: 'companies' };
