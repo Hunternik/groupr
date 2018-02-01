@@ -9,8 +9,6 @@ class MapContainer extends Component {
   state = {};
 
   render() {
-    console.log(process.env.REACT_APP_GOOGLE_MAPS_API_KEY);
-    console.log(process.env.REACT_APP_STRIPE_KEY);
     return (
       <Map google={this.props.google} zoom={14}>
         <Marker onClick={this.onMarkerClick} name={'Current location'} />

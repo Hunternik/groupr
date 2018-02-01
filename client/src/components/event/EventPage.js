@@ -44,7 +44,6 @@ class EventPage extends Component {
 
   // Render event data from application state
   renderEventData() {
-    console.log(this.props.event, 'EVENT OBJECT');
     return this.props.event;
   }
 

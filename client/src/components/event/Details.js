@@ -3,15 +3,8 @@ import moment from 'moment';
 import 'react-dates/initialize';
 import { DayPickerSingleDateController } from 'react-dates';
 import {
-  Segment,
-  Grid,
-  Header,
-  Image,
   Button,
-  Icon,
-  Popup,
-  Card,
-  Rating
+  Popup
 } from 'semantic-ui-react';
 import 'react-dates/lib/css/_datepicker.css';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
