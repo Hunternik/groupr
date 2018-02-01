@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import 'react-dates/initialize';
 import { DayPickerSingleDateController } from 'react-dates';
-import { 
+import {
   Segment,
   Grid,
   Header,
@@ -23,50 +23,46 @@ class Details extends Component {
     this.copyAddress = this.copyAddress.bind(this);
     this.renderButton = this.renderButton.bind(this);
   }
-  
+
   state = {
     copyAddress: 'Click to copy!'
-  }
+  };
 
   copyAddress() {
-    this.setState({ copyAddress: 'Copied!'})
-    return <Button icon='world' bordered color='teal' />;
+    this.setState({ copyAddress: 'Copied!' });
+    return <Button icon="world" bordered color="teal" />;
   }
 
   renderButton() {
     return (
-      <CopyToClipboard text={this.props.event.location}><Button icon='world' bordered color='teal' /></CopyToClipboard>
+      <CopyToClipboard text={this.props.event.location}>
+        <Button icon="world" bordered color="teal" />
+      </CopyToClipboard>
     );
   }
 
   render() {
     return (
       <div>
-        <Popup 
-          trigger={<Button icon='calendar' bordered color='teal' />}
-          on='click'>
+        <Popup
+          trigger={<Button icon="calendar" bordered color="teal" />}
+          on="click"
+        >
           <Popup.Header>Calendar</Popup.Header>
           <Popup.Content>
-          <DayPickerSingleDateController />
+            <DayPickerSingleDateController />
           </Popup.Content>
         </Popup>
         <p>{this.props.event.date}</p>
-        <Popup 
-          trigger={this.renderButton()} 
-          on='click'
-          hideOnScroll>
-          <Popup.Header><i>Copied!</i></Popup.Header>
+        <Popup trigger={this.renderButton()} on="click" hideOnScroll>
+          <Popup.Header>
+            <i>Copied!</i>
+          </Popup.Header>
         </Popup>
         <p>{this.props.event.location}</p>
         <MapContainer />
-        {/* <Image
-          bordered
-          rounded
-          size='large'
-          src='https://i.stack.imgur.com/dApg7.png'
-        /> */}
       </div>
-    )
+    );
   }
 }
 

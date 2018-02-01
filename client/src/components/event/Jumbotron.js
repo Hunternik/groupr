@@ -29,22 +29,27 @@ class Jumbotron extends Component {
   state = {};
 
   renderCoverPhoto() {
-    if(this.props.event.eventId) {
-
+    if (this.props.event.eventId) {
     }
-    let coverPhoto = Images.filter(image => image.id === this.props.coverPhotoID);
-    console.log("IZZY AFDKAJDFAGD",coverPhoto);
+    let coverPhoto = Images.filter(
+      image => image.id === this.props.coverPhotoID
+    );
+    console.log('IZZY AFDKAJDFAGD', coverPhoto);
     return coverPhoto[0].src;
   }
 
   render() {
     return (
       <div>
-        <Visibility onUpdate={this.handleVisibility} className='image-container' textAlign='center'>
-          <ParallaxImage src={this.renderCoverPhoto()} reduceHeight={1/7} />
+        <Visibility
+          onUpdate={this.handleVisibility}
+          className="image-container"
+          textAlign="center"
+        >
+          <ParallaxImage src={this.renderCoverPhoto()} reduceHeight={1 / 7} />
           <Header
-            as='h1'
-            className='eventTitle'
+            as="h1"
+            className="eventTitle"
             content={this.props.event.title}
             inverted
             style={{
@@ -55,14 +60,13 @@ class Jumbotron extends Component {
             }}
           />
           <Header
-            as='h2'
-            className='eventHeadline'
-            content='Network with developers and technical recruiters from high quality companies.'
+            as="h2"
+            className="eventHeadline"
+            content="Network with developers and technical recruiters from high quality companies."
             inverted
             style={{ fontSize: '1.7em', fontWeight: 'normal' }}
           />
-          <AttendeeModal
-          />
+          <AttendeeModal />
         </Visibility>
       </div>
     );
@@ -74,6 +78,6 @@ const mapStateToProps = ({ event }) => ({
   event
 });
 
-export default connect(mapStateToProps,  {
+export default connect(mapStateToProps, {
   // Actions
 })(Jumbotron);
