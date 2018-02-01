@@ -30,7 +30,14 @@ class Recruiter extends Component {
         <Grid.Column width={10}>
           <h1>Recruiter</h1>
           <FieldLevelValidationForm />
+        <Button className="profile-button" size="large">
+                  Cancel
+                </Button>
+                <Button type="submit" className="profile-button" size="large">
+                  Update
+                </Button>
         </Grid.Column>
+
 
         <Grid.Column width={3}>
           <div />
