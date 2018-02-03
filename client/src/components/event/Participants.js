@@ -10,8 +10,8 @@ class Participants extends Component {
     const { activeItem } = this.state;
     return (
       <div>
-        <Grid verticalAlign="middle">
-          <Grid.Column width={4}>
+        <Grid container>
+          <Grid.Column width={3}>
             <Menu fluid vertical tabular>
               <Menu.Item
                 name="companies"
@@ -39,7 +39,7 @@ class Participants extends Component {
               </Menu.Item>
             </Menu>
           </Grid.Column>
-          <Grid.Column stretched width={12}>
+          <Grid.Column stretched width={7}>
             <Segment>
               This will be a list of companies, recruiters or attendies.
             </Segment>

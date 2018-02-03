@@ -9,8 +9,9 @@ class MapContainer extends Component {
   state = {};
 
   render() {
+
     return (
-      <Map google={this.props.google} zoom={14}>
+      <Map google={this.props.google} style={styles} zoom={14}>
         <Marker onClick={this.onMarkerClick} name={'Current location'} />
 
         <InfoWindow onClose={this.onInfoWindowClose}>
@@ -21,6 +22,12 @@ class MapContainer extends Component {
       </Map>
     );
   }
+}
+
+const styles = {
+  position: 'absolute',
+  width: '25em',
+  height: '25em'
 }
 
 export default GoogleApiWrapper({
