@@ -13,7 +13,7 @@ import {
   alphaNumeric,
   renderField
 } from '../utils/formValidations.js';
-import FormField from '../../constants/profileFields';
+import FormField from '../../constants/recruiterFields';
 import Payments from '../common/Payments';
 
 class RecruiterForm extends Component {
