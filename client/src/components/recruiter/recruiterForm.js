@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { Form, Button } from 'semantic-ui-react';
-import { Field, reduxForm } from 'redux-form'
+import { Field, reduxForm } from "redux-form";
 import { connect } from "react-redux";
 import * as actions from '../../actions';
 import {
@@ -34,16 +34,16 @@ class RecruiterForm extends Component {
   }
 
   render() {
-    // const { handleSubmit, pristine, reset, submitting } = props
+    const { handleSubmit, pristine, reset, submitting } = this.props
     return (
-      <Form>
+      <Form onSubmit={handleSubmit}>
         {this.renderForm()}
         <br/>
         <div>
-          <Button type="button" size='large'>
+          <Button type="button" size='large' disabled={pristine || submitting} onClick={reset}>
             Clear Values
           </Button>
-          <Button type="submit" size='large'>
+          <Button type="submit" size='large' disabled={pristine || submitting}>
             Submit
           </Button>
         </div>
@@ -52,7 +52,10 @@ class RecruiterForm extends Component {
   }
 }
 
-const mapStateToProps = ({ auth }) => ({ initialValues: auth });
+const mapStateToProps = ({ auth }, state) => ({ 
+  initialValues: state.auth,
+  form: state.recruiter
+});
 
 RecruiterForm = reduxForm({
   // a unique name for the form
