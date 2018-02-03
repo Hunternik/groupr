@@ -33,22 +33,41 @@ class RecruiterForm extends Component {
     return fieldForm;
   }
 
+  onRecruiterSubmit(data) {
+    const { _id, firstName, lastName, email, company, position } = data;
+    const RecruiterInfo = {
+      _id,
+      firstName,
+      lastName,
+      email,
+      company,
+      position
+    };
+
+    this.props.fetchRecruiter(RecruiterInfo);
+  }
+
   render() {
-    const { handleSubmit, pristine, reset, submitting } = this.props
+    const { handleSubmit, pristine, reset, submitting } = this.props;
     return (
       <Form onSubmit={handleSubmit}>
         {this.renderForm()}
-        <br/>
+        <br />
         <div>
-          <Button type="button" size='large' disabled={pristine || submitting} onClick={reset}>
+          <Button
+            type="button"
+            size="large"
+            disabled={pristine || submitting}
+            onClick={reset}
+          >
             Clear Values
           </Button>
-          <Button type="submit" size='large' disabled={pristine || submitting}>
+          <Button type="submit" size="large" disabled={pristine || submitting}>
             Submit
           </Button>
         </div>
       </Form>
-    )
+    );
   }
 }
 
