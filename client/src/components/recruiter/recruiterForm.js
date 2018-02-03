@@ -1,6 +1,8 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Form, Button } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form'
+import { connect } from "react-redux";
+import * as actions from '../../actions';
 import {
   required,
   email,
@@ -14,54 +16,47 @@ import {
 import FormField from '../../constants/profileFields';
 import Payments from '../common/Payments';
 
-
-let FieldLevelValidationForm = props => {
-  const { handleSubmit, pristine, reset, submitting } = props
-  return (
-    <Form onSubmit={handleSubmit}>
+class RecruiterForm extends Component {
+  renderForm() {
+    const validationType =
+      FormField.name === "Email" ? email : [required, maxLength25, minLength2];
+    const fieldForm = FormField.map(FormField => (
       <Field
-        name="company name"
-        type="text"
+        key={FormField.name}
+        name={FormField.name}
+        type={FormField.type}
         component={renderField}
-        label="Company Name"
-        validate={[required, maxLength25, minLength2]}
-        warn={alphaNumeric}
+        label={FormField.label}
+        validate={validationType}
       />
-			<Field
-        name="title"
-        type="text"
-        component={renderField}
-        label="Title"
-        validate={[required, maxLength25, minLength2]}
-        warn={alphaNumeric}
-      />
-			<Field
-        name="website"
-        type="text"
-        component={renderField}
-        label="Website"
-        validate={[required, maxLength25, minLength2]}
-      />
-      <div>
-        <br />
-        
-        <Payments />
-        <Button type="button" size='large' disabled={pristine || submitting} onClick={reset}>
-          Clear Values
-        </Button>
-        <Button type="submit" size='large' disabled={submitting}>
-          Submit
-        </Button>
-      </div>
-    </Form>
-  )
+    ));
+    return fieldForm;
+  }
 
-  
+  render() {
+    // const { handleSubmit, pristine, reset, submitting } = props
+    return (
+      <Form>
+        {this.renderForm()}
+        <div>
+          <Payments />
+          <Button type="button" size='large'>
+            Clear Values
+          </Button>
+          <Button type="submit" size='large'>
+            Submit
+          </Button>
+        </div>
+      </Form>
+    )
+  }
 }
 
-FieldLevelValidationForm = reduxForm({
+const mapStateToProps = ({ auth }) => ({ initialValues: auth });
+
+RecruiterForm = reduxForm({
   // a unique name for the form
   form: "recruiter"
-})(FieldLevelValidationForm);
+})(RecruiterForm);
 
-export default FieldLevelValidationForm;
+export default connect(mapStateToProps, actions)(RecruiterForm);

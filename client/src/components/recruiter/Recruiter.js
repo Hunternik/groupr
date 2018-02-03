@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import * as actions from '../../actions';
 import { Grid, Button } from 'semantic-ui-react';
 import Login from '../common/header/Login';
-import FieldLevelValidationForm from './recruiterForm';
+import RecruiterForm from './RecruiterForm';
 
 class Recruiter extends Component {
   constructor(props) {
@@ -59,7 +59,7 @@ class Recruiter extends Component {
 
         <Grid.Column width={10}>
           <h1>Recruiter</h1>
-          <FieldLevelValidationForm />
+          <RecruiterForm />
           {this.buttonFunction(this.props)}
           {/* <Button onClick={this.newFunction(this.props)}>
             Decrease credit
