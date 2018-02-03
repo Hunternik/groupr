@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import 'react-dates/initialize';
 import { DayPickerSingleDateController } from 'react-dates';
-import { Button, Popup, Grid } from 'semantic-ui-react';
+import { Button, Popup, Grid, Card } from 'semantic-ui-react';
 import 'react-dates/lib/css/_datepicker.css';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import MapContainer from './MapContainer';
@@ -34,6 +34,7 @@ class Details extends Component {
   render() {
     return (
       <div>
+        <Card>
         <Grid container>
           <Grid.Row>
             <Popup
@@ -59,6 +60,7 @@ class Details extends Component {
             <MapContainer />
           </Grid.Row>
         </Grid>
+        </Card>
       </div>
     );
   }
