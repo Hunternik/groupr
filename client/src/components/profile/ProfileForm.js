@@ -10,7 +10,7 @@ import {
   minLength2,
   renderField
 } from "../utils/formValidations.js";
-import FormField from "../../constants/profileFields";
+import profileFields from "../../constants/profileFields";
 
 require("./profile.css");
 
@@ -19,21 +19,22 @@ class ProfileForm extends Component {
     super();
 
     this.onProfileSubmit = this.onProfileSubmit.bind(this);
-  }
+	}
+	
   renderForm() {
     const validationType =
-      FormField.name === "Email" ? email : [required, maxLength25, minLength2];
-    const fieldForm = FormField.map(FormField => (
+      profileFields.name === "Email" ? email : [required, maxLength25, minLength2];
+    const fields = profileFields.map(field => (
       <Field
-        key={FormField.name}
-        name={FormField.name}
-        type={FormField.type}
+        key={field.name}
+        name={field.name}
+        type={field.type}
         component={renderField}
-        label={FormField.label}
+        label={field.label}
         validate={validationType}
       />
     ));
-    return fieldForm;
+    return fields;
   }
 
   onProfileSubmit(data) {
@@ -47,8 +48,8 @@ class ProfileForm extends Component {
       position
     };
 
-		this.props.submitProfile(updateProfile);
-		this.props.onCancel();
+    this.props.submitProfile(updateProfile);
+    this.props.onCancel();
   }
 
   render() {
@@ -57,18 +58,14 @@ class ProfileForm extends Component {
         {this.renderForm()}
         <div className="button-group">
           <Button
-						type="button" 
+            type="button"
             onClick={this.props.onCancel}
             className="profile-button"
             size="large"
           >
             Cancel
           </Button>
-          <Button
-            type="submit"
-            className="profile-button"
-            size="large"
-          >
+          <Button type="submit" className="profile-button" size="large">
             Update
           </Button>
         </div>
@@ -79,6 +76,8 @@ class ProfileForm extends Component {
 
 const mapStateToProps = ({ auth }) => ({ initialValues: auth });
 
-ProfileForm = reduxForm({ form: "profile", destroyOnUnmount: false })(ProfileForm);
+ProfileForm = reduxForm({ form: "profile", destroyOnUnmount: false })(
+  ProfileForm
+);
 
 export default connect(mapStateToProps, { submitProfile })(ProfileForm);

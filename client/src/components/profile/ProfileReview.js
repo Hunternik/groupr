@@ -1,20 +1,20 @@
 import React, { Component } from "react";
-import { Button } from "semantic-ui-react";
+import { Button, Form } from "semantic-ui-react";
 import { connect } from "react-redux";
-import FormField from "../../constants/profileFields";
+import profileFields from "../../constants/profileFields";
 
 require("./profile.css");
 
 class ProfileReview extends Component {
-	state = { profileValues: null };
-	
-	componentDidMount() {
-		if(this.props.profile) {
-			const { values: profileValues } = this.props.profile;
+  state = { profileValues: null };
+
+  componentDidMount() {
+    if (this.props.profile) {
+      const { values: profileValues } = this.props.profile;
 
       this.setState({ profileValues });
-		}
-	}
+    }
+  }
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.profile && this.props.profile !== nextProps.profile) {
@@ -25,21 +25,20 @@ class ProfileReview extends Component {
   }
 
   renderFields() {
-    return FormField.map(FormField => (
-      <div key={FormField.name}>
-        <label>{FormField.label}:</label>
-        <span>{this.state.profileValues[FormField.name]}</span>
-      </div>
+    return profileFields.map(field => (
+      <Form.Input fluid label={field.label} readOnly>
+        {this.state.profileValues[field.name]}
+      </Form.Input>
     ));
   }
 
   render() {
     return (
-      <div>
+      <Form>
         {this.state.profileValues && this.renderFields()}
         <div className="button-group">
           <Button
-						type="button" 
+            type="button"
             onClick={this.props.onCancel}
             className="profile-button"
             size="large"
@@ -48,14 +47,14 @@ class ProfileReview extends Component {
           </Button>
           <Button
             onClick={this.props.onUpdate}
-            type="button" 
+            type="button"
             className="profile-button"
             size="large"
           >
             Update
           </Button>
         </div>
-      </div>
+      </Form>
     );
   }
 }
