@@ -40,7 +40,9 @@ constructor() {
   }
 
   onRecruiterSubmit(data) {
-    const { name, industry, website, jobsOpen, primaryContact, imgLogoURL, employees } = data;
+    const { name, industry, website, jobsOpen, primaryContact, imgLogoURL } = data;
+    const employees = this.props.auth._id;
+    const activeEvents = this.props.event._id;
     const RecruiterInfo = {
       name,
       industry,
@@ -48,9 +50,10 @@ constructor() {
       jobsOpen,
       primaryContact,
       imgLogoURL,
-      employees
+      employees,
+      activeEvents
     };
-    console.log("Recruiter Form Data: ", data);
+
     this.props.fetchRecruiter(RecruiterInfo);
   }
 
@@ -78,9 +81,9 @@ constructor() {
   }
 }
 
-const mapStateToProps = ({ auth }, state) => ({ 
-  initialValues: state.auth,
-  form: state.recruiter
+const mapStateToProps = ( state ) => ({ 
+  auth: state.auth,
+  event: state.event
 });
 
 RecruiterForm = reduxForm({
