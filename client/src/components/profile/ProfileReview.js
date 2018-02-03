@@ -18,7 +18,6 @@ class ProfileReview extends Component {
 
   componentWillReceiveProps(nextProps) {
     if (nextProps.profile && this.props.profile !== nextProps.profile) {
-			console.log('this fired')
       const { values: profileValues } = nextProps.profile;
 
       this.setState({ profileValues });
@@ -35,12 +34,12 @@ class ProfileReview extends Component {
   }
 
   render() {
-    console.log(this.state.profileValues);
     return (
       <div>
         {this.state.profileValues && this.renderFields()}
         <div className="button-group">
           <Button
+						type="button" 
             onClick={this.props.onCancel}
             className="profile-button"
             size="large"
@@ -49,7 +48,7 @@ class ProfileReview extends Component {
           </Button>
           <Button
             onClick={this.props.onUpdate}
-            type="submit"
+            type="button" 
             className="profile-button"
             size="large"
           >

@@ -1,20 +1,20 @@
-import React, { Component } from 'react';
-import { reduxForm } from 'redux-form';
-import { connect } from 'react-redux';
-import { Container, Header, Grid, Segment } from 'semantic-ui-react';
-import ProfileForm from './ProfileForm';
-import ProfileReview from './ProfileReview';
-require('./profile.css');
+import React, { Component } from "react";
+import { reduxForm } from "redux-form";
+import { connect } from "react-redux";
+import { Container, Header, Grid, Segment } from "semantic-ui-react";
+import ProfileForm from "./ProfileForm";
+import ProfileReview from "./ProfileReview";
+require("./profile.css");
 
 class Profile extends Component {
   constructor(props) {
-		super(props);
-		
+    super(props);
+
     this.handleCancel = this.handleCancel.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
 	}
-	
-	state = { showProfileReview: true };
+
+  state = { showProfileReview: true };
 
   handleCancel() {
     this.setState({ showProfileReview: true });
@@ -25,11 +25,17 @@ class Profile extends Component {
   }
 
   renderContent() {
-    if (this.state.showProfileReview) {
-      return <ProfileReview onCancel={this.handleCancel} onUpdate={this.handleUpdate} />;
-    }
+    if (this.state.showProfileReview)
+      return (
+        <ProfileReview
+          onCancel={this.handleCancel}
+          onUpdate={this.handleUpdate}
+        />
+      );
 
-    return <ProfileForm onCancel={this.handleCancel} onUpdate={this.handleUpdate} />;
+    return (
+      <ProfileForm onCancel={this.handleCancel} onUpdate={this.handleUpdate} />
+    );
   }
 
   render() {
@@ -58,6 +64,9 @@ class Profile extends Component {
 
 const mapStateToProps = ({ auth }) => ({ initialValues: auth });
 
-Profile = reduxForm({ form: 'profile', enableReinitialize: true }, mapStateToProps)(Profile);
+Profile = reduxForm(
+  { form: "profile", enableReinitialize: true },
+  mapStateToProps
+)(Profile);
 
 export default connect(mapStateToProps)(Profile);
