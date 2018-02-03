@@ -38,8 +38,8 @@ class RecruiterForm extends Component {
     return (
       <Form>
         {this.renderForm()}
+        <br/>
         <div>
-          <Payments />
           <Button type="button" size='large'>
             Clear Values
           </Button>

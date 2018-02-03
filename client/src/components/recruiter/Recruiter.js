@@ -11,28 +11,10 @@ class Recruiter extends Component {
     this.state = {
       recruiter: null
     };
-    this.buttonFunction = this.buttonFunction.bind(this);
-    this.newFunction = this.newFunction.bind(this);
   }
 
   componentDidMount() {
     this.props.auth
-  }
-
-  newFunction (auth) {
-    if (this.props.auth.credits === 6) {
-      this.setState({ credits: 0 })
-    console.log(auth);
-    }
-  }
-
-  buttonFunction (auth) {
-    if (this.props.auth.credits < 6){
-      return null;
-    }
-    else {
-      return <Button onClick={this.newFunction}>Hi Mike</Button>
-    }
   }
 
   componentDidUpdate (oldProps,oldState) {
@@ -45,8 +27,6 @@ class Recruiter extends Component {
   }
 
   render() {
-    console.log('****** this.props ', this.props.auth);
-
     if (!this.props.auth) {
       return <Login quizInit />;
     }
@@ -56,22 +36,15 @@ class Recruiter extends Component {
         <Grid.Column width={3}>
           <div />
         </Grid.Column>
-
         <Grid.Column width={10}>
           <h1>Recruiter</h1>
           <RecruiterForm />
-          {this.buttonFunction(this.props)}
-          {/* <Button onClick={this.newFunction(this.props)}>
-            Decrease credit
-          </Button> */}
         </Grid.Column>
-
         <Grid.Column width={3}>
           <div />
         </Grid.Column>
       </Grid>
     );
-
   }
 }
 

@@ -1,4 +1,3 @@
-// 	companyId: String
 export default [
   {
     name: "name",
@@ -13,6 +12,11 @@ export default [
   {
     name: "website",
     label: "Website",
+    type: "text"
+  },
+  {
+    name: "logoURL",
+    label: "Logo URL",
     type: "text"
   },
   {
