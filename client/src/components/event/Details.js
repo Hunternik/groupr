@@ -34,7 +34,7 @@ class Details extends Component {
   render() {
     return (
       <div>
-        <Card>
+        {/* <Card> */}
         <Grid container>
           <Grid.Row>
             <Popup
@@ -60,7 +60,7 @@ class Details extends Component {
             <MapContainer />
           </Grid.Row>
         </Grid>
-        </Card>
+        {/* </Card> */}
       </div>
     );
   }
