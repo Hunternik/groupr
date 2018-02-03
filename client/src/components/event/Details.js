@@ -2,10 +2,7 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import 'react-dates/initialize';
 import { DayPickerSingleDateController } from 'react-dates';
-import {
-  Button,
-  Popup
-} from 'semantic-ui-react';
+import { Button, Popup, Grid, Card } from 'semantic-ui-react';
 import 'react-dates/lib/css/_datepicker.css';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
 import MapContainer from './MapContainer';
@@ -37,23 +34,33 @@ class Details extends Component {
   render() {
     return (
       <div>
-        <Popup
-          trigger={<Button icon="calendar" bordered color="teal" />}
-          on="click"
-        >
-          <Popup.Header>Calendar</Popup.Header>
-          <Popup.Content>
-            <DayPickerSingleDateController />
-          </Popup.Content>
-        </Popup>
-        <p>{this.props.event.date}</p>
-        <Popup trigger={this.renderButton()} on="click" hideOnScroll>
-          <Popup.Header>
-            <i>Copied!</i>
-          </Popup.Header>
-        </Popup>
-        <p>{this.props.event.location}</p>
-        <MapContainer />
+        {/* <Card> */}
+        <Grid container>
+          <Grid.Row>
+            <Popup
+              trigger={<Button icon="calendar" bordered color="teal" />}
+              on="click"
+            >
+              <Popup.Header>Calendar</Popup.Header>
+              <Popup.Content>
+                <DayPickerSingleDateController />
+              </Popup.Content>
+            </Popup>
+            <p>{this.props.event.date}</p>
+          </Grid.Row>
+          <Grid.Row>
+            <Popup trigger={this.renderButton()} on="click" hideOnScroll>
+              <Popup.Header>
+                <i>Copied!</i>
+              </Popup.Header>
+            </Popup>
+            <p>{this.props.event.location}</p>
+          </Grid.Row>
+          <Grid.Row style={{position: 'relative'}}>
+            <MapContainer />
+          </Grid.Row>
+        </Grid>
+        {/* </Card> */}
       </div>
     );
   }

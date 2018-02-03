@@ -55,19 +55,21 @@ class EventPage extends Component {
           event={this.renderEventData()}
           coverPhotoID={this.props.match.params.eventId.toUpperCase()}
         />
-        <Segment style={{ padding: '8em 0em' }} vertical>
-          <Grid container stackable verticalAlign="middle">
+        <Segment style={{ padding: '0em 0em' }} vertical>
+          <Grid container>
             <Grid.Row>
-              <Grid.Column width={9}>
+              <Grid.Column width={10}>
                 <Description event={this.renderEventData()} />
               </Grid.Column>
-              <Grid.Column floated="right" width={5}>
+              <Grid.Column width={6}>
                 <Details event={this.renderEventData()} />
               </Grid.Column>
             </Grid.Row>
           </Grid>
         </Segment>
-        <Participants />
+        <Segment vertical>
+          <Participants />
+        </Segment>
       </div>
     );
   }
