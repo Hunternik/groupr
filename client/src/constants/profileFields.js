@@ -1,22 +1,27 @@
 export default [
   {
-    name: 'First Name',
+		name: 'firstName',
+		label: 'First Name',
     type: 'text'
   },
   {
-    name: 'Last Name',
+		name: 'lastName',
+		label: 'Last Name',
     type: 'text'
   },
   {
-    name: 'Email',
+		name: 'email',
+		label: 'Email',
     type: 'email'
   },
   {
-    name: 'Company',
+		name: 'company',
+		label: 'Company',
     type: 'text'
   },
   {
-    name: 'Position',
+		name: 'position',
+		label: 'Position',
     type: 'text'
   }
 ];

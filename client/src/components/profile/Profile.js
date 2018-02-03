@@ -1,52 +1,51 @@
-import React, { Component } from 'react';
-import { Field, reduxForm } from 'redux-form';
-import { Button, Container, Checkbox, Form, Header, Grid, Segment } from 'semantic-ui-react';
-import { connect } from 'react-redux';
-import { submitProfile } from '../../actions';
-import {
-  required,
-  email,
-  maxLength,
-  maxLength25,
-  minLength,
-  minLength2,
-  alphaNumeric,
-  renderField
-} from '../utils/formValidations.js';
-import FormField from '../../constants/profileFields';
-
-require('./profile.css');
+import React, { Component } from "react";
+import { reduxForm } from "redux-form";
+import { connect } from "react-redux";
+import { Container, Header, Grid, Segment } from "semantic-ui-react";
+import ProfileForm from "./ProfileForm";
+import ProfileReview from "./ProfileReview";
+require("./profile.css");
 
 class Profile extends Component {
-  renderForm() {
-    const fieldForm = FormField.map((FormField) => {
-      const validationType = FormField.name === 'Email' ? email : [ required, maxLength25, minLength2 ];
+  constructor(props) {
+    super(props);
 
+    this.handleCancel = this.handleCancel.bind(this);
+    this.handleUpdate = this.handleUpdate.bind(this);
+	}
+
+  state = { showProfileReview: true };
+
+  handleCancel() {
+    this.setState({ showProfileReview: true });
+  }
+
+  handleUpdate() {
+    this.setState({ showProfileReview: false });
+  }
+
+  renderContent() {
+    if (this.state.showProfileReview)
       return (
-        <Field
-          key={FormField.name}
-          name={FormField.name}
-          type={FormField.type}
-          component={renderField}
-          label={FormField.name}
-          validate={validationType}
+        <ProfileReview
+          onCancel={this.handleCancel}
+          onUpdate={this.handleUpdate}
         />
       );
-    });
-    return fieldForm;
+
+    return (
+      <ProfileForm onCancel={this.handleCancel} onUpdate={this.handleUpdate} />
+    );
   }
 
   render() {
-		console.log(this.props);
-		
-    const { handleSubmit, pristine, reset, submitting } = this.props;
     return (
       <Container>
         <Header as="h1" textAlign="center">
           {this.props.auth && this.props.auth.displayName}
         </Header>
         <Grid stackable columns={2} textAlign="center" centered>
-          <Grid.Column textAlign="center" centered>
+          <Grid.Column textAlign="center">
             <Segment>
               <h1>My Events</h1>
             </Segment>
@@ -54,15 +53,7 @@ class Profile extends Component {
           <Grid.Column>
             <Segment>
               <h1>Profile</h1>
-              <Form>{this.renderForm()}</Form>
-              <div className="button-group">
-                <Button className="profile-button" size="large">
-                  Cancel
-                </Button>
-                <Button type="submit" className="profile-button" size="large">
-                  Update
-                </Button>
-              </div>
+              {this.renderContent()}
             </Segment>
           </Grid.Column>
         </Grid>
@@ -71,8 +62,11 @@ class Profile extends Component {
   }
 }
 
-const mapStateToProps = (state) => ({ initialValues: state.auth });
+const mapStateToProps = ({ auth }) => ({ initialValues: auth });
 
-Profile = reduxForm({ form: 'profile', enableReinitialize: true })(Profile);
+Profile = reduxForm(
+  { form: "profile", enableReinitialize: true },
+  mapStateToProps
+)(Profile);
 
-export default connect(mapStateToProps, { submitProfile })(Profile);
+export default connect(mapStateToProps)(Profile);
