@@ -17,6 +17,12 @@ import FormField from '../../constants/recruiterFields';
 import Payments from '../common/Payments';
 
 class RecruiterForm extends Component {
+constructor() {
+  super();
+  
+  this.onRecruiterSubmit = this.onRecruiterSubmit.bind(this);
+}
+
   renderForm() {
     const validationType =
       FormField.name === "Email" ? email : [required, maxLength25, minLength2];
@@ -34,23 +40,24 @@ class RecruiterForm extends Component {
   }
 
   onRecruiterSubmit(data) {
-    const { _id, firstName, lastName, email, company, position } = data;
+    const { name, industry, website, jobsOpen, primaryContact, imgLogoURL, employees } = data;
     const RecruiterInfo = {
-      _id,
-      firstName,
-      lastName,
-      email,
-      company,
-      position
+      name,
+      industry,
+      website,
+      jobsOpen,
+      primaryContact,
+      imgLogoURL,
+      employees
     };
-
+    console.log("Recruiter Form Data: ", data);
     this.props.fetchRecruiter(RecruiterInfo);
   }
 
   render() {
     const { handleSubmit, pristine, reset, submitting } = this.props;
     return (
-      <Form onSubmit={handleSubmit}>
+      <Form onSubmit={this.props.handleSubmit(this.onRecruiterSubmit)}>
         {this.renderForm()}
         <br />
         <div>

@@ -15,7 +15,7 @@ export default [
     type: "text"
   },
   {
-    name: "logoURL",
+    name: "imgLogoURL",
     label: "Logo URL",
     type: "text"
   },
