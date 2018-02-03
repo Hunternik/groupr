@@ -12,11 +12,11 @@ module.exports.insertCompany = async (req, res) => {
     name: name || null,
     industry: industry || null,
     website: website || null,
-    jobsOpen: jobsOpen || null,
+    jobsOpen: [jobsOpen] || null,
     imgLogoURL: imgLogoURL || null,
-    employees: employees || null,
-    activeEvents: activeEvents || null,
-    pastEvents: pastEvents || null
+    employees: [employees] || null,
+    activeEvents: [activeEvents] || null,
+    pastEvents: [pastEvents] || null
   };
 
   // If company already exists, add userSchema to db
@@ -35,12 +35,24 @@ module.exports.insertCompany = async (req, res) => {
     // Use Event ID
     // Add employee to array
 
-
   // Try catch block
   try {
     const company = await new Company(newCompany).save();
     res.send(company);
   } catch (error) {
     res.status(404).send(error);
+  }
+}
+
+module.exports.getCompany = async (req, res) => {
+    const id = req.params.id;
+  
+    try {
+      const company = await Companies.find({ name: id });
+      
+      res.send(companies);
+    } catch (error) {
+      res.status(404).send(error);
+    }
   }
 }
