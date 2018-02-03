@@ -44,18 +44,15 @@ let FieldLevelValidationForm = props => {
       />
       <div>
         <br />
-        <Button type="submit" size='large' disabled={submitting}>
-          Submit
-        </Button>
+        
+        <Payments />
         <Button type="button" size='large' disabled={pristine || submitting} onClick={reset}>
           Clear Values
         </Button>
+        <Button type="submit" size='large' disabled={submitting}>
+          Submit
+        </Button>
       </div>
-      
-      
-      <Payments />
-      
-
     </Form>
   )
 
