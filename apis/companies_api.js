@@ -5,7 +5,18 @@ module.exports.insertCompany = async (req, res) => {
   console.log(req.body);
 
   // Information from redux form
-  const { companyId, name, industry, website, jobsOpen, imgLogoURL, employees, activeEvents, pastEvents } = req.body;
+  const {
+    companyId,
+    name,
+    industry,
+    website,
+    jobsOpen,
+    primaryContact,
+    imgLogoURL,
+    employees,
+    activeEvents,
+    pastEvents
+  } = req.body;
 
   const newCompany = {
     companyId: companyId || null,
@@ -13,6 +24,7 @@ module.exports.insertCompany = async (req, res) => {
     industry: industry || null,
     website: website || null,
     jobsOpen: [jobsOpen] || null,
+    primaryContact: primaryContact || null,
     imgLogoURL: imgLogoURL || null,
     employees: [employees] || null,
     activeEvents: [activeEvents] || null,
@@ -21,38 +33,38 @@ module.exports.insertCompany = async (req, res) => {
 
   // If company already exists, add userSchema to db
   // If company doesn't exist, .save into mongoDB
-    // with userSchema
-    // with eventSchema
+  // with userSchema
+  // with eventSchema
 
   // 1. Check if employee for that event
   // let existingCompany;
 
   // 2. Check if company exists for that event
-    // Add existing user
-    // Return null
+  // Add existing user
+  // Return null
 
   // 3. If companye exists
-    // Use Event ID
-    // Add employee to array
+  // Use Event ID
+  // Add employee to array
 
   // Try catch block
   try {
     const company = await new Company(newCompany).save();
+    
     res.send(company);
   } catch (error) {
     res.status(404).send(error);
   }
-}
+};
 
 module.exports.getCompany = async (req, res) => {
-    const id = req.params.id;
-  
-    try {
-      const company = await Companies.find({ name: id });
-      
-      res.send(companies);
-    } catch (error) {
-      res.status(404).send(error);
-    }
+  const id = req.params.id;
+
+  try {
+    const company = await Companies.find({ name: id });
+
+    res.send(company);
+  } catch (error) {
+    res.status(404).send(error);
   }
-}
+};

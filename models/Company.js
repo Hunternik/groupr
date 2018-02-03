@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 const { Schema } = mongoose;
-// const userSchema = require('./User');
-// const eventSchema = require('./Events')
+const userSchema = require('./User');
+const eventSchema = require('./Events')
 
 const companySchema = new Schema({
 	companyId: String,
@@ -9,11 +9,11 @@ const companySchema = new Schema({
 	industry: String,
   website: String,
   jobsOpen: Array,
+  primaryContact: String,
   imgLogoURL: String,
-  primaryContact: null,
-	employees: null,
-  activeEvents: null,
-  pastEvents: null,
+	employees: [userSchema],
+  activeEvents: [eventSchema],
+  pastEvents: [eventSchema],
 });
 
 // first arugment passed into models is the name of the collection, second arg is info
