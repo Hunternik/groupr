@@ -11,6 +11,7 @@ app.use(bodyParser.json());
 
 // connect to mongodb
 require('./models/User');
+require('./models/Events');
 require('./models/Quiz');
 require('./models');
 require('./services/googlePassport');

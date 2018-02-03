@@ -1,4 +1,4 @@
-import { FETCH_EVENT } from '../actions/types';
+import { FETCH_EVENT, ADD_EVENT } from '../actions/types';
 
 const INITIAL_STATE = {
   _id: null,
@@ -16,9 +16,8 @@ const INITIAL_STATE = {
 export default function(state = INITIAL_STATE, action) {
   switch (action.type) {
     case FETCH_EVENT:
-      console.log('FETCH_EVENT fired with payload', action.payload);
       return { ...state, ...action.payload };
     default:
       return state;
   }
-};
+}

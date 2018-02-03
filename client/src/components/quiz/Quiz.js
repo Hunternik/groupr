@@ -90,20 +90,31 @@ class Quiz extends Component {
     this.refs.login.renderLoginItems();
   }
 
+  passQuiz(data) {
+    console.log(this.props.auth);
+
+    this.props.passed_quiz({ eventId: this.props.event.eventId });
+  }
+
+  // failQuiz() {
+  //
+  // }
+
   render() {
+    console.log(this.props.event);
     const { index } = this.state;
-    const quiz = this.props.quiz ? this.props.quiz.questions : "null";
+    const quiz = this.props.quiz ? this.props.quiz.questions : 'null';
     const currentQuestion = quiz[index].question;
 
     if (this.state.complete === true && this.state.score > 1) {
+      this.passQuiz();
       return <QuizPassModal score={this.state.score} />;
     }
 
     if (this.state.complete === true && this.state.score <= 1) {
+      // this.failQuiz();
       return <QuizFailModal score={this.state.score} />;
     }
-
-    console.log(this.props);
 
     if (!this.props.auth) {
       return <Login quizInit />;
@@ -130,9 +141,10 @@ class Quiz extends Component {
   }
 }
 
-const mapStateToProps = ( state ) => ({
+const mapStateToProps = state => ({
   quiz: state.quiz,
-  auth: state.auth
+  auth: state.auth,
+  event: state.event
 });
 
 export default connect(mapStateToProps, actions)(Quiz);
