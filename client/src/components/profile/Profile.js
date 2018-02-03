@@ -13,8 +13,13 @@ class Profile extends Component {
     this.handleCancel = this.handleCancel.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
 	}
+	
+	componentWillReceiveProps(nextProps) {
+		if (this.props.initialValues && this.props.initialValues !== nextProps.initialValues)
+			this.setState({ success: true, profile: nextProps });
+	}
 
-  state = { showProfileReview: true };
+  state = { showProfileReview: true, success: false };
 
   handleCancel() {
     this.setState({ showProfileReview: true });
@@ -29,7 +34,8 @@ class Profile extends Component {
       return (
         <ProfileReview
           onCancel={this.handleCancel}
-          onUpdate={this.handleUpdate}
+					onUpdate={this.handleUpdate}
+					success={this.state.success}
         />
       );
 
@@ -65,7 +71,7 @@ class Profile extends Component {
 const mapStateToProps = ({ auth }) => ({ initialValues: auth });
 
 Profile = reduxForm(
-  { form: "profile", enableReinitialize: true },
+{ form: "profile", enableReinitialize: true },
   mapStateToProps
 )(Profile);
 

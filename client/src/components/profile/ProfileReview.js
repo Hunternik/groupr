@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Button, Form } from "semantic-ui-react";
+import { Button, Form, Message } from "semantic-ui-react";
 import { connect } from "react-redux";
 import profileFields from "../../constants/profileFields";
 
@@ -22,7 +22,7 @@ class ProfileReview extends Component {
 
       this.setState({ profileValues });
     }
-  }
+	}
 
   renderFields() {
     return profileFields.map(field => (
@@ -34,7 +34,12 @@ class ProfileReview extends Component {
 
   render() {
     return (
-      <Form>
+      <Form success={this.props.success}>
+        <Message
+          success
+          header="Save Successful!"
+          content="Your information has been updated!"
+        />
         {this.state.profileValues && this.renderFields()}
         <div className="button-group">
           <Button

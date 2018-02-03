@@ -19,11 +19,23 @@ class ProfileForm extends Component {
     super();
 
     this.onProfileSubmit = this.onProfileSubmit.bind(this);
+  }
+
+  state = { loading: false };
+
+  componentWillReceiveProps(nextProps) {
+		// Wait for response from server before updating state to remove spinner
+    if (this.props.initialValues !== nextProps.initialValues) {
+      this.setState({ loading: false });
+      this.props.onCancel();
+		}
 	}
-	
+
   renderForm() {
     const validationType =
-      profileFields.name === "Email" ? email : [required, maxLength25, minLength2];
+      profileFields.name === "Email"
+        ? email
+        : [required, maxLength25, minLength2];
     const fields = profileFields.map(field => (
       <Field
         key={field.name}
@@ -35,7 +47,16 @@ class ProfileForm extends Component {
       />
     ));
     return fields;
-  }
+	}
+	
+	isEqual(updated,initial) {
+		for (let field in updated) {
+			if (updated[field] !== initial[field]) {
+				return true
+			}
+		}
+		return false;
+	}
 
   onProfileSubmit(data) {
     const { _id, firstName, lastName, email, company, position } = data;
@@ -46,15 +67,24 @@ class ProfileForm extends Component {
       email,
       company,
       position
-    };
-
-    this.props.submitProfile(updateProfile);
-    this.props.onCancel();
+		};
+		const initialProfile = { _id, ...this.props.initialValues};
+		const fieldsChanged = this.isEqual(updateProfile,initialProfile);
+		// Check to see if there were updates to the form, if there are changes update the db
+		if (fieldsChanged) {
+			this.props.submitProfile(updateProfile);
+    	this.setState({ loading: true });
+		} else {
+			this.props.onCancel();
+		}
   }
 
   render() {
     return (
-      <Form onSubmit={this.props.handleSubmit(this.onProfileSubmit)}>
+      <Form
+        onSubmit={this.props.handleSubmit(this.onProfileSubmit)}
+        loading={this.state.loading}
+      >
         {this.renderForm()}
         <div className="button-group">
           <Button
