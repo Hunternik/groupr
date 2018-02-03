@@ -1,9 +1,9 @@
 const Events = require('./Events');
 const User = require('./User');
-const Companies = require('./Companies');
+const Company = require('./Company');
 
 module.exports ={
 	Events: Events,
 	User: User,
-	Companies: Companies
+	Company: Company
 };
