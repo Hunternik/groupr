@@ -20,11 +20,11 @@ class Payments extends Component {
 				description='$1 for 1 credit to make you holla'
 				allowRememberMe='false'
 			>
-			<div>
+			{/* <div>
     			<Button color='teal' size='large'>
 					Pay Fee
 				</Button>
-  			</div>
+  			</div> */}
 			</StripeCheckout>
 		);
 	}
