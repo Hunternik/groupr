@@ -1,9 +1,11 @@
 const passport = require('passport');
+const mongoose = require('mongoose');
+const User = mongoose.model('users');
 
 // Login authentication handlers
 
 // Request authentication
-// ********* Google OAuth *********	
+// ********* Google OAuth *********
 module.exports.requestGoogleToken = passport.authenticate('google', {
   scope: [ 'profile', 'email' ],
   prompt: 'select_account'
@@ -13,8 +15,20 @@ module.exports.requestGoogleToken = passport.authenticate('google', {
 module.exports.authenticateGoogleUser = [ passport.authenticate('google'), (req, res) => res.redirect('/') ];
 
 // ********* LinkedIn OAuth *********
-module.exports.requestLinkedInToken =  passport.authenticate('linkedin', {
-  scope: ['r_basicprofile', 'r_emailaddress']
+module.exports.requestLinkedInToken = passport.authenticate('linkedin', {
+  scope: [ 'r_basicprofile', 'r_emailaddress' ]
 });
 
 module.exports.authenticateLinkedInUser = [ passport.authenticate('linkedin'), (req, res) => res.redirect('/') ];
+
+module.exports.updateProfile = async (req, res) => {
+	const { _id, ...updatedProfile } = req.body;
+
+  try {
+    const user = await User.findByIdAndUpdate(_id, updatedProfile);
+
+    res.send(user);
+  } catch (error) {
+    res.status(500).send(error);
+  }
+};
