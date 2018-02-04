@@ -14,16 +14,7 @@ class Recruiter extends Component {
   }
 
   componentDidMount() {
-    this.props.auth
-  }
-
-  componentDidUpdate (oldProps,oldState) {
-    if (this.state.show){
-      return null;
-    }
-    else {
-      return <Button/>
-    }
+    this.props.auth;
   }
 
   render() {
