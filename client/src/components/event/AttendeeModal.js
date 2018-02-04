@@ -5,19 +5,25 @@ import { withRouter } from 'react-router-dom';
 class AttendeeModal extends Component {
   state = { modalOpen: false };
 
+  componentDidMount() {
+    const eventId = this.props.match.params.eventId;
+    this.setState({ eventId });
+  }
+
   handleOpen = () => this.setState({ modalOpen: true });
 
   handleQuiz = () => {
-    this.props.history.push("/quiz");
+    this.props.history.push('/quiz');
     this.setState({ modalOpen: false });
   };
 
   handleRecruiter = () => {
-    this.props.history.push("/recruiter");
+    this.props.history.push('/recruiter');
     this.setState({ modalOpen: false });
   };
 
   render() {
+    console.log(this.state.eventId);
     return (
       <Modal
         className="scrolling"

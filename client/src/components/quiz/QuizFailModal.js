@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, Button, Label, Header, Icon, Modal } from 'semantic-ui-react';
+import { Image, Button, Modal } from 'semantic-ui-react';
 import * as actions from '../../actions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -11,6 +11,10 @@ class QuizFailModal extends Component {
       modalOpen: true
     };
   }
+
+  // componentWillMount() {
+  //   this.props.toggleActive;
+  // }
 
   handleOpen = () => this.setState({ modalOpen: true });
 
@@ -25,7 +29,7 @@ class QuizFailModal extends Component {
     const qandas = [];
     for (let i = 0; i < quiz.length; i++) {
       qandas.push(
-        <div>
+        <div key={quiz + i}>
           <div>
             Question {i + 1}: {quiz[i].question}
           </div>
@@ -37,14 +41,9 @@ class QuizFailModal extends Component {
   };
 
   render() {
-    console.log(this.props.quiz.questions[0]);
+    console.log(this.props.active);
     return (
-      <Modal
-        className="scrolling"
-        open={this.state.modalOpen}
-        onClose={this.handleClose}
-        size="tiny"
-      >
+      <Modal open={this.state.modalOpen} onClose={this.handleClose} size="tiny">
         <Modal.Content>
           <Image
             className="fail-image"
@@ -53,10 +52,12 @@ class QuizFailModal extends Component {
           />
           <h3>You need 2/3 to pass. Take a look at our other events!</h3>
           <Modal.Description>
-            <p class="user_score">
+            <p className="user_score">
               You scored {this.props.score} out of 3 questions
             </p>
-            <p class="question_review">Here is a review of the questions:</p>
+            <p className="question_review">
+              Here is a review of the questions:
+            </p>
             {this.printQA()}
           </Modal.Description>
         </Modal.Content>
