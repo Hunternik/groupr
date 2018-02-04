@@ -1,17 +1,8 @@
 const express = require('express');
 const router = express.Router();
-const mongoose = require('mongoose');
-const Quiz = mongoose.model('quiz');
 const requireLogin = require('./middleware/requireLogin');
+const quiz_api = require('../apis/quiz_api');
 
-router.get('/', requireLogin, function(req, res) {
-  Quiz.find({}, function(err, found) {
-    if (err) {
-      console.log(err);
-    } else {
-      res.json(found);
-    }
-  });
-});
+router.get('/', requireLogin, quiz_api.getQuiz);
 
 module.exports = router;

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, Button, Label, Header, Icon, Modal } from 'semantic-ui-react';
+import { Button, Modal } from 'semantic-ui-react';
 import * as actions from '../../actions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -44,7 +44,7 @@ class QuizPassModal extends Component {
     for (let i = 0; i < 6; i++) {
       confettis.push(
         <svg
-          class="confetti"
+          className="confetti"
           height="19"
           viewBox="0 0 19 19"
           width="19"
@@ -64,15 +64,14 @@ class QuizPassModal extends Component {
   render() {
     return (
       <Modal
-        className="scrolling"
         open={this.state.modalOpen}
         onClose={this.handleClose}
         size="small"
       >
         <Modal.Content>
-          <div class="checkmark">
+          <div className="checkmark">
             <svg
-              class="confetti"
+              className="confetti"
               height="19"
               viewBox="0 0 19 19"
               width="19"
@@ -85,7 +84,7 @@ class QuizPassModal extends Component {
             </svg>
             {this.addSvg()}
             <svg
-              class="checkmark__check"
+              className="checkmark__check"
               height="36"
               viewBox="0 0 48 36"
               width="48"
@@ -96,7 +95,7 @@ class QuizPassModal extends Component {
               </path>
             </svg>
             <svg
-              class="checkmark__back"
+              className="checkmark__back"
               height="115"
               viewBox="0 0 120 115"
               width="120"
@@ -110,10 +109,12 @@ class QuizPassModal extends Component {
           </div>
           <h3>Welcome to the Event!</h3>
           <Modal.Description>
-            <p class="user_score">
+            <p className="user_score">
               You scored {this.props.score} out of 3 questions!
             </p>
-            <p class="question_review">Here is a review of the questions:</p>
+            <p className="question_review">
+              Here is a review of the questions:
+            </p>
             {this.printQA()}
           </Modal.Description>
         </Modal.Content>
