@@ -13,10 +13,9 @@ const INITIAL_STATE = {
   passed: null
 };
 
-export default function(state = INITIAL_STATE, action) {
+export default (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case FETCH_EVENT:
-      console.log('FETCH_EVENT fired with payload', action.payload);
       return { ...state, ...action.payload };
     default:
       return state;
