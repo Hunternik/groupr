@@ -14,7 +14,7 @@ import profileFields from "../../constants/profileFields";
 
 require("./profile.css");
 
-class ProfileForm extends Component {
+class ProfileEdit extends Component {
   constructor() {
     super();
 
@@ -74,9 +74,8 @@ class ProfileForm extends Component {
 		if (fieldsChanged) {
 			this.props.submitProfile(updateProfile);
     	this.setState({ loading: true });
-		} else {
+		} else 
 			this.props.onCancel();
-		}
   }
 
   render() {
@@ -106,8 +105,8 @@ class ProfileForm extends Component {
 
 const mapStateToProps = ({ auth }) => ({ initialValues: auth });
 
-ProfileForm = reduxForm({ form: "profile", destroyOnUnmount: false })(
-  ProfileForm
+ProfileEdit = reduxForm({ form: "profile", destroyOnUnmount: false })(
+  ProfileEdit
 );
 
-export default connect(mapStateToProps, { submitProfile })(ProfileForm);
+export default connect(mapStateToProps, { submitProfile })(ProfileEdit);

@@ -2,8 +2,8 @@ import React, { Component } from "react";
 import { reduxForm } from "redux-form";
 import { connect } from "react-redux";
 import { Container, Header, Grid, Segment } from "semantic-ui-react";
-import ProfileForm from "./ProfileForm";
-import ProfileReview from "./ProfileReview";
+import ProfileEdit from "./ProfileEdit";
+import ProfileRead from "./ProfileRead";
 require("./profile.css");
 
 class Profile extends Component {
@@ -12,14 +12,19 @@ class Profile extends Component {
 
     this.handleCancel = this.handleCancel.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
-	}
-	
-	componentWillReceiveProps(nextProps) {
-		if (this.props.initialValues && this.props.initialValues !== nextProps.initialValues)
-			this.setState({ success: true, profile: nextProps });
-	}
+  }
 
   state = { showProfileReview: true, success: false };
+
+  componentWillReceiveProps(nextProps) {
+    if (this.props.initialValues !== nextProps.initialValues) {
+      // Update profile when receive updated profile data
+      if (nextProps.initialValues)
+        this.setState({ profile: nextProps.initialValues });
+      // Set success message when receive updates from express server
+      if (this.props.initialValues) this.setState({ success: true });
+    }
+  }
 
   handleCancel() {
     this.setState({ showProfileReview: true });
@@ -32,15 +37,16 @@ class Profile extends Component {
   renderContent() {
     if (this.state.showProfileReview)
       return (
-        <ProfileReview
+        <ProfileRead
           onCancel={this.handleCancel}
-					onUpdate={this.handleUpdate}
-					success={this.state.success}
+          onUpdate={this.handleUpdate}
+          success={this.state.success}
+          profile={this.state.profile}
         />
       );
 
     return (
-      <ProfileForm onCancel={this.handleCancel} onUpdate={this.handleUpdate} />
+      <ProfileEdit onCancel={this.handleCancel} onUpdate={this.handleUpdate} />
     );
   }
 
@@ -71,7 +77,7 @@ class Profile extends Component {
 const mapStateToProps = ({ auth }) => ({ initialValues: auth });
 
 Profile = reduxForm(
-{ form: "profile", enableReinitialize: true },
+  { form: "profile", enableReinitialize: true },
   mapStateToProps
 )(Profile);
 
