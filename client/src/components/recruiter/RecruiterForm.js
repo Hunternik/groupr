@@ -18,16 +18,24 @@ import FormField from '../../constants/recruiterFields';
 import Payments from '../common/Payments';
 
 class RecruiterForm extends Component {
-constructor(props) {
-  super(props);
-  
-  this.onRecruiterSubmit = this.onRecruiterSubmit.bind(this);
-  this.handleNavigation = this.handleNavigation.bind(this);
-  this.renderPayments = this.renderPayments.bind(this);
-}
+  constructor(props) {
+    super(props);
+
+    this.onRecruiterSubmit = this.onRecruiterSubmit.bind(this);
+    this.handleNavigation = this.handleNavigation.bind(this);
+    this.renderPayments = this.renderPayments.bind(this);
+  }
+
   state = {
-      openPayment: false
-    };
+    openPayment: false
+  };
+
+  componentWillUpdate(nextProps, nextState) {
+    if (this.props.auth.credits !== nextProps.auth.credits) {
+      this.handleNavigation();
+    }
+  }
+
   renderForm() {
     const validationType =
       FormField.name === "Email" ? email : [required, maxLength25, minLength2];
@@ -45,7 +53,14 @@ constructor(props) {
   }
 
   onRecruiterSubmit(data) {
-    const { name, industry, website, jobsOpen, primaryContact, imgLogoURL } = data;
+    const {
+      name,
+      industry,
+      website,
+      jobsOpen,
+      primaryContact,
+      imgLogoURL
+    } = data;
     const employees = this.props.auth._id;
     const activeEvents = this.props.event._id;
     const RecruiterInfo = {
@@ -58,19 +73,18 @@ constructor(props) {
       employees,
       activeEvents
     };
-    
+
     this.setState({ openPayment: true });
     this.props.fetchRecruiter(RecruiterInfo);
-    this.handleNavigation();
   }
 
   renderPayments() {
-    return <Payments />
+    return <Payments />;
   }
 
   handleNavigation = () => {
-    this.props.history.push('/');
-  }
+    this.props.history.push("/");
+  };
 
   render() {
     const { handleSubmit, pristine, reset, submitting } = this.props;
