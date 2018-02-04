@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Image, Button, Label, Header, Icon, Modal } from 'semantic-ui-react';
+import { Button, Modal } from 'semantic-ui-react';
 import * as actions from '../../actions';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -64,7 +64,6 @@ class QuizPassModal extends Component {
   render() {
     return (
       <Modal
-        className="scrolling"
         open={this.state.modalOpen}
         onClose={this.handleClose}
         size="small"

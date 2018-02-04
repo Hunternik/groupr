@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Form, Radio, Button } from 'semantic-ui-react';
+import { Form, Button } from 'semantic-ui-react';
 import * as actions from '../../actions';
 import QuizPassModal from './QuizPassModal';
 import QuizFailModal from './QuizFailModal';
@@ -15,6 +15,7 @@ class Quiz extends Component {
       index: 0,
       complete: false,
       answer: null,
+      active: true,
       score: 0,
       selectedAnswer: null,
       checked: null
@@ -23,6 +24,18 @@ class Quiz extends Component {
     this.validateAnswer = this.validateAnswer.bind(this);
     this.getAnswers = this.getAnswers.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.toggleActive = this.toggleActive.bind(this);
+  }
+
+  componentWillUpdate(nextProps, nextState) {
+    if (nextState.complete && this.state.complete !== nextState.complete) {
+      if (nextState.score > 1 && this.state.score !== nextState.score) {
+        // this is the current state before it happens
+        this.passQuiz();
+      } else if (nextState.score <= 1 && this.state.score !== nextState.score) {
+        this.failQuiz();
+      }
+    }
   }
 
   validateAnswer() {
@@ -50,6 +63,12 @@ class Quiz extends Component {
         answer: null
       });
     }
+  }
+
+  toggleActive() {
+    this.setState({
+      active: false
+    });
   }
 
   handleChange = e => {
@@ -91,28 +110,24 @@ class Quiz extends Component {
   }
 
   passQuiz(data) {
-    console.log(this.props.auth);
-
     this.props.passed_quiz({ eventId: this.props.event.eventId });
   }
 
-  // failQuiz() {
-  //
-  // }
+  failQuiz(data) {
+    this.props.failed_quiz({ eventId: this.props.event.eventId });
+  }
 
   render() {
-    console.log(this.props.event);
+    console.log(this.state.active);
     const { index } = this.state;
     const quiz = this.props.quiz ? this.props.quiz.questions : 'null';
     const currentQuestion = quiz[index].question;
 
     if (this.state.complete === true && this.state.score > 1) {
-      this.passQuiz();
       return <QuizPassModal score={this.state.score} />;
     }
 
     if (this.state.complete === true && this.state.score <= 1) {
-      // this.failQuiz();
       return <QuizFailModal score={this.state.score} />;
     }
 

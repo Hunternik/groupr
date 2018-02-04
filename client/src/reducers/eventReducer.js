@@ -1,4 +1,4 @@
-import { FETCH_EVENT, ADD_EVENT } from '../actions/types';
+import { FETCH_EVENT } from '../actions/types';
 
 const INITIAL_STATE = {
   _id: null,
