@@ -61,7 +61,7 @@ constructor(props) {
     
     this.setState({ openPayment: true });
     this.props.fetchRecruiter(RecruiterInfo);
-    // this.handleNavigation();
+    this.handleNavigation();
   }
 
   renderPayments() {

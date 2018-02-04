@@ -19,7 +19,6 @@ class Payments extends Component {
 				name='Grouper'
 				description='$1 for 1 credit to make you holla'
 				allowRememberMe='false'
-				closed={console.log("OHMYGOSHTHISSHITISCLOSING")}
 			>
 			<div>
     			<Button color='teal' size='large'>
