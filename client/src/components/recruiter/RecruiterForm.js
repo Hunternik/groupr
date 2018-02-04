@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Form, Button } from 'semantic-ui-react';
 import { Field, reduxForm } from "redux-form";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import * as actions from '../../actions';
 import {
   required,
@@ -17,10 +18,11 @@ import FormField from '../../constants/recruiterFields';
 import Payments from '../common/Payments';
 
 class RecruiterForm extends Component {
-constructor() {
-  super();
+constructor(props) {
+  super(props);
   
   this.onRecruiterSubmit = this.onRecruiterSubmit.bind(this);
+  this.handleNavigation = this.handleNavigation.bind(this);
 }
 
   renderForm() {
@@ -55,6 +57,11 @@ constructor() {
     };
 
     this.props.fetchRecruiter(RecruiterInfo);
+    this.handleNavigation();
+  }
+
+  handleNavigation = () => {
+    this.props.history.push('/');
   }
 
   render() {
@@ -91,4 +98,4 @@ RecruiterForm = reduxForm({
   form: "recruiter"
 })(RecruiterForm);
 
-export default connect(mapStateToProps, actions)(RecruiterForm);
+export default withRouter(connect(mapStateToProps, actions)(RecruiterForm));
