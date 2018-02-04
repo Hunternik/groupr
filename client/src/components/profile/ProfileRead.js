@@ -29,7 +29,7 @@ const ProfileRead = ({ profile, onUpdate, success }) => {
           className="profile-button"
           size="large"
         >
-          Edit
+          Update
         </Button>
       </div>
     </Form>

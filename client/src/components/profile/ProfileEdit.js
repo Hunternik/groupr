@@ -27,7 +27,7 @@ class ProfileEdit extends Component {
 		// Wait for response from server before updating state to remove spinner
     if (this.props.initialValues !== nextProps.initialValues) {
       this.setState({ loading: false });
-      this.props.onCancel();
+      this.props.onReturn();
 		}
 	}
 
@@ -51,9 +51,8 @@ class ProfileEdit extends Component {
 	
 	isEqual(updated,initial) {
 		for (let field in updated) {
-			if (updated[field] !== initial[field]) {
+			if (updated[field] !== initial[field]) 
 				return true
-			}
 		}
 		return false;
 	}
@@ -95,7 +94,7 @@ class ProfileEdit extends Component {
             Cancel
           </Button>
           <Button type="submit" className="profile-button" size="large">
-            Update
+            Save
           </Button>
         </div>
       </Form>

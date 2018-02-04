@@ -12,6 +12,7 @@ class Profile extends Component {
 
     this.handleCancel = this.handleCancel.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
+    this.handleReturn = this.handleReturn.bind(this);
   }
 
   state = { showProfileReview: true, success: false };
@@ -26,8 +27,12 @@ class Profile extends Component {
     }
   }
 
-  handleCancel() {
+  handleReturn() {
     this.setState({ showProfileReview: true });
+  }
+
+  handleCancel() {
+    this.setState({ showProfileReview: true, success: false });
   }
 
   handleUpdate() {
@@ -38,7 +43,6 @@ class Profile extends Component {
     if (this.state.showProfileReview)
       return (
         <ProfileRead
-          onCancel={this.handleCancel}
           onUpdate={this.handleUpdate}
           success={this.state.success}
           profile={this.state.profile}
@@ -46,7 +50,10 @@ class Profile extends Component {
       );
 
     return (
-      <ProfileEdit onCancel={this.handleCancel} onUpdate={this.handleUpdate} />
+      <ProfileEdit
+        onCancel={this.handleCancel}
+        onReturn={this.handleReturn}
+      />
     );
   }
 
