@@ -1,10 +1,8 @@
 import React from 'react';
 import { connect } from 'react-redux';
 
-const events = (props) => {
-	
-}	
+const ProfileEvents = ({ profile }) => {
 
-const mapStateToProps = ({ auth }) => ({ auth });
+}
 
-connect(mapStateToProps)(events);
+export default ProfileEvents;

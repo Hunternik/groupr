@@ -30,7 +30,7 @@ passport.use(
     },
     async (accessToken, refreshToken, profile, done) => {
       // Search for user by authentication ID
-      let existingUser = await User.findOne({ linkedInId: profile.id });
+      let existingUser = await User.findOne({ linkedInId: profile.id }).populate("events");
 
       if (existingUser) {
         return done(null, existingUser);
@@ -55,6 +55,8 @@ passport.use(
 
         try {
 					existingUser = await existingUser.save();
+					existingUser.populate("events");
+					
           return done(null, existingUser);
         } catch (error) {
           console.log(error);

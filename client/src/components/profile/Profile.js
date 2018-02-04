@@ -28,7 +28,8 @@ class Profile extends Component {
       if (nextProps.initialValues)
         this.setState({ profile: nextProps.initialValues });
       // Set success message when receive updates from express server
-      if (this.props.initialValues) this.setState({ success: true });
+			if (this.props.initialValues) 
+				this.setState({ success: true });
     }
   }
 
@@ -42,9 +43,13 @@ class Profile extends Component {
 
   handleUpdate() {
     this.setState({ showProfileReview: false });
-  }
+	}
+	
+	renderEventContent() {
 
-  renderContent() {
+	}
+
+  renderProfileContent() {
     if (this.state.showProfileReview)
       return (
         <ProfileRead
@@ -63,7 +68,6 @@ class Profile extends Component {
   }
 
   render() {
-		console.log(this.state.profile)
     return (
       <Container>
         <Header as="h1" textAlign="center">
@@ -73,12 +77,13 @@ class Profile extends Component {
           <Grid.Column textAlign="center">
             <Segment>
               <h1>My Events</h1>
+							{this.renderEventContent()}
             </Segment>
           </Grid.Column>
           <Grid.Column>
             <Segment>
               <h1>Profile</h1>
-              {this.renderContent()}
+              {this.renderProfileContent()}
             </Segment>
           </Grid.Column>
         </Grid>

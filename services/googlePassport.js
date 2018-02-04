@@ -28,7 +28,7 @@ passport.use(
       proxy: true
     },
     async (accessToken, refreshToken, profile, done) => {
-      let existingUser = await User.findOne({ googleId: profile.id });
+      let existingUser = await User.findOne({ googleId: profile.id }).populate("events");
 
       if (existingUser) {
         return done(null, existingUser);
@@ -52,7 +52,9 @@ passport.use(
         existingUser.googleId = googleUser.googleId;
 
         try {
-          existingUser = await existingUser.save();
+					existingUser = await existingUser.save();
+					existingUser.populate("events")
+					
           return done(null, existingUser);
         } catch (error) {
           console.log(error);
