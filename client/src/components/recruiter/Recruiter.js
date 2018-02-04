@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
+import { Grid, Button } from 'semantic-ui-react';
 import Login from '../common/header/Login';
-import FieldLevelValidationForm from './recruiterForm';
-import { Button, Container, Checkbox, Form, Header, Grid, Segment } from 'semantic-ui-react';
-
-
+import RecruiterForm from './RecruiterForm';
 
 class Recruiter extends Component {
   constructor(props) {
@@ -15,8 +13,20 @@ class Recruiter extends Component {
     };
   }
 
+  componentDidMount() {
+    this.props.auth
+  }
+
+  componentDidUpdate (oldProps,oldState) {
+    if (this.state.show){
+      return null;
+    }
+    else {
+      return <Button/>
+    }
+  }
+
   render() {
-    console.log('****** this.props ', this.props);
     if (!this.props.auth) {
       return <Login quizInit />;
     }
@@ -26,18 +36,15 @@ class Recruiter extends Component {
         <Grid.Column width={3}>
           <div />
         </Grid.Column>
-
         <Grid.Column width={10}>
           <h1>Recruiter</h1>
-          <FieldLevelValidationForm />
+          <RecruiterForm />
         </Grid.Column>
-
         <Grid.Column width={3}>
           <div />
         </Grid.Column>
       </Grid>
     );
-
   }
 }
 

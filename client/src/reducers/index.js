@@ -4,11 +4,13 @@ import authReducer from './authReducer';
 import landingReducer from './landingReducer';
 import quizReducer from './quizReducer';
 import eventReducer from './eventReducer';
+import companyReducer from './companyReducer';
 
 export default combineReducers({
   auth: authReducer,
   landing: landingReducer,
   quiz: quizReducer,
   event: eventReducer,
-  form: formReducer
+  form: formReducer,
+  company: companyReducer
 });

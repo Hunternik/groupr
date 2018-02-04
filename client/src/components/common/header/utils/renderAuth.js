@@ -14,9 +14,7 @@ const renderLoggedInMenu = (auth) => {
   return (
     <div>
       <Grid columns={3} verticalAlign="middle">
-        <Grid.Column width={5} key="1">
-          <Payments />
-        </Grid.Column>
+        
         <Grid.Column width={5} key="2">
           Credits: {auth.credits}
         </Grid.Column>

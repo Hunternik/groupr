@@ -25,7 +25,7 @@ module.exports.updateProfile = async (req, res) => {
 	const { _id, ...updatedProfile } = req.body;
 
   try {
-    const user = await User.findByIdAndUpdate(_id, updatedProfile);
+    const user = await User.findByIdAndUpdate(_id, updatedProfile, {new: true});
 
     res.send(user);
   } catch (error) {
