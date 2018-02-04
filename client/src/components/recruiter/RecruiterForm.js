@@ -23,8 +23,11 @@ constructor(props) {
   
   this.onRecruiterSubmit = this.onRecruiterSubmit.bind(this);
   this.handleNavigation = this.handleNavigation.bind(this);
+  this.renderPayments = this.renderPayments.bind(this);
 }
-
+  state = {
+      openPayment: false
+    };
   renderForm() {
     const validationType =
       FormField.name === "Email" ? email : [required, maxLength25, minLength2];
@@ -55,9 +58,14 @@ constructor(props) {
       employees,
       activeEvents
     };
-
+    
+    this.setState({ openPayment: true });
     this.props.fetchRecruiter(RecruiterInfo);
-    this.handleNavigation();
+    // this.handleNavigation();
+  }
+
+  renderPayments() {
+    return <Payments />
   }
 
   handleNavigation = () => {
@@ -83,6 +91,7 @@ constructor(props) {
             Submit
           </Button>
         </div>
+        {this.state.openPayment && this.renderPayments()}
       </Form>
     );
   }
