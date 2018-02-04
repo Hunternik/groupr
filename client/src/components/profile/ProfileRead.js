@@ -7,7 +7,7 @@ require("./profile.css");
 
 const renderFields = profile => {
   return profileFields.map(field => (
-    <Form.Input fluid label={field.label} readOnly>
+    <Form.Input fluid label={field.label} key={field.name} readOnly>
       {profile[field.name]}
     </Form.Input>
   ));

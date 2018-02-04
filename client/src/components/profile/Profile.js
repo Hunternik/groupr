@@ -15,7 +15,12 @@ class Profile extends Component {
     this.handleReturn = this.handleReturn.bind(this);
   }
 
-  state = { showProfileReview: true, success: false };
+	state = { showProfileReview: true, success: false };
+	
+	componentDidMount() {
+		if (this.props.initialValues) 
+			this.setState({ profile:  this.props.initialValues });
+	}
 
   componentWillReceiveProps(nextProps) {
     if (this.props.initialValues !== nextProps.initialValues) {
@@ -58,6 +63,7 @@ class Profile extends Component {
   }
 
   render() {
+		console.log(this.state.profile)
     return (
       <Container>
         <Header as="h1" textAlign="center">
