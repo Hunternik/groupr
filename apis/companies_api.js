@@ -57,13 +57,13 @@ module.exports.insertCompany = async (req, res) => {
   }
 };
 
-module.exports.getCompany = async (req, res) => {
-  const id = req.params.id;
+module.exports.getEventSponsors = async (req, res) => {
+  const eventId = req.params.eventId;
 
   try {
-    const company = await Companies.find({ name: id });
+    const eventSponsors = await Companies.find({ activeEvents: eventId });
 
-    res.send(company);
+    res.send(eventSponsors);
   } catch (error) {
     res.status(404).send(error);
   }

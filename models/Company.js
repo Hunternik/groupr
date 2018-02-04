@@ -12,7 +12,8 @@ const companySchema = new Schema({
   primaryContact: String,
   imgLogoURL: String,
 	employees: [userSchema],
-  activeEvents: [eventSchema],
+  // activeEvents: [eventSchema],
+  activeEvents: [String],
   pastEvents: [eventSchema],
 });
 
