@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { Form, Button } from 'semantic-ui-react';
 import { Field, reduxForm } from "redux-form";
 import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
 import * as actions from '../../actions';
 import {
   required,
@@ -17,11 +18,23 @@ import FormField from '../../constants/recruiterFields';
 import Payments from '../common/Payments';
 
 class RecruiterForm extends Component {
-constructor() {
-  super();
-  
-  this.onRecruiterSubmit = this.onRecruiterSubmit.bind(this);
-}
+  constructor(props) {
+    super(props);
+
+    this.onRecruiterSubmit = this.onRecruiterSubmit.bind(this);
+    this.handleNavigation = this.handleNavigation.bind(this);
+    this.renderPayments = this.renderPayments.bind(this);
+  }
+
+  state = {
+    openPayment: false
+  };
+
+  componentWillUpdate(nextProps, nextState) {
+    if (this.props.auth.credits !== nextProps.auth.credits) {
+      this.handleNavigation();
+    }
+  }
 
   renderForm() {
     const validationType =
@@ -40,7 +53,14 @@ constructor() {
   }
 
   onRecruiterSubmit(data) {
-    const { name, industry, website, jobsOpen, primaryContact, imgLogoURL } = data;
+    const {
+      name,
+      industry,
+      website,
+      jobsOpen,
+      primaryContact,
+      imgLogoURL
+    } = data;
     const employees = this.props.auth._id;
     const activeEvents = this.props.event._id;
     const RecruiterInfo = {
@@ -54,8 +74,17 @@ constructor() {
       activeEvents
     };
 
+    this.setState({ openPayment: true });
     this.props.fetchRecruiter(RecruiterInfo);
   }
+
+  renderPayments() {
+    return <Payments />;
+  }
+
+  handleNavigation = () => {
+    this.props.history.push("/");
+  };
 
   render() {
     const { handleSubmit, pristine, reset, submitting } = this.props;
@@ -76,6 +105,7 @@ constructor() {
             Submit
           </Button>
         </div>
+        {this.state.openPayment && this.renderPayments()}
       </Form>
     );
   }
@@ -91,4 +121,4 @@ RecruiterForm = reduxForm({
   form: "recruiter"
 })(RecruiterForm);
 
-export default connect(mapStateToProps, actions)(RecruiterForm);
+export default withRouter(connect(mapStateToProps, actions)(RecruiterForm));
