@@ -7,6 +7,6 @@ const companies_api = require('../apis/companies_api');
 router.post('/', companies_api.insertCompany);
 
 // Passes event id and populates list of sponsors
-router.get('/:eventId', companies_api.getEventSponsors);
+router.get('/event/:eventId', companies_api.getEventSponsors);
 
 module.exports = router;
