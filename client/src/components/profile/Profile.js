@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import { reduxForm } from "redux-form";
 import { connect } from "react-redux";
-import { Container, Header, Grid, Segment } from "semantic-ui-react";
+import { Container, Header, Image, Grid, Segment } from "semantic-ui-react";
 import ProfileEdit from "./ProfileEdit";
 import ProfileRead from "./ProfileRead";
 import ProfileEvents from "./ProfileEvents";
@@ -67,22 +67,23 @@ class Profile extends Component {
   }
 
   render() {
-		console.log(this.props.initialValues)
+		console.log(this.state.profile);
     return (
       <Container>
         <Header as="h1" textAlign="center">
-          {this.props.auth && this.props.auth.displayName}
+          {this.props.initialValues && this.props.initialValues.displayName}
         </Header>
         <Grid stackable columns={2} textAlign="center" centered>
           <Grid.Column textAlign="center">
             <Segment>
               <h1>My Events</h1>
-              <ProfileEvents profile={this.state.profile} />
+              {this.state.profile && <ProfileEvents profile={this.state.profile} />}
             </Segment>
           </Grid.Column>
           <Grid.Column>
             <Segment>
-              <h1>Profile</h1>
+              <Header as="h1" textAlign="center">Profile</Header>
+							{this.state.profile && <Image src={this.state.profile.bigPhotoURL} size="medium" centered/>}
               {this.renderProfileContent()}
             </Segment>
           </Grid.Column>

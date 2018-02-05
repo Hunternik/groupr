@@ -8,7 +8,7 @@ module.exports.deserialize = async (id, done) => {
   const user = await User.findById(id).populate({
     path: "events",
     select: "eventId"
-  });
+	});
 
   return done(null, user);
 };

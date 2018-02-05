@@ -15,7 +15,8 @@ const renderFields = profile => {
 
 const ProfileRead = ({ profile, onUpdate, success }) => {
   return (
-    <Form success={success}>
+    <Form success={success}
+		style={{ height: '65vh' }}>
       <Message
         success
         header="Save Successful!"

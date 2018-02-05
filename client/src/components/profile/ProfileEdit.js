@@ -32,10 +32,7 @@ class ProfileEdit extends Component {
 	}
 
   renderForm() {
-    const validationType =
-      profileFields.name === "Email"
-        ? email
-        : [required, maxLength25, minLength2];
+    const validationType = profileFields.name === "Email" ? email : [required, maxLength25, minLength2];
     const fields = profileFields.map(field => (
       <Field
         key={field.name}
@@ -43,7 +40,7 @@ class ProfileEdit extends Component {
         type={field.type}
         component={renderField}
         label={field.label}
-        validate={validationType}
+        validate={field.validation && validationType}
       />
     ));
     return fields;
@@ -81,7 +78,8 @@ class ProfileEdit extends Component {
     return (
       <Form
         onSubmit={this.props.handleSubmit(this.onProfileSubmit)}
-        loading={this.state.loading}
+				loading={this.state.loading}
+				style={{ height: '65vh' }}
       >
         {this.renderForm()}
         <div className="button-group">

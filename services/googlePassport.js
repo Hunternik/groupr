@@ -29,13 +29,14 @@ passport.use(
       }
 
       const googleUser = {
-        googleId: profile.id || "",
-        displayName: profile.displayName || "",
-        lastName: profile.name.familyName || "",
-        firstName: profile.name.givenName || "",
-        email: profile.emails[0].value || "",
-        iconPhotoURL: profile.photos[0].value || ""
-        // bigPhotoURL: profile._json.cover.coverPhoto.url
+        googleId: profile.id,
+        displayName: profile.displayName,
+        lastName: profile.name.familyName,
+        firstName: profile.name.givenName,
+        email: profile.emails[0].value,
+        iconPhotoURL: profile.photos[0].value,
+				bigPhotoURL: profile._json.cover.coverPhoto.url,
+				googleProfileURL: profile._json.url
       };
 
       // Check to see if user already exists by comparing email addresses
@@ -43,7 +44,8 @@ passport.use(
 
       // If email exists, update user record with new authentication ID
       if (existingUser) {
-        existingUser.googleId = googleUser.googleId;
+				existingUser.googleId = googleUser.googleId;
+				existingUser.googleProfileURL = googleUser.googleProfileURL
 
         try {
 					existingUser = await existingUser.save();
