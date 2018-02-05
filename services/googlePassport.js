@@ -35,12 +35,12 @@ passport.use(
       }
 
       const googleUser = {
-        googleId: profile.id || null,
-        displayName: profile.displayName || null,
-        lastName: profile.name.familyName || null,
-        firstName: profile.name.givenName || null,
-        email: profile.emails[0].value || null,
-        iconPhotoURL: profile.photos[0].value || null
+        googleId: profile.id || '',
+        displayName: profile.displayName || '',
+        lastName: profile.name.familyName || '',
+        firstName: profile.name.givenName || '',
+        email: profile.emails[0].value || '',
+        iconPhotoURL: profile.photos[0].value || ''
         // bigPhotoURL: profile._json.cover.coverPhoto.url
       };
 
@@ -54,7 +54,7 @@ passport.use(
         try {
 					existingUser = await existingUser.save();
 					existingUser.populate("events")
-					
+
           return done(null, existingUser);
         } catch (error) {
           console.log(error);

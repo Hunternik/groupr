@@ -37,12 +37,12 @@ passport.use(
       }
 			
       const linkedinUser = {
-        linkedInId: profile.id || null,
-        displayName: profile.displayName || null,
-        lastName: profile.name.familyName || null,
-        firstName: profile.name.givenName || null,
-        email: profile.emails[0].value ||  null,
-        iconPhotoURL: profile.photos[0].value || null
+        linkedInId: profile.id || '',
+        displayName: profile.displayName || '',
+        lastName: profile.name.familyName || '',
+        firstName: profile.name.givenName || '',
+        email: profile.emails[0].value ||  '',
+        iconPhotoURL: profile.photos[0].value || ''
         // bigPhotoURL: profile._json.cover.coverPhoto.url
 			};
 			
