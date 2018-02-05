@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { Container, Header, Grid, Segment } from "semantic-ui-react";
 import ProfileEdit from "./ProfileEdit";
 import ProfileRead from "./ProfileRead";
+import ProfileEvents from "./ProfileEvents";
 require("./profile.css");
 
 class Profile extends Component {
@@ -15,12 +16,12 @@ class Profile extends Component {
     this.handleReturn = this.handleReturn.bind(this);
   }
 
-	state = { showProfileReview: true, success: false };
-	
-	componentDidMount() {
-		if (this.props.initialValues) 
-			this.setState({ profile:  this.props.initialValues });
-	}
+  state = { showProfileReview: true, success: false };
+
+  componentDidMount() {
+    if (this.props.initialValues)
+      this.setState({ profile: this.props.initialValues });
+  }
 
   componentWillReceiveProps(nextProps) {
     if (this.props.initialValues !== nextProps.initialValues) {
@@ -28,8 +29,7 @@ class Profile extends Component {
       if (nextProps.initialValues)
         this.setState({ profile: nextProps.initialValues });
       // Set success message when receive updates from express server
-			if (this.props.initialValues) 
-				this.setState({ success: true });
+      if (this.props.initialValues) this.setState({ success: true });
     }
   }
 
@@ -43,31 +43,31 @@ class Profile extends Component {
 
   handleUpdate() {
     this.setState({ showProfileReview: false });
-	}
-	
-	renderEventContent() {
+  }
 
-	}
+  renderEventContent() {
+    return <ProfileEvents profile={this.state.profile} />;
+  }
 
   renderProfileContent() {
-    if (this.state.showProfileReview)
+		const { profile, showProfileReview, success } = this.state;
+		
+    if (showProfileReview)
       return (
         <ProfileRead
           onUpdate={this.handleUpdate}
-          success={this.state.success}
-          profile={this.state.profile}
+          success={success}
+          profile={profile}
         />
       );
 
     return (
-      <ProfileEdit
-        onCancel={this.handleCancel}
-        onReturn={this.handleReturn}
-      />
+      <ProfileEdit onCancel={this.handleCancel} onReturn={this.handleReturn} />
     );
   }
 
   render() {
+		console.log(this.props.initialValues)
     return (
       <Container>
         <Header as="h1" textAlign="center">
@@ -77,7 +77,7 @@ class Profile extends Component {
           <Grid.Column textAlign="center">
             <Segment>
               <h1>My Events</h1>
-							{this.renderEventContent()}
+              <ProfileEvents profile={this.state.profile} />
             </Segment>
           </Grid.Column>
           <Grid.Column>

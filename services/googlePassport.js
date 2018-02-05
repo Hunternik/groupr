@@ -1,46 +1,40 @@
-const passport = require('passport');
-const GoogleStrategy = require('passport-google-oauth20').Strategy;
+const passport = require("passport");
+const GoogleStrategy = require("passport-google-oauth20").Strategy;
 // mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
 // mike: not sure if this is used here
 // mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
 // const TotpStrategy = require('passport-totp').Strategy;
-const mongoose = require('mongoose');
-const keys = require('../config/keys');
-const User = mongoose.model('users');
+const mongoose = require("mongoose");
+const keys = require("../config/keys");
+const User = mongoose.model("users");
+const { serialize, deserialize } = require("./utils/serialize");
 
-passport.serializeUser((user, done) => {
-  // user.id is referencing the unique id created by mongoDB.
-  done(null, user.id);
-});
+passport.serializeUser(serialize);
 
-passport.deserializeUser((id, done) => {
-  User.findById(id).then((user) => {
-    done(null, user);
-  });
-});
+passport.deserializeUser(deserialize);
 
 passport.use(
   new GoogleStrategy(
     {
       clientID: keys.googleClientID,
       clientSecret: keys.googleClientSecret,
-      callbackURL: '/auth/google/callback',
+      callbackURL: "/auth/google/callback",
       proxy: true
     },
     async (accessToken, refreshToken, profile, done) => {
-      let existingUser = await User.findOne({ googleId: profile.id }).populate("events");
+      let existingUser = await User.findOne({ googleId: profile.id });
 
       if (existingUser) {
         return done(null, existingUser);
       }
 
       const googleUser = {
-        googleId: profile.id || '',
-        displayName: profile.displayName || '',
-        lastName: profile.name.familyName || '',
-        firstName: profile.name.givenName || '',
-        email: profile.emails[0].value || '',
-        iconPhotoURL: profile.photos[0].value || ''
+        googleId: profile.id || "",
+        displayName: profile.displayName || "",
+        lastName: profile.name.familyName || "",
+        firstName: profile.name.givenName || "",
+        email: profile.emails[0].value || "",
+        iconPhotoURL: profile.photos[0].value || ""
         // bigPhotoURL: profile._json.cover.coverPhoto.url
       };
 
@@ -53,14 +47,14 @@ passport.use(
 
         try {
 					existingUser = await existingUser.save();
-					existingUser.populate("events")
-
+					
           return done(null, existingUser);
         } catch (error) {
           console.log(error);
         }
       }
 
+			// Create a new user record is user does not exist
       const user = await new User(googleUser).save();
       done(null, user);
     }
