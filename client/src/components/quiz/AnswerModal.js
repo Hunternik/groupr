@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Button, Modal, Icon } from 'semantic-ui-react';
+import { Button, Modal } from 'semantic-ui-react';
 import * as actions from '../../actions';
+
+require('./quiz.css');
 
 class AnswerModal extends Component {
   constructor(props) {
@@ -44,7 +46,7 @@ class AnswerModal extends Component {
     return (
       <Modal
         trigger={
-          <Button.Group size="small">
+          <Button.Group>
             <Button onClick={this.handleOpen} disabled={!this.props.userChoice}>
               Submit
             </Button>
@@ -55,8 +57,8 @@ class AnswerModal extends Component {
       >
         <Modal.Content>{this.showAnswers()}</Modal.Content>
         <Modal.Actions>
-          <Button color="green" onClick={this.handleClose} inverted>
-            <Icon name="checkmark" /> Got it
+          <Button size="small" onClick={this.handleClose} inverted>
+            Got it
           </Button>
         </Modal.Actions>
       </Modal>

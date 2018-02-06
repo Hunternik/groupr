@@ -1,6 +1,6 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose');
 const { Schema } = mongoose;
-const userSchema = require("./User");
+const userSchema = require('./User');
 
 const eventSchema = new Schema({
   eventId: String,
@@ -11,19 +11,19 @@ const eventSchema = new Schema({
   attendees: [
     {
       type: Schema.Types.ObjectId,
-      ref: "user"
+      ref: 'user'
     }
   ],
   failedquiz: [
     {
       type: Schema.Types.ObjectId,
-      ref: "user"
+      ref: 'user'
     }
   ],
   sponsors: [
     {
       type: Schema.Types.ObjectId,
-      ref: "user"
+      ref: 'user'
     }
   ],
   active: Boolean,
@@ -31,6 +31,6 @@ const eventSchema = new Schema({
 });
 
 // first arugment passed into models is the name of the collection, second arg is info
-const Event = mongoose.model("event", eventSchema);
+const Event = mongoose.model('event', eventSchema);
 
 module.exports = Event;
