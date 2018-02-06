@@ -3,7 +3,7 @@ const router = express.Router();
 const users_api = require('../apis/users_api');
 
 // ********* Google authRoutes *********	
-router.get('/google', (req,res,next) => { console.log('i got here'); next();}, users_api.requestGoogleToken);
+router.get('/google',  (req,res,next) => { console.log('i got here'); next();}, users_api.requestGoogleToken);
 router.get('/google/callback', users_api.authenticateGoogleUser);
 
 // ********* LinkedIn authRoutes *********
