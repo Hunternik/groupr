@@ -2,7 +2,6 @@ import React from 'react';
 import { Dropdown, Image, Grid } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import Login from '../Login';
-import Payments from '../../Payments';
 import ProfilePlaceholder from '../../../../assets/images/ProfilePlaceholder.png';
 
 const renderName = (auth) => (
@@ -14,12 +13,8 @@ const renderName = (auth) => (
 const renderLoggedInMenu = (auth) => {
   return (
     <div>
-      <Grid columns={3} verticalAlign="middle">
-        
-        <Grid.Column width={5} key="2">
-          Credits: {auth.credits}
-        </Grid.Column>
-        <Grid.Column width={5} key="3">
+      <Grid verticalAlign="middle">
+        <Grid.Column>
           <Dropdown trigger={renderName(auth)} pointing style={{ padding: 0 }} item simple className="arimo icon">
             <Dropdown.Menu>
               <Dropdown.Item as={Link} to="/profile">Profile</Dropdown.Item>
