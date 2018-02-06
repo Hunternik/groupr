@@ -27,15 +27,12 @@ class ProfileEdit extends Component {
 		// Wait for response from server before updating state to remove spinner
     if (this.props.initialValues !== nextProps.initialValues) {
       this.setState({ loading: false });
-      this.props.onCancel();
+      this.props.onReturn();
 		}
 	}
 
   renderForm() {
-    const validationType =
-      profileFields.name === "Email"
-        ? email
-        : [required, maxLength25, minLength2];
+    const validationType = profileFields.name === "Email" ? email : [required, maxLength25, minLength2];
     const fields = profileFields.map(field => (
       <Field
         key={field.name}
@@ -43,7 +40,7 @@ class ProfileEdit extends Component {
         type={field.type}
         component={renderField}
         label={field.label}
-        validate={validationType}
+        validate={field.validation && validationType}
       />
     ));
     return fields;
@@ -51,9 +48,8 @@ class ProfileEdit extends Component {
 	
 	isEqual(updated,initial) {
 		for (let field in updated) {
-			if (updated[field] !== initial[field]) {
+			if (updated[field] !== initial[field]) 
 				return true
-			}
 		}
 		return false;
 	}
@@ -72,6 +68,8 @@ class ProfileEdit extends Component {
 		const fieldsChanged = this.isEqual(updateProfile,initialProfile);
 		// Check to see if there were updates to the form, if there are changes update the db
 		if (fieldsChanged) {
+			updateProfile.displayName = `${firstName} ${lastName}`;
+
 			this.props.submitProfile(updateProfile);
     	this.setState({ loading: true });
 		} else 
@@ -82,7 +80,8 @@ class ProfileEdit extends Component {
     return (
       <Form
         onSubmit={this.props.handleSubmit(this.onProfileSubmit)}
-        loading={this.state.loading}
+				loading={this.state.loading}
+				style={{ height: '65vh' }}
       >
         {this.renderForm()}
         <div className="button-group">
@@ -95,7 +94,7 @@ class ProfileEdit extends Component {
             Cancel
           </Button>
           <Button type="submit" className="profile-button" size="large">
-            Update
+            Save
           </Button>
         </div>
       </Form>
