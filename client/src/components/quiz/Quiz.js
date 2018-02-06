@@ -5,6 +5,7 @@ import * as actions from '../../actions';
 import QuizPassModal from './QuizPassModal';
 import QuizFailModal from './QuizFailModal';
 import Login from '../common/header/Login';
+import AnswerContainer from './AnswerContainer';
 
 require('./quiz.css');
 
@@ -20,8 +21,9 @@ class Quiz extends Component {
       selectedAnswer: null,
       checked: null
     };
-    this.nextQuestion = this.nextQuestion.bind(this);
+
     this.validateAnswer = this.validateAnswer.bind(this);
+    this.nextQuestion = this.nextQuestion.bind(this);
     this.getAnswers = this.getAnswers.bind(this);
     this.handleChange = this.handleChange.bind(this);
     this.toggleActive = this.toggleActive.bind(this);
@@ -40,14 +42,12 @@ class Quiz extends Component {
 
   validateAnswer() {
     const { index } = this.state;
-
     if (
       this.state.selectedAnswer === this.props.quiz.questions[index].correct
     ) {
       this.setState({ score: this.state.score + 1 });
     }
     this.setState({ userChoice: null });
-    this.nextQuestion();
   }
 
   nextQuestion() {
@@ -118,7 +118,6 @@ class Quiz extends Component {
   }
 
   render() {
-    console.log(this.state.active);
     const { index } = this.state;
     const quiz = this.props.quiz ? this.props.quiz.questions : 'null';
     const currentQuestion = quiz[index].question;
@@ -137,19 +136,16 @@ class Quiz extends Component {
 
     return (
       <div className="quiz_container">
-        <div className="current_question">{currentQuestion}</div>
-        <div className="answer_container">
+        <pre className="current_question">{currentQuestion}</pre>
+        <pre className="answer_container">
           {quiz && this.getAnswers(quiz.answers)}
-        </div>
+        </pre>
         <div className="btn">
-          <Button.Group size="big">
-            <Button
-              onClick={this.validateAnswer}
-              disabled={!this.state.userChoice}
-            >
-              Submit
-            </Button>
-          </Button.Group>
+          <AnswerContainer
+            {...this.state}
+            nextQuestion={this.nextQuestion}
+            validateAnswer={this.validateAnswer}
+          />
         </div>
       </div>
     );
@@ -157,6 +153,7 @@ class Quiz extends Component {
 }
 
 const mapStateToProps = state => ({
+  quizState: this.state,
   quiz: state.quiz,
   auth: state.auth,
   event: state.event
