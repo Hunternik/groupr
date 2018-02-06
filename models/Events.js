@@ -8,8 +8,18 @@ const eventSchema = new Schema({
   description: String,
   date: Date,
   location: String,
-  attendees: [String],
-  failedquiz: [String],
+  attendees: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'user'
+    }
+  ],
+  failedquiz: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'user'
+    }
+  ],
   sponsors: [
     {
       type: Schema.Types.ObjectId,
