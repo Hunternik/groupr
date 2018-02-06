@@ -13,11 +13,12 @@ class Payments extends Component {
 			<StripeCheckout 
 				image='http://www.liberallifestyles.com/wp-content/uploads/2017/01/quoka-5.jpg'
 				// 1 = $0.01 usd  
-				amount={100}
+				//amount={5000}
 				token={token => this.props.handleToken(token)}
 				stripeKey={process.env.REACT_APP_STRIPE_KEY}
 				name='Grouper'
-				description='$1 for 1 credit to make you holla'
+				description='$50 Sponsorship Fee'
+				panelLabel='Sponsor'
 				allowRememberMe='false'
 			>
 			<div>
