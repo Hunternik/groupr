@@ -5,6 +5,8 @@ import { Container, Header, Image, Grid, Segment } from "semantic-ui-react";
 import ProfileEdit from "./ProfileEdit";
 import ProfileRead from "./ProfileRead";
 import ProfileEvents from "./ProfileEvents";
+import ProfilePlaceholder from "../../assets/images/ProfilePlaceholder.png";
+
 require("./profile.css");
 
 class Profile extends Component {
@@ -67,7 +69,7 @@ class Profile extends Component {
   }
 
   render() {
-		console.log(this.state.profile);
+		const { profile } = this.state;
     return (
       <Container>
         <Header as="h1" textAlign="center">
@@ -77,13 +79,13 @@ class Profile extends Component {
           <Grid.Column textAlign="center">
             <Segment>
               <h1>My Events</h1>
-              {this.state.profile && <ProfileEvents profile={this.state.profile} />}
+              {profile && <ProfileEvents profile={profile} />}
             </Segment>
           </Grid.Column>
           <Grid.Column>
             <Segment>
               <Header as="h1" textAlign="center">Profile</Header>
-							{this.state.profile && <Image src={this.state.profile.bigPhotoURL} size="medium" centered/>}
+							{profile && <Image src={profile.bigPhotoURL || ProfilePlaceholder} size="medium" centered bordered/>}
               {this.renderProfileContent()}
             </Segment>
           </Grid.Column>

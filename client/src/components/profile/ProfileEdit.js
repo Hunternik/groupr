@@ -68,6 +68,8 @@ class ProfileEdit extends Component {
 		const fieldsChanged = this.isEqual(updateProfile,initialProfile);
 		// Check to see if there were updates to the form, if there are changes update the db
 		if (fieldsChanged) {
+			updateProfile.displayName = `${firstName} ${lastName}`;
+
 			this.props.submitProfile(updateProfile);
     	this.setState({ loading: true });
 		} else 

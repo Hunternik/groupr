@@ -10,8 +10,8 @@ const userSchema = new Schema({
   email: { type: String, required: true },
   company: { type: String, default: '' },
   position: { type: String, default: '' },
-  iconPhotoURL: { type: String, default: 'placeholder'},
-  bigPhotoURL: { type: String, default: 'placeholder' },
+  iconPhotoURL: { type: String, default: ''},
+  bigPhotoURL: { type: String, default: '' },
   credits: { type: Number, default: 0 },
   events: [
     {
