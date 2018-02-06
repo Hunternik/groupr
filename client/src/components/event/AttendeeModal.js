@@ -1,13 +1,45 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Button, Label, Header, Icon, Modal } from 'semantic-ui-react';
 import { withRouter } from 'react-router-dom';
+import { fetchEvent } from '../../actions';
 
 class AttendeeModal extends Component {
+  constructor(props) {
+    super(props);
+
+    this.quizTaken = this.quizTaken.bind(this);
+  }
   state = { modalOpen: false };
 
-  componentDidMount() {
-    const eventId = this.props.match.params.eventId;
-    this.setState({ eventId });
+  // Check if the attendee has already taken the quiz
+  quizTaken() {
+    const id = this.props.auth ? this.props.auth._id : 'null';
+    const quizTaken = this.props.event ? this.props.event.attendees : 'null';
+    const quizFailed = this.props.event ? this.props.event.failedquiz : 'null';
+
+    console.log(this.props.auth);
+    if (quizTaken.indexOf(id) == -1 && quizFailed.indexOf(id) == -1) {
+      return (
+        <Button
+          className="attendButton"
+          onClick={this.handleOpen}
+          as="div"
+          labelPosition="right"
+        >
+          <Button color="teal">
+            <Icon name="fork" />
+            Attend
+          </Button>
+          <Label as="a" basic color="teal" pointing="left">
+            228
+          </Label>
+        </Button>
+      );
+    } else {
+      console.log('yo');
+      return;
+    }
   }
 
   handleOpen = () => this.setState({ modalOpen: true });
@@ -27,20 +59,9 @@ class AttendeeModal extends Component {
       <Modal
         className="scrolling"
         trigger={
-          <Button
-            className="attendButton"
-            onClick={this.handleOpen}
-            as="div"
-            labelPosition="right"
-          >
-            <Button color="teal">
-              <Icon name="fork" />
-              Attend
-            </Button>
-            <Label as="a" basic color="teal" pointing="left">
-              228
-            </Label>
-          </Button>
+          this.props.event.attendees &&
+          this.props.event.failedquiz &&
+          this.quizTaken()
         }
         open={this.state.modalOpen}
         onClose={this.handleClose}
@@ -64,4 +85,13 @@ class AttendeeModal extends Component {
   }
 }
 
-export default withRouter(AttendeeModal);
+const mapStateToProps = state => ({
+  auth: state.auth,
+  event: state.event
+});
+
+export default withRouter(
+  connect(mapStateToProps, {
+    fetchEvent
+  })(AttendeeModal)
+);
