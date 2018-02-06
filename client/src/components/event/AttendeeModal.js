@@ -17,8 +17,6 @@ class AttendeeModal extends Component {
     const id = this.props.auth ? this.props.auth._id : 'null';
     const quizTaken = this.props.event ? this.props.event.attendees : 'null';
     const quizFailed = this.props.event ? this.props.event.failedquiz : 'null';
-
-    console.log(this.props.auth);
     if (quizTaken.indexOf(id) == -1 && quizFailed.indexOf(id) == -1) {
       return (
         <Button
@@ -37,7 +35,6 @@ class AttendeeModal extends Component {
         </Button>
       );
     } else {
-      console.log('yo');
       return;
     }
   }

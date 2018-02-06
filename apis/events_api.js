@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const Events = mongoose.model('event');
 
 module.exports.getEvent = async (req, res) => {
-	const id = req.params.id;
-	
+  const id = req.params.id;
+
   try {
     const events = await Events.find({ eventId: id });
 
@@ -30,11 +30,11 @@ module.exports.addPassQuiz = async (req, res) => {
 
 module.exports.addFailQuiz = async (req, res) => {
   const eventId = req.body;
-	const user = req.user;
+  const user = req.user;
 
   try {
-		let event = await Events.findOne(eventId);
-		
+    let event = await Events.findOne(eventId);
+
     event.failedquiz.push(user._id);
     event = event.save();
     res.send(event);
