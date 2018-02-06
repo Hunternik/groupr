@@ -4,7 +4,6 @@ const googleApi = require("./googleApi");
 const linkedInApi = require("./linkedinApi");
 
 module.exports.serviceHandler = async (accessToken, refreshToken, profile, done) => {
-	console.log(profile)
 	let authUser = null;
 	// Select appropriate api for profile provider
 	switch (profile.provider) {
