@@ -9,7 +9,7 @@ module.exports.googleUser = profile => {
       firstName: profile.name.givenName,
       email: profile.emails[0].value,
       iconPhotoURL: profile.photos[0].value,
-      bigPhotoURL: profile._json.cover.coverPhoto.url,
+      // bigPhotoURL: profile._json.cover.coverPhoto.url,
       googleProfileURL: profile._json.url
     }
   };
