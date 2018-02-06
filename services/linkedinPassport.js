@@ -6,7 +6,7 @@ const LinkedInStrategy = require("passport-linkedin-oauth2").Strategy;
 // const TotpStrategy = require('passport-totp').Strategy;
 const mongoose = require("mongoose");
 const keys = require("../config/keys");
-const User = mongoose.model("users");
+const User = mongoose.model("user");
 const { serialize, deserialize } = require("./utils/serialize");
 const linkedInService = require('./utils/serviceHandler');
 

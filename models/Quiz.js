@@ -1,8 +1,8 @@
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 const { Schema } = mongoose;
 
-mongoose.model(
-  'quiz',
+module.exports = mongoose.model(
+  "quiz",
   new Schema({
     num: {
       question: String,
@@ -15,5 +15,5 @@ mongoose.model(
       correct: String
     }
   }),
-  'quiz'
-); // collection name
+  "quiz"
+);
