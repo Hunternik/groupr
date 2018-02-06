@@ -1,6 +1,6 @@
 const passport = require('passport');
 const mongoose = require('mongoose');
-const User = mongoose.model('users');
+const User = mongoose.model('user');
 
 // Login authentication handlers
 

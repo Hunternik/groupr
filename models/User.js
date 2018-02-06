@@ -16,14 +16,13 @@ const userSchema = new Schema({
   events: [
     {
       type: Schema.Types.ObjectId,
-      ref: "events"
+      ref: "event"
     }
 	], 
 	linkedInProfileURL: { type: String, default: ''},
 	googleProfileURL: { type: String, default: '' }
 });
 
-// first arugment passed into models is the name of the collection, second arg is info
-const Users = mongoose.model("users", userSchema);
+const User = mongoose.model("user", userSchema);
 
-module.exports = Users;
+module.exports = User;

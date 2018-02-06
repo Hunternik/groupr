@@ -14,19 +14,19 @@ const companySchema = new Schema({
 	employees: [
 		{
 			type: Schema.Types.ObjectId,
-      ref: "users"
+      ref: "user"
 		}
 	],
   activeEvents: [
 		{
 			type: Schema.Types.ObjectId,
-      ref: "events"
+      ref: "event"
 		}
 	],
   pastEvents: [
 		{
 			type: Schema.Types.ObjectId,
-      ref: "events"
+      ref: "event"
 		}
 	],
 });
