@@ -24,4 +24,6 @@ const userSchema = new Schema({
 });
 
 // first arugment passed into models is the name of the collection, second arg is info
-mongoose.model("users", userSchema);
+const Users = mongoose.model("users", userSchema);
+
+module.exports = Users;

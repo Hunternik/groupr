@@ -11,10 +11,27 @@ const companySchema = new Schema({
   jobsOpen: Array,
   primaryContact: String,
   imgLogoURL: String,
-	employees: [userSchema],
-  activeEvents: [eventSchema],
-  pastEvents: [eventSchema],
+	employees: [
+		{
+			type: Schema.Types.ObjectId,
+      ref: "users"
+		}
+	],
+  activeEvents: [
+		{
+			type: Schema.Types.ObjectId,
+      ref: "events"
+		}
+	],
+  pastEvents: [
+		{
+			type: Schema.Types.ObjectId,
+      ref: "events"
+		}
+	],
 });
 
 // first arugment passed into models is the name of the collection, second arg is info
-mongoose.model('companies', companySchema);
+const Companies = mongoose.model('companies', companySchema);
+
+module.exports = Companies;
