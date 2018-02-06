@@ -11,12 +11,6 @@ const companySchema = new Schema({
   jobsOpen: Array,
   primaryContact: String,
   imgLogoURL: String,
-<<<<<<< HEAD
-	employees: [userSchema],
-  // activeEvents: [eventSchema],
-  activeEvents: [String],
-  pastEvents: [eventSchema],
-=======
 	employees: [
 		{
 			type: Schema.Types.ObjectId,
@@ -35,7 +29,6 @@ const companySchema = new Schema({
       ref: "event"
 		}
 	],
->>>>>>> d7c85682d0b9e751a8d1bf2657a40e5d92b484e7
 });
 
 // first arugment passed into models is the name of the collection, second arg is info
