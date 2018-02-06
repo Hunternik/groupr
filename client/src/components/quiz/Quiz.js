@@ -5,7 +5,7 @@ import * as actions from '../../actions';
 import QuizPassModal from './QuizPassModal';
 import QuizFailModal from './QuizFailModal';
 import Login from '../common/header/Login';
-import AnswerContainer from './AnswerContainer';
+import AnswerModal from './AnswerModal';
 
 require('./quiz.css');
 
@@ -16,7 +16,6 @@ class Quiz extends Component {
       index: 0,
       complete: false,
       answer: null,
-      active: true,
       score: 0,
       selectedAnswer: null,
       checked: null
@@ -26,15 +25,15 @@ class Quiz extends Component {
     this.nextQuestion = this.nextQuestion.bind(this);
     this.getAnswers = this.getAnswers.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.toggleActive = this.toggleActive.bind(this);
   }
 
   componentWillUpdate(nextProps, nextState) {
     if (nextState.complete && this.state.complete !== nextState.complete) {
-      if (nextState.score > 1 && this.state.score !== nextState.score) {
+      if (nextState.score > 1) {
         // this is the current state before it happens
         this.passQuiz();
-      } else if (nextState.score <= 1 && this.state.score !== nextState.score) {
+      } else if (nextState.score <= 1) {
+        console.log('hi');
         this.failQuiz();
       }
     }
@@ -63,12 +62,6 @@ class Quiz extends Component {
         answer: null
       });
     }
-  }
-
-  toggleActive() {
-    this.setState({
-      active: false
-    });
   }
 
   handleChange = e => {
@@ -114,6 +107,7 @@ class Quiz extends Component {
   }
 
   failQuiz(data) {
+    console.log(this.props);
     this.props.failed_quiz({ eventId: this.props.event.eventId });
   }
 
@@ -141,7 +135,7 @@ class Quiz extends Component {
           {quiz && this.getAnswers(quiz.answers)}
         </pre>
         <div className="btn">
-          <AnswerContainer
+          <AnswerModal
             {...this.state}
             nextQuestion={this.nextQuestion}
             validateAnswer={this.validateAnswer}
@@ -153,7 +147,6 @@ class Quiz extends Component {
 }
 
 const mapStateToProps = state => ({
-  quizState: this.state,
   quiz: state.quiz,
   auth: state.auth,
   event: state.event

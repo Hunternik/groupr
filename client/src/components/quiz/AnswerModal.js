@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { Button, Modal, Icon } from 'semantic-ui-react';
 import * as actions from '../../actions';
 
-class AnswerContainer extends Component {
+class AnswerModal extends Component {
   constructor(props) {
     super(props);
   }
@@ -17,7 +17,6 @@ class AnswerContainer extends Component {
   handleClose = () => {
     this.setState({ modalOpen: false });
     this.props.nextQuestion();
-    console.log(this.props);
   };
 
   validateAnswer() {
@@ -31,9 +30,17 @@ class AnswerContainer extends Component {
     this.setState({ userChoice: null });
   }
 
+  showAnswers() {
+    let index = this.props.index;
+    console.log(index);
+    const quiz = this.props.quiz ? this.props.quiz.questions : 'null';
+    if (this.props.selectedAnswer === quiz[index].correct) {
+      return <div>Congrats! That's correct!</div>;
+    } else {
+      return <div>I'm sorry, the correct answer is {quiz[index].correct}.</div>;
+    }
+  }
   render() {
-    console.log(this.props);
-    console.log(this.state);
     return (
       <Modal
         trigger={
@@ -46,9 +53,7 @@ class AnswerContainer extends Component {
         open={this.state.modalOpen}
         size="small"
       >
-        <Modal.Content>
-          <div>Call Benjamin regarding the reports.</div>
-        </Modal.Content>
+        <Modal.Content>{this.showAnswers()}</Modal.Content>
         <Modal.Actions>
           <Button color="green" onClick={this.handleClose} inverted>
             <Icon name="checkmark" /> Got it
@@ -64,4 +69,4 @@ const mapStateToProps = state => ({
   event: state.event
 });
 
-export default connect(mapStateToProps, actions)(AnswerContainer);
+export default connect(mapStateToProps, actions)(AnswerModal);

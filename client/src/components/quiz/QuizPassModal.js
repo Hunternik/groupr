@@ -21,23 +21,6 @@ class QuizPassModal extends Component {
     });
   };
 
-  printQA = () => {
-    const quiz = this.props.quiz.questions;
-    console.log(quiz[1]);
-    const qandas = [];
-    for (let i = 0; i < quiz.length; i++) {
-      qandas.push(
-        <div>
-          <div>
-            Question {i + 1}: {quiz[i].question}
-          </div>
-          <div>Answer: {quiz[i].correct}</div>
-        </div>
-      );
-    }
-    return qandas;
-  };
-
   addSvg = () => {
     let confettis = [];
 
@@ -112,10 +95,6 @@ class QuizPassModal extends Component {
             <p className="user_score">
               You scored {this.props.score} out of 3 questions!
             </p>
-            <p className="question_review">
-              Here is a review of the questions:
-            </p>
-            {this.printQA()}
           </Modal.Description>
         </Modal.Content>
         <Modal.Actions>
