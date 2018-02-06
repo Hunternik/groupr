@@ -7,7 +7,7 @@ require("./profile.css");
 
 const renderFields = profile => {
   return profileFields.map(field => (
-    <Form.Input fluid label={field.label} readOnly>
+    <Form.Input fluid label={field.label} key={field.name} readOnly>
       {profile[field.name]}
     </Form.Input>
   ));
@@ -15,7 +15,8 @@ const renderFields = profile => {
 
 const ProfileRead = ({ profile, onUpdate, success }) => {
   return (
-    <Form success={success}>
+    <Form success={success}
+		style={{ height: '65vh' }}>
       <Message
         success
         header="Save Successful!"
@@ -29,7 +30,7 @@ const ProfileRead = ({ profile, onUpdate, success }) => {
           className="profile-button"
           size="large"
         >
-          Edit
+          Update
         </Button>
       </div>
     </Form>

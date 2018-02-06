@@ -3,10 +3,11 @@ import { Dropdown, Image, Grid } from 'semantic-ui-react';
 import { Link } from 'react-router-dom';
 import Login from '../Login';
 import Payments from '../../Payments';
+import ProfilePlaceholder from '../../../../assets/images/ProfilePlaceholder.png';
 
 const renderName = (auth) => (
   <span>
-    <Image src={auth.iconPhotoURL} avatar /> {auth.displayName}
+    <Image src={auth.iconPhotoURL || ProfilePlaceholder} avatar /> {auth.displayName}
   </span>
 );
 
