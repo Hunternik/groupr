@@ -23,7 +23,6 @@ class AttendeeModal extends Component {
   };
 
   render() {
-    console.log(this.state.eventId);
     return (
       <Modal
         className="scrolling"

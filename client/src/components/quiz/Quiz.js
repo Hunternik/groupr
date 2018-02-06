@@ -5,6 +5,7 @@ import * as actions from '../../actions';
 import QuizPassModal from './QuizPassModal';
 import QuizFailModal from './QuizFailModal';
 import Login from '../common/header/Login';
+import AnswerModal from './AnswerModal';
 
 require('./quiz.css');
 
@@ -15,24 +16,24 @@ class Quiz extends Component {
       index: 0,
       complete: false,
       answer: null,
-      active: true,
       score: 0,
       selectedAnswer: null,
       checked: null
     };
-    this.nextQuestion = this.nextQuestion.bind(this);
+
     this.validateAnswer = this.validateAnswer.bind(this);
+    this.nextQuestion = this.nextQuestion.bind(this);
     this.getAnswers = this.getAnswers.bind(this);
     this.handleChange = this.handleChange.bind(this);
-    this.toggleActive = this.toggleActive.bind(this);
   }
 
   componentWillUpdate(nextProps, nextState) {
     if (nextState.complete && this.state.complete !== nextState.complete) {
-      if (nextState.score > 1 && this.state.score !== nextState.score) {
+      if (nextState.score > 1) {
         // this is the current state before it happens
         this.passQuiz();
-      } else if (nextState.score <= 1 && this.state.score !== nextState.score) {
+      } else if (nextState.score <= 1) {
+        console.log('hi');
         this.failQuiz();
       }
     }
@@ -40,14 +41,12 @@ class Quiz extends Component {
 
   validateAnswer() {
     const { index } = this.state;
-
     if (
       this.state.selectedAnswer === this.props.quiz.questions[index].correct
     ) {
       this.setState({ score: this.state.score + 1 });
     }
     this.setState({ userChoice: null });
-    this.nextQuestion();
   }
 
   nextQuestion() {
@@ -63,12 +62,6 @@ class Quiz extends Component {
         answer: null
       });
     }
-  }
-
-  toggleActive() {
-    this.setState({
-      active: false
-    });
   }
 
   handleChange = e => {
@@ -114,11 +107,11 @@ class Quiz extends Component {
   }
 
   failQuiz(data) {
+    console.log(this.props);
     this.props.failed_quiz({ eventId: this.props.event.eventId });
   }
 
   render() {
-    console.log(this.state.active);
     const { index } = this.state;
     const quiz = this.props.quiz ? this.props.quiz.questions : 'null';
     const currentQuestion = quiz[index].question;
@@ -137,19 +130,16 @@ class Quiz extends Component {
 
     return (
       <div className="quiz_container">
-        <div className="current_question">{currentQuestion}</div>
-        <div className="answer_container">
+        <pre className="current_question">{currentQuestion}</pre>
+        <pre className="answer_container">
           {quiz && this.getAnswers(quiz.answers)}
-        </div>
+        </pre>
         <div className="btn">
-          <Button.Group size="big">
-            <Button
-              onClick={this.validateAnswer}
-              disabled={!this.state.userChoice}
-            >
-              Submit
-            </Button>
-          </Button.Group>
+          <AnswerModal
+            {...this.state}
+            nextQuestion={this.nextQuestion}
+            validateAnswer={this.validateAnswer}
+          />
         </div>
       </div>
     );

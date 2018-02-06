@@ -31,10 +31,9 @@ module.exports.addPassQuiz = async (req, res) => {
 module.exports.addFailQuiz = async (req, res) => {
   const eventId = req.body;
   const user = req.user;
-
   try {
     let event = await Events.findOne(eventId);
-
+    console.log('pushing to failed quiz');
     event.failedquiz.push(user);
     event = event.save();
     res.send(event);
