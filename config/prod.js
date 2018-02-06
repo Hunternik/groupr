@@ -8,8 +8,7 @@ module.exports = {
   cookieKey: process.env.COOKIE_KEY,
   stripePublishableKey: process.env.STRIPE_PUBLISHABLE_KEY,
   stripeSecretKey: process.env.STRIPE_SECRET_KEY,
-	googleMapsAPI: process.env.REACT_APP_GOOGLE_MAPS_API_KEY,
-	redirectDomain: process.env.REDIRECT_DOMAIN
+	googleMapsAPI: process.env.REACT_APP_GOOGLE_MAPS_API_KEY
 };
 
 // mmmmmmmmmmmmm heroku link mmmmmmmmmmmmm
