@@ -20,7 +20,8 @@ passport.use(
       clientID: keys.linkedInClientID,
       clientSecret: keys.linkedInClientSecret,
       callbackURL: "/auth/linkedin/callback",
-      scope: ["r_basicprofile", "r_emailaddress"],
+			scope: ["r_basicprofile", "r_emailaddress"],
+			profileFields: ['id', 'name', 'displayName', 'emails', 'pictureUrls', 'publicProfileUrl'],
       proxy: true
 		},
 		linkedInService.serviceHandler
