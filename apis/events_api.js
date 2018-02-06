@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const Events = mongoose.model('events');
 
 module.exports.getEvent = async (req, res) => {
-  const id = req.params.id;
-  console.log(req.params);
+	const id = req.params.id;
+	
   try {
     const events = await Events.find({ eventId: id });
 

@@ -23,7 +23,6 @@ const userSchema = new Schema({
 	googleProfileURL: { type: String, default: '' }
 });
 
-// first arugment passed into models is the name of the collection, second arg is info
 const Users = mongoose.model("users", userSchema);
 
 module.exports = Users;
