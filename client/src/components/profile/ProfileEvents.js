@@ -5,7 +5,7 @@ import pastEvents from "../../constants/pastEvents";
 import { Container, Divider, Image, List } from "semantic-ui-react";
 
 const renderImages = images => {
-  return images.map(image => <Image src={image.src} rounded />);
+  return images.map(image => <Image key={image.id} src={image.src} rounded />);
 };
 
 const ProfileEvents = ({ profile }) => {
@@ -16,7 +16,9 @@ const ProfileEvents = ({ profile }) => {
   );
 
   return (
-    <Image.Group size="medium" style={{ height: '65vh', overflow: 'scroll' }}>{renderImages(attendingEvents)}</Image.Group>
+    <Image.Group size="medium" style={{ height: "65vh", overflow: "scroll" }}>
+      {renderImages(attendingEvents)}
+    </Image.Group>
   );
 };
 
