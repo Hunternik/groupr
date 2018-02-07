@@ -6,7 +6,7 @@ export const fetchEvent = id => async dispatch => {
   // const res = await axios.get(`/api/current_event/LA`);
   dispatch({
     type: FETCH_EVENT,
-    payload: res.data[0]
+    payload: res.data
   });
   console.log(res, "mmm2m Fetch Event mmmmm");
 };
