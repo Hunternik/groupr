@@ -19,7 +19,7 @@ mongoose.connect(keys.mongoURI);
 					"Software Engineer"
 			],
 			primaryContact: "google@gmail.com",
-			imgLogoURL: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/768px-Google_%22G%22_Logo.svg.png",
+			imgLogoURL: "https://image.flaticon.com/icons/png/512/25/25231.png",
 			employees: [],
 			activeEvents: activeEventIds,
 			pastEvents: pastEventIds
