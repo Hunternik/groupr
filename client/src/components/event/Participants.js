@@ -52,22 +52,6 @@ class Participants extends Component {
     }
   }
 
-  renderEventAttendees() {
-    if (this.props.event.attendees) {
-      return this.props.event.attendees.map((attendee) => {
-        return (
-          <Grid.Column>
-            <Image
-              src={attendee.bigPhotoURL}
-              fluid
-              rounded
-            />
-          </Grid.Column>
-        );
-      });
-    }
-  }
-
   render() {
     console.log(this.props.event, "mmmmmmmmm EVENT PROPS PARTICAPANTS mmmmmm")
     const { activeItem } = this.state;
@@ -107,7 +91,6 @@ class Participants extends Component {
               <Grid relaxed columns={4}>
                 {activeItem === "companies" && this.renderEventCompanies()}
                 {activeItem === "recruiters" && this.renderEventRecruiters()}
-                {activeItem === "attendies" && this.renderEventAttendees()}
               </Grid>
             </Segment>
           </Grid.Column>
