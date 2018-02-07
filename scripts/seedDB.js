@@ -14,7 +14,8 @@ const eventSeed = [
     location: "618 S Spring St, Los Angeles, CA 90014",
     attendees: [],
     failedquiz: [],
-    sponsors: [],
+		recruiters: [],
+		companies: [],
     active: true,
     passed: false
   },
@@ -27,7 +28,8 @@ const eventSeed = [
     location: "618 S Spring St, Los Angeles, CA 90014",
     attendees: [],
     failedquiz: [],
-    sponsors: [],
+		recruiters: [],
+		companies: [],
     active: true,
     passed: false
   },
@@ -40,7 +42,8 @@ const eventSeed = [
     location: "618 S Spring St, Los Angeles, CA 90014",
     attendees: [],
     failedquiz: [],
-    sponsors: [],
+		recruiters: [],
+		companies: [],
     active: true,
     passed: false
   },
@@ -53,7 +56,8 @@ const eventSeed = [
     location: "618 S Spring St, Los Angeles, CA 90014",
     attendees: [],
     failedquiz: [],
-    sponsors: [],
+		recruiters: [],
+		companies: [],
     active: true,
     passed: false
   },
@@ -66,7 +70,8 @@ const eventSeed = [
     location: "618 S Spring St, Los Angeles, CA 90014",
     attendees: [],
     failedquiz: [],
-    sponsors: [],
+		recruiters: [],
+		companies: [],
     active: true,
     passed: false
   },
@@ -79,7 +84,8 @@ const eventSeed = [
     location: "618 S Spring St, Los Angeles, CA 90014",
     attendees: [],
     failedquiz: [],
-    sponsors: [],
+		recruiters: [],
+		companies: [],
     active: false,
     passed: true
   },
@@ -92,7 +98,8 @@ const eventSeed = [
     location: "618 S Spring St, Los Angeles, CA 90014",
     attendees: [],
     failedquiz: [],
-    sponsors: [],
+		recruiters: [],
+		companies: [],
     active: false,
     passed: true
   },
@@ -105,7 +112,8 @@ const eventSeed = [
     location: "618 S Spring St, Los Angeles, CA 90014",
     attendees: [],
     failedquiz: [],
-    sponsors: [],
+		recruiters: [],
+		companies: [],
     active: false,
     passed: true
   },
@@ -118,7 +126,8 @@ const eventSeed = [
     location: "618 S Spring St, Los Angeles, CA 90014",
     attendees: [],
     failedquiz: [],
-    sponsors: [],
+		recruiters: [],
+		companies: [],
     active: false,
     passed: true
   },
@@ -131,7 +140,8 @@ const eventSeed = [
     location: "618 S Spring St, Los Angeles, CA 90014",
     attendees: [],
     failedquiz: [],
-    sponsors: [],
+		recruiters: [],
+		companies: [],
     active: false,
     passed: true
   }
