@@ -17,7 +17,8 @@ class Router extends Component {
   }
 
   render() {
-    return <BrowserRouter>
+    return (
+      <BrowserRouter>
         <ScrollToTop>
           <Header />
           <Route exact path="/" component={Landing} />
@@ -27,7 +28,8 @@ class Router extends Component {
           <Route path="/recruiter" component={Recruiter} />
           <Footer />
         </ScrollToTop>
-      </BrowserRouter>;
+      </BrowserRouter>
+    );
   }
 }
 
