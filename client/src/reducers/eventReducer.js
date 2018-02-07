@@ -1,4 +1,4 @@
-import { FETCH_EVENT, UPDATE_USER_EVENT } from '../actions/types';
+import { FETCH_EVENT, UPDATE_USER_EVENT, FETCH_RECRUITER } from '../actions/types';
 
 const INITIAL_STATE = {
   _id: null,
@@ -18,6 +18,8 @@ export default (state = INITIAL_STATE, action) => {
     case FETCH_EVENT:
 			return { ...state, ...action.payload };
 		case UPDATE_USER_EVENT:
+			return action.payload.event;
+		case FETCH_RECRUITER:
 			return action.payload.event;
     default:
       return state;

@@ -17,16 +17,10 @@ class AttendeeModal extends Component {
     const id = this.props.auth ? this.props.auth._id : 'null';
     const quizTaken = this.props.event ? this.props.event.attendees : 'null';
     const quizFailed = this.props.event ? this.props.event.failedquiz : 'null';
+    let attendeePassed = quizTaken.some(oid => oid._id === id);
+		let attendeeFailed= quizFailed.some(oid => oid._id === id);
 
-    let attendeeIndex = quizTaken.findIndex(function(oid) {
-      return oid === id;
-    });
-
-    let failedIndex = quizFailed.findIndex(function(oid) {
-      return oid === id;
-    });
-
-    if (attendeeIndex == -1 && failedIndex == -1) {
+    if (!attendeePassed && !attendeeFailed) {
       return (
         <Button
           className="attendButton"

@@ -27,11 +27,13 @@ class RecruiterForm extends Component {
   }
 
   state = {
-    openPayment: false
+		openPayment: false,
+		RecruiterInfo: null,
   };
 
   componentWillUpdate(nextProps, nextState) {
     if (this.props.auth.credits !== nextProps.auth.credits) {
+			this.props.fetchRecruiter(this.state.RecruiterInfo);
       this.handleNavigation();
     }
   }
@@ -74,8 +76,7 @@ class RecruiterForm extends Component {
       activeEvents
     };
 
-    this.setState({ openPayment: true });
-    this.props.fetchRecruiter(RecruiterInfo);
+    this.setState({ openPayment: true, RecruiterInfo: RecruiterInfo });
   }
 
   renderPayments() {

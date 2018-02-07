@@ -41,7 +41,6 @@ class EventPage extends Component {
   // Fetch event data from mongo
   fetchCurrentEvent(id) {
     this.props.fetchEvent(id);
-    this.props.fetchEventSponsors(this.props.event._id);
   }
 
   // renderEventSponsors(mongoId) {
@@ -54,7 +53,7 @@ class EventPage extends Component {
   }
 
   render() {
-    console.log(this.props.event._id, "EVENT ID mmmmmmidfjqwioregj");
+    console.log(this.props.event, "EVENT ID mmmmmmidfjqwioregj");
     // this.props.fetchEventSponsors(this.props.event._id);
     return (
       <div>

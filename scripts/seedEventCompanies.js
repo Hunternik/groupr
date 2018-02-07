@@ -5,7 +5,8 @@ const keys = require('../config/keys');
 mongoose.connect(keys.mongoURI);
 
 (async () => {
-	const activeEvent = await db.Event.findOne({ active: true });
+	// const activeEvent = await db.Event.findOne({ active: true });
+	const activeEvent = await db.Event.findOne({ eventId: 'SEA' });
 	const companies  = await db.Company.find({}).limit(2);
 
 	activeEvent.companies = companies.map(company => company._id);
