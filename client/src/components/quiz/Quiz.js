@@ -42,7 +42,7 @@ class Quiz extends Component {
   validateAnswer() {
     const { index } = this.state;
     if (
-      this.state.selectedAnswer === this.props.quiz.questions[index].correct
+      this.state.selectedAnswer === this.props.quiz.questions[index].modalanswer
     ) {
       this.setState({ score: this.state.score + 1 });
     }
