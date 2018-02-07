@@ -34,12 +34,23 @@ class AnswerModal extends Component {
 
   showAnswers() {
     let index = this.props.index;
-    console.log(index);
     const quiz = this.props.quiz ? this.props.quiz.questions : 'null';
-    if (this.props.selectedAnswer === quiz[index].correct) {
-      return <div>Congrats! That's correct!</div>;
+    if (this.props.selectedAnswer === quiz[index].modalanswer) {
+      return (
+        <div className="content_qmodal">Congratulations, that's correct!</div>
+      );
     } else {
-      return <div>I'm sorry, the correct answer is {quiz[index].correct}.</div>;
+      return (
+        <div>
+          <div className="content_qmodal">
+            I'm sorry, the correct answer is:
+          </div>
+          <div
+            className="modal_pre"
+            dangerouslySetInnerHTML={{ __html: quiz[index].correct }}
+          />
+        </div>
+      );
     }
   }
   render() {
@@ -47,7 +58,11 @@ class AnswerModal extends Component {
       <Modal
         trigger={
           <Button.Group>
-            <Button onClick={this.handleOpen} disabled={!this.props.userChoice}>
+            <Button
+              size="large"
+              onClick={this.handleOpen}
+              disabled={!this.props.userChoice}
+            >
               Submit
             </Button>
           </Button.Group>
@@ -57,7 +72,7 @@ class AnswerModal extends Component {
       >
         <Modal.Content>{this.showAnswers()}</Modal.Content>
         <Modal.Actions>
-          <Button size="small" onClick={this.handleClose} inverted>
+          <Button size="medium" onClick={this.handleClose} inverted>
             Got it
           </Button>
         </Modal.Actions>

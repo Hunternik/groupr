@@ -22,7 +22,7 @@ div.question_title {
 }
 
 div.field label:hover {
-  font-size: 1.1em;
+  font-weight: bolder;
 }
 
 pre {
@@ -87,9 +87,23 @@ button.ui.disabled {
   color: #3ebcb2;
 }
 
+/* Answer Modal */
+div.content_qmodal {
+  font-size: 1.2em;
+  text-align: center;
+}
+
+div.modal_pre {
+  margin: 0.5em;
+  font-size: 1.2em;
+  text-align: center;
+  font-family: monospace;
+}
+
 /* Pass and Fail Modal */
 
 div.content h3 {
+  margin-top: 2em;
   text-align: center;
   font-size: 2em;
 }
