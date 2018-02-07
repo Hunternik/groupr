@@ -43,26 +43,34 @@ class Jumbotron extends Component {
             className="eventTitle"
             content={this.props.event.title}
             inverted
-            style={{
-              fontSize: '4em',
-              fontWeight: 'normal',
-              marginBottom: 0,
-              marginTop: 0
-            }}
+            style={styles.headerOne}
           />
-          <Header
+          {/* <Header
             as="h2"
             className="eventHeadline"
             content="Network with developers and technical recruiters from high quality companies."
             inverted
-            style={{ fontSize: '1.7em', fontWeight: 'normal' }}
-          />
+            style={styles.headerTwo}
+          /> */}
           <AttendeeModal />
         </Visibility>
       </div>
     );
   }
 }
+
+const styles = {
+  headerOne: {
+    fontSize: '4em',
+    fontWeight: 'normal',
+    marginBottom: 0,
+    marginTop: 0
+  },
+  headerTwo: {
+    fontSize: '1.7em',
+    fontWeight: 'normal'
+  }
+};
 
 // Application State
 const mapStateToProps = ({ event }) => ({
