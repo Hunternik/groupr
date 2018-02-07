@@ -1,33 +1,80 @@
+/* Quiz Page */
+
 html,
 body {
   height: 100%;
 }
 
+/* Quiz */
+
 div.quiz_container {
-  width: 100%;
+  margin-top: 2em;
+  width: 80%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+div.question_title {
+  margin-right: auto;
+  width: 80%;
+  margin-left: auto;
+  font-size: 1.5em;
 }
 
 div.field label:hover {
-  font-size: 1.1em;
+  font-weight: bolder;
 }
 
-div.current_question {
-  text-align: center;
-  font-size: 2em;
-  margin: 2em auto 0.5em auto;
+pre {
+  margin-right: auto;
+  margin-left: auto;
+  width: 80%;
 }
 
-div.answer_container {
-  font-size: 1.5em;
-  text-align: left;
-  width: 10em;
-  margin: auto;
-  padding: 1.5em;
+pre.question_container {
+  padding: 2em;
+  background-color: #022b36;
+}
+
+div.qs {
+  overflow: auto;
+}
+
+span.green {
+  color: #859900;
+}
+
+span.blue {
+  color: #268bd2;
+}
+
+span.bluegreen {
+  color: #2aa198;
+}
+
+span.grey {
+  color: #586e75;
+}
+
+code.current_question {
+  color: #839496;
+  font-size: 1.2em;
+  line-height: 1.5em;
+}
+
+pre.answer_container {
+  margin-right: auto;
+  width: 80%;
+  margin-left: auto;
+  font-size: 1.2em;
+  line-height: 1.5em;
 }
 
 div.grouped {
   margin: 1em;
 }
+
+/* Buttons */
 
 div.btn {
   width: 100%;
@@ -40,7 +87,23 @@ button.ui.disabled {
   color: #3ebcb2;
 }
 
+/* Answer Modal */
+div.content_qmodal {
+  font-size: 1.2em;
+  text-align: center;
+}
+
+div.modal_pre {
+  margin: 0.5em;
+  font-size: 1.2em;
+  text-align: center;
+  font-family: monospace;
+}
+
+/* Pass and Fail Modal */
+
 div.content h3 {
+  margin-top: 2em;
   text-align: center;
   font-size: 2em;
 }
@@ -68,9 +131,13 @@ button.ui.inverted.button:hover {
   color: black;
 }
 
+/* Fail Modal */
+
 .fail-image {
   top: 1.3em;
 }
+
+/* Pass Modal */
 
 *,
 *:before,
