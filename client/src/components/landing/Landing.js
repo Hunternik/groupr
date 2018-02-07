@@ -9,9 +9,15 @@ import About from './About';
 class Landing extends Component {
   constructor() {
     super();
+    this.handleScroll = this.handleScroll.bind(this);
   }
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll, 10);
+  }
+
+  handleScroll() {
+    const scrollValue = window.scrollY;
+    this.props.scroll(scrollValue);
   }
 
   componentWillUnmount() {
