@@ -6,7 +6,19 @@ module.exports.getEvent = async (req, res) => {
   const id = req.params.id;
 
   try {
-    const events = await Events.find({ eventId: id });
+    const events = await Events.findOne({ eventId: id })
+      .populate({
+        path: "companies",
+        select: "name website imgLogoURL"
+      })
+      .populate({
+        path: "attendees",
+        select: "displayName bigPhotoURL email"
+      })
+      .populate({
+        path: "recruiters",
+        select: "displayName bigPhotoURL email"
+      });
 
     res.send(events);
   } catch (error) {
@@ -22,9 +34,9 @@ module.exports.addPassQuiz = async (req, res) => {
     let event = await Events.findOne(eventId);
     let user = await Users.findOne(userId);
 
-		user.events.push(event._id);
+    user.events.push(event._id);
     event.attendees.push(user._id);
-		
+
     user = await user.save();
     user = await Users.populate(user, {
       path: "events",

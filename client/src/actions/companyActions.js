@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { FETCH_COMPANIES } from './types';
 
-export const fetchCompanies = (eventId) => async (dispatch) => {
-  const res = await axios.get(`api/company/${eventId}`);
-
+export const fetchEventSponsors = (eventId) => async (dispatch) => {
+  const res = await axios.get(`/api/company/event/${eventId}`);
+  console.log(res.data, "mmmmmm FRONT-END mmmmmmmm COMPANIES LIST");
   dispatch({
     type: FETCH_COMPANIES,
     payload: res.data
