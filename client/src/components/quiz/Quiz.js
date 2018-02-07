@@ -114,7 +114,7 @@ class Quiz extends Component {
   render() {
     const { index } = this.state;
     const quiz = this.props.quiz ? this.props.quiz.questions : 'null';
-    const currentQuestion = quiz[index].question;
+    const currentQ = quiz[index].q;
 
     if (this.state.complete === true && this.state.score > 1) {
       return <QuizPassModal score={this.state.score} />;
@@ -130,7 +130,15 @@ class Quiz extends Component {
 
     return (
       <div className="quiz_container">
-        <pre className="current_question">{currentQuestion}</pre>
+        <div className="question_title">{currentQ}</div>
+        <pre className="question_container">
+          <code language="language-javascript" className="current_question">
+            <div
+              className="qs"
+              dangerouslySetInnerHTML={{ __html: quiz[index].question }}
+            />
+          </code>
+        </pre>
         <pre className="answer_container">
           {quiz && this.getAnswers(quiz.answers)}
         </pre>
