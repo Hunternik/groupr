@@ -8,5 +8,4 @@ export const fetchEvent = id => async dispatch => {
     type: FETCH_EVENT,
     payload: res.data
   });
-  console.log(res, "mmm2m Fetch Event mmmmm");
 };
