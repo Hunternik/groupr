@@ -20,8 +20,6 @@ module.exports.getEvent = async (req, res) => {
       select: "displayName bigPhotoURL email"
 		});
 
-		console.log(events);
-
     res.send(events);
   } catch (error) {
     res.status(404).send(error);
