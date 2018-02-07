@@ -1,4 +1,4 @@
-import _ from 'lodash'
+import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -65,34 +65,19 @@ class EventPage extends Component {
           event={this.renderEventData()}
           coverPhotoID={this.props.match.params.eventId.toUpperCase()}
         />
-        {/* <Segment style={{ backgroundColor: '#f6f7f8' }} > */}
         <Segment style={{ padding: '0em 0em' }} vertical>
           <Grid container centered columns={2}>
-            {/* <Grid.Row> */}
-            {/* <div ref={this.handleContextRef}>
-            <Segment>
-              {_.times(10, i => <Details event={this.renderEventData()} key={i} />)} */}
-
-              <Grid.Column width={10}>
-                <Description event={this.renderEventData()} />
-              </Grid.Column>
-              {/* <Rail position='right'>
-                <Sticky bottomOffset={50} context={contextRef} offset={50} pushing> */}
-              <Grid.Column width={6}>
-                <Details event={this.renderEventData()} />
-              </Grid.Column>
-              {/* </Sticky>
-              </Rail>
-            </Segment> */}
-              
-            {/* </Grid.Row> */}
-            {/* </div> */}
+            <Grid.Column width={10}>
+              <Description event={this.renderEventData()} />
+            </Grid.Column>
+            <Grid.Column width={6}>
+              <Details event={this.renderEventData()} />
+            </Grid.Column>
           </Grid>
         </Segment>
         <Segment vertical>
           <Participants eventId={this.props.event} />
         </Segment>
-        {/* </Segment> */}
       </div>
     );
   }

@@ -22,14 +22,10 @@ class Participants extends Component {
 
   renderEventCompanies() {
     if (this.props.event.companies) {
-      return this.props.event.companies.map((company) => {
+      return this.props.event.companies.map(company => {
         return (
           <Grid.Column>
-            <Image
-              src={company.imgLogoURL}
-              fluid
-              rounded
-            />
+            <Image src={company.imgLogoURL} fluid rounded />
           </Grid.Column>
         );
       });
@@ -38,14 +34,10 @@ class Participants extends Component {
 
   renderEventRecruiters() {
     if (this.props.event.recruiters) {
-      return this.props.event.recruiters.map((recruiter) => {
+      return this.props.event.recruiters.map(recruiter => {
         return (
           <Grid.Column>
-            <Image
-              src={recruiter.bigPhotoURL}
-              fluid
-              rounded
-            />
+            <Image src={recruiter.bigPhotoURL} fluid rounded />
           </Grid.Column>
         );
       });
@@ -54,14 +46,10 @@ class Participants extends Component {
 
   renderEventAttendees() {
     if (this.props.event.attendees) {
-      return this.props.event.attendees.map((attendee) => {
+      return this.props.event.attendees.map(attendee => {
         return (
           <Grid.Column>
-            <Image
-              src={attendee.bigPhotoURL}
-              fluid
-              rounded
-            />
+            <Image src={attendee.bigPhotoURL} fluid rounded />
           </Grid.Column>
         );
       });
@@ -69,7 +57,7 @@ class Participants extends Component {
   }
 
   render() {
-    console.log(this.props.event, "mmmmmmmmm EVENT PROPS PARTICAPANTS mmmmmm")
+    console.log(this.props.event, 'mmmmmmmmm EVENT PROPS PARTICAPANTS mmmmmm');
     const { activeItem } = this.state;
     return (
       <div>
@@ -105,9 +93,9 @@ class Participants extends Component {
           <Grid.Column stretched width={7}>
             <Segment>
               <Grid relaxed columns={4}>
-                {activeItem === "companies" && this.renderEventCompanies()}
-                {activeItem === "recruiters" && this.renderEventRecruiters()}
-                {activeItem === "attendies" && this.renderEventAttendees()}
+                {activeItem === 'companies' && this.renderEventCompanies()}
+                {activeItem === 'recruiters' && this.renderEventRecruiters()}
+                {activeItem === 'attendies' && this.renderEventAttendees()}
               </Grid>
             </Segment>
           </Grid.Column>
@@ -122,8 +110,7 @@ const mapStateToProps = ({ event, companies }) => ({
   companies
 });
 
-export default
-  connect(mapStateToProps, {
-    fetchEvent,
-    fetchEventSponsors
-  })(Participants);
+export default connect(mapStateToProps, {
+  fetchEvent,
+  fetchEventSponsors
+})(Participants);
