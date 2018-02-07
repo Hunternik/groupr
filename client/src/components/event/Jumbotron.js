@@ -45,13 +45,13 @@ class Jumbotron extends Component {
             inverted
             style={styles.headerOne}
           />
-          <Header
+          {/* <Header
             as="h2"
             className="eventHeadline"
             content="Network with developers and technical recruiters from high quality companies."
             inverted
             style={styles.headerTwo}
-          />
+          /> */}
           <AttendeeModal />
         </Visibility>
       </div>
