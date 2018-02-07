@@ -59,8 +59,8 @@ class EventPage extends Component {
   }
 
   render() {
-    console.log(this.props.event._id, "EVENT ID");
-    this.props.fetchEventSponsors(this.props.event._id);
+    console.log(this.props.event._id, "EVENT ID mmmmmmidfjqwioregj");
+    // this.props.fetchEventSponsors(this.props.event._id);
     return (
       <div>
         <Jumbotron

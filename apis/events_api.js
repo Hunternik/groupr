@@ -1,5 +1,6 @@
-const mongoose = require('mongoose');
-const Events = mongoose.model('event');
+const mongoose = require("mongoose");
+const Events = mongoose.model("event");
+const Users = mongoose.model("user");
 
 module.exports.getEvent = async (req, res) => {
   const id = req.params.id;
@@ -15,14 +16,25 @@ module.exports.getEvent = async (req, res) => {
 
 module.exports.addPassQuiz = async (req, res) => {
   const eventId = req.body;
-  const user = req.user;
+  const userId = req.user._id;
 
   try {
     let event = await Events.findOne(eventId);
+    let user = await Users.findOne(userId);
 
+		user.events.push(event._id);
     event.attendees.push(user._id);
-    event = event.save();
-    res.send(event);
+		
+    user = await user.save();
+    user = await Users.populate(user, {
+      path: "events",
+      select: "eventId"
+    });
+    event = await event.save();
+
+    const updatedUserEvent = { user: user, event: event };
+
+    res.send(updatedUserEvent);
   } catch (error) {
     res.status(500).send(error);
   }
@@ -36,7 +48,7 @@ module.exports.addFailQuiz = async (req, res) => {
     let event = await Events.findOne(eventId);
 
     event.failedquiz.push(user._id);
-    event = event.save();
+    event = await event.save();
     res.send(event);
   } catch (error) {
     res.status(500).send(error);

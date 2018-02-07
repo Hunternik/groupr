@@ -19,6 +19,7 @@ class Participants extends Component {
 
   render() {
     console.log(this.props.eventId, "mmmmmmmm PARTICIPANTS mmmmmmmm");
+    console.log(this.props)
     const { activeItem } = this.state;
     return (
       <div>

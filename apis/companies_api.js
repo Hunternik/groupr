@@ -60,7 +60,9 @@ module.exports.insertCompany = async (req, res) => {
 module.exports.getEventSponsors = async (req, res) => {
   const eventId = req.params.eventId;
   try {
-    const eventSponsors = await Company.find({ activeEvents: eventId });
+
+    const eventSponsors = await Company.find({ companyId }).populate("activeEvents");
+
     console.log(eventSponsors, "mmmmmmm  BACK END mmmmmmm COMPANIES LIST mmmmmm");
     res.send(eventSponsors);
   } catch (error) {
