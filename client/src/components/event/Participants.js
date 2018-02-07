@@ -18,8 +18,6 @@ class Participants extends Component {
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
   render() {
-    console.log(this.props.eventId, "mmmmmmmm PARTICIPANTS mmmmmmmm");
-    console.log(this.props)
     const { activeItem } = this.state;
     return (
       <div>

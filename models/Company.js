@@ -31,7 +31,6 @@ const companySchema = new Schema({
 	],
 });
 
-// first arugment passed into models is the name of the collection, second arg is info
 const Company = mongoose.model('companies', companySchema);
 
 module.exports = Company;

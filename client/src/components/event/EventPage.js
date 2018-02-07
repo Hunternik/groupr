@@ -21,13 +21,8 @@ class EventPage extends Component {
   state = {};
 
   componentDidMount() {
-    // What does this do? Where do you get this? James?
     const fetchId = this.props.match.params.eventId.toUpperCase();
-    // console.log(mongoId, "SADFGAWEFW");
     this.fetchCurrentEvent(fetchId);
-    // this.renderEventSponsors(mongoId)
-    // // this.fetchEventSponsors(this.props.event._id);
-    // const mongoId = this.props.match.params._id.$oid;
   }
 
   componentWillReceiveProps(nextProps) {
