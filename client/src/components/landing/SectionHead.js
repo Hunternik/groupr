@@ -10,7 +10,7 @@ class SectionHead extends Component {
     this.handleVisibility = handleVisibility.bind(this);
   }
 
-	state = { animation: 'fade right', visible: false };
+  state = { animation: 'fade right', visible: false };
 
   render() {
     const { animation, visible } = this.state;
@@ -19,7 +19,9 @@ class SectionHead extends Component {
       <Visibility onUpdate={this.handleVisibility}>
         <Transition animation={animation} duration={1000} visible={visible}>
           <Header as="h2" size="huge" className="sectionHeadContainer">
-            <Header.Content className="sectionHead">{this.props.name}</Header.Content>
+            <Header.Content className="sectionHead">
+              {this.props.name}
+            </Header.Content>
           </Header>
         </Transition>
       </Visibility>
