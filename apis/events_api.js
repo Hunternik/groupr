@@ -6,19 +6,19 @@ module.exports.getEvent = async (req, res) => {
   const id = req.params.id;
 
   try {
-		const events = await Events.findOne({ eventId: id })
-		.populate({
-      path: "companies",
-      select: "name website imgLogoURL"
-		})
-		.populate({
-      path: "attendees",
-      select: "displayName bigPhotoURL email"
-		})
-		.populate({
-      path: "recruiters",
-      select: "displayName bigPhotoURL email"
-		});
+    const events = await Events.findOne({ eventId: id })
+      .populate({
+        path: "companies",
+        select: "name website imgLogoURL"
+      })
+      .populate({
+        path: "attendees",
+        select: "displayName bigPhotoURL email"
+      })
+      .populate({
+        path: "recruiters",
+        select: "displayName bigPhotoURL email"
+      });
 
     res.send(events);
   } catch (error) {
