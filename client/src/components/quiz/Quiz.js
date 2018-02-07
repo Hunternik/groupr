@@ -107,7 +107,6 @@ class Quiz extends Component {
   }
 
   failQuiz(data) {
-    console.log(this.props);
     this.props.failed_quiz({ eventId: this.props.event.eventId });
   }
 

@@ -10,10 +10,10 @@ const renderImages = images => {
 
 const ProfileEvents = ({ profile }) => {
   const allEvents = [...eventPreview, ...pastEvents];
-  const profileEvents = profile.events.map(event => event.eventId);
+	const profileEvents = profile.events.map(event => event.eventId);
   const attendingEvents = allEvents.filter(event =>
     profileEvents.includes(event.id)
-  );
+	);
 
   return (
     <Image.Group size="medium" style={{ height: "65vh", overflow: "scroll" }}>

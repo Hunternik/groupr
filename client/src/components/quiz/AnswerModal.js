@@ -34,7 +34,7 @@ class AnswerModal extends Component {
 
   showAnswers() {
     let index = this.props.index;
-    console.log(index);
+
     const quiz = this.props.quiz ? this.props.quiz.questions : 'null';
     if (this.props.selectedAnswer === quiz[index].correct) {
       return <div>Congrats! That's correct!</div>;
