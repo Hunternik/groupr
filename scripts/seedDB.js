@@ -14,7 +14,8 @@ const eventSeed = [
     location: '804 Congress Avenue, Austin, TX 78701',
     attendees: [],
     failedquiz: [],
-    sponsors: [],
+		recruiters: [],
+		companies: [],
     active: true,
     passed: false
   },
@@ -27,7 +28,8 @@ const eventSeed = [
     location: '1933 South Broadway Los Angeles, CA 90007',
     attendees: [],
     failedquiz: [],
-    sponsors: [],
+		recruiters: [],
+		companies: [],
     active: true,
     passed: false
   },
@@ -40,7 +42,8 @@ const eventSeed = [
     location: '163 Williams Street 18th Floor New York, NY 10038',
     attendees: [],
     failedquiz: [],
-    sponsors: [],
+		recruiters: [],
+		companies: [],
     active: true,
     passed: false
   },
@@ -53,7 +56,8 @@ const eventSeed = [
     location: '101 Townsend St, San Francisco, CA 94107',
     attendees: [],
     failedquiz: [],
-    sponsors: [],
+		recruiters: [],
+		companies: [],
     active: true,
     passed: false
   },
@@ -66,7 +70,8 @@ const eventSeed = [
     location: '220 2nd Avenue South Seattle, WA 98104',
     attendees: [],
     failedquiz: [],
-    sponsors: [],
+		recruiters: [],
+		companies: [],
     active: true,
     passed: false
   },
@@ -79,9 +84,10 @@ const eventSeed = [
     location: '509 Ninth Avenue, San Diego, CA 92101',
     attendees: [],
     failedquiz: [],
-    sponsors: [],
-    active: true,
-    passed: false
+		recruiters: [],
+		companies: [],
+    active: false,
+    passed: true
   },
   {
     eventId: 'DET',
@@ -92,9 +98,10 @@ const eventSeed = [
     location: '1520 Woodward Ave #500 Detroit, MI 48226',
     attendees: [],
     failedquiz: [],
-    sponsors: [],
-    active: true,
-    passed: false
+		recruiters: [],
+		companies: [],
+    active: false,
+    passed: true
   },
   {
     eventId: 'DEN',
@@ -105,9 +112,10 @@ const eventSeed = [
     location: '1048 Pearl St Suite 200 Boulder, Colorado 80302',
     attendees: [],
     failedquiz: [],
-    sponsors: [],
-    active: true,
-    passed: false
+		recruiters: [],
+		companies: [],
+    active: false,
+    passed: true
   },
   {
     eventId: 'OR',
@@ -118,7 +126,8 @@ const eventSeed = [
     location: '1050 W NASA Blvd. Melbourne, FL 32901',
     attendees: [],
     failedquiz: [],
-    sponsors: [],
+		recruiters: [],
+		companies: [],
     active: false,
     passed: true
   },
@@ -131,7 +140,8 @@ const eventSeed = [
     location: '2009 8th St NW Washington, DC 20001',
     attendees: [],
     failedquiz: [],
-    sponsors: [],
+		recruiters: [],
+		companies: [],
     active: false,
     passed: true
   }

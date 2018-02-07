@@ -13,6 +13,12 @@ const eventSchema = new Schema({
       type: Schema.Types.ObjectId,
       ref: 'user'
     }
+	],
+	companies: [
+    {
+      type: Schema.Types.ObjectId,
+      ref: 'companies'
+    }
   ],
   failedquiz: [
     {
@@ -20,7 +26,7 @@ const eventSchema = new Schema({
       ref: 'user'
     }
   ],
-  sponsors: [
+  recruiters: [
     {
       type: Schema.Types.ObjectId,
       ref: 'user'

@@ -1,8 +1,19 @@
 import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import { Segment, Grid, Menu, Label } from 'semantic-ui-react';
+// Actions
+import { fetchEvent, fetchEventSponsors } from '../../actions';
 
 class Participants extends Component {
+  constructor(props) {
+    super(props);;
+  }
+
   state = { activeItem: 'companies' };
+
+  componentDidMount() {
+    this.props.fetchEventSponsors(this.props.eventId);
+  }
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
@@ -50,4 +61,13 @@ class Participants extends Component {
   }
 }
 
-export default Participants;
+const mapStateToProps = ({ event, companies }) => ({
+  event,
+  companies
+});
+
+export default
+  connect(mapStateToProps, {
+    fetchEvent,
+    fetchEventSponsors
+  })(Participants);
