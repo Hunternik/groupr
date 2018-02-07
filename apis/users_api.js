@@ -1,3 +1,4 @@
+const populatePath = require("./constants/populatePath");
 const passport = require('passport');
 const mongoose = require('mongoose');
 const User = mongoose.model('user');
@@ -25,8 +26,9 @@ module.exports.updateProfile = async (req, res) => {
 	const { _id, ...updatedProfile } = req.body;
 
   try {
-    const user = await User.findByIdAndUpdate(_id, updatedProfile, {new: true});
-
+		let user = await User.findByIdAndUpdate(_id, updatedProfile, {new: true});
+		
+		user = await User.populate(user, populatePath.userPath);
     res.send(user);
   } catch (error) {
     res.status(500).send(error);

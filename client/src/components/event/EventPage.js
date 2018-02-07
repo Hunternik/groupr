@@ -38,7 +38,6 @@ class EventPage extends Component {
 
   fetchCurrentEvent(id) {
     this.props.fetchEvent(id);
-    this.props.fetchEventSponsors(this.props.event._id);
   }
 
   handleContextRef = contextRef => this.setState({ contextRef });
@@ -48,8 +47,8 @@ class EventPage extends Component {
   }
 
   render() {
-    const { contextRef } = this.state;
-
+		const { contextRef } = this.state;
+		
     return (
       <div>
         <Jumbotron

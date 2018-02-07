@@ -1,5 +1,8 @@
 const mongoose = require('mongoose');
 const Company = mongoose.model('companies');
+const Event = mongoose.model('event');
+const User = mongoose.model('user');
+const populatePath = require('./constants/populatePath');
 
 module.exports.insertCompany = async (req, res) => {
 
@@ -17,34 +20,38 @@ module.exports.insertCompany = async (req, res) => {
   } = req.body;
 
   const newCompany = {
-    companyId: companyId || null,
-    name: name || null,
-    industry: industry || null,
-    website: website || null,
-    jobsOpen: [jobsOpen] || null,
-    primaryContact: primaryContact || null,
-    imgLogoURL: imgLogoURL || null,
-    employees: [employees] || null,
-    activeEvents: [activeEvents] || null,
-    pastEvents: [pastEvents] || null
+    companyId: companyId,
+    name: name,
+    industry: industry,
+    website: website,
+    jobsOpen: [jobsOpen],
+    primaryContact: primaryContact,
+    imgLogoURL: imgLogoURL,
+    employees: [employees],
+    activeEvents: [activeEvents],
+    pastEvents: [pastEvents]
   };
 
   try {
-    const company = await new Company(newCompany).save();
-    
-    res.send(company);
+		
+		const company = await new Company(newCompany).save();
+		let event = await Event.findOne({ _id: activeEvents });
+		let user = await User.findOne({ _id: employees });
+
+		event.recruiters.push(user._id);
+		event.companies.push(company._id);
+		user.events.push(event._id);
+		
+		event = await event.save();
+		user = await user.save();
+		user = await User.populate(user, populatePath.userPath);
+		event = await Event.populate(event, populatePath.eventPath);
+		
+		const updatedEventUser = { user: user, event: event };
+
+    res.send(updatedEventUser);
   } catch (error) {
     res.status(404).send(error);
   }
 };
 
-module.exports.getEventSponsors = async (req, res) => {
-  const eventId = req.params.eventId;
-  try {
-    const eventSponsors = await Company.find({ companyId }).populate("activeEvents");
-
-    res.send(eventSponsors);
-  } catch (error) {
-    res.status(404).send(error);
-  }
-};
