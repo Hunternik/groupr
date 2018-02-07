@@ -1,7 +1,8 @@
+import _ from 'lodash'
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Segment, Grid, Header, Image } from 'semantic-ui-react';
+import { Segment, Grid, Header, Image, Rail, Sticky } from 'semantic-ui-react';
 // Actions
 import { fetchEvent, fetchEventSponsors } from '../../actions';
 // Components
@@ -48,34 +49,49 @@ class EventPage extends Component {
   //     this.props.fetchEventSponsors(mongoId);
   // }
 
+  handleContextRef = contextRef => this.setState({ contextRef });
+
   // Render event data from application state
   renderEventData() {
     return this.props.event;
   }
 
   render() {
-    // console.log(this.props.event._id, "EVENT ID mmmmmmidfjqwioregj");
-    // this.props.fetchEventSponsors(this.props.event._id);
+    const { contextRef } = this.state;
+
     return (
       <div>
         <Jumbotron
           event={this.renderEventData()}
           coverPhotoID={this.props.match.params.eventId.toUpperCase()}
         />
+        <Segment style={{ backgroundColor: '#f6f7f8' }} >
         <Segment style={{ padding: '0em 0em' }} vertical>
-          <Grid container>
-            <Grid.Row>
+          <Grid container centered columns={2}>
+            {/* <Grid.Row> */}
+            {/* <div ref={this.handleContextRef}>
+            <Segment>
+              {_.times(10, i => <Details event={this.renderEventData()} key={i} />)} */}
+
               <Grid.Column width={10}>
                 <Description event={this.renderEventData()} />
               </Grid.Column>
+              {/* <Rail position='right'>
+                <Sticky bottomOffset={50} context={contextRef} offset={50} pushing> */}
               <Grid.Column width={6}>
                 <Details event={this.renderEventData()} />
               </Grid.Column>
-            </Grid.Row>
+              {/* </Sticky>
+              </Rail>
+            </Segment> */}
+              
+            {/* </Grid.Row> */}
+            {/* </div> */}
           </Grid>
         </Segment>
         <Segment vertical>
           <Participants eventId={this.props.event} />
+        </Segment>
         </Segment>
       </div>
     );
