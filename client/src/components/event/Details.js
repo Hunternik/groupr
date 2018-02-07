@@ -35,7 +35,7 @@ class Details extends Component {
   render() {
     return (
       <div>
-        <Card color='teal'>
+        <Card color='teal' style={{ backgroundColor: '#f6f7f8', boxShadow: '0 0 0 0px #d4d4d5, 0 2px 0 0 #00b5ad, 0 1px 3px 0 #d4d4d5' }}>
           <Card.Content>
           <Card.Description>
                 <Popup

@@ -65,7 +65,7 @@ class EventPage extends Component {
           event={this.renderEventData()}
           coverPhotoID={this.props.match.params.eventId.toUpperCase()}
         />
-        <Segment style={{ backgroundColor: '#f6f7f8' }} >
+        {/* <Segment style={{ backgroundColor: '#f6f7f8' }} > */}
         <Segment style={{ padding: '0em 0em' }} vertical>
           <Grid container centered columns={2}>
             {/* <Grid.Row> */}
@@ -92,7 +92,7 @@ class EventPage extends Component {
         <Segment vertical>
           <Participants eventId={this.props.event} />
         </Segment>
-        </Segment>
+        {/* </Segment> */}
       </div>
     );
   }
