@@ -1,4 +1,4 @@
-import { FETCH_QUIZ, FETCH_EVENT } from './types';
+import { FETCH_QUIZ, FETCH_EVENT, UPDATE_USER_EVENT } from './types';
 import axios from 'axios';
 
 export const fetch_quiz = () => async dispatch => {
@@ -11,18 +11,19 @@ export const fetch_quiz = () => async dispatch => {
 };
 
 export const passed_quiz = data => async dispatch => {
-  const res = await axios.post('/api/current_event/quiz/pass', data);
+	const res = await axios.post('/api/current_event/quiz/pass', data);
+
   dispatch({
-    type: FETCH_EVENT,
-    // sends this object to all of the reducers to see which reducer has a matching type.
-    payload: res.data[0]
+    type: UPDATE_USER_EVENT,
+    payload: res.data
   });
 };
 
 export const failed_quiz = data => async dispatch => {
-  const res = await axios.post('/api/current_event/quiz/fail', data);
-  dispatch({
+	const res = await axios.post('/api/current_event/quiz/fail', data);
+
+	dispatch({
     type: FETCH_EVENT,
-    payload: res.data[0]
+    payload: res.data
   });
 };
