@@ -2,10 +2,11 @@ const mongoose = require("mongoose");
 const db = require("../models");
 mongoose.Promise = global.Promise;
 const keys = require('../config/keys');
-mongoose.connect(keys.mongoURI);
+const mongoURI = process.argv[2] === 'prod' ? keys.mongoURIPROD : keys.mongoURI
+mongoose.connect(mongoURI);
 
 (async () => {
-	const User = await db.User.findOne({ _id: "5a7a3db0601d0d64d113c16b" });
+	const User = await db.User.findOne({ _id: "5a7a9c149d9a48792a604aab" });
 	User.events = [];
 	
 	try {

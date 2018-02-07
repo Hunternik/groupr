@@ -2,7 +2,8 @@ const mongoose = require('mongoose');
 const db = require('../models');
 mongoose.Promise = global.Promise;
 const keys = require('../config/keys');
-mongoose.connect(keys.mongoURI);
+const mongoURI = process.argv[2] === 'prod' ? keys.mongoURIPROD : keys.mongoURI
+mongoose.connect(mongoURI);
 
 (async () => { 
 	const activeEvents = await db.Event.find({ active: true});
