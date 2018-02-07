@@ -105,6 +105,19 @@ class Participants extends Component {
   }
 }
 
+const styles = {
+  headerOne: {
+    fontSize: '4em',
+    fontWeight: 'normal',
+    marginBottom: 0,
+    marginTop: 0
+  },
+  headerTwo: {
+    fontSize: '1.7em',
+    fontWeight: 'normal'
+  }
+};
+
 const mapStateToProps = ({ event, companies }) => ({
   event,
   companies
