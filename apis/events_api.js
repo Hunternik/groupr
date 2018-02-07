@@ -9,7 +9,7 @@ module.exports.getEvent = async (req, res) => {
     const events = await Events.findOne({ eventId: id })
       .populate({
         path: "companies",
-        select: "name website imgLogoURL"
+        select: "imgLogoURL"
       })
       .populate({
         path: "attendees",
