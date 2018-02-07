@@ -1,5 +1,6 @@
-html, body {
-	height: 100%;
+html,
+body {
+  height: 100%;
 }
 
 .list-item {
@@ -11,14 +12,14 @@ html, body {
 }
 
 .event-image {
-  box-shadow: 0 0 15px rgba(0, 0, 0, .25);
-  transition: .25s linear;
-	background: linear-gradient(#004092, #020202, transparent);
+  box-shadow: 0 0 15px rgba(0, 0, 0, 0.25);
+  transition: 0.25s linear;
+  background: linear-gradient(#004092, #020202, transparent);
   overflow: hidden;
 }
 
 .event-image-container {
-	transition: 5s;
+  transition: 5s;
   overflow: hidden;
 }
 
@@ -29,18 +30,17 @@ html, body {
 }
 
 .image-container {
-	height: 100%;
+  height: 100%;
   position: relative;
   margin-bottom: 5em;
-	overflow: hidden;
+  overflow: hidden;
 }
 
 .video {
-	max-width: 100%;
-	max-height: 100%;
-	width: 100%;
-	height: 100%;
-	
+  max-width: 100%;
+  max-height: 100%;
+  width: 100%;
+  height: 100%;
 }
 
 .perspective {
@@ -57,8 +57,8 @@ html, body {
   font: Helvetica, Sans-Serif;
   font-size: 4em;
   color: #fff;
-	transform: translateY(.5em);
-	opacity: 0;
+  transform: translateY(0.5em);
+  opacity: 0;
 }
 
 .animateHeaders {
@@ -68,33 +68,46 @@ html, body {
 }
 
 .sectionHead {
-	font-size: 100px;
-	letter-spacing: -5px;
-	line-height: 95px;
-	color: #2f2f2f;
+  font-size: 2.3em;
+  letter-spacing: 0.05em;
+  line-height: 2em;
+  color: #2f2f2f;
+}
+
+.content.sectionHead {
+  text-transform: uppercase;
 }
 
 .sectionHeadContainer {
   height: 5em;
-	opacity: 1;
-	text-align: center;
+  opacity: 1;
+  text-align: center;
 }
 
 .video-container {
-	padding: 0;
-	height: 50%;
+  padding: 0;
+  height: 50%;
 }
 
 .about-main {
-	width: 100%;
-	height: 100%;
-	background-color: #fafafa;
-	border-bottom:	1px solid rgba(0,0,0,.12);
+  width: 100%;
+  height: 100%;
+  background-color: #fafafa;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 .about-text {
-	opacity: 1;
-	height: 100%;
+  opacity: 1;
+  height: 100%;
+}
+
+div.about-text {
+  padding-top: 1em;
+}
+
+div.about-us {
+  margin: 0em 2em 2em 2em;
+  padding: 0em 2em;
 }
 
 /* p {
@@ -103,7 +116,7 @@ html, body {
   white-space: nowrap;
   overflow: hidden;
   width: 30em;
-  animation: type 4s steps(120, end);  
+  animation: type 4s steps(120, end);
 }
 
 @keyframes type {
