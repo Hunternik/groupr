@@ -22,8 +22,8 @@ module.exports.addPassQuiz = async (req, res) => {
     let event = await Events.findOne(eventId);
     let user = await Users.findOne(userId);
 
-    event.attendees.push(user._id);
 		user.events.push(event._id);
+    event.attendees.push(user._id);
 		
     user = await user.save();
     user = await Users.populate(user, {
