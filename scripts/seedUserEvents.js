@@ -5,7 +5,7 @@ const keys = require('../config/keys');
 mongoose.connect(keys.mongoURI);
 
 const clearEvents = async () => {
-	const User = await db.User.findOne({ _id: "5a792cc35758ee486ec3ec4a" });
+	const User = await db.User.findOne({ _id: "5a7a3db0601d0d64d113c16b" });
 	User.events = [];
 	
 	try {
@@ -22,9 +22,9 @@ const seedUserEvents = async () => {
 	const inactiveEvent = await db.Event.find({ active: false });
 	const activeEvent = await db.Event.findOne({ active: true });
 	const allEvents = [...inactiveEvent, activeEvent];
-	const User = await db.User.findOne({ _id: "5a792cc35758ee486ec3ec4a" });
+	const User = await db.User.findOne({ _id: "5a7a3db0601d0d64d113c16b" });
 
-	User.events = allEvents;
+	User.events = allEvents.map(event => event._id);
 
 	try {
 		await User.save();
