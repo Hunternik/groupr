@@ -1,10 +1,9 @@
+import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Segment, Grid, Header, Image } from 'semantic-ui-react';
-// Actions
+import { Segment, Grid, Header, Image, Rail, Sticky, Divider } from 'semantic-ui-react';
 import { fetchEvent, fetchEventSponsors } from '../../actions';
-// Components
 import Jumbotron from './Jumbotron';
 import Description from './Description';
 import Details from './Details';
@@ -15,7 +14,6 @@ class EventPage extends Component {
     super(props);
     this.fetchCurrentEvent = this.fetchCurrentEvent.bind(this);
     this.renderEventData = this.renderEventData.bind(this);
-    // this.renderEventSponsors = this.renderEventSponsors.bind(this);
   }
 
   state = {};
@@ -38,44 +36,40 @@ class EventPage extends Component {
     }
   }
 
-  // Fetch event data from mongo
   fetchCurrentEvent(id) {
     this.props.fetchEvent(id);
   }
 
-  // renderEventSponsors(mongoId) {
-  //     this.props.fetchEventSponsors(mongoId);
-  // }
+  handleContextRef = contextRef => this.setState({ contextRef });
 
-  // Render event data from application state
   renderEventData() {
     return this.props.event;
   }
 
   render() {
-    console.log(this.props.event, "EVENT ID mmmmmmidfjqwioregj");
-    // this.props.fetchEventSponsors(this.props.event._id);
+		const { contextRef } = this.state;
+		
     return (
       <div>
         <Jumbotron
           event={this.renderEventData()}
           coverPhotoID={this.props.match.params.eventId.toUpperCase()}
         />
-        <Segment style={{ padding: '0em 0em' }} vertical>
-          <Grid container>
-            <Grid.Row>
-              <Grid.Column width={10}>
-                <Description event={this.renderEventData()} />
-              </Grid.Column>
-              <Grid.Column width={6}>
-                <Details event={this.renderEventData()} />
-              </Grid.Column>
-            </Grid.Row>
+        <Segment style={{ padding: '0em 0em' }} basic>
+          <Grid container centered columns={2}>
+            <Grid.Column width={10}>
+              <Description event={this.renderEventData()} />
+            </Grid.Column>
+            <Grid.Column width={6}>
+              <Details event={this.renderEventData()} />
+            </Grid.Column>
           </Grid>
         </Segment>
-        <Segment vertical>
-          <Participants eventId={this.props.event._id} />
+        <Divider hidden />
+        <Segment basic>
+          <Participants eventId={this.props.event} />
         </Segment>
+        <Divider hidden />
       </div>
     );
   }
@@ -86,7 +80,6 @@ const mapStateToProps = ({ event, companies }) => ({
   companies
 });
 
-// Connect component to application state: (1) mapStateTo Props, (2) Arguments -> Component
 export default withRouter(
   connect(mapStateToProps, {
     fetchEvent,
