@@ -10,7 +10,8 @@ const INITIAL_STATE = {
   attendees: null,
   sponsers: null,
   active: true,
-  passed: null
+  passed: null,
+  companies: null
 };
 
 export default (state = INITIAL_STATE, action) => {

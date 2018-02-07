@@ -54,7 +54,7 @@ class EventPage extends Component {
   }
 
   render() {
-    console.log(this.props.event._id, "EVENT ID mmmmmmidfjqwioregj");
+    // console.log(this.props.event._id, "EVENT ID mmmmmmidfjqwioregj");
     // this.props.fetchEventSponsors(this.props.event._id);
     return (
       <div>
@@ -75,7 +75,7 @@ class EventPage extends Component {
           </Grid>
         </Segment>
         <Segment vertical>
-          <Participants eventId={this.props.event._id} />
+          <Participants eventId={this.props.event} />
         </Segment>
       </div>
     );
