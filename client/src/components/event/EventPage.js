@@ -48,7 +48,6 @@ class EventPage extends Component {
   }
 
   render() {
-    console.log(this.props.event);
     return (
       <div>
         <Jumbotron

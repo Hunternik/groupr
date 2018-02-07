@@ -70,6 +70,7 @@ class Profile extends Component {
 
   render() {
 		const { profile } = this.state;
+		
     return (
       <Container>
         <Header as="h1" textAlign="center">
