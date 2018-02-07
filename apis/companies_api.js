@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const Company = mongoose.model('companies');
 
 module.exports.insertCompany = async (req, res) => {
-  console.log(req.body);
+  console.log('******** insertCompany: req.body', req.body);
 
   // Information from redux form
   const {
@@ -50,7 +50,7 @@ module.exports.insertCompany = async (req, res) => {
   // Try catch block
   try {
     const company = await new Company(newCompany).save();
-    
+    console.log('****** company: ', company);
     res.send(company);
   } catch (error) {
     res.status(404).send(error);
@@ -59,7 +59,6 @@ module.exports.insertCompany = async (req, res) => {
 
 module.exports.getCompany = async (req, res) => {
   const id = req.params.id;
-
   try {
     const company = await Companies.find({ name: id });
 

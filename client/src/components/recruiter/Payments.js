@@ -23,7 +23,7 @@ class Payments extends Component {
 			>
 			<div>
     			<Button color='teal' size='large'>
-					Pay Recruiter Fee
+					Pay Sponsorship Fee
 				</Button>
   			</div>
 			</StripeCheckout>
