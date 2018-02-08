@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Form, Button } from 'semantic-ui-react';
+import { Form, Button, Container } from 'semantic-ui-react';
 import * as actions from '../../actions';
 import QuizPassModal from './QuizPassModal';
 import QuizFailModal from './QuizFailModal';
@@ -124,7 +124,11 @@ class Quiz extends Component {
     }
 
     if (!this.props.auth) {
-      return <Login quizInit />;
+      return (
+				<Container style={{height: "100vh"}}>
+					<Login quizInit />
+				</Container>
+		);
     }
 
     return (
