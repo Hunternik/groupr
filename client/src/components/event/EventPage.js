@@ -2,12 +2,21 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Segment, Grid, Header, Image, Rail, Sticky, Divider } from 'semantic-ui-react';
+import {
+  Segment,
+  Grid,
+  Header,
+  Image,
+  Rail,
+  Sticky,
+  Divider
+} from 'semantic-ui-react';
 import { fetchEvent, fetchEventSponsors } from '../../actions';
 import Jumbotron from './Jumbotron';
 import Description from './Description';
 import Details from './Details';
 import Participants from './Participants';
+import Container from 'semantic-ui-react/dist/commonjs/elements/Container/Container';
 
 class EventPage extends Component {
   constructor(props) {
@@ -47,29 +56,31 @@ class EventPage extends Component {
   }
 
   render() {
-		const { contextRef } = this.state;
-		
+    const { contextRef } = this.state;
+
     return (
       <div>
         <Jumbotron
           event={this.renderEventData()}
           coverPhotoID={this.props.match.params.eventId.toUpperCase()}
         />
-        <Segment style={{ padding: '0em 0em' }} basic>
-          <Grid container centered columns={2}>
-            <Grid.Column width={10}>
-              <Description event={this.renderEventData()} />
-            </Grid.Column>
-            <Grid.Column width={6}>
-              <Details event={this.renderEventData()} />
-            </Grid.Column>
-          </Grid>
-        </Segment>
-        <Divider hidden />
-        <Segment basic>
-          <Participants eventId={this.renderEventData()} />
-        </Segment>
-        <Divider hidden />
+        <Container>
+          <Segment style={{ padding: '0em 0em' }} basic>
+            <Grid container centered columns={2}>
+              <Grid.Column width={10}>
+                <Description event={this.renderEventData()} />
+              </Grid.Column>
+              <Grid.Column width={6}>
+                <Details event={this.renderEventData()} />
+              </Grid.Column>
+            </Grid>
+          </Segment>
+          <Divider hidden />
+          <Segment basic>
+            <Participants eventId={this.renderEventData()} />
+          </Segment>
+          <Divider hidden />
+        </Container>
       </div>
     );
   }
