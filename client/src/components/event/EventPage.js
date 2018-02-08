@@ -64,21 +64,24 @@ class EventPage extends Component {
           event={this.renderEventData()}
           coverPhotoID={this.props.match.params.eventId.toUpperCase()}
         />
-          <Segment style={{ padding: '0em 0em' }} basic>
-            <Grid container centered columns={2}>
-              <Grid.Column width={10}>
-                <Description event={this.renderEventData()} />
-              </Grid.Column>
-              <Grid.Column width={6} style={{display: 'flex', justifyContent: 'flex-end'}}>
-                <Details event={this.renderEventData()} />
-              </Grid.Column>
-            </Grid>
-          </Segment>
-          <Divider hidden />
-          <Segment basic>
-            <Participants eventId={this.renderEventData()} />
-          </Segment>
-          <Divider hidden />
+        <Segment style={{ padding: '0em 0em' }} basic>
+          <Grid container centered columns={2}>
+            <Grid.Column width={10}>
+              <Description event={this.renderEventData()} />
+            </Grid.Column>
+            <Grid.Column
+              width={6}
+              style={{ display: 'flex', justifyContent: 'flex-end' }}
+            >
+              <Details event={this.renderEventData()} />
+            </Grid.Column>
+          </Grid>
+        </Segment>
+        <Divider hidden />
+        <Segment basic>
+          <Participants eventId={this.renderEventData()} />
+        </Segment>
+        <Divider hidden />
       </div>
     );
   }
