@@ -5,11 +5,11 @@ module.exports.eventPath = [
   },
   {
     path: "attendees",
-    select: "displayName bigPhotoURL email"
+    select: "displayName bigPhotoURL position email"
   },
   {
     path: "recruiters",
-    select: "displayName bigPhotoURL email"
+    select: "displayName bigPhotoURL company email"
   },
   { path: "failedquiz", select: "_id" }
 ];
