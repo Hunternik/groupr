@@ -17,15 +17,13 @@ const companyList = [
 ];
 
 module.exports = async () => {
-  const events = await db.Event.find({});
-  const users = await db.User.find({ company: { $nin: companyList } });
-  const eventsId = events.map(event => mongoose.Types.ObjectId(event._id));
-  const usersId = users.map(user => mongoose.Types.ObjectId(user._id));
+  const events = await db.Event.find({}).select("_id");
+  const users = await db.User.find({ company: { $nin: companyList } }).select('_id');
 
   try {
     const data = await db.Event.update(
-      { _id: { $in: eventsId } },
-      { $set: { attendees: usersId } },
+      { _id: { $in: events } },
+      { $set: { attendees: users } },
       { multi: true }
     );
 		console.log(`${data.nModified} attendees seeded to events`);
