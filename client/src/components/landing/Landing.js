@@ -8,22 +8,20 @@ import About from './About';
 
 class Landing extends Component {
   constructor() {
-		super();
-		
+    super();
     this.handleScroll = this.handleScroll.bind(this);
   }
   componentDidMount() {
     window.addEventListener('scroll', this.handleScroll, 10);
   }
 
-  componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
+  handleScroll() {
+    const scrollValue = window.scrollY;
+    this.props.scroll(scrollValue);
   }
 
-  handleScroll() {
-		const scrollValue = window.scrollY;
-
-    this.props.scroll(scrollValue);
+  componentWillUnmount() {
+    window.removeEventListener('scroll', this.handleScroll);
   }
 
   render() {
@@ -31,8 +29,8 @@ class Landing extends Component {
       <Visibility style={{ height: '100%' }}>
         <Video />
         <Divider horizontal inverted />
-				<About />
-				<Divider horizontal inverted />
+        <About />
+        <Divider horizontal inverted />
         <Events />
         <Divider horizontal inverted />
       </Visibility>
@@ -40,4 +38,4 @@ class Landing extends Component {
   }
 }
 
-export default connect(null, {scroll})(Landing);
+export default connect(null, { scroll })(Landing);

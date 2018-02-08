@@ -2,9 +2,8 @@ const express = require('express');
 const router = express.Router();
 const companies_api = require('../apis/companies_api');
 
-// ********* Sponsor Route *********
+// ********* Company Route *********
+// Creates new document from recruiter form
 router.post('/', companies_api.insertCompany);
-
-router.get('/:id', companies_api.getCompany);
 
 module.exports = router;

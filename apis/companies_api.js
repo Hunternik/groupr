@@ -1,10 +1,11 @@
 const mongoose = require('mongoose');
 const Company = mongoose.model('companies');
+const Event = mongoose.model('event');
+const User = mongoose.model('user');
+const populatePath = require('./constants/populatePath');
 
 module.exports.insertCompany = async (req, res) => {
-  console.log('******** insertCompany: req.body', req.body);
 
-  // Information from redux form
   const {
     companyId,
     name,
@@ -19,51 +20,38 @@ module.exports.insertCompany = async (req, res) => {
   } = req.body;
 
   const newCompany = {
-    companyId: companyId || null,
-    name: name || null,
-    industry: industry || null,
-    website: website || null,
-    jobsOpen: [jobsOpen] || null,
-    primaryContact: primaryContact || null,
-    imgLogoURL: imgLogoURL || null,
-    employees: [employees] || null,
-    activeEvents: [activeEvents] || null,
-    pastEvents: [pastEvents] || null
+    companyId: companyId,
+    name: name,
+    industry: industry,
+    website: website,
+    jobsOpen: [jobsOpen],
+    primaryContact: primaryContact,
+    imgLogoURL: imgLogoURL,
+    employees: [employees],
+    activeEvents: [activeEvents],
+    pastEvents: [pastEvents]
   };
 
-  // If company already exists, add userSchema to db
-  // If company doesn't exist, .save into mongoDB
-  // with userSchema
-  // with eventSchema
-
-  // 1. Check if employee for that event
-  // let existingCompany;
-
-  // 2. Check if company exists for that event
-  // Add existing user
-  // Return null
-
-  // 3. If companye exists
-  // Use Event ID
-  // Add employee to array
-
-  // Try catch block
   try {
-    const company = await new Company(newCompany).save();
-    console.log('****** company: ', company);
-    res.send(company);
+		
+		const company = await new Company(newCompany).save();
+		let event = await Event.findOne({ _id: activeEvents });
+		let user = await User.findOne({ _id: employees });
+
+		event.recruiters.push(user._id);
+		event.companies.push(company._id);
+		user.events.push(event._id);
+		
+		event = await event.save();
+		user = await user.save();
+		user = await User.populate(user, populatePath.userPath);
+		event = await Event.populate(event, populatePath.eventPath);
+		
+		const updatedEventUser = { user: user, event: event };
+
+    res.send(updatedEventUser);
   } catch (error) {
     res.status(404).send(error);
   }
 };
 
-module.exports.getCompany = async (req, res) => {
-  const id = req.params.id;
-  try {
-    const company = await Companies.find({ name: id });
-
-    res.send(company);
-  } catch (error) {
-    res.status(404).send(error);
-  }
-};
