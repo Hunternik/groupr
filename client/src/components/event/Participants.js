@@ -114,7 +114,7 @@ class Participants extends Component {
                 Attendies
               </Menu.Item>
               <Menu.Item>
-                <Input icon="search" placeholder="Search mail..." />
+                <Input icon="search" placeholder="Search..." />
               </Menu.Item>
             </Menu>
           </Grid.Column>
