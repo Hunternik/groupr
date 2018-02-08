@@ -14,6 +14,7 @@ class Details extends Component {
     this.copyAddress = this.copyAddress.bind(this);
     this.renderButton = this.renderButton.bind(this);
     this.calcEventDate = this.calcEventDate.bind(this);
+    this.calcGoogleMapsQueries = this.calcGoogleMapsQueries.bind(this);
   }
 
   state = {
@@ -42,6 +43,19 @@ class Details extends Component {
     //   newdate = moment(date).add({day: 10, months: 3}).format('MMMM Do YYYY');
     // }
     return newDate;
+  }
+
+  calcGoogleMapsQueries(eventAddress) {
+    // Default URL
+    let url =
+      'https://www.google.com/maps/embed/v1/place?key=AIzaSyBnwpbLJU6xN2xDKaCvYE_QmtoHyzW9DnI&q=Eiffel+Tower,Paris+France';
+
+    if (eventAddress) {
+      // Fires when event address exists
+      const eventLocation = eventAddress.replace(/ /g, '+');
+      url = `https://www.google.com/maps/embed/v1/place?key=AIzaSyBnwpbLJU6xN2xDKaCvYE_QmtoHyzW9DnI&q=${eventLocation}`;
+    }
+    return url;
   }
 
   render() {
@@ -78,7 +92,11 @@ class Details extends Component {
           </Card.Content>
           <Embed
             active
-            url="https://www.google.com/maps/embed/v1/place?key=AIzaSyBnwpbLJU6xN2xDKaCvYE_QmtoHyzW9DnI&q=Eiffel+Tower,Paris+France"
+            url={
+              this.props.event.location
+                ? this.calcGoogleMapsQueries(this.props.event.location)
+                : this.calcGoogleMapsQueries()
+            }
           />
         </Card>
       </div>
