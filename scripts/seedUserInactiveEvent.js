@@ -5,30 +5,23 @@ const keys = require("../config/keys");
 const mongoURI = process.argv[2] === "prod" ? keys.mongoURIPROD : keys.mongoURI;
 mongoose.connect(mongoURI);
 
-async () => {
-  const User = await db.User.findOne({ _id: "5a7a9c149d9a48792a604aab" });
-  User.events = [];
-
-  try {
-    await User.save();
-    console.log("user save successful!");
-  } catch (err) {
-    console.log(err);
-    process.exit(1);
-  }
-
+(async () => {
+	const userEmail = ['jmsjtu@gmail.com'];
   const inactiveEvent = await db.Event.find({ active: false });
   const activeEvent = await db.Event.findOne({ active: true });
   const allEvents = [...inactiveEvent, activeEvent];
-
-  User.events = allEvents.map(event => event._id);
+  const eventIds = allEvents.map(event => event._id);
 
   try {
-    await User.save();
+    const data = await db.User.update(
+			{ email: { $in: userEmail } },
+			{ $set: { events: eventIds } },
+      { multi: true }
+		)
     console.log("successfully added events");
     process.exit(0);
   } catch (err) {
     console.log(err);
     process.exit(1);
   }
-};
+})();

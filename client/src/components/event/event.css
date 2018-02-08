@@ -32,3 +32,21 @@
   transform: translateY(0);
   transition: 0.5s ease-in;
 }
+
+.grow {
+  transform: scale(0.9);
+  transition: all 0.2s ease-in-out;
+}
+
+.grow:hover {
+  transform: scale(1);
+}
+
+.card-container {
+	overflow: auto;
+}
+
+.card-group {
+	max-height: 20em;
+	overflow: auto;
+}
