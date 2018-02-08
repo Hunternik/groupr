@@ -5,8 +5,8 @@ const keys = require("../config/keys");
 const mongoURI = process.argv[2] === "prod" ? keys.mongoURIPROD : keys.mongoURI;
 mongoose.connect(mongoURI);
 
-async () => {
-  const User = await db.User.findOne({ _id: "5a7a9c149d9a48792a604aab" });
+(async () => {
+  const User = await db.User.findOne({ _id: "5a7be829f309f59f5f5f392e" });
   User.events = [];
 
   try {
@@ -31,4 +31,4 @@ async () => {
     console.log(err);
     process.exit(1);
   }
-};
+})();
