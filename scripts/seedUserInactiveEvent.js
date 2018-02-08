@@ -6,13 +6,19 @@ const mongoURI = process.argv[2] === "prod" ? keys.mongoURIPROD : keys.mongoURI;
 mongoose.connect(mongoURI);
 
 (async () => {
-	const userEmail = ['jmsjtu@gmail.com'];
+	const userEmail = ['jmsjtu@gmail.com', 'izzykeanu@gmail.com', 'mikeyamato@gmail.com'];
   const inactiveEvent = await db.Event.find({ active: false });
-  const activeEvent = await db.Event.findOne({ active: true });
+  // const activeEvent = await db.Event.findOne({ active: true });
   const allEvents = [...inactiveEvent, activeEvent];
   const eventIds = allEvents.map(event => event._id);
 
   try {
+		await db.User.update(
+			{ email: { $in: userEmail } },
+			{ $set: { events: [] } },
+      { multi: true }
+		);
+
     const data = await db.User.update(
 			{ email: { $in: userEmail } },
 			{ $set: { events: eventIds } },

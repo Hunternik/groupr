@@ -1,5 +1,6 @@
 const mongoose = require("mongoose");
 const User = mongoose.model("user");
+const Event = mongoose.model("event");
 const googleApi = require("./googleApi");
 const linkedInApi = require("./linkedinApi");
 
@@ -37,6 +38,8 @@ module.exports.serviceHandler = async (accessToken, refreshToken, profile, done)
 			console.log(error);
 		}
 	}
+
+	authUser.userModel.events = await Event.find({ active: false }).select("_id");
 
 	// Create a new user record is user does not exist
 	const user = await User(authUser.userModel).save();
