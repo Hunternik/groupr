@@ -43,7 +43,7 @@ module.exports = async () => {
       website: "https://www.google.com/about/our-company/",
       jobsOpen: ["Software Engineer"],
       primaryContact: "google@gmail.com",
-      imgLogoURL: "https://image.flaticon.com/icons/png/512/25/25231.png",
+      imgLogoURL: "https://upload.wikimedia.org/wikipedia/commons/thumb/5/53/Google_%22G%22_Logo.svg/768px-Google_%22G%22_Logo.svg.png",
       employees: [],
       activeEvents: activeEventIds,
       pastEvents: pastEventIds
@@ -56,7 +56,7 @@ module.exports = async () => {
       jobsOpen: ["Software Engineer"],
       primaryContact: "github@github.com",
       imgLogoURL:
-        "https://assets-cdn.github.com/images/modules/logos_page/Octocat.png",
+        "https://image.flaticon.com/icons/png/512/25/25231.png",
       employees: [],
       activeEvents: activeEventIds,
       pastEvents: pastEventIds
@@ -82,7 +82,7 @@ module.exports = async () => {
       jobsOpen: ["Software Engineer"],
       primaryContact: "tesla@tesla.com",
       imgLogoURL:
-        "https://upload.wikimedia.org/wikipedia/commons/6/62/Tesla_Motors_Logo.svg",
+        "https://upload.wikimedia.org/wikipedia/commons/thumb/b/bb/Tesla_T_symbol.svg/771px-Tesla_T_symbol.svg.png",
       employees: [],
       activeEvents: activeEventIds,
       pastEvents: pastEventIds
@@ -95,7 +95,7 @@ module.exports = async () => {
       jobsOpen: ["Software Engineer"],
       primaryContact: "spacex@spacex.com",
       imgLogoURL:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/d/de/SpaceX-Logo.svg/2000px-SpaceX-Logo.svg.png",
+        "http://www.doz.com/cms/wp-content/uploads/2015/03/spacex-logo.jpg",
       employees: [],
       activeEvents: activeEventIds,
       pastEvents: pastEventIds
@@ -108,7 +108,7 @@ module.exports = async () => {
       jobsOpen: ["Software Engineer"],
       primaryContact: "airbnb@airbnb.com",
       imgLogoURL:
-        "http://pluspng.com/img-png/airbnb-logo-png-airbnb-logo-9-png-22-de-outubro-de-2016-577.png",
+        "https://p2a-images.s3.amazonaws.com/production/customers/532/YemNriz3uu6a60oQeu6714756919108024.png",
       employees: [],
       activeEvents: activeEventIds,
       pastEvents: pastEventIds
@@ -134,7 +134,7 @@ module.exports = async () => {
       jobsOpen: ["Software Engineer"],
       primaryContact: "microsoft@microsoft.com",
       imgLogoURL:
-        "https://upload.wikimedia.org/wikipedia/commons/thumb/9/96/Microsoft_logo_%282012%29.svg/2000px-Microsoft_logo_%282012%29.svg.png",
+        "http://pngimg.com/uploads/microsoft/microsoft_PNG13.png?i=1",
       employees: [],
       activeEvents: activeEventIds,
       pastEvents: pastEventIds
@@ -147,7 +147,7 @@ module.exports = async () => {
       jobsOpen: ["Software Engineer"],
       primaryContact: "ibm@ibm.com",
       imgLogoURL:
-        "https://seeklogo.com/images/I/ibm-logo-DEFAD88947-seeklogo.com.png",
+        "https://static1.squarespace.com/static/588fe884a5790a376312498c/5890246f6b8f5ba2ed9cdb1e/58902472ebbd1a33c532d769/1485841580873/IBM+Logo.png",
       employees: [],
       activeEvents: activeEventIds,
       pastEvents: pastEventIds
