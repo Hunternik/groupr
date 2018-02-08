@@ -14,12 +14,12 @@ import { fetchEvent, fetchEventSponsors } from '../../actions';
 class Participants extends Component {
   constructor(props) {
     super(props);
-    this.renderEventCompanies = this.renderEventCompanies.bind(this);
     this.calcNumOfCompanies = this.calcNumOfCompanies.bind(this);
-    this.renderEventRecruiters = this.renderEventRecruiters.bind(this);
     this.calcNumOfRecruiters = this.calcNumOfRecruiters.bind(this);
-    this.renderEventAttendees = this.renderEventAttendees.bind(this);
     this.calcNumOfAttendees = this.calcNumOfAttendees.bind(this);
+    this.renderEventCompanies = this.renderEventCompanies.bind(this);
+    this.renderEventRecruiters = this.renderEventRecruiters.bind(this);
+    this.renderEventAttendees = this.renderEventAttendees.bind(this);
   }
 
   state = {
@@ -31,6 +31,18 @@ class Participants extends Component {
   }
 
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
+
+  calcNumOfCompanies() {
+    return this.props.event.companies ? this.props.event.companies.length : 0;
+  }
+
+  calcNumOfRecruiters() {
+    return this.props.event.recruiters ? this.props.event.recruiters.length : 0;
+  }
+
+  calcNumOfAttendees() {
+    return this.props.event.attendees ? this.props.event.attendees.length : 0;
+  }
 
   renderEventCompanies() {
     if (this.props.event.companies) {
@@ -44,10 +56,6 @@ class Participants extends Component {
     }
   }
 
-  calcNumOfCompanies() {
-    return this.props.event.companies ? this.props.event.companies.length : 0;
-  }
-
   renderEventRecruiters() {
     if (this.props.event.recruiters) {
       return this.props.event.recruiters.map((recruiter, index) => {
@@ -58,10 +66,6 @@ class Participants extends Component {
         );
       });
     }
-  }
-
-  calcNumOfRecruiters() {
-    return this.props.event.recruiters ? this.props.event.recruiters.length : 0;
   }
 
   renderEventAttendees() {
@@ -77,18 +81,11 @@ class Participants extends Component {
     }
   }
 
-  calcNumOfAttendees() {
-    return this.props.event.attendees ? this.props.event.attendees.length : 0;
-  }
-
   render() {
-    console.log(this.props.event, 'mmmmmmmmm EVENT PROPS PARTICAPANTS mmmmmm');
     const {
-      activeItem,
-      numOfCompanies,
-      numOfRecruiters,
-      numOfAttendees
+      activeItem
     } = this.state;
+
     return (
       <div>
         <Grid container>
