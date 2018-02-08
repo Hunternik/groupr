@@ -2,7 +2,16 @@ import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { Segment, Grid, Header, Image, Rail, Sticky, Divider } from 'semantic-ui-react';
+import {
+  Container,
+  Segment,
+  Grid,
+  Header,
+  Image,
+  Rail,
+  Sticky,
+  Divider
+} from 'semantic-ui-react';
 import { fetchEvent, fetchEventSponsors } from '../../actions';
 import Jumbotron from './Jumbotron';
 import Description from './Description';
@@ -47,8 +56,8 @@ class EventPage extends Component {
   }
 
   render() {
-		const { contextRef } = this.state;
-		
+    const { contextRef } = this.state;
+
     return (
       <div>
         <Jumbotron
@@ -60,14 +69,17 @@ class EventPage extends Component {
             <Grid.Column width={10}>
               <Description event={this.renderEventData()} />
             </Grid.Column>
-            <Grid.Column width={6}>
+            <Grid.Column
+              width={6}
+              style={{ display: 'flex', justifyContent: 'flex-end' }}
+            >
               <Details event={this.renderEventData()} />
             </Grid.Column>
           </Grid>
         </Segment>
         <Divider hidden />
         <Segment basic>
-          <Participants eventId={this.props.event} />
+          <Participants eventId={this.renderEventData()} />
         </Segment>
         <Divider hidden />
       </div>

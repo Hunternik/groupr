@@ -12,7 +12,7 @@ class Description extends Component {
         <Header as="h3" style={{ fontSize: '2em' }}>
           Description
         </Header>
-        <p style={{ fontSize: '1.33em' }}>{this.props.event.description}</p>
+        <p dangerouslySetInnerHTML={{__html: this.props.event.description}} style={{ fontSize: '1.33em' }} />
       </div>
     );
   }

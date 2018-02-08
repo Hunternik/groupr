@@ -13,6 +13,7 @@ class Details extends Component {
     super(props);
     this.copyAddress = this.copyAddress.bind(this);
     this.renderButton = this.renderButton.bind(this);
+    this.calcEventDate = this.calcEventDate.bind(this);
   }
 
   state = {
@@ -32,15 +33,23 @@ class Details extends Component {
     );
   }
 
+  calcEventDate(eventDate) {
+    let newDate = moment()
+      .add({ day: 10, months: 3 })
+      .format('MMMM Do YYYY');
+    // if (this.props.event.date) {
+    //   const date = eventDate.substring(0, 10);
+    //   newdate = moment(date).add({day: 10, months: 3}).format('MMMM Do YYYY');
+    // }
+    return newDate;
+  }
+
   render() {
     return (
       <div>
-        <Card
-          color="teal"
-          style={styles.card}
-        >
-          <Card.Content>
-            <Card.Description>
+        <Card color="teal" style={styles.card}>
+          <Card.Content style={styles.cardContent}>
+            <Card.Description style={styles.cardContentItemOne}>
               <Popup
                 trigger={<Button icon="calendar" bordered color="teal" />}
                 on="click"
@@ -50,19 +59,23 @@ class Details extends Component {
                   <DayPickerSingleDateController />
                 </Popup.Content>
               </Popup>
-              <p>{this.props.event.date}</p>
+              <span style={styles.cardContentItemSpans}>
+                {this.props.event.date
+                  ? this.calcEventDate(this.props.event.date)
+                  : this.calcEventDate()}
+              </span>
             </Card.Description>
-            <Divider hidden />
-            <Card.Description>
+            <Card.Description style={styles.cardContentItemTwo}>
               <Popup trigger={this.renderButton()} on="click" hideOnScroll>
                 <Popup.Header>
                   <i>Copied!</i>
                 </Popup.Header>
               </Popup>
-              <p>{this.props.event.location}</p>
+              <span style={styles.cardContentItemSpans}>
+                {this.props.event.location}
+              </span>
             </Card.Description>
           </Card.Content>
-          <Divider hidden />
           <Embed
             active
             url="https://www.google.com/maps/embed/v1/place?key=AIzaSyBnwpbLJU6xN2xDKaCvYE_QmtoHyzW9DnI&q=Eiffel+Tower,Paris+France"
@@ -77,6 +90,28 @@ const styles = {
   card: {
     backgroundColor: '#f6f7f8',
     boxShadow: '0 0 0 0px #d4d4d5, 0 2px 0 0 #00b5ad, 0 1px 3px 0 #d4d4d5'
+  },
+  cardContent: {
+    margin: '0',
+    display: 'flex',
+    justifyContent: 'flex-start',
+    flexDirection: 'column'
+  },
+  cardContentItemOne: {
+    marginBottom: '1em',
+    display: 'flex',
+    order: '1',
+    textAlign: 'left'
+  },
+  cardContentItemTwo: {
+    marginBottom: '1.125em',
+    display: 'flex',
+    order: '2',
+    textAlign: 'left'
+  },
+  cardContentItemSpans: {
+    textAlign: 'left',
+    marginLeft: '0.5em'
   }
 };
 

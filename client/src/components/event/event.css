@@ -13,7 +13,7 @@
 
 .eventHeadline {
   position: absolute;
-  top: 45%;
+  top: 48%;
   width: 100%;
   text-align: center;
   font-size: 4em;
@@ -27,7 +27,7 @@
 .attendButton {
   position: absolute;
   left: 78%;
-  bottom: 10%;
+  bottom: 20%;
   width: 100%;
   transform: translateY(0);
   transition: 0.5s ease-in;
