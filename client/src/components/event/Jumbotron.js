@@ -53,7 +53,7 @@ class Jumbotron extends Component {
             inverted
             style={styles.headerTwo}
           />
-          <AttendeeModal />
+          <AttendeeModal event={this.props.event} />
         </Visibility>
       </div>
     );

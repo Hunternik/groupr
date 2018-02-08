@@ -67,7 +67,7 @@ class EventPage extends Component {
         </Segment>
         <Divider hidden />
         <Segment basic>
-          <Participants eventId={this.props.event} />
+          <Participants eventId={this.renderEventData()} />
         </Segment>
         <Divider hidden />
       </div>

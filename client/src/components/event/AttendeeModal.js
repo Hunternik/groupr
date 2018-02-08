@@ -9,6 +9,7 @@ class AttendeeModal extends Component {
     super(props);
 
     this.quizTaken = this.quizTaken.bind(this);
+    this.calcNumOfParticipants = this.calcNumOfParticipants.bind(this);
   }
   state = { modalOpen: false };
 
@@ -36,7 +37,7 @@ class AttendeeModal extends Component {
             Attend
           </Button>
           <Label as="a" basic color="teal" pointing="left">
-            228
+            {this.calcNumOfParticipants()}
           </Label>
         </Button>
       );
@@ -57,7 +58,17 @@ class AttendeeModal extends Component {
     this.setState({ modalOpen: false });
   };
 
+  calcNumOfParticipants() {
+    let sum = 0;
+    if (this.props.event.companies && this.props.event.recruiters && this.props.event.attendees) {
+      sum = this.props.event.companies.length + this.props.event.recruiters.length + this.props.event.attendees.length;
+    }
+    return sum;
+    
+  }
+
   render() {
+    console.log(this.props.event, "HELLLLOOOO ATTENDEEMODAL")
     return (
       <Modal
         className="scrolling"
