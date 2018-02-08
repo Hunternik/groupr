@@ -6,15 +6,6 @@
   text-align: center;
 }
 
-.grow {
-  transform: scale(0.9);
-  transition: all 0.2s ease-in-out;
-}
-
-.grow:hover {
-  transform: scale(1);
-}
-
 .img-max-width {
 	width: 100%;
 }

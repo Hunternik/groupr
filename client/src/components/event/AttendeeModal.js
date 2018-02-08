@@ -30,7 +30,7 @@ class AttendeeModal extends Component {
           className="attendButton"
           onClick={this.handleOpen}
           as="div"
-          labelPosition="right"
+					labelPosition="right"
         >
           <Button color="teal">
             <Icon name="fork" />

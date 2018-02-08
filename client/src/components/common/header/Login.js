@@ -1,14 +1,26 @@
-import React, { Component } from 'react';
-import { Header, Image, Item, Modal } from 'semantic-ui-react';
-import loginImages from '../../../constants/loginImages';
+import React, { Component } from "react";
+import {
+  Header,
+  Image,
+  Item,
+  Modal,
+  Grid,
+  Form,
+  Segment,
+  Button,
+  Message
+} from "semantic-ui-react";
+import loginImages from "../../../constants/loginImages";
+import ModalHeader from "semantic-ui-react/dist/commonjs/modules/Modal/ModalHeader";
+import logo from "../../../assets/images/logo.png";
 
 class Login extends Component {
   state = { modalOpen: false };
-  	
-	componentDidMount() {
-		if (this.props.quizInit) {
-			this.handleOpen();
-		}
+
+  componentDidMount() {
+    if (this.props.quizInit) {
+      this.handleOpen();
+    }
   }
 
   handleOpen = () => this.setState({ modalOpen: true });
@@ -16,24 +28,17 @@ class Login extends Component {
   handleClose = () => this.setState({ modalOpen: false });
 
   renderLoginItems() {
-    return loginImages.map((img) => (
-      <Item.Group divided link>
-        <Item size="tiny">
-          <Image size="tiny" src={img.src} href={img.url} />
-          <Item.Content verticalAlign="middle">
-            <Item.Header>
-              <a href={img.url}>Continue with {img.title}</a>
-            </Item.Header>
-          </Item.Content>
-        </Item>
-      </Item.Group>
+    return loginImages.map(img => (
+      <Segment stacked className="grow">
+        <Image size="tiny" src={img.src} href={img.url} />
+      </Segment>
     ));
   }
 
   renderLink() {
     return (
       !this.props.quizInit && (
-        <span style={{ cursor: 'pointer' }} onClick={this.handleOpen}>
+        <span style={{ cursor: "pointer" }} onClick={this.handleOpen}>
           Log In
         </span>
       )
@@ -42,11 +47,32 @@ class Login extends Component {
 
   render() {
     return (
-      <Modal closeIcon size="tiny" trigger={this.renderLink()} open={this.state.modalOpen} onClose={this.handleClose}>
-        <Header as="h1" textAlign="center">
-          Login or Sign up
-        </Header>
-        <Modal.Content>{this.renderLoginItems()}</Modal.Content>
+      <Modal
+        closeIcon
+        size="tiny"
+        trigger={this.renderLink()}
+        open={this.state.modalOpen}
+        onClose={this.handleClose}
+      >
+        <Modal.Header>
+          <Header as="h2" color="teal" textAlign="center">
+            <Image src={logo} /> Log-in to your account
+          </Header>
+        </Modal.Header>
+        <Modal.Content>
+          <Grid
+            textAlign="center"
+            style={{ height: "100%" }}
+            verticalAlign="middle"
+          >
+            <Grid.Column style={{ maxWidth: 450 }}>
+              <Form size="large">{this.renderLoginItems()}</Form>
+              <Message>
+                New to us? Sign up through Google or LinkedIn
+              </Message>
+            </Grid.Column>
+          </Grid>
+        </Modal.Content>
       </Modal>
     );
   }

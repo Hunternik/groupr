@@ -1,9 +1,9 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import * as actions from '../../actions';
-import { Grid, Button } from 'semantic-ui-react';
-import Login from '../common/header/Login';
-import RecruiterForm from './RecruiterForm';
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import * as actions from "../../actions";
+import { Grid, Button, Container } from "semantic-ui-react";
+import Login from "../common/header/Login";
+import RecruiterForm from "./RecruiterForm";
 
 class Recruiter extends Component {
   constructor(props) {
@@ -19,7 +19,11 @@ class Recruiter extends Component {
 
   render() {
     if (!this.props.auth) {
-      return <Login quizInit />;
+      return (
+        <Container style={{height: "100vh"}}>
+          <Login quizInit />
+        </Container>
+      );
     }
 
     return (
@@ -44,5 +48,3 @@ const mapStateToProps = state => ({
 });
 
 export default connect(mapStateToProps, actions)(Recruiter);
-
-

@@ -11,7 +11,8 @@ const userSchema = new Schema({
   company: { type: String, default: "" },
   position: { type: String, default: "" },
   iconPhotoURL: { type: String, default: "" },
-  bigPhotoURL: { type: String, default: "" },
+	bigPhotoURL: { type: String, default: "" },
+	companyPhotoURL: { type: String, default: "" },
   credits: { type: Number, default: 0 },
   events: [
     {
