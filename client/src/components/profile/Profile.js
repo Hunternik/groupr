@@ -1,13 +1,19 @@
 import React, { Component } from "react";
 import { reduxForm } from "redux-form";
 import { connect } from "react-redux";
-import { Container, Header, Image, Grid, Segment } from "semantic-ui-react";
+import {
+  Container,
+  Header,
+  Icon,
+  Image,
+  Grid,
+  Segment
+} from "semantic-ui-react";
 import ProfileEdit from "./ProfileEdit";
 import ProfileRead from "./ProfileRead";
 import ProfileEvents from "./ProfileEvents";
 import ProfilePlaceholder from "../../assets/images/ProfilePlaceholder.png";
-
-require("./profile.css");
+import "./profile.css";
 
 class Profile extends Component {
   constructor(props) {
@@ -52,9 +58,9 @@ class Profile extends Component {
   }
 
   renderProfileContent() {
-		const { profile, showProfileReview, success } = this.state;
-		
-    if (showProfileReview)
+    const { profile, showProfileReview, success } = this.state;
+
+    if (showProfileReview && profile)
       return (
         <ProfileRead
           onUpdate={this.handleUpdate}
@@ -68,28 +74,29 @@ class Profile extends Component {
     );
   }
 
+  renderTitle() {
+    return (
+      <Header as="h2" icon textAlign="center">
+        <Icon name="users" circular />
+        <Header.Content>Profile</Header.Content>
+      </Header>
+    );
+  }
+
   render() {
-		const { profile } = this.state;
-		
+    const { profile } = this.state;
+
     return (
       <Container>
-        <Header as="h1" textAlign="center">
-          {this.props.initialValues && this.props.initialValues.displayName}
-        </Header>
+        {this.renderTitle()}
         <Grid stackable columns={2} textAlign="center" centered>
           <Grid.Column textAlign="center">
-            <Segment>
+            <Segment className="event-container">
               <h1>My Events</h1>
               {profile && <ProfileEvents profile={profile} />}
             </Segment>
           </Grid.Column>
-          <Grid.Column>
-            <Segment>
-              <Header as="h1" textAlign="center">Profile</Header>
-							{profile && <Image src={profile.bigPhotoURL || ProfilePlaceholder} size="medium" centered bordered/>}
-              {this.renderProfileContent()}
-            </Segment>
-          </Grid.Column>
+          <Grid.Column>{this.renderProfileContent()}</Grid.Column>
         </Grid>
       </Container>
     );
