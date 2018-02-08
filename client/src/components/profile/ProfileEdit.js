@@ -81,7 +81,7 @@ class ProfileEdit extends Component {
 
   render() {
     return (
-      <Segment>
+      <Segment ref="profileEdit">
         <Form
           onSubmit={this.props.handleSubmit(this.onProfileSubmit)}
           loading={this.state.loading}

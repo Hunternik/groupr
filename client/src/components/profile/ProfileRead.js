@@ -11,6 +11,7 @@ import {
   Transition,
   Label
 } from "semantic-ui-react";
+import ReactDOM from 'react-dom';
 import { connect } from "react-redux";
 import profileFields from "../../constants/profileFields";
 import ProfilePlaceholder from "../../assets/images/ProfilePlaceholder.png";
@@ -18,8 +19,13 @@ import "./profile.css";
 
 class ProfileRead extends Component {
   componentDidMount() {
-    window.scrollTo(0, 0);
-  }
+		window.scrollTo(0, 0);
+
+		const height = ReactDOM.findDOMNode(this.refs.profileRead).clientHeight;
+		console.log(height,'check here')
+		
+		this.props.height(height);
+	}
 
   renderMessage = () => (
     <Message positive>
@@ -29,7 +35,7 @@ class ProfileRead extends Component {
 
   renderFields = profile =>
     profileFields.map(field => (
-      <Table.Row>
+      <Table.Row key={field.name}>
         <Table.Cell>
           <Label color="teal" ribbon>
             {field.label}
@@ -43,6 +49,7 @@ class ProfileRead extends Component {
     const { profile, onUpdate, success } = this.props;
 
     return (
+			<div ref="profileRead" >
       <Card color="blue" centered raised fluid>
         {success && this.renderMessage()}
         <Image
@@ -74,6 +81,7 @@ class ProfileRead extends Component {
           </div>
         </Card.Content>
       </Card>
+			</div>
     );
   }
 }

@@ -22,9 +22,10 @@ class Profile extends Component {
     this.handleCancel = this.handleCancel.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
     this.handleReturn = this.handleReturn.bind(this);
+    this.setHeight = this.setHeight.bind(this);
   }
 
-  state = { showProfileReview: true, success: false };
+  state = { showProfileReview: true, success: false, gridHeight: 0 };
 
   componentDidMount() {
     if (this.props.initialValues)
@@ -53,6 +54,10 @@ class Profile extends Component {
     this.setState({ showProfileReview: false });
   }
 
+  setHeight(height) {
+    this.setState({ gridHeight: height });
+  }
+
   renderEventContent() {
     return <ProfileEvents profile={this.state.profile} />;
   }
@@ -66,12 +71,18 @@ class Profile extends Component {
           onUpdate={this.handleUpdate}
           success={success}
           profile={profile}
+          height={this.setHeight}
         />
       );
-
-    return (
-      <ProfileEdit onCancel={this.handleCancel} onReturn={this.handleReturn} />
-    );
+		
+		if (!showProfileReview && profile)
+			return (
+				<ProfileEdit
+					onCancel={this.handleCancel}
+					onReturn={this.handleReturn}
+					height={this.setHeight}
+				/>
+			);
   }
 
   renderTitle() {
@@ -89,10 +100,17 @@ class Profile extends Component {
     return (
       <Container>
         {this.renderTitle()}
-        <Grid stackable columns={2} textAlign="center" centered>
+        <Grid
+          columns={2}
+          textAlign="center"
+          stackable
+          centered
+        >
           <Grid.Column textAlign="center">
-            <Segment className="event-container">
-              <h1>My Events</h1>
+            <Segment style={{ maxHeight: this.state.gridHeight, overflow: "auto"}} floated raised>
+              <Header as="h1">
+                My Events
+              </Header>
               {profile && <ProfileEvents profile={profile} />}
             </Segment>
           </Grid.Column>
