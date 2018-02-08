@@ -64,13 +64,12 @@ class EventPage extends Component {
           event={this.renderEventData()}
           coverPhotoID={this.props.match.params.eventId.toUpperCase()}
         />
-        <Container>
           <Segment style={{ padding: '0em 0em' }} basic>
             <Grid container centered columns={2}>
               <Grid.Column width={10}>
                 <Description event={this.renderEventData()} />
               </Grid.Column>
-              <Grid.Column width={6}>
+              <Grid.Column width={6} style={{display: 'flex', justifyContent: 'flex-end'}}>
                 <Details event={this.renderEventData()} />
               </Grid.Column>
             </Grid>
@@ -80,7 +79,6 @@ class EventPage extends Component {
             <Participants eventId={this.renderEventData()} />
           </Segment>
           <Divider hidden />
-        </Container>
       </div>
     );
   }
