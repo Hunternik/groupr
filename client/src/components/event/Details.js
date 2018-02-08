@@ -13,6 +13,7 @@ class Details extends Component {
     super(props);
     this.copyAddress = this.copyAddress.bind(this);
     this.renderButton = this.renderButton.bind(this);
+    this.calcEventDate = this.calcEventDate.bind(this);
   }
 
   state = {
@@ -30,6 +31,15 @@ class Details extends Component {
         <Button icon="world" bordered color="teal" />
       </CopyToClipboard>
     );
+  }
+
+  calcEventDate(eventDate) {
+    let newDate = moment().add({day: 10, months: 3}).format('MMMM Do YYYY');
+    // if (this.props.event.date) {
+    //   const date = eventDate.substring(0, 10);
+    //   newdate = moment(date).add({day: 10, months: 3}).format('MMMM Do YYYY');
+    // }
+    return newDate;
   }
 
   render() {
@@ -50,7 +60,7 @@ class Details extends Component {
                   <DayPickerSingleDateController />
                 </Popup.Content>
               </Popup>
-              <p>{this.props.event.date}</p>
+              <span>   {this.props.event.date ? this.calcEventDate(this.props.event.date) : this.calcEventDate()}</span>
             </Card.Description>
             <Divider hidden />
             <Card.Description>
@@ -59,7 +69,7 @@ class Details extends Component {
                   <i>Copied!</i>
                 </Popup.Header>
               </Popup>
-              <p>{this.props.event.location}</p>
+              <span>{this.props.event.location}</span>
             </Card.Description>
           </Card.Content>
           <Divider hidden />
