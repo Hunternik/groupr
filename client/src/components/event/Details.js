@@ -34,7 +34,9 @@ class Details extends Component {
   }
 
   calcEventDate(eventDate) {
-    let newDate = moment().add({day: 10, months: 3}).format('MMMM Do YYYY');
+    let newDate = moment()
+      .add({ day: 10, months: 3 })
+      .format('MMMM Do YYYY');
     // if (this.props.event.date) {
     //   const date = eventDate.substring(0, 10);
     //   newdate = moment(date).add({day: 10, months: 3}).format('MMMM Do YYYY');
@@ -45,10 +47,7 @@ class Details extends Component {
   render() {
     return (
       <div>
-        <Card
-          color="teal"
-          style={styles.card}
-        >
+        <Card color="teal" style={styles.card}>
           <Card.Content style={styles.cardContent}>
             <Card.Description style={styles.cardContentItemOne}>
               <Popup
@@ -60,19 +59,23 @@ class Details extends Component {
                   <DayPickerSingleDateController />
                 </Popup.Content>
               </Popup>
-              <span style={{textAlign: 'left', marginLeft: '0.75em'}}>{this.props.event.date ? this.calcEventDate(this.props.event.date) : this.calcEventDate()}</span>
+              <span style={styles.cardContentItemSpans}>
+                {this.props.event.date
+                  ? this.calcEventDate(this.props.event.date)
+                  : this.calcEventDate()}
+              </span>
             </Card.Description>
-            {/* <Divider hidden /> */}
             <Card.Description style={styles.cardContentItemTwo}>
               <Popup trigger={this.renderButton()} on="click" hideOnScroll>
                 <Popup.Header>
                   <i>Copied!</i>
                 </Popup.Header>
               </Popup>
-              <span style={{textAlign: 'left', marginLeft: '0.5em'}}>{this.props.event.location}</span>
+              <span style={styles.cardContentItemSpans}>
+                {this.props.event.location}
+              </span>
             </Card.Description>
           </Card.Content>
-          {/* <Divider hidden /> */}
           <Embed
             active
             url="https://www.google.com/maps/embed/v1/place?key=AIzaSyBnwpbLJU6xN2xDKaCvYE_QmtoHyzW9DnI&q=Eiffel+Tower,Paris+France"
@@ -87,7 +90,6 @@ const styles = {
   card: {
     backgroundColor: '#f6f7f8',
     boxShadow: '0 0 0 0px #d4d4d5, 0 2px 0 0 #00b5ad, 0 1px 3px 0 #d4d4d5'
-    
   },
   cardContent: {
     margin: '0',
@@ -98,16 +100,18 @@ const styles = {
   cardContentItemOne: {
     marginBottom: '1em',
     display: 'flex',
-    // flexDirection: 'column'
     order: '1',
     textAlign: 'left'
   },
   cardContentItemTwo: {
     marginBottom: '1.125em',
     display: 'flex',
-    // flexDirection: 'row'
     order: '2',
     textAlign: 'left'
+  },
+  cardContentItemSpans: {
+    textAlign: 'left',
+    marginLeft: '0.5em'
   }
 };
 
