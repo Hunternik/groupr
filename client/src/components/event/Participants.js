@@ -1,18 +1,31 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Segment, Grid, Menu, Label, Image, Card, Input } from 'semantic-ui-react';
-// Actions
+import {
+  Segment,
+  Grid,
+  Menu,
+  Label,
+  Image,
+  Card,
+  Input
+} from 'semantic-ui-react';
 import { fetchEvent, fetchEventSponsors } from '../../actions';
 
 class Participants extends Component {
   constructor(props) {
     super(props);
     this.renderEventCompanies = this.renderEventCompanies.bind(this);
+    this.calcNumOfCompanies = this.calcNumOfCompanies.bind(this);
     this.renderEventRecruiters = this.renderEventRecruiters.bind(this);
     this.renderEventAttendees = this.renderEventAttendees.bind(this);
   }
 
-  state = { activeItem: 'companies' };
+  state = {
+    activeItem: 'companies',
+    numOfCompanies: 0,
+    numOfRecruiters: 0,
+    numOfAttendees: 0
+  };
 
   componentDidMount() {
     this.props.fetchEventSponsors(this.props.eventId);
@@ -24,34 +37,38 @@ class Participants extends Component {
     if (this.props.event.companies) {
       return this.props.event.companies.map(company => {
         return (
-            <Card>
-              <Image src={company.imgLogoURL} fluid rounded />
-            </Card>
+          <Card>
+            <Image src={company.imgLogoURL} fluid rounded />
+          </Card>
         );
       });
     }
   }
 
+  calcNumOfCompanies() {
+    return this.props.event.companies ? this.props.event.companies.length : 0
+  }
+
   renderEventRecruiters() {
     if (this.props.event.recruiters) {
-      return this.props.event.recruiters.map((recruiter,index) => {
+      return this.props.event.recruiters.map((recruiter, index) => {
         return (
-            <Card color="teal" style={styles.card}>
-              <Image src={recruiter.bigPhotoURL} fluid rounded />
-            </Card>
+          <Card color="teal" style={styles.card}>
+            <Image src={recruiter.bigPhotoURL} fluid rounded />
+          </Card>
         );
       });
     }
   }
 
   renderEventAttendees() {
-		console.log(this.props.event.attendees);
+    console.log(this.props.event.attendees);
     if (this.props.event.attendees) {
-      return this.props.event.attendees.map((attendee,index) => {
+      return this.props.event.attendees.map((attendee, index) => {
         return (
-            <Card color="teal" style={styles.card}>
-              <Image src={attendee.bigPhotoURL} fluid rounded />
-            </Card>
+          <Card color="teal" style={styles.card}>
+            <Image src={attendee.bigPhotoURL} fluid rounded />
+          </Card>
         );
       });
     }
@@ -59,7 +76,12 @@ class Participants extends Component {
 
   render() {
     console.log(this.props.event, 'mmmmmmmmm EVENT PROPS PARTICAPANTS mmmmmm');
-    const { activeItem } = this.state;
+    const {
+      activeItem,
+      numOfCompanies,
+      numOfRecruiters,
+      numOfAttendees
+    } = this.state;
     return (
       <div>
         <Grid container>
@@ -70,7 +92,7 @@ class Participants extends Component {
                 active={activeItem === 'companies'}
                 onClick={this.handleItemClick}
               >
-                <Label color="teal">14</Label>
+                <Label color="teal">{this.calcNumOfCompanies()}</Label>
                 Companies
               </Menu.Item>
               <Menu.Item
@@ -90,8 +112,8 @@ class Participants extends Component {
                 Attendies
               </Menu.Item>
               <Menu.Item>
-          <Input icon='search' placeholder='Search mail...' />
-        </Menu.Item>
+                <Input icon="search" placeholder="Search mail..." />
+              </Menu.Item>
             </Menu>
           </Grid.Column>
           <Grid.Column stretched width={7}>
