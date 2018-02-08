@@ -1,11 +1,9 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Header, Visibility } from 'semantic-ui-react';
+import { Header, Visibility, Divider } from 'semantic-ui-react';
 import { withRouter } from 'react-router-dom';
-// Components
 import AttendeeModal from './AttendeeModal';
 import ParallaxImage from '../landing/ParallaxImage';
-// Helpers
 import Images from '../../constants/eventPreview';
 import handleVisibility from '../landing/utils/handleVisibility';
 
@@ -45,14 +43,15 @@ class Jumbotron extends Component {
             inverted
             style={styles.headerOne}
           />
-          {/* <Header
+          <Divider hidden />
+          <Header
             as="h2"
             className="eventHeadline"
             content="Network with developers and technical recruiters from high quality companies."
             inverted
             style={styles.headerTwo}
-          /> */}
-          <AttendeeModal />
+          />
+          <AttendeeModal event={this.props.event} />
         </Visibility>
       </div>
     );

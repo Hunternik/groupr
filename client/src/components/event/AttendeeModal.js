@@ -9,19 +9,20 @@ class AttendeeModal extends Component {
     super(props);
 
     this.quizTaken = this.quizTaken.bind(this);
+    this.calcNumOfParticipants = this.calcNumOfParticipants.bind(this);
   }
   state = { modalOpen: false };
 
-  // Check if the attendee has already taken the quiz
   quizTaken() {
     const id = this.props.auth ? this.props.auth._id : 'null';
     const quizTaken = this.props.event ? this.props.event.attendees : 'null';
-		const quizFailed = this.props.event ? this.props.event.failedquiz : 'null';
-		const recruiterList = this.props.event ? this.props.event.recruiters : 'null';
+    const quizFailed = this.props.event ? this.props.event.failedquiz : 'null';
+    const recruiterList = this.props.event
+      ? this.props.event.recruiters
+      : 'null';
     let attendeePassed = quizTaken.some(oid => oid._id === id);
-		let attendeeFailed= quizFailed.some(oid => oid._id === id);
-		let attendingRecruiter = recruiterList.some(oid => oid._id === id);
-		
+    let attendeeFailed = quizFailed.some(oid => oid._id === id);
+    let attendingRecruiter = recruiterList.some(oid => oid._id === id);
 
     if (!attendeePassed && !attendeeFailed && !attendingRecruiter) {
       return (
@@ -36,7 +37,7 @@ class AttendeeModal extends Component {
             Attend
           </Button>
           <Label as="a" basic color="teal" pointing="left">
-            228
+            {this.calcNumOfParticipants()}
           </Label>
         </Button>
       );
@@ -57,7 +58,23 @@ class AttendeeModal extends Component {
     this.setState({ modalOpen: false });
   };
 
+  calcNumOfParticipants() {
+    let sum = 0;
+    if (
+      this.props.event.companies &&
+      this.props.event.recruiters &&
+      this.props.event.attendees
+    ) {
+      sum =
+        this.props.event.companies.length +
+        this.props.event.recruiters.length +
+        this.props.event.attendees.length;
+    }
+    return sum;
+  }
+
   render() {
+    console.log(this.props.event, 'HELLLLOOOO ATTENDEEMODAL');
     return (
       <Modal
         className="scrolling"
