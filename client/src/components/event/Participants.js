@@ -8,7 +8,8 @@ import {
   Image,
   Card,
   Input,
-  Popup
+  Popup,
+  Reveal
 } from "semantic-ui-react";
 import { fetchEvent, fetchEventSponsors } from "../../actions";
 
@@ -62,17 +63,26 @@ class Participants extends Component {
       return this.props.event.recruiters.map((recruiter, index) => {
         return (
           <Card basic color="teal" style={styles.card} className="grow" floated>
-            <Popup
-              key={recruiter._id}
-              trigger={<Image src={recruiter.bigPhotoURL} fluid rounded />}
-              header={recruiter.displayName}
-              content={recruiter.email}
-            />
-            <Card.Content>
-              <Card.Header color="teal" centered>
-                {recruiter.company}
-              </Card.Header>
-            </Card.Content>
+            <Reveal animated="move">
+              <Reveal.Content visible>
+                <Popup
+                  key={recruiter._id}
+                  trigger={
+                    <Image src={recruiter.companyPhotoURL} fluid rounded />
+                  }
+                  header={recruiter.displayName}
+                  content={recruiter.email}
+                />
+              </Reveal.Content>
+              <Reveal.Content hidden>
+                <Popup
+                  key={recruiter._id}
+                  trigger={<Image src={recruiter.bigPhotoURL} fluid rounded />}
+                  header={recruiter.displayName}
+                  content={recruiter.email}
+                />
+              </Reveal.Content>
+            </Reveal>
           </Card>
         );
       });

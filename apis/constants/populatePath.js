@@ -9,7 +9,7 @@ module.exports.eventPath = [
   },
   {
     path: "recruiters",
-    select: "displayName bigPhotoURL company email"
+    select: "displayName bigPhotoURL companyPhotoURL company email"
   },
   { path: "failedquiz", select: "_id" }
 ];
