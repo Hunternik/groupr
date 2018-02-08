@@ -17,14 +17,13 @@ class Participants extends Component {
     this.renderEventCompanies = this.renderEventCompanies.bind(this);
     this.calcNumOfCompanies = this.calcNumOfCompanies.bind(this);
     this.renderEventRecruiters = this.renderEventRecruiters.bind(this);
+    this.calcNumOfRecruiters = this.calcNumOfRecruiters.bind(this);
     this.renderEventAttendees = this.renderEventAttendees.bind(this);
+    this.calcNumOfAttendees = this.calcNumOfAttendees.bind(this);
   }
 
   state = {
-    activeItem: 'companies',
-    numOfCompanies: 0,
-    numOfRecruiters: 0,
-    numOfAttendees: 0
+    activeItem: 'companies'
   };
 
   componentDidMount() {
@@ -46,7 +45,7 @@ class Participants extends Component {
   }
 
   calcNumOfCompanies() {
-    return this.props.event.companies ? this.props.event.companies.length : 0
+    return this.props.event.companies ? this.props.event.companies.length : 0;
   }
 
   renderEventRecruiters() {
@@ -61,6 +60,10 @@ class Participants extends Component {
     }
   }
 
+  calcNumOfRecruiters() {
+    return this.props.event.recruiters ? this.props.event.recruiters.length : 0;
+  }
+
   renderEventAttendees() {
     console.log(this.props.event.attendees);
     if (this.props.event.attendees) {
@@ -72,6 +75,10 @@ class Participants extends Component {
         );
       });
     }
+  }
+
+  calcNumOfAttendees() {
+    return this.props.event.attendees ? this.props.event.attendees.length : 0;
   }
 
   render() {
@@ -100,7 +107,7 @@ class Participants extends Component {
                 active={activeItem === 'recruiters'}
                 onClick={this.handleItemClick}
               >
-                <Label>27</Label>
+                <Label>{this.calcNumOfRecruiters()}</Label>
                 Recruiters
               </Menu.Item>
               <Menu.Item
@@ -108,7 +115,7 @@ class Participants extends Component {
                 active={activeItem === 'attendies'}
                 onClick={this.handleItemClick}
               >
-                <Label>128</Label>
+                <Label>{this.calcNumOfAttendees()}</Label>
                 Attendies
               </Menu.Item>
               <Menu.Item>
