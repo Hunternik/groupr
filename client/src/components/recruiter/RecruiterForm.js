@@ -89,6 +89,7 @@ class RecruiterForm extends Component {
   render() {
     const { handleSubmit, pristine, reset, submitting } = this.props;
     return (
+      <div>
       <Form onSubmit={this.props.handleSubmit(this.onRecruiterSubmit)}>
         {this.renderForm()}
         <br />
@@ -105,8 +106,9 @@ class RecruiterForm extends Component {
             Submit
           </Button>
         </div>
-        {this.state.openPayment && this.renderPayments()}
       </Form>
+        {this.state.openPayment && this.renderPayments()}
+      </div>
     );
   }
 }
