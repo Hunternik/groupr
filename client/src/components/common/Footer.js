@@ -38,9 +38,9 @@ class Footer extends Component {
           <div style={{ height: '10px', width: '10px' }} />
         </Visibility>
         <Transition animation={animation} visible={visible} duration={700}>
-          <Segment inverted vertical style={{ padding: '5em 0em' }}>
+          <Segment inverted vertical style={{ padding: '2em 0em' }}>
             <Container>
-              <Grid divided inverted stackable>
+              <Grid divided inverted>
                 <Grid.Row>
                   <Grid.Column width={3}>
                     <Header inverted as="h4" content="Company" />
