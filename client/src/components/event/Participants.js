@@ -34,7 +34,7 @@ class Participants extends Component {
 
   renderEventRecruiters() {
     if (this.props.event.recruiters) {
-      return this.props.event.recruiters.map(recruiter => {
+      return this.props.event.recruiters.map((recruiter,index) => {
         return (
             <Card color="teal" style={styles.card}>
               <Image src={recruiter.bigPhotoURL} fluid rounded />
@@ -45,8 +45,9 @@ class Participants extends Component {
   }
 
   renderEventAttendees() {
+		console.log(this.props.event.attendees);
     if (this.props.event.attendees) {
-      return this.props.event.attendees.map(attendee => {
+      return this.props.event.attendees.map((attendee,index) => {
         return (
             <Card color="teal" style={styles.card}>
               <Image src={attendee.bigPhotoURL} fluid rounded />

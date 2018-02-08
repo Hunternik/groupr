@@ -5,7 +5,7 @@ const keys = require("../config/keys");
 const mongoURI = process.argv[2] === "prod" ? keys.mongoURIPROD : keys.mongoURI;
 mongoose.connect(mongoURI);
 
-(async () => {
+module.exports = async () => {
   const quiz = [
     {
       questions: [
@@ -54,11 +54,11 @@ mongoose.connect(mongoURI);
 
   try {
     await db.Quiz.remove({});
-    await db.Quiz.collection.insertMany(quiz);
-    console.log("successfully loaded");
-    process.exit(0);
+    const data = await db.Quiz.collection.insertMany(quiz);
+    console.log(`${data.insertedCount} quizes successfully seeded`);
+    return;
   } catch (err) {
     console.log(err);
     process.exit(1);
   }
-})();
+};
