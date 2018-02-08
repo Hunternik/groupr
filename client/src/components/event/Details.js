@@ -49,8 +49,8 @@ class Details extends Component {
           color="teal"
           style={styles.card}
         >
-          <Card.Content>
-            <Card.Description>
+          <Card.Content style={styles.cardContent}>
+            <Card.Description style={styles.cardContentItemOne}>
               <Popup
                 trigger={<Button icon="calendar" bordered color="teal" />}
                 on="click"
@@ -60,19 +60,19 @@ class Details extends Component {
                   <DayPickerSingleDateController />
                 </Popup.Content>
               </Popup>
-              <span>   {this.props.event.date ? this.calcEventDate(this.props.event.date) : this.calcEventDate()}</span>
+              <span style={{textAlign: 'left', marginLeft: '0.75em'}}>{this.props.event.date ? this.calcEventDate(this.props.event.date) : this.calcEventDate()}</span>
             </Card.Description>
-            <Divider hidden />
-            <Card.Description>
+            {/* <Divider hidden /> */}
+            <Card.Description style={styles.cardContentItemTwo}>
               <Popup trigger={this.renderButton()} on="click" hideOnScroll>
                 <Popup.Header>
                   <i>Copied!</i>
                 </Popup.Header>
               </Popup>
-              <span>{this.props.event.location}</span>
+              <span style={{textAlign: 'left', marginLeft: '0.5em'}}>{this.props.event.location}</span>
             </Card.Description>
           </Card.Content>
-          <Divider hidden />
+          {/* <Divider hidden /> */}
           <Embed
             active
             url="https://www.google.com/maps/embed/v1/place?key=AIzaSyBnwpbLJU6xN2xDKaCvYE_QmtoHyzW9DnI&q=Eiffel+Tower,Paris+France"
@@ -87,6 +87,27 @@ const styles = {
   card: {
     backgroundColor: '#f6f7f8',
     boxShadow: '0 0 0 0px #d4d4d5, 0 2px 0 0 #00b5ad, 0 1px 3px 0 #d4d4d5'
+    
+  },
+  cardContent: {
+    margin: '0',
+    display: 'flex',
+    justifyContent: 'flex-start',
+    flexDirection: 'column'
+  },
+  cardContentItemOne: {
+    marginBottom: '1em',
+    display: 'flex',
+    // flexDirection: 'column'
+    order: '1',
+    textAlign: 'left'
+  },
+  cardContentItemTwo: {
+    marginBottom: '1.125em',
+    display: 'flex',
+    // flexDirection: 'row'
+    order: '2',
+    textAlign: 'left'
   }
 };
 
