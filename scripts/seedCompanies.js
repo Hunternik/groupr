@@ -17,7 +17,7 @@ const associateUsers = async (companies, users, slice) => {
       );
       const userData = await db.User.update(
         { _id: { $in: userIds } },
-        { $set: { company: company.name } },
+        { $set: { company: company.name, companyPhotoURL: company.imgLogoURL } },
         { multi: true }
       );
 			console.log(`${companyData.nModified} recruiters successfully seeded to companies`);
