@@ -3,6 +3,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import {
+  Container,
   Segment,
   Grid,
   Header,
@@ -16,7 +17,6 @@ import Jumbotron from './Jumbotron';
 import Description from './Description';
 import Details from './Details';
 import Participants from './Participants';
-import Container from 'semantic-ui-react/dist/commonjs/elements/Container/Container';
 
 class EventPage extends Component {
   constructor(props) {
