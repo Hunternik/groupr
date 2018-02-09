@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Image, Icon, Container, Transition } from 'semantic-ui-react';
+import { Card, Image, Icon, Container } from 'semantic-ui-react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';

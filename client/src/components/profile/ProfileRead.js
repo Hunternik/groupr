@@ -2,17 +2,13 @@ import React, { Component } from "react";
 import {
   Button,
   Card,
-  Form,
   Icon,
   Image,
   Message,
-  Segment,
   Table,
-  Transition,
   Label
 } from "semantic-ui-react";
 import ReactDOM from "react-dom";
-import { connect } from "react-redux";
 import profileFields from "../../constants/profileFields";
 import ProfilePlaceholder from "../../assets/images/ProfilePlaceholder.png";
 import "./profile.css";

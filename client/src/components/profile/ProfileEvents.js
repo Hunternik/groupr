@@ -1,17 +1,10 @@
 import React from "react";
-import { connect } from "react-redux";
 import eventPreview from "../../constants/eventPreview";
 import pastEvents from "../../constants/pastEvents";
 import { Link } from "react-router-dom";
 import {
   Card,
-  Container,
-	Divider,
-	Header,
-  Image,
-  Label,
-  List,
-  Segment
+  Image
 } from "semantic-ui-react";
 import "./profile.css";
 

@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Card, Container, Transition } from 'semantic-ui-react';
+import { Container } from 'semantic-ui-react';
 import SectionHead from './SectionHead';
 
 class About extends Component {

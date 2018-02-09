@@ -2,16 +2,13 @@ import React, { Component } from "react";
 import {
   Header,
   Image,
-  Item,
   Modal,
   Grid,
   Form,
   Segment,
-  Button,
   Message
 } from "semantic-ui-react";
 import loginImages from "../../../constants/loginImages";
-import ModalHeader from "semantic-ui-react/dist/commonjs/modules/Modal/ModalHeader";
 import logo from "../../../assets/images/logo.png";
 
 class Login extends Component {

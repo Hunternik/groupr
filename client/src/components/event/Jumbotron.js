@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Header, Visibility, Divider } from 'semantic-ui-react';
-import { withRouter } from 'react-router-dom';
 import AttendeeModal from './AttendeeModal';
 import ParallaxImage from '../landing/ParallaxImage';
 import Images from '../../constants/eventPreview';

@@ -3,9 +3,7 @@ import {
   Form,
   Button,
   Segment,
-  Divider,
-  Card,
-  Container
+  Divider
 } from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
@@ -14,11 +12,8 @@ import * as actions from '../../actions';
 import {
   required,
   email,
-  maxLength,
   maxLength25,
-  minLength,
   minLength2,
-  alphaNumeric,
   renderField
 } from '../utils/formValidations.js';
 import FormField from '../../constants/recruiterFields';

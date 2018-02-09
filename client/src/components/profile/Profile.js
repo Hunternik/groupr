@@ -4,15 +4,12 @@ import { connect } from "react-redux";
 import {
   Container,
   Header,
-  Icon,
-  Image,
   Grid,
   Segment
 } from "semantic-ui-react";
 import ProfileEdit from "./ProfileEdit";
 import ProfileRead from "./ProfileRead";
 import ProfileEvents from "./ProfileEvents";
-import ProfilePlaceholder from "../../assets/images/ProfilePlaceholder.png";
 import "./profile.css";
 
 class Profile extends Component {

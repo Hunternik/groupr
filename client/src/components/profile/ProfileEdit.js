@@ -59,14 +59,17 @@ class ProfileEdit extends Component {
   }
 
   onProfileSubmit(data) {
-    const { _id, firstName, lastName, email, company, position } = data;
+		console.log(data);
+    const { _id, firstName, lastName, email, company, position, linkedInProfileURL, googleProfileURL } = data;
     const updateProfile = {
       _id,
       firstName,
       lastName,
       email,
       company,
-      position
+			position,
+			linkedInProfileURL,
+			googleProfileURL
     };
     const initialProfile = { _id, ...this.props.initialValues };
     const fieldsChanged = this.isEqual(updateProfile, initialProfile);

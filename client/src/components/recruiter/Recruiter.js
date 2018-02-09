@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import * as actions from '../../actions';
-import { Grid, Button, Container } from 'semantic-ui-react';
+import { Grid, Container } from 'semantic-ui-react';
 import Login from '../common/header/Login';
 import RecruiterForm from './RecruiterForm';
 import './recruiter.css';
