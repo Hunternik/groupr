@@ -1,0 +1,19 @@
+.ui.link.list .item,
+.ui.link.list .item a:not(.ui),
+.ui.link.list a.item,
+h4.ui.header {
+  color: #fff !important;
+}
+
+.ui.link.list .item a:not(.ui):hover,
+.ui.link.list a.item:hover {
+  color: #3ebcb2 !important;
+}
+
+a.email {
+  color: #fff;
+}
+
+a.email:hover {
+  color: #3ebcb2;
+}
