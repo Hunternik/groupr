@@ -1,8 +1,8 @@
-import React, { Component } from 'react'
-import { Form, Button } from 'semantic-ui-react';
-import { Field, reduxForm } from "redux-form";
-import { connect } from "react-redux";
-import { withRouter } from "react-router-dom";
+import React, { Component } from 'react';
+import { Form, Button, Segment, Divider, Card, Container } from 'semantic-ui-react';
+import { Field, reduxForm } from 'redux-form';
+import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import * as actions from '../../actions';
 import {
   required,
@@ -27,20 +27,20 @@ class RecruiterForm extends Component {
   }
 
   state = {
-		openPayment: false,
-		RecruiterInfo: null,
+    openPayment: false,
+    RecruiterInfo: null
   };
 
   componentWillUpdate(nextProps, nextState) {
     if (this.props.auth.credits !== nextProps.auth.credits) {
-			this.props.fetchRecruiter(this.state.RecruiterInfo);
+      this.props.fetchRecruiter(this.state.RecruiterInfo);
       this.handleNavigation();
     }
   }
 
   renderForm() {
     const validationType =
-      FormField.name === "Email" ? email : [required, maxLength25, minLength2];
+      FormField.name === 'Email' ? email : [required, maxLength25, minLength2];
     const fieldForm = FormField.map(FormField => (
       <Field
         key={FormField.name}
@@ -84,42 +84,53 @@ class RecruiterForm extends Component {
   }
 
   handleNavigation = () => {
-    this.props.history.push("/");
+    this.props.history.push('/');
   };
 
   render() {
     const { handleSubmit, pristine, reset, submitting } = this.props;
     return (
-      <Form onSubmit={this.props.handleSubmit(this.onRecruiterSubmit)}>
-        {this.renderForm()}
-        <br />
-        <div>
-          <Button
-            type="button"
-            size="large"
-            disabled={pristine || submitting}
-            onClick={reset}
-          >
-            Clear Values
-          </Button>
-          <Button type="submit" size="large" disabled={pristine || submitting}>
-            Submit
-          </Button>
-        </div>
-        {this.state.openPayment && this.renderPayments()}
-      </Form>
+      // <Container fluid>
+      <Segment style={{backgroundColor: '#f6f7f8'}}>
+        <Form onSubmit={this.props.handleSubmit(this.onRecruiterSubmit)}>
+          {this.renderForm()}
+          <Divider />
+          <div className="ui two buttons">
+            <Button
+              onClick={reset}
+              disabled={pristine || submitting}
+              type="button"
+              basic
+              color="red"
+              size="large"
+            >
+              Clear Values
+            </Button>
+            <Button
+              disabled={pristine || submitting}
+              type="submit"
+              basic
+              color="teal"
+              size="large"
+            >
+              Submit
+            </Button>
+          </div>
+          {this.state.openPayment && this.renderPayments()}
+        </Form>
+      </Segment>
     );
   }
 }
 
-const mapStateToProps = ( state ) => ({ 
+const mapStateToProps = state => ({
   auth: state.auth,
   event: state.event
 });
 
 RecruiterForm = reduxForm({
   // a unique name for the form
-  form: "recruiter"
+  form: 'recruiter'
 })(RecruiterForm);
 
 export default withRouter(connect(mapStateToProps, actions)(RecruiterForm));
