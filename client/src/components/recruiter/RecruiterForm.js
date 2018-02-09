@@ -80,7 +80,12 @@ class RecruiterForm extends Component {
   }
 
   renderPayments() {
-    return <Payments />;
+  return (
+  <div>
+  <Divider />
+  <Payments />
+  </div>
+);
   }
 
   handleNavigation = () => {
