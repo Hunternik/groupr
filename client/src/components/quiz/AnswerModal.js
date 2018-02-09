@@ -2,8 +2,7 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Button, Modal } from 'semantic-ui-react';
 import * as actions from '../../actions';
-
-require('./quiz.css');
+import './quiz.css';
 
 class AnswerModal extends Component {
   constructor(props) {
