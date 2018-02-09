@@ -1,7 +1,6 @@
 # Grouper | Tech Meetups
-Avoid sending your resume into a blackhole and have real human-to-human interactions with high quality companies.
-
 Grouper connects technology companies with technical talent in your area. We understand that the hiring process can be difficult not only for recruiters, but also the candidates. We want to help engineers find amazing jobs, and help recruiters connect with candidates based on their technical abilities rather than their resume credentials. Every attendee has passed a rigorous coding challenge that is objective and standardized, which provides recruiters that all attendees have a strong baseline understanding of technology.
+- Avoid sending your resume into a blackhole and have real human-to-human interactions with high quality companies.
 
 ## Live Link
  - http://www.groupr.tech/
