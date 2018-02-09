@@ -72,14 +72,6 @@ class Footer extends Component {
                     </List>
                   </Grid.Column>
                   <Grid.Column width={7}>
-<<<<<<< HEAD
-                    <Header as="h4" inverted>
-                      Contact Us
-                    </Header>
-                    <p>
-                      <a href="mailto:arkrewucla@gmail.com">arkrewucla@gmail.com</a>
-                    </p>
-=======
                     <Header as="h4">Contact Us</Header>
                     <a
                       className="email"
@@ -87,7 +79,6 @@ class Footer extends Component {
                     >
                       Send us a message
                     </a>
->>>>>>> 59fc309d2decf4f7f5abcf96b5e779a734cf007d
                   </Grid.Column>
                 </Grid.Row>
                 <Grid.Row className="centered">© Groupr</Grid.Row>

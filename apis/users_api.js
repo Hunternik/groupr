@@ -71,7 +71,7 @@ module.exports.requestQrCode = (req, res, next) => {
       // generate QR code for scanning into Google Authenticator
       // reference: https://code.google.com/p/google-authenticator/wiki/KeyUriFormat
       var otpUrl = 'otpauth://totp/' + req.user.email
-                + '?secret=' + encodedKey + '&period=' + (user.period || 30) + '&issuer=Grouper:%20Mother%20Fucking%20Bitch';
+                + '?secret=' + encodedKey + '&period=' + (user.period || 30) + '&issuer=Groupr:%20Do%20What%20You%20Love';
       var qrImage = 'https://chart.googleapis.com/chart?chs=166x166&chld=L|0&cht=qr&chl=' + encodeURIComponent(otpUrl);
       
       console.log('user exist - user._id ', user._id);
@@ -89,7 +89,7 @@ module.exports.requestQrCode = (req, res, next) => {
       // generate QR code for scanning into Google Authenticator
       // reference: https://code.google.com/p/google-authenticator/wiki/KeyUriFormat
       var otpUrl = 'otpauth://totp/' + req.user.email
-                  + '?secret=' + encodedKey + '&period=30&issuer=Grouper:%20Mother%20Fucking%20Bitch';
+                  + '?secret=' + encodedKey + '&period=30&issuer=Groupr:%20Do%20What%20You%20Love';
       var qrImage = 'https://chart.googleapis.com/chart?chs=166x166&chld=L|0&cht=qr&chl=' + encodeURIComponent(otpUrl);
   
       Totp.findOne(req._id, { key: key, period: 30 }, (err) => {

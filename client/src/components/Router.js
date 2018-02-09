@@ -12,6 +12,7 @@ import Recruiter from './recruiter/Recruiter';
 import Profile from './profile/Profile';
 import TotpSetup from './totp/TotpSetup';
 import Team from './team/Team';
+import LoginOtp from './totp/LoginOtp';
 
 class Router extends Component {
   componentDidMount() {
@@ -30,6 +31,7 @@ class Router extends Component {
           <Route path="/profile" component={Profile} />
           <Route path="/recruiter" component={Recruiter} />
           <Route path='/totpsetup' component={TotpSetup} />
+          <Route path='/login-otp' component={LoginOtp} />
           <Footer />
         </ScrollToTop>
       </BrowserRouter>
