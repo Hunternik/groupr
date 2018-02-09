@@ -36,13 +36,6 @@ body {
   overflow: hidden;
 }
 
-.video {
-  max-width: 100%;
-  max-height: 100%;
-  width: 100%;
-  height: 100%;
-}
-
 .perspective {
   transform: perspective(0);
   overflow: hidden;
@@ -84,11 +77,6 @@ body {
   text-align: center;
 }
 
-.video-container {
-  padding: 0;
-  height: 50%;
-}
-
 .about-main {
   width: 100%;
   height: 100%;
@@ -115,10 +103,22 @@ div.about-us {
   margin: 10px 0 0 10px;
   white-space: nowrap;
   overflow: hidden;
-  width: 30em;
-  animation: type 4s steps(120, end);
+	width: 100%;
+	height: 100%;
+  animation: type 4s steps(800, end);
 }
 
 @keyframes type {
 	from { width: 0;}
 } */
+
+.video {
+	width: 100vw;
+	transform: translateY(-10%);
+}
+
+.video-container {
+	padding: 0;
+	height: 80vh;
+	overflow: hidden;
+}

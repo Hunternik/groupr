@@ -21,12 +21,24 @@ class ProfileRead extends Component {
   constructor() {
     super();
 
-    this.handleImageLoad = this.handleImageLoad.bind(this);
+		this.handleImageLoad = this.handleImageLoad.bind(this);
+		this.handleResize = this.handleResize.bind(this);
   }
 
   componentDidMount() {
-    window.scrollTo(0, 0);
-  }
+		window.scrollTo(0, 0);
+    window.addEventListener('resize',this.handleResize)
+	}
+
+	componentWillUnmount() {
+		window.addEventListener('resize',this.handleResize)
+	}
+
+	handleResize() {
+		const height = ReactDOM.findDOMNode(this.refs.profileRead).clientHeight;
+
+    this.props.height(height);
+	}
 
   handleImageLoad() {
     const height = ReactDOM.findDOMNode(this.refs.profileRead).clientHeight;
@@ -57,7 +69,7 @@ class ProfileRead extends Component {
 
     return (
       <div ref="profileRead">
-        <Card color="blue" centered raised fluid>
+        <Card centered raised fluid>
           {success && this.renderMessage()}
           <Image
             src={profile.bigPhotoURL || ProfilePlaceholder}
