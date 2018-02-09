@@ -48,7 +48,7 @@ class Team extends Component {
                     <span className="date">Software Engineer</span>
                   </Card.Meta>
                   <Card.Description>
-                    James is a software engineer that loves his dog Blue, shoes
+                    James is a software engineer that loves his dog Blue, shoes,
                     and playing computer games.
                   </Card.Description>
                 </Card.Content>
@@ -67,8 +67,8 @@ class Team extends Component {
                     <span className="date">Software Engineer</span>
                   </Card.Meta>
                   <Card.Description>
-                    Grace is a software engineer and former actor that loves my
-                    dog Mandu and traveling.
+                    Grace is a software engineer and former actor that loves her
+                    dog Mandu, whiskey, and traveling.
                   </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
