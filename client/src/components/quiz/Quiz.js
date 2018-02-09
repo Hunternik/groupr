@@ -34,7 +34,6 @@ class Quiz extends Component {
         // this is the current state before it happens
         this.passQuiz();
       } else if (nextState.score <= 1) {
-        console.log('hi');
         this.failQuiz();
       }
     }
@@ -119,7 +118,6 @@ class Quiz extends Component {
   }
 
   render() {
-    console.log(this.state.progress);
     const { index } = this.state;
     const quiz = this.props.quiz ? this.props.quiz.questions : 'null';
     const currentQ = quiz[index].q;

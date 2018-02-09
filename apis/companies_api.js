@@ -51,6 +51,7 @@ module.exports.insertCompany = async (req, res) => {
 
     res.send(updatedEventUser);
   } catch (error) {
+		console.log(error);
     res.status(404).send(error);
   }
 };

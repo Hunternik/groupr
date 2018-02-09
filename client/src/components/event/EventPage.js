@@ -33,12 +33,6 @@ class EventPage extends Component {
     }
   }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.location !== prevProps.location) {
-      console.log(this.props, 'did update');
-    }
-  }
-
   fetchCurrentEvent(id) {
     this.props.fetchEvent(id);
   }
