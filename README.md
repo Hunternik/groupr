@@ -31,7 +31,7 @@ These instructions will get you a copy of the project up and running on your loc
 In the command line, type 'npm install' to download node packages. Go to package.json file to view dependencies.
 - Optimized for Chrome for best viewing experience.
 
-## Directory structure
+## Client Directory structure
 ```none
 .
 ├── src			 
