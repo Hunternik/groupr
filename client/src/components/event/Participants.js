@@ -1,5 +1,5 @@
-import React, { Component } from "react";
-import { connect } from "react-redux";
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
 import {
   Segment,
   Grid,
@@ -10,8 +10,8 @@ import {
   Input,
   Popup,
   Reveal
-} from "semantic-ui-react";
-import { fetchEvent, fetchEventSponsors } from "../../actions";
+} from 'semantic-ui-react';
+import { fetchEvent, fetchEventSponsors } from '../../actions';
 
 class Participants extends Component {
   constructor(props) {
@@ -25,7 +25,7 @@ class Participants extends Component {
   }
 
   state = {
-    activeItem: "companies"
+    activeItem: 'companies'
   };
 
   componentDidMount() {
@@ -122,7 +122,7 @@ class Participants extends Component {
             <Menu vertical>
               <Menu.Item
                 name="companies"
-                active={activeItem === "companies"}
+                active={activeItem === 'companies'}
                 onClick={this.handleItemClick}
               >
                 <Label color="teal">{this.calcNumOfCompanies()}</Label>
@@ -130,19 +130,19 @@ class Participants extends Component {
               </Menu.Item>
               <Menu.Item
                 name="recruiters"
-                active={activeItem === "recruiters"}
+                active={activeItem === 'recruiters'}
                 onClick={this.handleItemClick}
               >
                 <Label>{this.calcNumOfRecruiters()}</Label>
                 Recruiters
               </Menu.Item>
               <Menu.Item
-                name="attendies"
-                active={activeItem === "attendies"}
+                name="attendees"
+                active={activeItem === 'attendees'}
                 onClick={this.handleItemClick}
               >
                 <Label>{this.calcNumOfAttendees()}</Label>
-                Attendies
+                Attendees
               </Menu.Item>
               <Menu.Item>
                 <Input icon="search" placeholder="Search..." />
@@ -152,9 +152,9 @@ class Participants extends Component {
           <Grid.Column stretched width={7}>
             <Segment style={styles.card} className="card-container">
               <Card.Group itemsPerRow={4} className="card-group">
-                {activeItem === "companies" && this.renderEventCompanies()}
-                {activeItem === "recruiters" && this.renderEventRecruiters()}
-                {activeItem === "attendies" && this.renderEventAttendees()}
+                {activeItem === 'companies' && this.renderEventCompanies()}
+                {activeItem === 'recruiters' && this.renderEventRecruiters()}
+                {activeItem === 'attendees' && this.renderEventAttendees()}
               </Card.Group>
             </Segment>
           </Grid.Column>
@@ -166,14 +166,14 @@ class Participants extends Component {
 
 const styles = {
   card: {
-    backgroundColor: "#f6f7f8",
-    boxShadow: "0 0 0 0px #d4d4d5, 0 0px 0 0 #00b5ad, 0 1px 3px 0 #d4d4d5",
-    overflow: "hidden"
+    backgroundColor: '#f6f7f8',
+    boxShadow: '0 0 0 0px #d4d4d5, 0 0px 0 0 #00b5ad, 0 1px 3px 0 #d4d4d5',
+    overflow: 'hidden'
   },
   cardCompanies: {
-    backgroundColor: "#f6f7f8",
-    boxShadow: "0 0 0 0px #d4d4d5, 0 0px 0 0 #00b5ad, 0 0px 0px 0 #d4d4d5",
-    overflow: "hidden"
+    backgroundColor: '#f6f7f8',
+    boxShadow: '0 0 0 0px #d4d4d5, 0 0px 0 0 #00b5ad, 0 0px 0px 0 #d4d4d5',
+    overflow: 'hidden'
   }
 };
 
