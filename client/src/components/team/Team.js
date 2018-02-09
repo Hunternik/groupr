@@ -41,7 +41,7 @@ class Team extends Component {
           <div className="gallery">
             <Slider {...settings}>
               <Card>
-                <Image src="https://lh5.googleusercontent.com/AQCYGZo49OgyHApw3x4z6UELzeRg5feCCX6yxh71cQQaA2R9jCaek3upARWfX8AkaBDobp1JtkHe06N2NQJ-=w2100-h1518" />
+                <Image src="../../assets/images/ProfileImages/james.png" />
                 <Card.Content>
                   <Card.Header>James</Card.Header>
                   <Card.Meta>
