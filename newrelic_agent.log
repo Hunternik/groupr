@@ -1,0 +1,6 @@
+{"v":0,"level":30,"name":"newrelic","hostname":"Ysraels-MacBook-Pro.local","pid":18934,"time":"2018-02-09T00:47:12.086Z","msg":"Using New Relic for Node.js. Agent version: 2.7.0; Node version: v9.3.0."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Ysraels-MacBook-Pro.local","pid":18934,"time":"2018-02-09T00:47:12.209Z","msg":"Starting New Relic for Node.js connection process."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Ysraels-MacBook-Pro.local","pid":18971,"time":"2018-02-09T00:47:33.394Z","msg":"Using New Relic for Node.js. Agent version: 2.7.0; Node version: v9.3.0."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Ysraels-MacBook-Pro.local","pid":18971,"time":"2018-02-09T00:47:33.541Z","msg":"Starting New Relic for Node.js connection process."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Ysraels-MacBook-Pro.local","pid":18974,"time":"2018-02-09T00:47:34.423Z","msg":"Using New Relic for Node.js. Agent version: 2.7.0; Node version: v9.3.0."}
+{"v":0,"level":30,"name":"newrelic","hostname":"Ysraels-MacBook-Pro.local","pid":18974,"time":"2018-02-09T00:47:34.502Z","msg":"Starting New Relic for Node.js connection process."}

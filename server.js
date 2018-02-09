@@ -1,3 +1,6 @@
+// ping heroku server to prevent sleeping
+require('newrelic');
+
 const express = require('express');
 const passport = require('passport');
 const mongoose = require('mongoose');
