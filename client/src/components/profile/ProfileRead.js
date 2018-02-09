@@ -82,7 +82,7 @@ class ProfileRead extends Component {
               <span>Joined in 2018</span>
             </Card.Meta>
             <Card.Description>
-              <Table celled>
+              <Table size="small" structured celled stackable>
                 <Table.Body>{this.renderFields(profile)}</Table.Body>
               </Table>
             </Card.Description>

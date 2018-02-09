@@ -15,9 +15,9 @@
 .ui.card,
 .ui.cards > .card,
 .slick-current {
-  -webkit-box-shadow: none;
+  /* -webkit-box-shadow: none;
   -moz-box-shadow: none;
-  box-shadow: none !important;
+  box-shadow: none !important; */
 }
 
 /* Header and Our Team */
