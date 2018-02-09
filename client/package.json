@@ -35,6 +35,12 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "postinstall": "opencollective-postinstall || exit 0"
+  },
+  "collective": {
+    "type": "opencollective",
+    "url": "https://opencollective.com/client",
+    "logo": "https://opencollective.com/opencollective/logo.txt"
   }
 }

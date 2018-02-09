@@ -10,7 +10,7 @@ export default [
 	{
 		name: 'Grace',
 		title: 'Software Engineer',
-		description: `Grace is a software engineer and former actor that loves her
+		description: `Grace is a software engineer and former actress that loves her
 		dog Mandu, whiskey, and traveling.`,
 		url: 'https://github.com/gracepark',
 		image: `https://avatars1.githubusercontent.com/u/22055162?s=460&v=4`

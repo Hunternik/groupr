@@ -53,7 +53,7 @@ class Team extends Component {
           </div>
           <div className="about-team">
             <p>
-              We're a bunch of passionate engineers who wanted have a broad
+              We're a bunch of passionate engineers who have a broad
               range of skills and expertise to provide the best networking
               experience for professionals in technology.
             </p>
