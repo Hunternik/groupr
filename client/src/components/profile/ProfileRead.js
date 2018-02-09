@@ -17,30 +17,23 @@ class ProfileRead extends Component {
   constructor() {
     super();
 
-		this.handleImageLoad = this.handleImageLoad.bind(this);
-		this.handleResize = this.handleResize.bind(this);
+		this.handleSizing = this.handleSizing.bind(this);
   }
 
   componentDidMount() {
 		window.scrollTo(0, 0);
-    window.addEventListener('resize',this.handleResize)
+    window.addEventListener('resize',this.handleSizing)
 	}
 
 	componentWillUnmount() {
-		window.removeEventListener('resize',this.handleResize)
+		window.removeEventListener('resize',this.handleSizing)
 	}
 
-	handleResize() {
+	handleSizing() {
 		const height = ReactDOM.findDOMNode(this.refs.profileRead).clientHeight;
 
     this.props.height(height);
 	}
-
-  handleImageLoad() {
-    const height = ReactDOM.findDOMNode(this.refs.profileRead).clientHeight;
-
-    this.props.height(height);
-  }
 
   renderMessage = () => (
     <Message positive>
@@ -70,7 +63,7 @@ class ProfileRead extends Component {
           <Image
             src={profile.bigPhotoURL || ProfilePlaceholder}
             className="img-max-width"
-            onLoad={this.handleImageLoad}
+            onLoad={this.handleSizing}
           />
           <Card.Content>
             <Card.Header>{profile.displayName}</Card.Header>
