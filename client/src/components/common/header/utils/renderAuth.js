@@ -4,20 +4,29 @@ import { Link } from 'react-router-dom';
 import Login from '../Login';
 import ProfilePlaceholder from '../../../../assets/images/ProfilePlaceholder.png';
 
-const renderName = (auth) => (
+const renderName = auth => (
   <span>
-    <Image src={auth.iconPhotoURL || ProfilePlaceholder} avatar /> {auth.displayName}
+    <Image src={auth.iconPhotoURL || ProfilePlaceholder} avatar />{' '}
+    {auth.displayName}
   </span>
 );
 
-const renderLoggedInMenu = (auth) => {
+const renderLoggedInMenu = auth => {
   return (
     <div>
       <Grid verticalAlign="middle">
         <Grid.Column>
-          <Dropdown trigger={renderName(auth)} pointing style={{ padding: 0 }} item simple className="arimo icon">
+          <Dropdown
+            item
+            simple
+            trigger={renderName(auth)}
+            style={{ padding: 0 }}
+            className="arimo icon"
+          >
             <Dropdown.Menu>
-              <Dropdown.Item as={Link} to="/profile">Profile</Dropdown.Item>
+              <Dropdown.Item as={Link} to="/profile">
+                Profile
+              </Dropdown.Item>
               <Dropdown.Item>
                 <a href="/auth/logout">
                   <span style={{ color: 'black' }}>Log out</span>
@@ -31,7 +40,7 @@ const renderLoggedInMenu = (auth) => {
   );
 };
 
-const renderAuth = (auth) => {
+const renderAuth = auth => {
   switch (auth) {
     case null:
       return;
