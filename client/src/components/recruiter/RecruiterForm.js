@@ -10,15 +10,9 @@ import {
   maxLength25,
   minLength2,
   renderField
-<<<<<<< HEAD
-} from '../utils/formValidations.js';
-import FormField from '../../constants/recruiterFields';
-import Payments from './Payments';
-=======
 } from "../utils/formValidations.js";
 import FormField from "../../constants/recruiterFields";
-import Payments from "../common/Payments";
->>>>>>> master
+import Payments from "./Payments";
 
 class RecruiterForm extends Component {
   constructor(props) {
@@ -103,28 +97,6 @@ class RecruiterForm extends Component {
   render() {
     const { handleSubmit, pristine, reset, submitting } = this.props;
     return (
-<<<<<<< HEAD
-      <div>
-      <Form onSubmit={this.props.handleSubmit(this.onRecruiterSubmit)}>
-        {this.renderForm()}
-        <br />
-        <div>
-          <Button
-            type="button"
-            size="large"
-            disabled={pristine || submitting}
-            onClick={reset}
-          >
-            Clear Values
-          </Button>
-          <Button type="submit" size="large" disabled={pristine || submitting}>
-            Submit
-          </Button>
-        </div>
-      </Form>
-        {this.state.openPayment && this.renderPayments()}
-      </div>
-=======
       // <Container fluid>
       <Segment style={{ backgroundColor: "#f6f7f8" }}>
         <Form onSubmit={this.props.handleSubmit(this.onRecruiterSubmit)}>
@@ -154,7 +126,6 @@ class RecruiterForm extends Component {
           {this.state.openPayment && this.renderPayments()}
         </Form>
       </Segment>
->>>>>>> master
     );
   }
 }

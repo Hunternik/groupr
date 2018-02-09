@@ -10,12 +10,8 @@ import Footer from './common/Footer';
 import ScrollToTop from './common/ScrollToTop';
 import Recruiter from './recruiter/Recruiter';
 import Profile from './profile/Profile';
-<<<<<<< HEAD
 import TotpSetup from './totp/TotpSetup';
-
-=======
 import Team from './team/Team';
->>>>>>> master
 
 class Router extends Component {
   componentDidMount() {

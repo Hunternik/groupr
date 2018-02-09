@@ -8,13 +8,8 @@ const MainHeader = props => {
   return (
     <Menu size="huge" pointing secondary>
       <Menu.Item as={Link} to="/" header>
-<<<<<<< HEAD
-        <h1 className="logo-text" style={{ color: '#3ebcb2' }}>
-          Groupr
-=======
         <h1 className="logo-text" style={{ color: "#3ebcb2" }}>
           Grouper
->>>>>>> master
         </h1>
       </Menu.Item>
       <Menu.Menu position="right" style={{ marginRight: ".5em" }}>
