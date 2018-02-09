@@ -5,9 +5,8 @@ import AttendeeModal from './AttendeeModal';
 import ParallaxImage from '../landing/ParallaxImage';
 import Images from '../../constants/eventPreview';
 import handleVisibility from '../landing/utils/handleVisibility';
-
-require('../landing/landing.css');
-require('./event.css');
+import '../landing/landing.css';
+import './event.css';
 
 class Jumbotron extends Component {
   constructor(props) {

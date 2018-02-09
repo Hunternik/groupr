@@ -29,10 +29,6 @@ class Participants extends Component {
     activeItem: 'companies'
   };
 
-  componentDidMount() {
-    this.props.fetchEventSponsors(this.props.eventId);
-  }
-
   handleItemClick = (e, { name }) => this.setState({ activeItem: name });
 
   calcNumOfCompanies() {

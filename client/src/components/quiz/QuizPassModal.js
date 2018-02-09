@@ -27,6 +27,7 @@ class QuizPassModal extends Component {
     for (let i = 0; i < 6; i++) {
       confettis.push(
         <svg
+					key={i}
           className="confetti"
           height="19"
           viewBox="0 0 19 19"
