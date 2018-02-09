@@ -12,8 +12,6 @@ class Payments extends Component {
     return (
       <StripeCheckout
         image="http://www.liberallifestyles.com/wp-content/uploads/2017/01/quoka-5.jpg"
-        // 1 = $0.01 usd
-        //amount={5000}
         token={token => this.props.handleToken(token)}
         stripeKey={process.env.REACT_APP_STRIPE_KEY}
         name="Grouper"
