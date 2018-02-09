@@ -9,7 +9,7 @@ const MainHeader = (props) => {
     <Menu size="huge" pointing secondary>
       <Menu.Item as={Link} to="/" header>
         <h1 className="logo-text" style={{ color: '#3ebcb2' }}>
-          Grouper
+          Groupr
         </h1>
       </Menu.Item>
       <Menu.Menu position="right" style={{ marginRight: '.5em' }}>

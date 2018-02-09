@@ -13,6 +13,7 @@ app.use(bodyParser.json());
 require('./models');
 require('./services/googlePassport');
 require('./services/linkedinPassport');
+require('./services/totpPassport');
 mongoose.connect(keys.mongoURI);
 
 // set up cookies for login

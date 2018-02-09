@@ -72,10 +72,12 @@ class Footer extends Component {
                     <Header as="h4" inverted>
                       Contact Us
                     </Header>
-                    <p>arkrewucla@gmail.com</p>
+                    <p>
+                      <a href="mailto:arkrewucla@gmail.com">arkrewucla@gmail.com</a>
+                    </p>
                   </Grid.Column>
                 </Grid.Row>
-                <Grid.Row className="centered">© Grouper</Grid.Row>
+                <Grid.Row className="centered">© Groupr</Grid.Row>
               </Grid>
             </Container>
           </Segment>

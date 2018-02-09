@@ -19,6 +19,11 @@ const renderLoggedInMenu = (auth) => {
             <Dropdown.Menu>
               <Dropdown.Item as={Link} to="/profile">Profile</Dropdown.Item>
               <Dropdown.Item>
+                <a href="/totpsetup">
+                  <span style={{ color: 'black' }}>Setup 2FA</span>
+                </a>
+              </Dropdown.Item>              
+              <Dropdown.Item>
                 <a href="/auth/logout">
                   <span style={{ color: 'black' }}>Log out</span>
                 </a>

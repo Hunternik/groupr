@@ -5,6 +5,8 @@ import landingReducer from './landingReducer';
 import quizReducer from './quizReducer';
 import eventReducer from './eventReducer';
 import companyReducer from './companyReducer';
+import totpReducer from './totpReducer';
+import otpReducer from './otpReducer';
 
 export default combineReducers({
   auth: authReducer,
@@ -12,5 +14,8 @@ export default combineReducers({
   quiz: quizReducer,
   event: eventReducer,
   form: formReducer,
-  company: companyReducer
+  company: companyReducer,
+  // auth: authReducer,
+  totp: totpReducer,
+  otp: otpReducer
 });

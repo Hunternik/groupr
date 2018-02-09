@@ -10,6 +10,8 @@ import Footer from './common/Footer';
 import ScrollToTop from './common/ScrollToTop';
 import Recruiter from './recruiter/Recruiter';
 import Profile from './profile/Profile';
+import TotpSetup from './totp/TotpSetup';
+
 
 class Router extends Component {
   componentDidMount() {
@@ -26,6 +28,7 @@ class Router extends Component {
           <Route path="/quiz" component={Quiz} />
           <Route path="/profile" component={Profile} />
           <Route path="/recruiter" component={Recruiter} />
+          <Route path='/totpsetup' component={TotpSetup} />
           <Footer />
         </ScrollToTop>
       </BrowserRouter>

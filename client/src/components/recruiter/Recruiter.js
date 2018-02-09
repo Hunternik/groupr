@@ -15,6 +15,7 @@ class Recruiter extends Component {
 
   componentDidMount() {
     this.props.auth;
+
   }
 
   render() {

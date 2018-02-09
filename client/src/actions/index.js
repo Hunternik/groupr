@@ -6,3 +6,5 @@ export * from './paymentActions';
 export * from './profileActions';
 export * from './recruiterActions';
 export * from './companyActions';
+export * from './totpActions';
+ 
