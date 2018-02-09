@@ -29,13 +29,8 @@
   left: 78%;
   bottom: 15%;
   width: 100%;
-  /* transform: translateY(5%); */
-	/* transition: 0.5s ease-in; */
-	animation-name: bounce;
-	animation-duration: 1.5s; 
-	animation-timing-function: ease-in-out;
-	animation-delay: 2s;
-	animation-iteration-count: infinite;
+  transform: translateY(0);
+	transition: 0.5s ease-in;
 }
 
 .card-container {
@@ -45,23 +40,4 @@
 .card-group {
 	max-height: 20em;
 	overflow: auto;
-}
-
-
-@keyframes bounce {
-	0% {
-    transform: scaleY(-5%);
-	}
-	25% {
-		transform: scaleY(-2.5%)
-	}
-  50% {
-    transform: scaleY(0%);
-	}
-	75% {
-		transform: scaleY(2.5%);
-	}
-  100% {
-    transform: scaleY(5%);
-  }
 }

@@ -2,7 +2,7 @@
 Hub for high quality tech events. Avoid sending your resume into a blackhole and have real human-to-human interactions with high quality companies.
 
 ## Live Link
- - Coming soon
+ - http://www.groupr.tech/
 
 ## Built With
 * [React](https://reactjs.org/docs/hello-world.html) - Javascrupt Framework
