@@ -20,6 +20,17 @@
   box-shadow: none !important; */
 }
 
+.card-container {
+	 -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  box-shadow: none !important;
+}
+
+.card-image {
+	width: 100%;
+	height: 100%;
+}
+
 /* Header and Our Team */
 .about-team h1 {
   font-size: 3em;
