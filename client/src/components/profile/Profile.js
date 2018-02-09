@@ -87,9 +87,8 @@ class Profile extends Component {
 
   renderTitle() {
     return (
-      <Header as="h2" icon textAlign="center">
-        <Icon name="users" circular />
-        <Header.Content>Profile</Header.Content>
+      <Header as="h1" icon textAlign="center">
+        <Header.Content>My Profile</Header.Content>
       </Header>
     );
   }
@@ -98,7 +97,7 @@ class Profile extends Component {
     const { profile } = this.state;
 
     return (
-      <Container>
+      <Container className="profile-container">
         {this.renderTitle()}
         <Grid
           columns={2}

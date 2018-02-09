@@ -59,7 +59,7 @@ class EventPage extends Component {
     const { contextRef } = this.state;
 
     return (
-      <div>
+      <div style={{ overflow: "hidden" }}>
         <Jumbotron
           event={this.renderEventData()}
           coverPhotoID={this.props.match.params.eventId.toUpperCase()}
