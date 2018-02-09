@@ -12,7 +12,7 @@ Avoid sending your resume into a blackhole and have real human-to-human interact
 * [ReactRouter](https://github.com/ReactTraining/react-router) - Routing/Navigation
 * [Passport](http://www.passportjs.org/) - Oauth User Authentication
 * [Mlab](https://mlab.com/) - MongoDB Database Host
-* [Semantic UI](https://react.semantic-ui.com/) - Development framework for responsive layouts
+* [Semantic UI](https://react.semantic-ui.com/) - Development Framework
 
 ## Demo
 <!--  <img src="" width="85%" height="85%">  -->
@@ -22,13 +22,13 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-* Google chrome
+* Google Chrome
 * Npm 
 * Node.js v8.0+
 
 ### Installing
 
-In the command line, type 'npm install' to download node packages. Go to package.json file to view dependencies.
+In the command line, type 'npm install' to download node packages for the server side. Next, navigate to the client folder and 'npm install' a second time. Go to respective package.json files to view dependencies.
 - Optimized for Chrome for best viewing experience.
 
 ## Client Directory structure
