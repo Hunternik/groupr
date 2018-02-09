@@ -1,7 +1,7 @@
 # Grouper | Tech Meetups
-Grouper connects technology companies with technical talent in your area. We understand that the hiring process can be difficult not only for recruiters, but also the candidates. We want to help engineers find amazing jobs, and help recruiters connect with candidates based on their technical abilities rather than their resume credentials. Every attendee has passed a rigorous coding challenge that is objective and standardized, which provides recruiters that all attendees have a strong baseline understanding of technology.
-
 Avoid sending your resume into a blackhole and have real human-to-human interactions with high quality companies.
+
+Grouper connects technology companies with technical talent in your area. We understand that the hiring process can be difficult not only for recruiters, but also the candidates. We want to help engineers find amazing jobs, and help recruiters connect with candidates based on their technical abilities rather than their resume credentials. Every attendee has passed a rigorous coding challenge that is objective and standardized, which provides recruiters that all attendees have a strong baseline understanding of technology.
 
 ## Live Link
  - http://www.groupr.tech/
@@ -12,7 +12,7 @@ Avoid sending your resume into a blackhole and have real human-to-human interact
 * [ReactRouter](https://github.com/ReactTraining/react-router) - Routing/Navigation
 * [Passport](http://www.passportjs.org/) - Oauth User Authentication
 * [Mlab](https://mlab.com/) - MongoDB Database Host
-* [Semantic UI](https://mlab.com/) - MongoDB Database Host
+* [Semantic UI](https://react.semantic-ui.com/) - Development framework for responsive layouts
 
 ## Demo
 <!--  <img src="" width="85%" height="85%">  -->
