@@ -2431,3 +2431,52 @@ In the future, we might start automatically compiling incompatible third-party m
 ## Something Missing?
 
 If you have ideas for more “How To” recipes that should be on this page, [let us know](https://github.com/facebookincubator/create-react-app/issues) or [contribute some!](https://github.com/facebookincubator/create-react-app/edit/master/packages/react-scripts/template/README.md)
+
+<!doctype html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" href="/public/vendors/normalize.css">
+    <title>Open Collective</title>
+    <style>
+      #content-404 {
+        margin: 7% auto;
+        max-width: 400px;
+        font-size: 18px;
+      }
+
+      #content-404 img{
+        width: 100%;
+      }
+
+      #content-404 p{
+        margin-left: 13px;
+      }
+  </style>
+  </head>
+  <body>
+    <div id="content-404">
+      <a href='https://opencollective.com/'> <img src='/public/images/LogoLargeTransparent.png'></a>
+
+      <p><b>We couldn&#x27;t find that page :(</b></p>
+      <pre></pre>
+
+      <p>Try our <a href='https://opencollective.com/'>homepage</a>, <a href='https://opencollective.com/faq'>FAQ</a> or <a href='https://medium.com/open-collective'>blog</a>. </p>
+
+      <p>Or chat with us on our <a href='https://slack.opencollective.com/'>Slack channel</a>.</p>
+
+      <img src='/public/images/404.gif'>
+
+    </div>
+      <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+    
+        ga('create', 'UA-71870756-1', 'auto');
+        ga('send', 'pageview');
+    
+      </script>
+  </body>
+</html>

@@ -1,14 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { Header, Visibility, Divider } from 'semantic-ui-react';
-import { withRouter } from 'react-router-dom';
 import AttendeeModal from './AttendeeModal';
 import ParallaxImage from '../landing/ParallaxImage';
 import Images from '../../constants/eventPreview';
 import handleVisibility from '../landing/utils/handleVisibility';
-
-require('../landing/landing.css');
-require('./event.css');
+import '../landing/landing.css';
+import './event.css';
 
 class Jumbotron extends Component {
   constructor(props) {
@@ -32,13 +30,12 @@ class Jumbotron extends Component {
       <div>
         <Visibility
           onUpdate={this.handleVisibility}
-          className="image-container"
-          textAlign="center"
+          className="image-container image-modifier"
         >
           <ParallaxImage src={this.renderCoverPhoto()} reduceHeight={1 / 7} />
           <Header
             as="h1"
-            className="eventTitle"
+            className="eventTitle header-shadow"
             content={this.props.event.title}
             inverted
             style={styles.headerOne}
@@ -46,7 +43,7 @@ class Jumbotron extends Component {
           <Divider hidden />
           <Header
             as="h2"
-            className="eventHeadline"
+            className="eventHeadline subHeader-shadow"
             content="Network with developers and technical recruiters from high quality companies."
             inverted
             style={styles.headerTwo}

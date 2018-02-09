@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Form, Button, Container } from 'semantic-ui-react';
+import { Form, Container, Progress } from 'semantic-ui-react';
 import * as actions from '../../actions';
 import QuizPassModal from './QuizPassModal';
 import QuizFailModal from './QuizFailModal';
 import Login from '../common/header/Login';
 import AnswerModal from './AnswerModal';
-
-require('./quiz.css');
+import './quiz.css';
 
 class Quiz extends Component {
   constructor(props) {
@@ -18,13 +17,15 @@ class Quiz extends Component {
       answer: null,
       score: 0,
       selectedAnswer: null,
-      checked: null
+      checked: null,
+      progress: '1'
     };
 
     this.validateAnswer = this.validateAnswer.bind(this);
     this.nextQuestion = this.nextQuestion.bind(this);
     this.getAnswers = this.getAnswers.bind(this);
     this.handleChange = this.handleChange.bind(this);
+    this.incrementProgress = this.incrementProgress.bind(this);
   }
 
   componentWillUpdate(nextProps, nextState) {
@@ -33,7 +34,6 @@ class Quiz extends Component {
         // this is the current state before it happens
         this.passQuiz();
       } else if (nextState.score <= 1) {
-        console.log('hi');
         this.failQuiz();
       }
     }
@@ -49,6 +49,12 @@ class Quiz extends Component {
     this.setState({ userChoice: null });
   }
 
+  incrementProgress(value) {
+    parseInt(value++);
+    value.toString();
+    return value;
+  }
+
   nextQuestion() {
     const length = Object.keys(this.props.quiz.questions).length;
     const { index } = this.state;
@@ -59,7 +65,8 @@ class Quiz extends Component {
     } else {
       this.setState({
         index: this.state.index + 1,
-        answer: null
+        answer: null,
+        progress: this.incrementProgress(this.state.progress)
       });
     }
   }
@@ -127,14 +134,20 @@ class Quiz extends Component {
 
     if (!this.props.auth) {
       return (
-				<Container style={{height: "100vh"}}>
-					<Login quizInit />
-				</Container>
-		);
+        <Container style={{ height: '100vh' }}>
+          <Login quizInit />
+        </Container>
+      );
     }
 
     return (
       <div className="quiz_container">
+        <Progress
+          indicating
+          value={this.state.progress}
+          total="3"
+          progress="ratio"
+        />
         <div className="question_title">{currentQ}</div>
         <pre className="question_container">
           <code language="language-javascript" className="current_question">

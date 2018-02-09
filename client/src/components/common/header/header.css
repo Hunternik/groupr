@@ -2,6 +2,11 @@
   opacity: 1;
 }
 
-/* button.ui.teal.button {
-  width: 8em;
-} */
+.height-adjust {
+	height: 100%;
+}
+
+.remove-padding {
+	padding-left: 0;
+	padding-right: 0;
+}

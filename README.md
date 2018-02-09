@@ -1,8 +1,10 @@
-# Tech Meetups
-Hub for high quality tech events. Avoid sending your resume into a blackhole and have real human-to-human interactions with high quality companies.
+# Grouper | Tech Meetups
+Grouper connects technology companies with technical talent in your area. We understand that the hiring process can be difficult not only for recruiters, but also the candidates. We want to help engineers find amazing jobs, and help recruiters connect with candidates based on their technical abilities rather than their resume credentials. Every attendee has passed a rigorous coding challenge that is objective and standardized, which provides recruiters that all attendees have a strong baseline understanding of technology.
+
+Avoid sending your resume into a blackhole and have real human-to-human interactions with high quality companies.
 
 ## Live Link
- - Coming soon
+ - http://www.groupr.tech/
 
 ## Built With
 * [React](https://reactjs.org/docs/hello-world.html) - Javascrupt Framework
@@ -10,6 +12,7 @@ Hub for high quality tech events. Avoid sending your resume into a blackhole and
 * [ReactRouter](https://github.com/ReactTraining/react-router) - Routing/Navigation
 * [Passport](http://www.passportjs.org/) - Oauth User Authentication
 * [Mlab](https://mlab.com/) - MongoDB Database Host
+* [Semantic UI](https://react.semantic-ui.com/) - Development Framework
 
 ## Demo
 <!--  <img src="" width="85%" height="85%">  -->
@@ -19,16 +22,16 @@ These instructions will get you a copy of the project up and running on your loc
 
 ### Prerequisites
 
-* Google chrome
+* Google Chrome
 * Npm 
 * Node.js v8.0+
 
 ### Installing
 
-In the command line, type 'npm install' to download node packages. Go to package.json file to view dependencies.
+In the command line, type 'npm install' to download node packages for the server side. Next, navigate to the client folder and 'npm install' a second time. Go to respective package.json files to view dependencies.
 - Optimized for Chrome for best viewing experience.
 
-## Directory structure
+## Client Directory structure
 ```none
 .
 ├── src			 

@@ -1,15 +1,9 @@
-import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import {
-  Container,
   Segment,
   Grid,
-  Header,
-  Image,
-  Rail,
-  Sticky,
   Divider
 } from 'semantic-ui-react';
 import { fetchEvent, fetchEventSponsors } from '../../actions';
@@ -39,12 +33,6 @@ class EventPage extends Component {
     }
   }
 
-  componentDidUpdate(prevProps) {
-    if (this.props.location !== prevProps.location) {
-      console.log(this.props, 'did update');
-    }
-  }
-
   fetchCurrentEvent(id) {
     this.props.fetchEvent(id);
   }
@@ -59,7 +47,7 @@ class EventPage extends Component {
     const { contextRef } = this.state;
 
     return (
-      <div>
+      <div style={{ overflow: "hidden" }}>
         <Jumbotron
           event={this.renderEventData()}
           coverPhotoID={this.props.match.params.eventId.toUpperCase()}

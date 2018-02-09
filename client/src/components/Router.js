@@ -10,8 +10,12 @@ import Footer from './common/Footer';
 import ScrollToTop from './common/ScrollToTop';
 import Recruiter from './recruiter/Recruiter';
 import Profile from './profile/Profile';
+<<<<<<< HEAD
 import TotpSetup from './totp/TotpSetup';
 
+=======
+import Team from './team/Team';
+>>>>>>> master
 
 class Router extends Component {
   componentDidMount() {
@@ -26,6 +30,7 @@ class Router extends Component {
           <Route exact path="/" component={Landing} />
           <Route path="/event-page/:eventId" component={EventPage} />
           <Route path="/quiz" component={Quiz} />
+          <Route path="/meet-the-team" component={Team} />
           <Route path="/profile" component={Profile} />
           <Route path="/recruiter" component={Recruiter} />
           <Route path='/totpsetup' component={TotpSetup} />

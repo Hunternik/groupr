@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { Divider, Visibility } from 'semantic-ui-react';
-import { connect } from 'react-redux';
-import { scroll } from '../../actions';
-import Video from './Video';
-import Events from './Events';
-import About from './About';
+import React, { Component } from "react";
+import { Divider, Visibility } from "semantic-ui-react";
+import { connect } from "react-redux";
+import { scroll } from "../../actions";
+import Video from "./Video";
+import Events from "./Events";
+import About from "./About";
 
 class Landing extends Component {
   constructor() {
@@ -12,7 +12,7 @@ class Landing extends Component {
     this.handleScroll = this.handleScroll.bind(this);
   }
   componentDidMount() {
-    window.addEventListener('scroll', this.handleScroll, 10);
+    window.addEventListener("scroll", this.handleScroll, 10);
   }
 
   handleScroll() {
@@ -21,14 +21,13 @@ class Landing extends Component {
   }
 
   componentWillUnmount() {
-    window.removeEventListener('scroll', this.handleScroll);
+    window.removeEventListener("scroll", this.handleScroll);
   }
 
   render() {
     return (
-      <Visibility style={{ height: '100%' }}>
+      <Visibility>
         <Video />
-        <Divider horizontal inverted />
         <About />
         <Divider horizontal inverted />
         <Events />

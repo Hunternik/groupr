@@ -4,15 +4,12 @@ import { connect } from "react-redux";
 import {
   Container,
   Header,
-  Icon,
-  Image,
   Grid,
   Segment
 } from "semantic-ui-react";
 import ProfileEdit from "./ProfileEdit";
 import ProfileRead from "./ProfileRead";
 import ProfileEvents from "./ProfileEvents";
-import ProfilePlaceholder from "../../assets/images/ProfilePlaceholder.png";
 import "./profile.css";
 
 class Profile extends Component {
@@ -22,9 +19,10 @@ class Profile extends Component {
     this.handleCancel = this.handleCancel.bind(this);
     this.handleUpdate = this.handleUpdate.bind(this);
     this.handleReturn = this.handleReturn.bind(this);
+    this.setHeight = this.setHeight.bind(this);
   }
 
-  state = { showProfileReview: true, success: false };
+  state = { showProfileReview: true, success: false, gridHeight: 0 };
 
   componentDidMount() {
     if (this.props.initialValues)
@@ -53,6 +51,10 @@ class Profile extends Component {
     this.setState({ showProfileReview: false });
   }
 
+  setHeight(height) {
+    this.setState({ gridHeight: height });
+  }
+
   renderEventContent() {
     return <ProfileEvents profile={this.state.profile} />;
   }
@@ -66,19 +68,24 @@ class Profile extends Component {
           onUpdate={this.handleUpdate}
           success={success}
           profile={profile}
+          height={this.setHeight}
         />
       );
 
-    return (
-      <ProfileEdit onCancel={this.handleCancel} onReturn={this.handleReturn} />
-    );
+    if (!showProfileReview && profile)
+      return (
+        <ProfileEdit
+          onCancel={this.handleCancel}
+          onReturn={this.handleReturn}
+          height={this.setHeight}
+        />
+      );
   }
 
   renderTitle() {
     return (
-      <Header as="h2" icon textAlign="center">
-        <Icon name="users" circular />
-        <Header.Content>Profile</Header.Content>
+      <Header as="h1" icon textAlign="center">
+        <Header.Content>My Profile</Header.Content>
       </Header>
     );
   }
@@ -87,16 +94,19 @@ class Profile extends Component {
     const { profile } = this.state;
 
     return (
-      <Container>
+      <Container className="profile-container">
         {this.renderTitle()}
-        <Grid stackable columns={2} textAlign="center" centered>
+        <Grid columns={2} textAlign="center" stackable centered>
+          <Grid.Column>{this.renderProfileContent()}</Grid.Column>
           <Grid.Column textAlign="center">
-            <Segment className="event-container">
-              <h1>My Events</h1>
+            <Segment
+              style={{ maxHeight: this.state.gridHeight, overflow: "auto" }}
+              raised
+            >
+              <Header as="h1">My Events</Header>
               {profile && <ProfileEvents profile={profile} />}
             </Segment>
           </Grid.Column>
-          <Grid.Column>{this.renderProfileContent()}</Grid.Column>
         </Grid>
       </Container>
     );

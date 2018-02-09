@@ -1,4 +1,5 @@
-import React, { Component } from 'react';
+import React from 'react';
+import { Label } from 'semantic-ui-react';
 
 export const required = value => (value ? undefined : 'Required');
 export const email = value =>
@@ -22,11 +23,11 @@ export const renderField = ({
   meta: { touched, error, warning }
 }) => (
   <div>
-    <label>{label}</label>
-    <div>
+    <div style={{marginBottom: '0.5em'}}>
+    <Label color="teal" pointing="below">{label}</Label>
       <input {...input} placeholder={label} type={type} />
       {touched &&
-        ((error && <span>{error}</span>) ||
+        ((error && <span style={{ color: '#ff0000' }}>*{error}</span>) ||
           (warning && <span>{warning}</span>))}
     </div>
   </div>

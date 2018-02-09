@@ -14,3 +14,8 @@
 	max-height: 1070px;
 	overflow: auto;
 }
+
+.profile-container {
+	padding-top: 2em;
+	padding-bottom: 2em;
+}
