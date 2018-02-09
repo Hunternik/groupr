@@ -4,6 +4,17 @@ import { Field, reduxForm } from "redux-form";
 import { connect } from "react-redux";
 import * as actions from '../../actions';
 // import { withRouter } from "react-router-dom";
+const renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
+  <div>
+    <label>Enter 6-digit QR Code</label>
+    <div>
+      <input {...input} placeholder={label} type={type} />
+      {touched && ((error && <span>
+            {error}
+          </span>) || (warning && <span>{warning}</span>))}
+    </div>
+  </div>
+)
 
 class LoginOtp extends Component {
   constructor(props) {
@@ -12,6 +23,7 @@ class LoginOtp extends Component {
 
     // this.handleChange = this.handleChange.bind(this);
     this.onQrSubmit = this.onQrSubmit.bind(this);
+    this.renderCodeInput = this.renderCodeInput.bind(this);
   }
 
   // to see value as we type
@@ -20,12 +32,24 @@ class LoginOtp extends Component {
   //   console.log("handleChange: event.target.value", data.target.value);
   // }
 
+  renderCodeInput() {
+    return (
+      <Field
+        name="qrCode"
+        type="number"
+        label="000000"
+        component={renderField}
+      />
+    );
+  }
+
   onQrSubmit(data) {
     console.log(data);
     const { qrCode } = data;
 
     this.props.fetchOtp(qrCode);
   }
+  
   componentDidMount() {
     
     this.props.auth;
@@ -35,30 +59,11 @@ class LoginOtp extends Component {
   render() {
     const { handleSubmit, pristine, reset, submitting } = this.props;
 
-    const renderField = ({ input, label, type, meta: { touched, error, warning } }) => (
-		<div>
-    <Grid verticalAlign='middle'>
-        <label>Enter 6-digit QR Code</label>
-        <div>
-          <input {...input} placeholder={label} type={type} />
-          {touched && ((error && <span>
-                {error}
-              </span>) || (warning && <span>{warning}</span>))}
-        </div>
-			</Grid>
-      </div>
-      )
-
     return (
       <Grid centered columns={4}>
 				<Grid.Column>
 					<Form onSubmit={this.props.handleSubmit(this.onQrSubmit)}>
-						<Field
-							name="qrCode"
-							type="number"
-							label="000000"
-							component={renderField}
-						/>
+            {this.renderCodeInput()}
 						<br />
 						<div>
 							<Button
