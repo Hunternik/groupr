@@ -23,6 +23,7 @@ class Router extends Component {
           <Header />
           <Route exact path="/" component={Landing} />
           <Route path="/event-page/:eventId" component={EventPage} />
+          <Route path="/about" component={Landing} />
           <Route path="/quiz" component={Quiz} />
           <Route path="/profile" component={Profile} />
           <Route path="/recruiter" component={Recruiter} />
