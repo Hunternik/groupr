@@ -3,8 +3,7 @@ import { Card, Image, Icon, Container, Transition } from 'semantic-ui-react';
 import Slider from 'react-slick';
 import 'slick-carousel/slick/slick-theme.css';
 import 'slick-carousel/slick/slick.css';
-
-require('./team.css');
+import './team.css';
 
 class Team extends Component {
   render() {
