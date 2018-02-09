@@ -4,8 +4,8 @@ import { Container, Header } from "semantic-ui-react";
 const Video = () => {
   return (
     <Container fluid className="video-container">
-      <h1 className="video-header">Grouper</h1>
-      <h2 className="video-subheader">Do what you love!</h2>
+      <h1 className="video-header logo-text" style={{ color: '#3ebcb2'}}>Grouper</h1>
+      <h2 className="video-subheader logo-text">DO WHAT YOU LOVE</h2>
       <video
         className="video"
         autoPlay

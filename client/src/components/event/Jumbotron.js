@@ -38,7 +38,7 @@ class Jumbotron extends Component {
           <ParallaxImage src={this.renderCoverPhoto()} reduceHeight={1 / 7} />
           <Header
             as="h1"
-            className="eventTitle"
+            className="eventTitle header-shadow"
             content={this.props.event.title}
             inverted
             style={styles.headerOne}
@@ -46,7 +46,7 @@ class Jumbotron extends Component {
           <Divider hidden />
           <Header
             as="h2"
-            className="eventHeadline"
+            className="eventHeadline subHeader-shadow"
             content="Network with developers and technical recruiters from high quality companies."
             inverted
             style={styles.headerTwo}

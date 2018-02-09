@@ -60,16 +60,10 @@ class Login extends Component {
           </Header>
         </Modal.Header>
         <Modal.Content>
-          <Grid
-            textAlign="center"
-            style={{ height: "100%" }}
-            verticalAlign="middle"
-          >
+          <Grid textAlign="center" verticalAlign="middle height-adjust">
             <Grid.Column style={{ maxWidth: 450 }}>
               <Form size="large">{this.renderLoginItems()}</Form>
-              <Message>
-                New to us? Sign up through Google or LinkedIn
-              </Message>
+              <Message>New to us? Sign up through Google or LinkedIn</Message>
             </Grid.Column>
           </Grid>
         </Modal.Content>

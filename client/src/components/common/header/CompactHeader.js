@@ -1,12 +1,11 @@
-import React from 'react';
-import { Container, Dropdown, Menu, Transition } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
-import renderAuth from './utils/renderAuth';
-import { renderDropdown } from './utils/renderDropdown';
+import React from "react";
+import { Container, Dropdown, Menu, Transition } from "semantic-ui-react";
+import { Link } from "react-router-dom";
+import renderAuth from "./utils/renderAuth";
+import { renderDropdown } from "./utils/renderDropdown";
+import "./header.css";
 
-require('./header.css');
-
-const CompactHeader = (props) => {
+const CompactHeader = props => {
   const { animation, auth, visible } = props;
 
   return (
@@ -17,8 +16,13 @@ const CompactHeader = (props) => {
             <h3 className="logo-text">Grouper</h3>
           </Menu.Item>
           <Menu.Menu position="right">
-            <Menu.Item as={Link} to="" header className="arimo">
-              About
+            <Menu.Item
+              as={Link}
+              to="/meet-the-team"
+              header
+              className="arimo"
+            >
+              Meet the Team
             </Menu.Item>
             <Dropdown item simple text="Events" className="arimo">
               {renderDropdown()}
