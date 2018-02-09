@@ -45,7 +45,9 @@ class Footer extends Component {
                   <Grid.Column width={3}>
                     <Header inverted as="h4" content="Company" />
                     <List link inverted>
-                      <List.Item>About</List.Item>
+                      <List.Item>
+                        <Link to="/meet-the-team">Meet the Team</Link>
+                      </List.Item>
                     </List>
                   </Grid.Column>
                   <Grid.Column width={3}>
