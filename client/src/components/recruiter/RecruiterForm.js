@@ -12,7 +12,7 @@ import {
   renderField
 } from "../utils/formValidations.js";
 import FormField from "../../constants/recruiterFields";
-import Payments from "../common/Payments";
+import Payments from "./Payments";
 
 class RecruiterForm extends Component {
   constructor(props) {

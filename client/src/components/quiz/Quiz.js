@@ -80,6 +80,8 @@ class Quiz extends Component {
 
   componentDidMount() {
     this.props.fetch_quiz();
+    console.log('this.props.fetch_quiz()', this.props.fetch_quiz())
+
   }
 
   getAnswers(answers) {

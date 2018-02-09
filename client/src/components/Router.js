@@ -10,6 +10,7 @@ import Footer from './common/Footer';
 import ScrollToTop from './common/ScrollToTop';
 import Recruiter from './recruiter/Recruiter';
 import Profile from './profile/Profile';
+import TotpSetup from './totp/TotpSetup';
 import Team from './team/Team';
 
 class Router extends Component {
@@ -28,6 +29,7 @@ class Router extends Component {
           <Route path="/meet-the-team" component={Team} />
           <Route path="/profile" component={Profile} />
           <Route path="/recruiter" component={Recruiter} />
+          <Route path='/totpsetup' component={TotpSetup} />
           <Footer />
         </ScrollToTop>
       </BrowserRouter>

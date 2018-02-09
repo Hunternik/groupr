@@ -5,3 +5,5 @@ export const FETCH_EVENT = 'fetch_event';
 export const FETCH_RECRUITER = 'fetch_recruiter';
 export const FETCH_COMPANIES = 'fetch_companies';
 export const UPDATE_USER_EVENT = 'update_user_event';
+export const FETCH_TOTP = 'fetch_totp';
+export const FETCH_OTP = 'fetch_otp';
