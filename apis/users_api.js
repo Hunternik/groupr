@@ -41,7 +41,11 @@ module.exports.updateProfile = async (req, res) => {
 };
 
 // ********* Totp OAuth *********
-module.exports.requestQrCode = requireLogin, (req, res, next) => {
+module.exports.test = (req, res) => {
+  console.log("This is a test");
+}
+
+module.exports.requestQrCode = (req, res, next) => {
   console.log('*************************');
   console.log('*** get route: /setup ***');
   console.log('*************************');

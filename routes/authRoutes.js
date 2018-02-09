@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const users_api = require('../apis/users_api');
+const requireLogin = require("./middleware/requireLogin");
 
 // ********* Google authRoutes *********	
 router.get('/google', users_api.requestGoogleToken);
@@ -11,11 +12,11 @@ router.get('/linkedin', users_api.requestLinkedInToken);
 router.get('/linkedin/callback', users_api.authenticateLinkedInUser);
 
 // ********* TOTP authRoutes *********
-router.get('/auth/totpsetup', users_api.requestQrCode);
+router.get("/totpsetup", requireLogin, users_api.requestQrCode);
 
-router.get('/auth/login-otp', users_api.qrCodeSetupCompleted);
+router.get('/login-otp', users_api.qrCodeSetupCompleted);
 
-router.post('/auth/login-otp', users_api.confirmOtpCode);
+router.post('/login-otp', users_api.confirmOtpCode);
 
 
 

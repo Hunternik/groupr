@@ -18,7 +18,9 @@ class TotpSetup extends Component {
   }
 
   render() {
-	  const totp = this.props.totp ? this.props.totp : "null";
+    const totp = this.props.totp ? this.props.totp : "null";
+    console.log("This.props.totp", totp.totp);
+
     return (
       // to center text on screen using jsx add an object to style
       // 1st bracket indicates we're passing in js, the 2nd bracket
