@@ -1,23 +1,18 @@
-import React, { Component } from 'react';
-import {
-  Form,
-  Button,
-  Segment,
-  Divider
-} from 'semantic-ui-react';
-import { Field, reduxForm } from 'redux-form';
-import { connect } from 'react-redux';
-import { withRouter } from 'react-router-dom';
-import * as actions from '../../actions';
+import React, { Component } from "react";
+import { Form, Button, Segment, Divider } from "semantic-ui-react";
+import { Field, reduxForm } from "redux-form";
+import { connect } from "react-redux";
+import { withRouter } from "react-router-dom";
+import * as actions from "../../actions";
 import {
   required,
   email,
   maxLength25,
   minLength2,
   renderField
-} from '../utils/formValidations.js';
-import FormField from '../../constants/recruiterFields';
-import Payments from '../common/Payments';
+} from "../utils/formValidations.js";
+import FormField from "../../constants/recruiterFields";
+import Payments from "../common/Payments";
 
 class RecruiterForm extends Component {
   constructor(props) {
@@ -41,18 +36,23 @@ class RecruiterForm extends Component {
   }
 
   renderForm() {
-    const validationType =
-      FormField.name === 'Email' ? email : [required, maxLength25, minLength2];
-    const fieldForm = FormField.map(FormField => (
-      <Field
-        key={FormField.name}
-        name={FormField.name}
-        type={FormField.type}
-        component={renderField}
-        label={FormField.label}
-        validate={validationType}
-      />
-    ));
+    const fieldForm = FormField.map(FormField => {
+      const validationType =
+        FormField.name === "imgLogoURL"
+          ? [required]
+          : [required, maxLength25, minLength2];
+
+      return (
+        <Field
+          key={FormField.name}
+          name={FormField.name}
+          type={FormField.type}
+          component={renderField}
+          label={FormField.label}
+          validate={validationType}
+        />
+      );
+    });
     return fieldForm;
   }
 
@@ -91,14 +91,14 @@ class RecruiterForm extends Component {
   }
 
   handleNavigation = () => {
-    this.props.history.push('/');
+    this.props.history.push("/");
   };
 
   render() {
     const { handleSubmit, pristine, reset, submitting } = this.props;
     return (
       // <Container fluid>
-      <Segment style={{ backgroundColor: '#f6f7f8' }}>
+      <Segment style={{ backgroundColor: "#f6f7f8" }}>
         <Form onSubmit={this.props.handleSubmit(this.onRecruiterSubmit)}>
           {this.renderForm()}
           <Divider />
@@ -136,7 +136,7 @@ const mapStateToProps = state => ({
 });
 
 RecruiterForm = reduxForm({
-  form: 'recruiter'
+  form: "recruiter"
 })(RecruiterForm);
 
 export default withRouter(connect(mapStateToProps, actions)(RecruiterForm));
