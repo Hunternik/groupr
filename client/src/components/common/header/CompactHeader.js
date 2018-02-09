@@ -13,7 +13,7 @@ const CompactHeader = props => {
       <Menu fixed="top" inverted className="compact">
         <Container fluid>
           <Menu.Item as={Link} to="/" header>
-            <h3 className="logo-text">Grouper</h3>
+            <h3 className="logo-text">Groupr</h3>
           </Menu.Item>
           <Menu.Menu position="right">
             <Menu.Item
