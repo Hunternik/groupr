@@ -6,8 +6,7 @@ import QuizPassModal from './QuizPassModal';
 import QuizFailModal from './QuizFailModal';
 import Login from '../common/header/Login';
 import AnswerModal from './AnswerModal';
-
-require('./quiz.css');
+import './quiz.css';
 
 class Quiz extends Component {
   constructor(props) {

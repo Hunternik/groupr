@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import renderAuth from './utils/renderAuth';
 import { renderDropdown } from './utils/renderDropdown';
 
-const MainHeader = (props) => {
+const MainHeader = props => {
   return (
     <Menu size="huge" pointing secondary>
       <Menu.Item as={Link} to="/" header>
@@ -13,10 +13,22 @@ const MainHeader = (props) => {
         </h1>
       </Menu.Item>
       <Menu.Menu position="right" style={{ marginRight: '.5em' }}>
-        <Menu.Item as={Link} to="" header className="arimo" style={{ height: '100%' }}>
+        <Menu.Item
+          as={Link}
+          to="/"
+          header
+          className="arimo"
+          style={{ height: '100%' }}
+        >
           About
         </Menu.Item>
-        <Dropdown item simple text="Events" className="arimo" style={{ height: '100%' }}>
+        <Dropdown
+          item
+          simple
+          text="Events"
+          className="arimo"
+          style={{ height: '100%' }}
+        >
           {renderDropdown()}
         </Dropdown>
         <Menu.Item header className="arimo" style={{ height: '100%' }}>
