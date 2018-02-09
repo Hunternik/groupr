@@ -1,5 +1,12 @@
 import React, { Component } from 'react';
-import { Form, Button, Segment, Divider, Card, Container } from 'semantic-ui-react';
+import {
+  Form,
+  Button,
+  Segment,
+  Divider,
+  Card,
+  Container
+} from 'semantic-ui-react';
 import { Field, reduxForm } from 'redux-form';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
@@ -80,7 +87,12 @@ class RecruiterForm extends Component {
   }
 
   renderPayments() {
-    return <Payments />;
+    return (
+      <div>
+        <Divider />
+        <Payments />
+      </div>
+    );
   }
 
   handleNavigation = () => {
@@ -91,7 +103,7 @@ class RecruiterForm extends Component {
     const { handleSubmit, pristine, reset, submitting } = this.props;
     return (
       // <Container fluid>
-      <Segment style={{backgroundColor: '#f6f7f8'}}>
+      <Segment style={{ backgroundColor: '#f6f7f8' }}>
         <Form onSubmit={this.props.handleSubmit(this.onRecruiterSubmit)}>
           {this.renderForm()}
           <Divider />
@@ -129,7 +141,6 @@ const mapStateToProps = state => ({
 });
 
 RecruiterForm = reduxForm({
-  // a unique name for the form
   form: 'recruiter'
 })(RecruiterForm);
 
