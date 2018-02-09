@@ -18,7 +18,7 @@ class TotpSetup extends Component {
   }
 
   render() {
-    const totp = this.props.totp ? this.props.totp : "null";
+    const totp = this.props.totp.totp ? this.props.totp.totp.qrImage : "null";
     console.log("This.props.totp", totp.totp);
 
     return (
@@ -28,7 +28,7 @@ class TotpSetup extends Component {
       <div style={{ textAlign: "center" }}>
         <h1>Setup</h1>
         <h4>Scan QR code with Google Authenticator.</h4>
-        <img src={totp.qrImage} alt="QR code" />
+        <img src={totp} alt="QR code" />
         <h4>Or enter the code below.</h4>
 
         <button>
