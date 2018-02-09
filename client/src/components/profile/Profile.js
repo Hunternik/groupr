@@ -101,7 +101,6 @@ class Profile extends Component {
           <Grid.Column textAlign="center">
             <Segment
               style={{ maxHeight: this.state.gridHeight, overflow: "auto" }}
-              floated
               raised
             >
               <Header as="h1">My Events</Header>

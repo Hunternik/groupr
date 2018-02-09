@@ -59,7 +59,6 @@ class ProfileEdit extends Component {
   }
 
   onProfileSubmit(data) {
-		console.log(data);
     const { _id, firstName, lastName, email, company, position, linkedInProfileURL, googleProfileURL } = data;
     const updateProfile = {
       _id,
@@ -84,7 +83,7 @@ class ProfileEdit extends Component {
 
   render() {
     return (
-      <Segment ref="profileEdit">
+      <Segment>
         <Form
           onSubmit={this.props.handleSubmit(this.onProfileSubmit)}
           loading={this.state.loading}

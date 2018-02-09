@@ -46,7 +46,7 @@ const ProfileEvents = ({ profile }) => {
   );
 
   return (
-    <Card.Group size="medium" raised>
+    <Card.Group size="medium">
       {renderImages(attendingEvents)}
     </Card.Group>
   );

@@ -8,8 +8,8 @@ import './team.css';
 
 class Team extends Component {
 	renderCards() {
-		return Cards.map(card => (
-			<Card className="card-container">
+		return Cards.map((card, index) => (
+			<Card key={index} className="card-container">
 				<Image 
 					className="card-image"
 					src={card.image} />

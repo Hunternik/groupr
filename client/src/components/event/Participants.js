@@ -12,6 +12,7 @@ import {
   Reveal
 } from 'semantic-ui-react';
 import { fetchEvent, fetchEventSponsors } from '../../actions';
+import logo from '../../assets/images/logo.png';
 
 class Participants extends Component {
   constructor(props) {
@@ -50,7 +51,7 @@ class Participants extends Component {
     if (this.props.event.companies) {
       return this.props.event.companies.map(company => {
         return (
-          <Card basic color="teal" className="grow" floated>
+          <Card key={company.imgLogoURL} basic color="teal" className="grow">
             <Image src={company.imgLogoURL} fluid rounded />
           </Card>
         );
@@ -62,13 +63,13 @@ class Participants extends Component {
     if (this.props.event.recruiters) {
       return this.props.event.recruiters.map((recruiter, index) => {
         return (
-          <Card basic color="teal" style={styles.card} className="grow" floated>
+          <Card key={index} basic color="teal" style={styles.card} className="grow">
             <Reveal animated="move">
               <Reveal.Content visible>
                 <Popup
                   key={recruiter._id}
                   trigger={
-                    <Image src={recruiter.companyPhotoURL} fluid rounded />
+                    <Image src={recruiter.companyPhotoURL || logo} fluid rounded />
                   }
                   header={recruiter.displayName}
                   content={recruiter.email}
@@ -90,11 +91,10 @@ class Participants extends Component {
   }
 
   renderEventAttendees() {
-    console.log(this.props.event.attendees);
     if (this.props.event.attendees) {
       return this.props.event.attendees.map((attendee, index) => {
         return (
-          <Card basic color="teal" style={styles.card} className="grow" floated>
+          <Card key={index} basic color="teal" style={styles.card} className="grow">
             <Popup
               key={attendee._id}
               trigger={<Image src={attendee.bigPhotoURL} fluid rounded />}

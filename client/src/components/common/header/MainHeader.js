@@ -18,7 +18,6 @@ const MainHeader = props => {
           to="/meet-the-team"
           header
           className="arimo height-adjust"
-          s
         >
           Meet the Team
         </Menu.Item>
