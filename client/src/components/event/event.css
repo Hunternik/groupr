@@ -41,3 +41,8 @@
 	max-height: 20em;
 	overflow: auto;
 }
+
+.image-modifier {
+	margin-top: 0;
+	height: 80vh;
+}

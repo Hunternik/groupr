@@ -1,9 +1,11 @@
-import React from 'react';
-import { Container } from 'semantic-ui-react';
+import React from "react";
+import { Container, Header } from "semantic-ui-react";
 
 const Video = () => {
   return (
-    <Container fluid className='video-container'>
+    <Container fluid className="video-container">
+      <h1 className="video-header">Grouper</h1>
+      <h2 className="video-subheader">Do what you love!</h2>
       <video
         className="video"
         autoPlay

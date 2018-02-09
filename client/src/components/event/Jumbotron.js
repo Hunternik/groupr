@@ -32,8 +32,8 @@ class Jumbotron extends Component {
       <div>
         <Visibility
           onUpdate={this.handleVisibility}
-          className="image-container"
-          textAlign="center"
+          className="image-container image-modifier"
+					textAlign="center"
         >
           <ParallaxImage src={this.renderCoverPhoto()} reduceHeight={1 / 7} />
           <Header

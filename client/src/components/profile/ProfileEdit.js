@@ -19,13 +19,11 @@ class ProfileEdit extends Component {
     this.onProfileSubmit = this.onProfileSubmit.bind(this);
   }
 
-	state = { loading: false };
-	
-	componentDidMount() {
-		window.scrollTo(0, 0);
+  state = { loading: false };
 
-		
-	}
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
 
   componentWillReceiveProps(nextProps) {
     // Wait for response from server before updating state to remove spinner
@@ -88,8 +86,8 @@ class ProfileEdit extends Component {
           onSubmit={this.props.handleSubmit(this.onProfileSubmit)}
           loading={this.state.loading}
         >
-					{this.renderForm()}
-					<Divider />
+          {this.renderForm()}
+          <Divider />
           <div className="ui two buttons">
             <Button
               onClick={this.props.onCancel}
