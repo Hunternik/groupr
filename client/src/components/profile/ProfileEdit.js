@@ -23,6 +23,8 @@ class ProfileEdit extends Component {
 	
 	componentDidMount() {
 		window.scrollTo(0, 0);
+
+		
 	}
 
   componentWillReceiveProps(nextProps) {
@@ -81,7 +83,7 @@ class ProfileEdit extends Component {
 
   render() {
     return (
-      <Segment>
+      <Segment ref="profileEdit">
         <Form
           onSubmit={this.props.handleSubmit(this.onProfileSubmit)}
           loading={this.state.loading}
