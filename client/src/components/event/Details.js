@@ -2,11 +2,9 @@ import React, { Component } from 'react';
 import moment from 'moment';
 import 'react-dates/initialize';
 import { DayPickerSingleDateController } from 'react-dates';
-import { Button, Popup, Grid, Card, Embed, Divider } from 'semantic-ui-react';
+import { Button, Popup, Card, Embed } from 'semantic-ui-react';
 import 'react-dates/lib/css/_datepicker.css';
 import { CopyToClipboard } from 'react-copy-to-clipboard';
-import MapContainer from './MapContainer';
-import Segment from 'semantic-ui-react/dist/commonjs/elements/Segment/Segment';
 
 class Details extends Component {
   constructor(props) {

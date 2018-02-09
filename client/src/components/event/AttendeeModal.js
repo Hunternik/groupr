@@ -74,7 +74,6 @@ class AttendeeModal extends Component {
   }
 
   render() {
-    console.log(this.props.event, 'HELLLLOOOO ATTENDEEMODAL');
     return (
       <Modal
         className="scrolling"

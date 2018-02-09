@@ -1,11 +1,10 @@
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
-import { Visibility } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
-import ParallaxImage from './ParallaxImage';
-import handleVisibility from './utils/handleVisibility';
-
-require('./landing.css');
+import React, { Component } from "react";
+import { connect } from "react-redux";
+import { Visibility } from "semantic-ui-react";
+import { Link } from "react-router-dom";
+import ParallaxImage from "./ParallaxImage";
+import handleVisibility from "./utils/handleVisibility";
+import "./landing.css";
 
 class EventItem extends Component {
   constructor() {
@@ -15,18 +14,19 @@ class EventItem extends Component {
     this.applyAnimation = this.applyAnimation.bind(this);
   }
 
-  state = { visible: false, headerClass: 'caption' };
+  state = { visible: false, headerClass: "caption" };
 
   componentDidUpdate(prevProps, prevState) {
     if (!prevState.visible && this.state.visible) this.applyAnimation();
   }
 
   componentWillReceiveProps(nextProps) {
-    if (this.props.isVisible !== nextProps.isVisible) this.setState({ visible: true });
+    if (this.props.isVisible !== nextProps.isVisible)
+      this.setState({ visible: true });
   }
 
   applyAnimation() {
-    this.setState({ headerClass: 'caption animateHeaders' });
+    this.setState({ headerClass: "caption animateHeaders" });
   }
 
   render() {
@@ -34,18 +34,18 @@ class EventItem extends Component {
 
     return (
       <Visibility onUpdate={this.handleVisibility} className="image-container">
-				<Link to={{ pathname: `/event-page/${id}`}}>
-					<ParallaxImage src={src} reduceHeight={1 / 3} />
-					<h2 className={this.state.headerClass}>
-						<span>{title}</span>
-					</h2>
-				</Link>
+        <Link to={{ pathname: `/event-page/${id}` }}>
+          <ParallaxImage src={src} reduceHeight={1 / 3} />
+          <h2 className={this.state.headerClass}>
+            <span>{title}</span>
+          </h2>
+        </Link>
       </Visibility>
     );
   }
 }
 
-const mapStateToProps = (state) => ({
+const mapStateToProps = state => ({
   scroll: state.landing
 });
 

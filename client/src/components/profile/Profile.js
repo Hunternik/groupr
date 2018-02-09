@@ -4,15 +4,12 @@ import { connect } from "react-redux";
 import {
   Container,
   Header,
-  Icon,
-  Image,
   Grid,
   Segment
 } from "semantic-ui-react";
 import ProfileEdit from "./ProfileEdit";
 import ProfileRead from "./ProfileRead";
 import ProfileEvents from "./ProfileEvents";
-import ProfilePlaceholder from "../../assets/images/ProfilePlaceholder.png";
 import "./profile.css";
 
 class Profile extends Component {
@@ -74,15 +71,15 @@ class Profile extends Component {
           height={this.setHeight}
         />
       );
-		
-		if (!showProfileReview && profile)
-			return (
-				<ProfileEdit
-					onCancel={this.handleCancel}
-					onReturn={this.handleReturn}
-					height={this.setHeight}
-				/>
-			);
+
+    if (!showProfileReview && profile)
+      return (
+        <ProfileEdit
+          onCancel={this.handleCancel}
+          onReturn={this.handleReturn}
+          height={this.setHeight}
+        />
+      );
   }
 
   renderTitle() {
@@ -99,18 +96,14 @@ class Profile extends Component {
     return (
       <Container className="profile-container">
         {this.renderTitle()}
-        <Grid
-          columns={2}
-          textAlign="center"
-          stackable
-          centered
-        >
-					<Grid.Column>{this.renderProfileContent()}</Grid.Column>
+        <Grid columns={2} textAlign="center" stackable centered>
+          <Grid.Column>{this.renderProfileContent()}</Grid.Column>
           <Grid.Column textAlign="center">
-            <Segment style={{ maxHeight: this.state.gridHeight, overflow: "auto"}} floated raised>
-              <Header as="h1">
-                My Events
-              </Header>
+            <Segment
+              style={{ maxHeight: this.state.gridHeight, overflow: "auto" }}
+              raised
+            >
+              <Header as="h1">My Events</Header>
               {profile && <ProfileEvents profile={profile} />}
             </Segment>
           </Grid.Column>

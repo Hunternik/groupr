@@ -1,7 +1,4 @@
-html,
-body {
-  height: 100%;
-}
+/* Events  */
 
 .list-item {
   overflow: hidden;
@@ -16,6 +13,10 @@ body {
   transition: 0.25s linear;
   background: linear-gradient(#004092, #020202, transparent);
   overflow: hidden;
+}
+
+.event-title {
+	margin-top: 10%;
 }
 
 .event-image-container {
@@ -33,7 +34,8 @@ body {
   height: 100%;
   position: relative;
   margin-bottom: 5em;
-  overflow: hidden;
+	overflow: hidden;
+	margin-top: 5em;
 }
 
 .perspective {
@@ -61,6 +63,12 @@ body {
   transition: 0.5s ease-in;
 }
 
+/* Section headers */
+
+.section-main-container {
+	margin-bottom: 10%;
+}
+
 .sectionHead {
   font-size: 2.3em;
   letter-spacing: 0.05em;
@@ -73,23 +81,28 @@ body {
 .sectionHeadContainer {
   height: 5em;
   opacity: 1;
-  text-align: center;
+	text-align: center;
 }
+
+/* About section */
 
 .about-main {
   width: 100%;
-  height: 100%;
-  background-color: #fafafa;
+	height: calc(100vh * 15%) + 100vh;
+	padding: 10%;
+  background-color: #d4d4d557;
   border-bottom: 1px solid rgba(0, 0, 0, 0.12);
 }
 
 .about-text {
   opacity: 1;
-  height: 100%;
+	height: 100%;
+	margin-bottom: 10%;
 }
 
 div.about-text {
-  padding-top: 1em;
+	padding-top: 1em;
+	height: 100%;
 }
 
 div.about-us {
@@ -97,27 +110,45 @@ div.about-us {
   padding: 0em 2em;
 }
 
-/* p {
-  font-size: 20px;
-  margin: 10px 0 0 10px;
-  white-space: nowrap;
-  overflow: hidden;
-	width: 100%;
-	height: 100%;
-  animation: type 4s steps(800, end);
-}
-
-@keyframes type {
-	from { width: 0;}
-} */
+/* Video Section */
 
 .video {
 	width: 100vw;
 	transform: translateY(-10%);
+	z-index: 1;
 }
 
 .video-container {
 	padding: 0;
 	height: 80vh;
+	width: 100%;
 	overflow: hidden;
+	position: relative;
+	z-index: 0;
+}
+
+.video-header {
+	font-size: 5em;
+  letter-spacing: 0.05em;
+	line-height: 2em;
+	text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+	color: white;
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	z-index: 2;
+	transform: translateX(-50%);
+}
+
+.video-subheader {
+	font-size: 1.6em;
+  letter-spacing: 0.05em;
+	line-height: 2em;
+	text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+	color: white;
+	position: absolute;
+	top: 45%;
+	left: 50%;
+	z-index: 2;
+	transform: translateX(-50%);
 }

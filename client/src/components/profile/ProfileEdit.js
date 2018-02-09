@@ -19,13 +19,11 @@ class ProfileEdit extends Component {
     this.onProfileSubmit = this.onProfileSubmit.bind(this);
   }
 
-	state = { loading: false };
-	
-	componentDidMount() {
-		window.scrollTo(0, 0);
+  state = { loading: false };
 
-		
-	}
+  componentDidMount() {
+    window.scrollTo(0, 0);
+  }
 
   componentWillReceiveProps(nextProps) {
     // Wait for response from server before updating state to remove spinner
@@ -61,14 +59,16 @@ class ProfileEdit extends Component {
   }
 
   onProfileSubmit(data) {
-    const { _id, firstName, lastName, email, company, position } = data;
+    const { _id, firstName, lastName, email, company, position, linkedInProfileURL, googleProfileURL } = data;
     const updateProfile = {
       _id,
       firstName,
       lastName,
       email,
       company,
-      position
+			position,
+			linkedInProfileURL,
+			googleProfileURL
     };
     const initialProfile = { _id, ...this.props.initialValues };
     const fieldsChanged = this.isEqual(updateProfile, initialProfile);
@@ -83,13 +83,13 @@ class ProfileEdit extends Component {
 
   render() {
     return (
-      <Segment ref="profileEdit">
+      <Segment>
         <Form
           onSubmit={this.props.handleSubmit(this.onProfileSubmit)}
           loading={this.state.loading}
         >
-					{this.renderForm()}
-					<Divider />
+          {this.renderForm()}
+          <Divider />
           <div className="ui two buttons">
             <Button
               onClick={this.props.onCancel}

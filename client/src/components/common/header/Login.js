@@ -2,16 +2,13 @@ import React, { Component } from "react";
 import {
   Header,
   Image,
-  Item,
   Modal,
   Grid,
   Form,
   Segment,
-  Button,
   Message
 } from "semantic-ui-react";
 import loginImages from "../../../constants/loginImages";
-import ModalHeader from "semantic-ui-react/dist/commonjs/modules/Modal/ModalHeader";
 import logo from "../../../assets/images/logo.png";
 
 class Login extends Component {
@@ -60,16 +57,10 @@ class Login extends Component {
           </Header>
         </Modal.Header>
         <Modal.Content>
-          <Grid
-            textAlign="center"
-            style={{ height: "100%" }}
-            verticalAlign="middle"
-          >
+          <Grid textAlign="center" verticalAlign="middle height-adjust">
             <Grid.Column style={{ maxWidth: 450 }}>
               <Form size="large">{this.renderLoginItems()}</Form>
-              <Message>
-                New to us? Sign up through Google or LinkedIn
-              </Message>
+              <Message>New to us? Sign up through Google or LinkedIn</Message>
             </Grid.Column>
           </Grid>
         </Modal.Content>

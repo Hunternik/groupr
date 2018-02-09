@@ -41,3 +41,16 @@
 	max-height: 20em;
 	overflow: auto;
 }
+
+.image-modifier {
+	margin-top: 0;
+	height: 80vh;
+}
+
+.header-shadow {
+	text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+}
+
+.subHeader-shadow {
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+}

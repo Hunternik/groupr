@@ -1,23 +1,21 @@
 import React, { Component } from 'react';
-import { Card, Container, Transition } from 'semantic-ui-react';
+import { Container } from 'semantic-ui-react';
 import SectionHead from './SectionHead';
 
 class About extends Component {
   render() {
     return (
-      <Container className="about-main">
+      <Container className="about-main" fluid>
         <SectionHead name="Our Story" />
         <Container
           className="about-us"
           textAlign="center"
           text
-          style={{ position: 'relative' }}
         >
           <div className="about-text">
             <h1>A Better Process For Technical Hiring</h1>
           </div>
-          <div className="about-text">
-            <p>
+          <Container text>
               Grouper connects the technology companies with technical talent in
               your area. We understand that the hiring process can be difficult
               not only for recruiters, but also the candidates. We want to help
@@ -27,8 +25,7 @@ class About extends Component {
               challenge that is objective and standardized, which provides
               recruiters that all attendees have a strong baseline understanding
               of technology.
-            </p>
-          </div>
+          </Container>
         </Container>
       </Container>
     );

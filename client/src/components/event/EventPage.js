@@ -1,15 +1,9 @@
-import _ from 'lodash';
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import {
-  Container,
   Segment,
   Grid,
-  Header,
-  Image,
-  Rail,
-  Sticky,
   Divider
 } from 'semantic-ui-react';
 import { fetchEvent, fetchEventSponsors } from '../../actions';
@@ -36,12 +30,6 @@ class EventPage extends Component {
     if (this.props.match.params.eventId !== nextProps.match.params.eventId) {
       const fetchId = nextProps.match.params.eventId.toUpperCase();
       this.fetchCurrentEvent(fetchId);
-    }
-  }
-
-  componentDidUpdate(prevProps) {
-    if (this.props.location !== prevProps.location) {
-      console.log(this.props, 'did update');
     }
   }
 

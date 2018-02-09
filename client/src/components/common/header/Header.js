@@ -22,7 +22,7 @@ class FixedMenuLayout extends Component {
     const { animation, pass, reverse, visible } = this.state;
 
     return (
-      <Container fluid style={{ paddingLeft: 0, paddingRight: 0}}>
+      <Container fluid className="remove-padding">
         <Visibility
           onBottomPassed={() => this.handleVisibility(pass, true)}
           onBottomPassedReverse={() => this.handleVisibility(reverse, false)}
