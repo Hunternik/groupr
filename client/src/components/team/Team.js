@@ -52,10 +52,9 @@ class Team extends Component {
                   </Card.Description>
                 </Card.Content>
                 <Card.Content extra>
-                  <a href="https://github.com/jmsjtu">
-                    <Icon name="code" />
-                    GitHub
-                  </a>
+                  <Image src="https://github.com/jmsjtu" />
+                  <Icon name="code" />
+                  GitHub
                 </Card.Content>
               </Card>
               <Card>
