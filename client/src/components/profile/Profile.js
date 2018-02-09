@@ -105,6 +105,7 @@ class Profile extends Component {
           stackable
           centered
         >
+					<Grid.Column>{this.renderProfileContent()}</Grid.Column>
           <Grid.Column textAlign="center">
             <Segment style={{ maxHeight: this.state.gridHeight, overflow: "auto"}} floated raised>
               <Header as="h1">
@@ -113,7 +114,6 @@ class Profile extends Component {
               {profile && <ProfileEvents profile={profile} />}
             </Segment>
           </Grid.Column>
-          <Grid.Column>{this.renderProfileContent()}</Grid.Column>
         </Grid>
       </Container>
     );
