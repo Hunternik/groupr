@@ -54,3 +54,25 @@
 .subHeader-shadow {
 	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
+
+/* Media Queries */
+@media only screen and (min-width:768px) and (max-width:1269px) {
+  /* In my particular design, I used a fluid grid limited to a 
+     max-width of 1140px, while (if there is enough room)
+     pushing the menu outside of layout, requiring a total
+     limit of at least 1270px. 
+     So, this first query applies to any screen-width less
+     than 1270px, and adapts accordingly. */
+}
+
+@media only screen and (min-width:768px) and (max-width:959px) {
+  /* Here is where I adjust for Ipad's and similar screen
+     widths. Note that the above query and this one overlap
+     meaning any rules above will also apply. */
+}
+
+@media only screen and (min-width:0px) and (max-width:767px) {
+  /* As soon as we fall below the Ipad's width I use my 'mobile'
+     design. So, everything in this query is meant for 
+     smartphones and other small screens. */
+}
