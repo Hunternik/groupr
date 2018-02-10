@@ -108,7 +108,7 @@ div.about-text {
 div.about-us {
   margin: 0em 2em 2em 2em;
   padding: 0em 2em;
-  width: 100% !important;
+  width: 100%;
 }
 
 .about-description {
