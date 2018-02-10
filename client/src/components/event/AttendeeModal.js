@@ -30,7 +30,7 @@ class AttendeeModal extends Component {
           className="attendButton"
           onClick={this.handleOpen}
           as="div"
-					labelPosition="right"
+          labelPosition="right"
         >
           <Button color="teal">
             <Icon name="fork" />
@@ -87,7 +87,7 @@ class AttendeeModal extends Component {
         basic
         size="small"
       >
-        <Header icon="browser" content="Meetup" />
+        <Header icon="browser" content="Groupr" />
         <Modal.Content>
           <h3>Are you an attendee or a recruiter?</h3>
         </Modal.Content>
