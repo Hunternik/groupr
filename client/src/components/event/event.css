@@ -108,7 +108,16 @@
       visibility: hidden;
     }
     .attendButton {
-      bottom: 50%;
+      left: 38%;
+      bottom: 54%;
+    }
+    detailsContainer {
+      display: flex;
+      flex-direction: row;
+    }
+    .description {
+    }
+    .summaryCard {
     }
 }
 

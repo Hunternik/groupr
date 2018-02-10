@@ -52,14 +52,15 @@ class EventPage extends Component {
           event={this.renderEventData()}
           coverPhotoID={this.props.match.params.eventId.toUpperCase()}
         />
-        <Segment style={{ padding: '0em 0em' }} basic>
+        <Segment style={{ padding: '0em 0em' }} basic className="detailsContainer">
           <Grid container centered columns={2}>
-            <Grid.Column width={10}>
+            <Grid.Column width={10} className="description">
               <Description event={this.renderEventData()} />
             </Grid.Column>
             <Grid.Column
               width={6}
               style={{ display: 'flex', justifyContent: 'flex-end' }}
+              className="summaryCard"
             >
               <Details event={this.renderEventData()} />
             </Grid.Column>
