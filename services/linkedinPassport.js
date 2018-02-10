@@ -1,9 +1,5 @@
 const passport = require("passport");
 const LinkedInStrategy = require("passport-linkedin-oauth2").Strategy;
-// mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
-// mike: not sure if this is used here
-// mmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmmm
-// const TotpStrategy = require('passport-totp').Strategy;
 const mongoose = require("mongoose");
 const keys = require("../config/keys");
 const User = mongoose.model("user");
