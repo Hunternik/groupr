@@ -16,7 +16,7 @@ class About extends Component {
             <h1>A Better Process For Technical Hiring</h1>
           </div>
           <Container text>
-              Grouper connects the technology companies with technical talent in
+              Groupr connects the technology companies with technical talent in
               your area. We understand that the hiring process can be difficult
               not only for recruiters, but also the candidates. We want to help
               engineers find amazing jobs, and help recruiters connect with
