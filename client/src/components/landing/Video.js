@@ -1,5 +1,6 @@
-import React from "react";
-import { Container } from "semantic-ui-react";
+import React from 'react';
+import { Container } from 'semantic-ui-react';
+import './landing.css';
 
 const Video = () => {
   return (
