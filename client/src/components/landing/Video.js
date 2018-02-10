@@ -1,10 +1,13 @@
-import React from "react";
-import { Container } from "semantic-ui-react";
+import React from 'react';
+import { Container } from 'semantic-ui-react';
+import './landing.css';
 
 const Video = () => {
   return (
     <Container fluid className="video-container">
-      <h1 className="video-header logo-text" style={{ color: '#3ebcb2'}}>Grouper</h1>
+      <h1 className="video-header logo-text" style={{ color: '#3ebcb2' }}>
+        Grouper
+      </h1>
       <h2 className="video-subheader logo-text">DO WHAT YOU LOVE</h2>
       <video
         className="video"
