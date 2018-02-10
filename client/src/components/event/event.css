@@ -3,7 +3,7 @@
   top: 35%;
   width: 100%;
   text-align: center;
-  font-size: 5em;
+  /* font-size-adjust: 100px; */
   color: #fff;
 	transform: translateY(.5em);
   opacity: 1;
@@ -55,8 +55,22 @@
 	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
 
+
 /* Media Queries */
+
+
 @media only screen and (min-width:768px) and (max-width:1269px) {
+  /* .eventTitle {
+    top: 25%;
+  }
+
+  .eventHeadline {
+    top: 40%;
+  }
+
+  .attendButton {
+    bottom: 30%;
+  } */
   /* In my particular design, I used a fluid grid limited to a 
      max-width of 1140px, while (if there is enough room)
      pushing the menu outside of layout, requiring a total
@@ -66,6 +80,16 @@
 }
 
 @media only screen and (min-width:768px) and (max-width:959px) {
+  .eventTitle {
+    top: 13%;
+  }
+  .eventHeadline {
+    top: 35%;
+    font-size: 8px;
+  }
+  .attendButton {
+    bottom: 35%;
+  }
   /* Here is where I adjust for Ipad's and similar screen
      widths. Note that the above query and this one overlap
      meaning any rules above will also apply. */
@@ -75,4 +99,18 @@
   /* As soon as we fall below the Ipad's width I use my 'mobile'
      design. So, everything in this query is meant for 
      smartphones and other small screens. */
+    .eventTitle {
+      top: 13%;
+    }
+    .eventHeadline {
+      top: 35%;
+      font-size: 8px;
+      visibility: hidden;
+    }
+    .attendButton {
+      bottom: 50%;
+    }
 }
+
+/* Offsetheight
+clientsetheight */
