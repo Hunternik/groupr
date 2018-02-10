@@ -2,9 +2,13 @@ const passport = require('passport');
 const TotpStrategy = require('passport-totp').Strategy;
 const mongoose = require ('mongoose');
 const Totp = mongoose.model('totp');
+const { serialize, deserialize } = require("./utils/serialize");
 
 mongoose.Promise = global.Promise;
 
+passport.serializeUser(serialize);
+
+passport.deserializeUser(deserialize);
 
 passport.use(
 	'totp', new TotpStrategy(

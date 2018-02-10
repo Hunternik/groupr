@@ -32,7 +32,7 @@ class TotpSetup extends Component {
         <h4>Or enter the code below.</h4>
 
         <button>
-          <a href="/login-otp">Click here to complete setup.</a>
+          <a href="/">Click here to exit.</a>
         </button>
       </div>
     );
