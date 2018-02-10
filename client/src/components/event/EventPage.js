@@ -1,11 +1,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import {
-  Segment,
-  Grid,
-  Divider
-} from 'semantic-ui-react';
+import { Segment, Grid, Divider } from 'semantic-ui-react';
 import { fetchEvent, fetchEventSponsors } from '../../actions';
 import Jumbotron from './Jumbotron';
 import Description from './Description';
@@ -47,12 +43,16 @@ class EventPage extends Component {
     const { contextRef } = this.state;
 
     return (
-      <div style={{ overflow: "hidden" }}>
+      <div style={{ overflow: 'hidden' }}>
         <Jumbotron
           event={this.renderEventData()}
           coverPhotoID={this.props.match.params.eventId.toUpperCase()}
         />
-        <Segment style={{ padding: '0em 0em' }} basic className="detailsContainer">
+        <Segment
+          style={{ padding: '0em 0em' }}
+          basic
+          className="detailsContainer"
+        >
           <Grid container centered columns={2}>
             <Grid.Column width={10} className="description">
               <Description event={this.renderEventData()} />
