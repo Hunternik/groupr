@@ -1,11 +1,10 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
-import { Header, Visibility, Divider } from 'semantic-ui-react';
+import { Header, Visibility, Divider, Responsive } from 'semantic-ui-react';
 import AttendeeModal from './AttendeeModal';
 import ParallaxImage from '../landing/ParallaxImage';
 import Images from '../../constants/eventPreview';
 import handleVisibility from '../landing/utils/handleVisibility';
-import '../landing/landing.css';
 import './event.css';
 
 class Jumbotron extends Component {

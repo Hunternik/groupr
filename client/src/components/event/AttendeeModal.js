@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Button, Label, Header, Icon, Modal } from 'semantic-ui-react';
 import { withRouter } from 'react-router-dom';
 import { fetchEvent } from '../../actions';
+import './event.css';
 
 class AttendeeModal extends Component {
   constructor(props) {

@@ -3,9 +3,8 @@
   top: 35%;
   width: 100%;
   text-align: center;
-  font-size: 5em;
   color: #fff;
-	transform: translateY(.5em);
+  transform: translateY(0.5em);
   opacity: 1;
   transform: translateY(0);
   transition: 0.5s ease-in;
@@ -18,7 +17,7 @@
   text-align: center;
   font-size: 4em;
   color: #fff;
-	transform: translateY(.5em);
+  transform: translateY(0.5em);
   opacity: 1;
   transform: translateY(0);
   transition: 0.5s ease-in;
@@ -30,27 +29,64 @@
   bottom: 15%;
   width: 100%;
   transform: translateY(0);
-	transition: 0.5s ease-in;
+  transition: 0.5s ease-in;
 }
 
 .card-container {
-	overflow: auto;
+  overflow: auto;
 }
 
 .card-group {
-	max-height: 20em;
-	overflow: auto;
+  max-height: 20em;
+  overflow: auto;
 }
 
 .image-modifier {
-	margin-top: 0;
-	height: 80vh;
+  margin-top: 0;
+  height: 80vh;
 }
 
 .header-shadow {
-	text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
+  text-shadow: 2px 4px 3px rgba(0, 0, 0, 0.3);
 }
 
 .subHeader-shadow {
-	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
+  text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.3);
 }
+
+/* Media Queries */
+
+@media only screen and (min-width: 768px) and (max-width: 959px) {
+  .eventTitle {
+    top: 13%;
+  }
+  .eventHeadline {
+    top: 35%;
+    font-size: 8px;
+  }
+  .attendButton {
+    bottom: 35%;
+  }
+}
+
+@media only screen and (min-width: 0px) and (max-width: 767px) {
+  .eventTitle {
+    top: 13%;
+  }
+  .eventHeadline {
+    top: 35%;
+    font-size: 8px;
+    visibility: hidden;
+  }
+  .attendButton {
+    left: 38%;
+    bottom: 54%;
+  }
+  detailsContainer {
+    display: flex;
+    flex-direction: row;
+  }
+}
+
+/* Offsetheight
+clientsetheight */
