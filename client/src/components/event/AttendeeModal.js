@@ -3,6 +3,7 @@ import { connect } from 'react-redux';
 import { Button, Label, Header, Icon, Modal } from 'semantic-ui-react';
 import { withRouter } from 'react-router-dom';
 import { fetchEvent } from '../../actions';
+import './event.css';
 
 class AttendeeModal extends Component {
   constructor(props) {
@@ -30,7 +31,7 @@ class AttendeeModal extends Component {
           className="attendButton"
           onClick={this.handleOpen}
           as="div"
-					labelPosition="right"
+          labelPosition="right"
         >
           <Button color="teal">
             <Icon name="fork" />
