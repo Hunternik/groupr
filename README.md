@@ -11,9 +11,6 @@ Avoid sending your resume into a blackhole and have real human-to-human interact
 * [Mlab](https://mlab.com/) - MongoDB Database Host
 * [Semantic UI](https://react.semantic-ui.com/) - Development Framework
 
-## Demo
-<!--  <img src="" width="85%" height="85%">  -->
-
 ## Getting Started
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. See deployment for notes on how to deploy the project on a live system.
 
