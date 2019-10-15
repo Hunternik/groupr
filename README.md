@@ -3,9 +3,6 @@ Groupr connects technology companies with technical talent in your area. We unde
 
 Avoid sending your resume into a blackhole and have real human-to-human interactions with high quality companies.
 
-## Live Link
- - http://www.groupr.tech/
-
 ## Built With
 * [React](https://reactjs.org/docs/hello-world.html) - Javascrupt Framework
 * [Redux](https://redux.js.org/) - State Container
