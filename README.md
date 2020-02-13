@@ -7,7 +7,7 @@ Avoid sending your resume into a blackhole and have real human-to-human interact
 https://safe-castle-30712.herokuapp.com/
 
 ## Built With
-* [React](https://reactjs.org/docs/hello-world.html) - Javascrupt Framework
+* [React](https://reactjs.org/docs/hello-world.html) - Javascript Framework
 * [Redux](https://redux.js.org/) - State Container
 * [ReactRouter](https://github.com/ReactTraining/react-router) - Routing/Navigation
 * [Passport](http://www.passportjs.org/) - Oauth User Authentication
