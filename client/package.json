@@ -13,7 +13,7 @@
   "dependencies": {
     "axios": "^0.17.1",
     "google-maps-react": "^1.1.2",
-    "moment": "^2.20.1",
+    "moment": "^2.29.4",
     "react": "^16.2.0",
     "react-copy-to-clipboard": "^5.0.1",
     "react-dates": "^16.2.1",
